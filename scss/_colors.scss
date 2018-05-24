@@ -1,0 +1,11 @@
+$red: #BF0706;
+$black: #000000;
+$white: #F2F2F2;
+
+@function lightenColor($color, $value: 10%) {
+  @return lighten($color, $value);
+}
+
+@function darkenColor($color, $value: 10%) {
+  @return darken($color, $value);
+}
