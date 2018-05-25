@@ -1,0 +1,11 @@
+@import "ui-elements";
+
+.badge {
+  span {
+    color: $white;
+    background-color: $red;
+    border: 1px solid $red;
+    border-radius: 5%;
+    min-width: max-content;
+  }
+}

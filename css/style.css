@@ -243,5 +243,11 @@ a {
   body {
     font-family: 0.8em;
     font-size: 1rem; } }
+.badge span {
+  color: #F2F2F2;
+  background-color: #BF0706;
+  border: 1px solid #BF0706;
+  border-radius: 5%;
+  min-width: max-content; }
 
 /*# sourceMappingURL=style.css.map */
