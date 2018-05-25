@@ -1,0 +1,89 @@
+@import "fonts";
+@import "colors";
+
+html {
+  @include font-rule($bodyReg);
+  color: $black;
+}
+
+body {
+  @include font-rule($bodyReg);
+  color: $black;
+  background-color: $white;
+}
+
+h1 {
+  @include font-rule($headingRegular, 3rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+h2 {
+  @include font-rule($headingRegular, 2.5rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+h3 {
+  @include font-rule($headingRegular, 2rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+h4 {
+  @include font-rule($headingRegular, 1.8rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+h5 {
+  @include font-rule($headingRegular, 1.5rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+h6 {
+  @include font-rule($headingRegular, 1.3rem);
+  padding-bottom: 8%;
+  padding-top: 2%;
+}
+
+div {
+  @include flexbox();
+  @include flex(1);
+}
+
+p {
+  @include flexbox();
+  @include flex-direction(column);
+  @include flex-wrap(column);
+  margin: 10px;
+  line-height: 1.2rem;
+}
+
+a {
+  @include flexbox();
+  @include flex(1);
+  text-decoration: none;
+  cursor: pointer;
+  max-width: max-content;
+  &:link {
+    color: $black;
+  }
+  &:visited {
+    color: $black;
+  }
+  &:hover {
+    color: lightenColor($black, 40%);
+  }
+  &:active {
+    color: lightenColor($black, 40%);
+  }
+}
+
+@media all and (max-width:320px) {
+  html,
+  body {
+    @include font-rule(0.8em);
+  }
+}

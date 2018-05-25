@@ -1,3 +1,247 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1;
+  margin: 0;
+  padding: 0; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: "Asap Condensed Bold";
+  src: url("/fonts/AsapCondensed-Bold.ttf") format("ttf");
+  font-weight: "bold";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Asap Condensed Bold Italic";
+  src: url("/fonts/AsapCondensed-BoldItalic.ttf") format("ttf");
+  font-weight: "bold";
+  font-style: "italic"; }
+@font-face {
+  font-family: "Asap Condensed Italic";
+  src: url("/fonts/AsapCondensed-Italic.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "italic"; }
+@font-face {
+  font-family: "Asap Condensed Medium";
+  src: url("/fonts/AsapCondensed-Medium.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Asap Condensed Medium Italic";
+  src: url("/fonts/AsapCondensed-MediumItalic.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "italic"; }
+@font-face {
+  font-family: "Asap Condensed Regular";
+  src: url("/fonts/AsapCondensed-Regular.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Asap Condensed SemiBold";
+  src: url("/fonts/AsapCondensed-SemiBold.ttf") format("ttf");
+  font-weight: "bold";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Asap Condensed SemiBold Italic";
+  src: url("/fonts/AsapCondensed-SemiBoldItalic.ttf") format("ttf");
+  font-weight: "bold";
+  font-style: "italic"; }
+@font-face {
+  font-family: "Bebas Neue Bold (Opentype)";
+  src: url("/fonts/BebasNeue-Bold.ttf") format("ttf");
+  font-weight: "bold";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Bebas Neue Book";
+  src: url("/fonts/BebasNeue-Book.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Bebas Neue Light";
+  src: url("/fonts/BebasNeue-Light.ttf") format("ttf");
+  font-weight: "light";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Bebas Neue Regular";
+  src: url("/fonts/BebasNeue-Regular.ttf") format("ttf");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Bebas Neue Thin";
+  src: url("/fonts/BebasNeue-Thin.ttf") format("ttf");
+  font-weight: "light";
+  font-style: "normal"; }
+.bold-body {
+  font-family: "Asap Condensed Bold";
+  font-size: 1rem; }
+
+.med-body {
+  font-family: "Asap Condensed Medium";
+  font-size: 1rem; }
+
+.italic-body {
+  font-family: "Asap Condensed Italic";
+  font-size: 1rem; }
+
+.bold-heading {
+  font-family: "Bebas Neue Regular";
+  font-weight: bold; }
+
+.light-heading {
+  font-family: "Bebas Neue Light"; }
+
+.reg-heading {
+  font-family: "Bebas Neue Regular"; }
+
+.thin-heading {
+  font-family: "Bebas Neue Thin"; }
+
+html {
+  font-family: "Asap Condensed Regular";
+  font-size: 1rem;
+  color: #000000; }
+
+body {
+  font-family: "Asap Condensed Regular";
+  font-size: 1rem;
+  color: #000000;
+  background-color: #F2F2F2; }
+
+h1 {
+  font-family: "Bebas Neue Regular";
+  font-size: 3rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+h2 {
+  font-family: "Bebas Neue Regular";
+  font-size: 2.5rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+h3 {
+  font-family: "Bebas Neue Regular";
+  font-size: 2rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+h4 {
+  font-family: "Bebas Neue Regular";
+  font-size: 1.8rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+h5 {
+  font-family: "Bebas Neue Regular";
+  font-size: 1.5rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+h6 {
+  font-family: "Bebas Neue Regular";
+  font-size: 1.3rem;
+  padding-bottom: 8%;
+  padding-top: 2%; }
+
+div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box: 1;
+  -moz-box: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flexbox: 1 0 auto;
+  flex: 1 0 auto; }
+
+p {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-direction: normal;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: column;
+  -ms-flex-wrap: column;
+  flex-wrap: column;
+  margin: 10px;
+  line-height: 1.2rem; }
+
+a {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box: 1;
+  -moz-box: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flexbox: 1 0 auto;
+  flex: 1 0 auto;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: max-content; }
+  a:link {
+    color: #000000; }
+  a:visited {
+    color: #000000; }
+  a:hover {
+    color: #666666; }
+  a:active {
+    color: #666666; }
+
+@media all and (max-width: 320px) {
+  html,
+  body {
+    font-family: 0.8em;
+    font-size: 1rem; } }
 
 /*# sourceMappingURL=style.css.map */
