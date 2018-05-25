@@ -1,0 +1,19 @@
+[{
+    "name": "Small",
+    "price": "$7.99",
+    "image": ""
+  },
+  {
+    "name": "Medium",
+    "price": "$9.99",
+    "image": ""
+  }, {
+    "name": "Large",
+    "price": "$11.99",
+    "image": ""
+  }, {
+    "name": "Extra Large",
+    "price": "$13.99",
+    "image": ""
+  }
+]
