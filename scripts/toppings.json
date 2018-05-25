@@ -1,0 +1,39 @@
+[{
+    "type": "Meat",
+    "toppings": [{
+        "name": "Pepperoni"
+      },
+      {
+        "name": "Sausage"
+      },
+      {
+        "name": "Canadian Bacon"
+      },
+      {
+        "name": "Bacon"
+      },
+      {
+        "name": "Beef"
+      }
+    ]
+  },
+  {
+    "type": "Vegetables",
+    "toppings": [{
+        "name": "Mushrooms"
+      },
+      {
+        "name": "Olives"
+      },
+      {
+        "name": "Onions"
+      },
+      {
+        "name": "Bell Peppers"
+      },
+      {
+        "name": "Spinach"
+      }
+    ]
+  }
+]

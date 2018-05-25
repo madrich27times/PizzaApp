@@ -81,6 +81,30 @@ a {
   }
 }
 
+.btn {
+  margin: 0 auto;
+  @include font-rule($headingThin, 1.4rem);
+  text-transform: uppercase;
+  border: none;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  margin: 2px 4px;
+  max-width: max-content;
+}
+
+.btn-basic {
+  @extend .btn;
+  background-color: $red;
+  color: $white;
+  @include ButtonShadowTransition();
+  &:hover {
+    @include ButtonShadow();
+  }
+}
+
 @media all and (max-width:320px) {
   html,
   body {
