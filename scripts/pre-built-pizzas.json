@@ -3,7 +3,8 @@
     "crust": "Thick",
     "cheese": "Four-Cheese",
     "sauce": "Marinara",
-    "toppings": []
+    "toppings": [],
+    "images":["assets/crust/crust-thick.png", "assets/sauce/sauce-marinara.png", "assets/cheese/cheese-fourcheese.png"]
   },
   {
     "name": "Veggie Lovers",
@@ -26,7 +27,9 @@
         "name": "Spinach"
       }
 
-    ]
+    ],
+    "images":["assets/crust/crust-thick.png", "assets/sauce/sauce-marinara.png", "assets/cheese/cheese-mozzarella.png", "assets/toppings/mushrooms/mushrooms-full.png", "assets/toppings/olives/olives-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/spinach/spinach-full.png"]
+    
   },
   {
     "name": "Meat Lovers",
@@ -48,7 +51,8 @@
       {
         "name": "Beef"
       }
-    ]
+    ],
+    "images":["assets/crust/crust-thick.png", "assets/sauce/sauce-marinara.png", "assets/cheese/cheese-mozzarella.png", "assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/canadianbacon/canadianbacon-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png"]    
   },
   {
     "name": "Pepperoni",
@@ -57,18 +61,19 @@
     "sauce": "Marinara",
     "toppings": [{
       "name": "Pepperoni"
-    }]
+    }],
+    "images":["assets/crust/crust-thick.png", "assets/sauce/sauce-marinara.png", "assets/cheese/cheese-mozzarella.png", "assets/toppings/pepperoni/pepperoni-full.png"]    
   },
   {
     "name": "Supreme",
-    "crust": "Thick",
+    "crust": "Thin",
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": [{
         "name": "Onion"
       },
       {
-        "name": "Bell pepper"
+        "name": "Bell Pepper"
       },
       {
         "name": "Mushroom"
@@ -82,6 +87,7 @@
       {
         "name": "Beef"
       }
-    ]
+    ],
+    "images":["assets/crust/crust-thin.png", "assets/sauce/sauce-marinara.png", "assets/cheese/cheese-mozzarella.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpepper/bellpepper-full.png", "assets/toppings/mushrooms/mushrooms-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/toppings/beef/beef-full.png"]    
   }
 ]
