@@ -13,6 +13,7 @@ var isDropdownList = false;
 var currentCrust;
 var currentSauce;
 var currentCheese;
+var currentSize;
 var currentToppings = [];
 var isSpecialDeal = false;
 var totalPrice;
@@ -263,3 +264,33 @@ function dropdownListInit() {
 // popupInit();
 var isDropdownList = true;
 dropdownListInit();
+
+function calculateCost(){
+  totalPrice = 0;
+  switch (currentSize){
+    case "XL":
+      totalPrice += 13.99;
+      break;
+    case "L":
+      totalPrice += 11.99;
+      break;
+    case "M":
+      totalPrice += 9.99;
+      break;
+    case "S":
+      totalPrice += 7.99;
+      break;
+  }
+  if(currentToppings.length > 4){
+    isSpecialDeal = true;
+    var temp = currentToppings.length - 5;
+    totalPrice += 3.00;
+    totalPrice += temp * 1.00;
+  } else {
+    isSpecialDeal = false;
+    totalPrice += currentToppings.length * 1.00;
+  }
+  totalPrice = totalPrice.toFixed(2);
+  console.log(totalPrice);
+}
+calculateCost();

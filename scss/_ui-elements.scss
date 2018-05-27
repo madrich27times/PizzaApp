@@ -65,7 +65,6 @@ a {
   @include flex(1);
   text-decoration: none;
   cursor: pointer;
-  max-width: max-content;
   &:link {
     color: $black;
   }
