@@ -552,10 +552,10 @@ a {
     opacity: 0; }
   to {
     opacity: 1; } }
-#backBtn {
+.backBtn {
   float: left; }
 
-#nextBtn {
+.nextBtn {
   float: right; }
 
 .size-container {

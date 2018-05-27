@@ -1,0 +1,24 @@
+[{
+    "name": "Custom",
+    "images": [
+      "assets/toppings/mushrooms/mushrooms-full.png",
+      "assets/cheese/cheese-mozzarella.png",
+      "assets/sauce/sauce-marinara.png",
+      "assets/crust/crust-thick.png"
+    ]
+  },
+  {
+    "name": "Pre-Built",
+    "images": [
+      "assets/toppings/onions/onions-full.png",
+      "assets/toppings/bellpeppers/bellpeppers-full.png",
+      "assets/toppings/mushrooms/mushrooms-full.png",
+      "assets/toppings/pepperoni/pepperoni-full.png",
+      "assets/toppings/sausage/sausage-full.png",
+      "assets/toppings/beef/beef-full.png",
+      "assets/cheese/cheese-mozzarella.png",
+      "assets/sauce/sauce-marinara.png",
+      "assets/crust/crust-thick.png"
+    ]
+  }
+]

@@ -13,7 +13,7 @@
 
   <div id="pizza" class="container">
 
-    <div class="row">
+    <div class="row sauce-page">
       <div class="col-4">
         <h1 class="bold-heading title">Choose your sauce</h1>
       </div>
@@ -114,7 +114,19 @@
           <div class="items-list-bottom">
             <div id="total" class="bold-heading">
               <h4>Total: $0.00</h4>
-              <div id="addBtn" class="btn-basic">Add to Order</div>
+              <div id="addBtn" class="btn-modal" data-modal="modalLight">Add to Order</div>
+              <div id="modalLight" class="modal modal-light">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <span class="close">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                    <h1 class="bold-heading">Thank you for your order!</h1>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
