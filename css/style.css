@@ -227,8 +227,7 @@ a {
   -ms-flexbox: 1 0 auto;
   flex: 1 0 auto;
   text-decoration: none;
-  cursor: pointer;
-  max-width: max-content; }
+  cursor: pointer; }
   a:link {
     color: #000000; }
   a:visited {
@@ -351,8 +350,7 @@ a {
   color: #F2F2F2;
   background-color: #BF0706;
   border: 1px solid #BF0706;
-  border-radius: 5%;
-  min-width: max-content; }
+  border-radius: 5%; }
 
 .modal {
   display: none;
@@ -578,9 +576,7 @@ a {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding: 15px;
-  max-height: max-content;
-  min-width: max-content; }
+  padding: 15px; }
 
 .pizza-box {
   text-align: center;
@@ -591,8 +587,7 @@ a {
   border: 1px solid #000000;
   display: table-cell;
   text-align: center;
-  vertical-align: middle;
-  min-width: max-content; }
+  vertical-align: middle; }
 
 .selected-size, .selected-amount {
   background-color: #BF0706;
@@ -601,9 +596,7 @@ a {
 .list-container {
   margin-left: 20px;
   padding: 20px;
-  max-height: max-content;
-  margin: 0 auto;
-  min-width: max-content; }
+  margin: 0 auto; }
 
 .dropdown-list {
   margin: 20px;
@@ -712,14 +705,15 @@ a {
   -ms-flex-direction: column;
   flex-direction: column; }
   .items-list-box .items-list-heading {
-    max-height: max-content;
     margin: 0 auto;
     border-bottom: 1px solid #000000; }
     .items-list-box .items-list-heading h3 {
       margin: 0 auto;
+      height: auto;
       padding-top: 8%; }
   .items-list-box .items-list-bottom {
-    border-top: 1px solid #000000; }
+    border-top: 1px solid #000000;
+    max-height: 130px; }
 
 @media all and (max-width: 860px) {
   .card {
@@ -737,6 +731,12 @@ a {
   .size-box {
     margin-top: 15px;
     margin-bottom: 15px; } }
+.total-area {
+  flex-direction: column; }
+
+.size-control {
+  max-height: 56px; }
+
 @media all and (max-width: 390px) {
   .card .card-container .card-body {
     width: 180px;
@@ -815,8 +815,6 @@ a {
 .col-1 {
   flex: 1; }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 810px) {
   .row {
     flex-direction: column; } }
-
-/*# sourceMappingURL=style.css.map */

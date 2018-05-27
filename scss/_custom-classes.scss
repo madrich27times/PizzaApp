@@ -9,7 +9,6 @@
     background-color: $red;
     border: 1px solid $red;
     border-radius: 5%;
-    min-width: max-content;
   }
 }
 
@@ -192,15 +191,12 @@
   text-align: center;
   vertical-align: middle;
   padding: 15px;
-  max-height: max-content;
-  min-width: max-content;
 }
 
 .pizza-box {
   text-align: center;
   height: 300px;
-  width: 300px; // max-height: max-content;
-  // min-width: max-content;
+  width: 300px;
 }
 
 .size-bar {
@@ -208,7 +204,6 @@
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  min-width: max-content;
 }
 
 .selected-size {
@@ -219,9 +214,7 @@
 .list-container {
   margin-left: 20px;
   padding: 20px;
-  max-height: max-content;
   margin: 0 auto;
-  min-width: max-content;
 }
 
 .dropdown-list {
@@ -332,11 +325,11 @@
   @include flexbox();
   @include flex-direction(column);
   .items-list-heading {
-    max-height: max-content;
     margin: 0 auto;
     border-bottom: 1px solid $black;
     h3 {
       margin: 0 auto;
+      height: auto;
       padding-top: 8%;
     }
   }
@@ -349,6 +342,7 @@
   }
   .items-list-bottom {
     border-top: 1px solid $black;
+    max-height: 130px;
   }
 }
 
@@ -365,6 +359,15 @@
     margin-bottom: 15px;
   }
 }
+
+.total-area{
+  flex-direction: column;
+}
+
+.size-control{
+  max-height: 56px;
+}
+
 
 @media all and (max-width:390px) {
   .card {
