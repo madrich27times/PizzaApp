@@ -1,19 +1,7 @@
 [{
     "name": "Four Cheese",
     "crust": "Thick",
-    "cheese": [{
-        "name": "Mozzarella"
-      },
-      {
-        "name": "Cheddar"
-      },
-      {
-        "name": "Provolone"
-      },
-      {
-        "name": "Parmesan"
-      }
-    ],
+    "cheese": "Four-Cheese",
     "sauce": "Marinara",
     "toppings": []
   },
