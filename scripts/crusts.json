@@ -1,13 +1,17 @@
 [{
-  "name": "Thin"
+  "name": "Thin",
+  "image":"assets/crust/crust-thin.png"
 },
 {
-  "name": "Thick"
+  "name": "Thick",
+  "image":"assets/crust/crust-thick.png"  
 },
 {
-  "name": "Stuffed"
+  "name": "Stuffed",
+  "image":"assets/crust/crust-stuffed.png"  
 }, 
 {
-  "name": "Pretzel"
+  "name": "Pretzel",
+  "image":"assets/crust/crust-pretzel.png"  
 }
 ]

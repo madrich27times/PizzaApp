@@ -1,13 +1,17 @@
 [{
-    "name": "Marinara"
+    "name": "Marinara",
+    "image":"assets/sauce/sauce-marinara.png"    
   },
   {
-    "name": "Creamy Garlic Parmesan"
+    "name": "Creamy Garlic Parmesan",
+    "image":"assets/sauce/sauce-creamygarlicparmesan.png"  
   },
   {
-    "name": "Barbecue"
+    "name": "Barbecue",
+    "image":"assets/sauce/barbecue.png"    
   },
   {
-    "name": "Buffalo"
+    "name": "Buffalo",
+    "image":"assets/sauce/buffalo.png"  
   }
 ]
