@@ -715,6 +715,12 @@ a {
     border-top: 1px solid #000000;
     max-height: 130px; }
 
+.total-area {
+  flex-direction: column; }
+
+.size-control {
+  max-height: 56px; }
+
 @media all and (max-width: 860px) {
   .card {
     width: 95%; }
@@ -731,12 +737,6 @@ a {
   .size-box {
     margin-top: 15px;
     margin-bottom: 15px; } }
-.total-area {
-  flex-direction: column; }
-
-.size-control {
-  max-height: 56px; }
-
 @media all and (max-width: 390px) {
   .card .card-container .card-body {
     width: 180px;
@@ -818,3 +818,5 @@ a {
 @media screen and (max-width: 810px) {
   .row {
     flex-direction: column; } }
+
+/*# sourceMappingURL=style.css.map */

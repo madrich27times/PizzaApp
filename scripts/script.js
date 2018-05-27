@@ -226,12 +226,7 @@ function dropdownListInit() {
   }
 }
 
-// var runJSON = setTimeout(init(), 3000);
 changePage(0);
-// var isPopup = true;
-// popupInit();
-//var isDropdownList = true;
-//dropdownListInit();
 
 function calculateCost(){
   totalPrice = 0;

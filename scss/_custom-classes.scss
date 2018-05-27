@@ -346,6 +346,14 @@
   }
 }
 
+.total-area {
+  flex-direction: column;
+}
+
+.size-control {
+  max-height: 56px;
+}
+
 @media all and (max-width:860px) {
   .card {
     width: 95%;
@@ -359,15 +367,6 @@
     margin-bottom: 15px;
   }
 }
-
-.total-area{
-  flex-direction: column;
-}
-
-.size-control{
-  max-height: 56px;
-}
-
 
 @media all and (max-width:390px) {
   .card {
