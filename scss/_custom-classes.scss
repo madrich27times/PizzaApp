@@ -8,12 +8,11 @@
 }
 
 .badge {
-  span {
-    color: $white;
-    background-color: $red;
-    border: 1px solid $red;
-    border-radius: 5%;
-  }
+  display: none;
+  color: $white;
+  background-color: $red;
+  border: 1px solid $red;
+  border-radius: 5%;
 }
 
 .btn-modal {
@@ -449,7 +448,6 @@
 // .uneven {
 //   margin: 0 auto !important;
 // }
-
 @media all and (max-width:860px) {
   .card {
     width: 95%;

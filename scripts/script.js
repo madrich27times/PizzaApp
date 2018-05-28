@@ -71,7 +71,7 @@ function init(response) {
     }
     if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
       var pbInfo = JSON.parse(responseText);
-      //console.log(pbInfo);
+      //console.log(pbInfo)k;
       var fourCheese = document.getElementById("pb_0");
       var cheeseDesc = document.getElementById("pbD_0");
       var meat = document.getElementById("pb_1");

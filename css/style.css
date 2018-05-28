@@ -349,7 +349,8 @@ a {
 .selected-box {
   border: 1px solid #BF0706; }
 
-.badge span {
+.badge {
+  display: none;
   color: #F2F2F2;
   background-color: #BF0706;
   border: 1px solid #BF0706;
