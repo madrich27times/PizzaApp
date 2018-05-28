@@ -13,12 +13,12 @@
 
   <div id="pizza" class="container">
 
-    <div class="row sauce-page">
-      <div class="col-4">
-        <h1 class="bold-heading title">Choose your sauce</h1>
+    <div class='row sauce-page'>
+      <div class='col-4'>
+        <h1 class='bold-heading title'>Choose your sauce<span class="badge">Special Deal</span></h1>
       </div>
-      <div class="col-4"></div>
-      <div class="col-4"></div>
+      <div class='col-4'></div>
+      <div class='col-4'></div>
     </div>
     <div class="row">
       <div class="col-3">
@@ -26,7 +26,7 @@
         <div class="row">
           <div class="col-12 size-display">
             <div id="smSize" class="col-3 size-bar">S</div>
-            <div id="medSize" class="col-3 size-bar selected-size">M</div>
+            <div id="medSize" class="col-3 size-bar">M</div>
             <div id="lgSize" class="col-3 size-bar">L</div>
             <div id="xlSize" class="col-3 size-bar">XL</div>
           </div>
@@ -50,7 +50,10 @@
             </li>
           </ul>
         </div>
-        <div id="sauceList" class="dropdown-list" tabindex="1">
+      </div>
+    </div>
+    <div class='row'>
+      <div id="sauceList" class="dropdown-list" tabindex="1">
           <span class="bold-heading">Creamy Garlic Parmesan</span>
           <ul class="dropdown-list-contents">
             <li>
@@ -117,7 +120,7 @@
           <h5 class="pizza-component">TEST</h5>
           <h5 class="pizza-component">TEST</h5>
         </div>
-        <h4>Total: $0.00</h4>
+        <h4 id="total">Total: $0.00</h4>
         <div id="addBtn" class="btn-modal" data-modal="modalLight">Add to Order</div>
         <div id="modalLight" class="modal modal-light">
             <div class="modal-content">

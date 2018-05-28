@@ -280,8 +280,8 @@ a {
 @media all and (max-width: 320px) {
   html,
   body {
-    font-family: 0.8em;
-    font-size: 1rem; }
+    font-family: "Asap Condensed Regular";
+    font-size: 0.8em; }
 
   h1 {
     font-family: "Bebas Neue Regular";
@@ -335,7 +335,11 @@ a {
 .box {
   border: 1px solid #000000; }
 
-.badge span {
+.selected-box {
+  border: 1px solid #BF0706; }
+
+.badge {
+  display: none;
   color: #F2F2F2;
   background-color: #BF0706;
   border: 1px solid #BF0706;
@@ -446,9 +450,8 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 40%;
   border-radius: 5px;
-  height: 100%;
+  min-height: max-content;
   cursor: pointer; }
-  .card .card-body,
   .card .card-container {
     text-align: center;
     display: -webkit-box;
@@ -465,10 +468,13 @@ a {
     flex-direction: column;
     padding: 2px 16px;
     padding: 1em; }
-    .card .card-body .card-header,
     .card .card-container .card-header {
       margin: 0 auto;
       padding: 0.5em; }
+    .card .card-container .card-body {
+      margin: 0 auto;
+      height: 300px;
+      width: 300px; }
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
 
@@ -484,13 +490,13 @@ a {
     visibility: hidden;
     background-color: #BF0706;
     width: 160px;
-    padding: 8px 0;
+    padding: 10px 0;
     color: #F2F2F2;
     text-align: center;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
     margin-left: -80px; }
     .popup span::after {
@@ -502,23 +508,209 @@ a {
       border-width: 5px;
       border-style: solid;
       border-color: #BF0706 transparent transparent transparent; }
-  .popup .show {
-    visibility: visible;
-    -webkit-animation-delay: 0;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-fill-mode: fowards;
-    -webkit-animation-direction: forward;
-    -moz-animation-delay: 0;
-    -moz-animation-duration: 1s;
-    -moz-animation-name: fadeIn;
-    -moz-animation-fill-mode: fowards;
-    -moz-animation-direction: forward;
-    animation-delay: 0;
-    animation-duration: 1s;
-    animation-name: fadeIn;
-    animation-fill-mode: fowards;
-    animation-direction: forward; }
+
+#pb_0:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#pb_1:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#pb_2:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#pb_3:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#pb_4:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#pb_5:hover span {
+  visibility: visible;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: forward;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 1s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: forward;
+  animation-delay: 0;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+  animation-fill-mode: fowards;
+  animation-direction: forward; }
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0; }
@@ -552,12 +744,22 @@ a {
   align-items: center; }
 
 .size-box {
+  max-height: max-content;
   border-radius: 50%;
   border: 1px solid #000000;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  padding: 15px; }
+  padding: 15px;
+  cursor: pointer; }
+  .size-box:hover {
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    background-color: #BF0706;
+    color: #F2F2F2; }
 
 .pizza-box {
   text-align: center;
@@ -570,7 +772,7 @@ a {
   vertical-align: middle;
   padding: 5px; }
 
-.selected-size, .selected-amount {
+.selected {
   background-color: #BF0706;
   color: #F2F2F2; }
 
@@ -578,7 +780,10 @@ a {
   padding: 20px;
   margin: 0 auto; }
 
-#smSize, #medSize, #lgSize, #xlSize {
+#smSize,
+#medSize,
+#lgSize,
+#xlSize {
   height: 40px; }
 
 #sauceList {
@@ -700,22 +905,15 @@ a {
     border-top: 1px solid #000000;
     max-height: 130px; }
 
-@media all and (max-width: 860px) {
-  .card {
-    width: 95%; }
-    .card .card-body {
-      -webkit-box-direction: normal;
-      -webkit-box-orient: horizontal;
-      -moz-box-direction: normal;
-      -moz-box-orient: horizontal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      text-align: center; }
+.total-area {
+  flex-direction: column; }
 
-  .size-box {
-    margin-top: 15px;
-    margin-bottom: 15px; } }
+.size-control {
+  max-height: 56px; }
+
+.pizza-desc {
+  margin-left: 20px; }
+
 .ingredient-div {
   flex-direction: column;
   border: 1px solid black;
@@ -770,6 +968,30 @@ a {
 
   .size-display {
     flex-direction: column !important; } }
+@media all and (max-width: 860px) {
+  .card {
+    width: 95%; }
+    .card .card-body {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -moz-box-direction: normal;
+      -moz-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      text-align: center; }
+
+  .size-box {
+    margin-top: 15px;
+    margin-bottom: 15px; } }
+@media all and (max-width: 500px) {
+  .pizza-box {
+    width: 180px;
+    height: 180px; } }
+@media all and (max-width: 390px) {
+  .card .card-container .card-body {
+    width: 180px;
+    height: 180px; } }
 .container {
   display: flex;
   flex-direction: column;
@@ -846,4 +1068,12 @@ a {
 
 @media screen and (max-width: 970px) {
   .row {
-    flex-direction: column; } }
+    flex-direction: column; }
+
+  .button-row {
+    flex-direction: row; }
+
+  .pb-row {
+    flex-direction: row; } }
+
+/*# sourceMappingURL=style.css.map */

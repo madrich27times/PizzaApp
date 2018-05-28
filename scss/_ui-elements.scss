@@ -130,7 +130,7 @@ a {
 @media all and (max-width:320px) {
   html,
   body {
-    @include font-rule(0.8em);
+    @include font-rule($bodyReg, 0.8em);
   }
   h1 {
     @include font-rule($headingRegular, 2.5rem);

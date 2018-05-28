@@ -1,14 +1,16 @@
 var filesToLoad = [];
 var loadedJSON = [];
 var pages = [
-  "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Business Name</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div class='card-body box'>Pizza Image</div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div class='card-body box'>Pizza Image</div>        </div>      </div>    </div>",
-  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>    </div>    <div class='row'>      <div class='col-6'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-6'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
+  "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Order Online</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div id='customBox' class='card-body box'></div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div id='preBuiltBox' class='card-body box'></div>        </div>      </div>    </div>",
+  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_0' class='popup pizza-box'>          <span id='pbD_0' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_1' class='popup pizza-box'>          <span id='pbD_1' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_2' class='popup pizza-box'>          <span id='pbD_2' class='popup-content'></span>        </div>      </div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_3' class='popup pizza-box'>          <span id='pbD_3' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_4' class='popup pizza-box'>          <span id='pbD_4' class='popup-content'></span>        </div>      </div>	  <div class='col-4'>	  <div id='pb_5' class='popup pizza-box'>          <span id='pbD_5' class='popup-content'></span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row size-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your size</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-3 size-container'>        <div id='smallPizza' class='size-box'>S        </div>      </div>      <div class='col-3 size-container'>        <div id='mediumPizza' class='size-box'>M        </div>      </div>      <div class='col-3 size-container'>        <div id='largePizza' class='size-box'>L        </div>      </div>      <div class='col-3 size-container'>        <div id='xLPizza' class='size-box'>XL        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>"
 ];
+var preBuiltMobile = "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-2 pb-row'>        <div id='pb_0' class='pizza-box'>         </div>		<p id='pbD_0' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_1' class='pizza-box'>        </div>		<p id='pbD_1' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_2' class='pizza-box'>        </div>		<p id='pbD_2' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_3' class='pizza-box'>        </div>		<p id='pbD_3' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_4' class='pizza-box'>        </div>		<p id='pbD_4' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>	  <div id='pb_5' class='pizza-box'>        </div>		<p id='pbD_5' class='pizza-desc'></p>	  </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>";
 var currentPage = 0;
 var isPopup = false;
 var isModal = false;
 var isDropdownList = false;
+var isMobile = false;
 
 var currentCrust;
 var currentSauce;
@@ -33,16 +35,140 @@ function loadJSON(filename, callback) {
 }
 
 function init(response) {
+  console.log("in json init", filenameToLoad);
   loadJSON(filenameToLoad, function (responseText) {
-    if (filenameToLoad.toString() == "start.json") {
-      //load elements for landing page
+    if (filenameToLoad.toString() == "scripts/start.json") {
+      var startInfo = JSON.parse(responseText);
+      //console.log(startInfo);
+      var customImg = document.getElementById("customBox");
+      var preBuiltImg = document.getElementById("preBuiltBox");
+      var custimgList = "";
+      var preimgList = "";
+      for (let i = 0; i < startInfo.length; i++) {
+        if (startInfo[i].name == "Custom") {
+          startInfo[i].images.forEach(element => {
+            if (element != startInfo[i].images[startInfo[i].images.length - 1]) {
+              custimgList += "url('" + element + "'), ";
+            } else {
+              custimgList += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (startInfo[i].name == "Pre-Built") {
+          startInfo[i].images.forEach(element => {
+            if (element != startInfo[i].images[startInfo[i].images.length - 1]) {
+              preimgList += "url('" + element + "'), ";
+            } else {
+              preimgList += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+      }
+      customImg.style.background = custimgList;
+      customImg.style.backgroundSize = "contain";
+      preBuiltImg.style.background = preimgList;
+      preBuiltImg.style.backgroundSize = "contain";
+    }
+    if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
+      var pbInfo = JSON.parse(responseText);
+      //console.log(pbInfo)k;
+      var fourCheese = document.getElementById("pb_0");
+      var cheeseDesc = document.getElementById("pbD_0");
+      var meat = document.getElementById("pb_1");
+      var meatDesc = document.getElementById("pbD_1");
+      var pep = document.getElementById("pb_2");
+      var pepDesc = document.getElementById("pbD_2");
+      var veg = document.getElementById("pb_3");
+      var vegDesc = document.getElementById("pbD_3");
+      var supreme = document.getElementById("pb_4");
+      var supremeDesc = document.getElementById("pbD_4");
+      var italian = document.getElementById("pb_5");
+      var italianDesc = document.getElementById("pbD_5");
+      var cheeseImgs = "";
+      var meatImgs = "";
+      var pepImgs = "";
+      var vegImgs = "";
+      var supremeImgs = "";
+      var italianImgs = "";
+      for (let i = 0; i < pbInfo.length; i++) {
+        if (pbInfo[i].name == "Four Cheese") {
+          cheeseDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              cheeseImgs += "url('" + element + "'), ";
+            } else {
+              cheeseImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (pbInfo[i].name == "Meat Lovers") {
+          meatDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              meatImgs += "url('" + element + "'), ";
+            } else {
+              meatImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (pbInfo[i].name == "Pepperoni") {
+          pepDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              pepImgs += "url('" + element + "'), ";
+            } else {
+              pepImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (pbInfo[i].name == "Veggie Lovers") {
+          vegDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              vegImgs += "url('" + element + "'), ";
+            } else {
+              vegImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (pbInfo[i].name == "Supreme") {
+          supremeDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              supremeImgs += "url('" + element + "'), ";
+            } else {
+              supremeImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+        if (pbInfo[i].name == "Italian") {
+          italianDesc.innerHTML = pbInfo[i].desc;
+          pbInfo[i].images.forEach(element => {
+            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
+              italianImgs += "url('" + element + "'), ";
+            } else {
+              italianImgs += "url('" + element + "') no-repeat center";
+            }
+          });
+        }
+      }
+      fourCheese.style.background = cheeseImgs;
+      fourCheese.style.backgroundSize = "contain";
+      meat.style.background = meatImgs;
+      meat.style.backgroundSize = "contain";
+      pep.style.background = pepImgs;
+      pep.style.backgroundSize = "contain";
+      veg.style.background = vegImgs;
+      veg.style.backgroundSize = "contain";
+      supreme.style.background = supremeImgs;
+      supreme.style.backgroundSize = "contain";
+      italian.style.background = italianImgs;
+      italian.style.backgroundSize = "contain";
     }
   });
-
 }
 
 function elementsInit() {
-  //add event listeners here
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("landing-page")) {
@@ -51,7 +177,7 @@ function elementsInit() {
     if (allElements[i].classList.contains("preBuilt-page")) {
       preBuiltPageInit();
     }
-    if (allElements[i].classList.contains("sizes-page")) {
+    if (allElements[i].classList.contains("size-page")) {
       sizesPageInit();
     }
     if (allElements[i].classList.contains("crust-page")) {
@@ -72,7 +198,7 @@ function elementsInit() {
     }
     if (allElements[i].classList.contains("popup")) {
       isPopup = true;
-      popupInit();
+      //popupInit();
     }
     if (allElements[i].classList.contains("dropdown-list")) {
       isDropdownList = true;
@@ -84,126 +210,207 @@ function elementsInit() {
 function changePage(pageNum) {
   console.log("pageNum ", pageNum);
   currentPage = pageNum;
+  console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
-      filenameToLoad = "start.json";
+      filenameToLoad = "scripts/start.json";
       break;
     case 1:
-      filenameToLoad = "pre-built-pizzas.json";
+      filenameToLoad = "scripts/pre-built-pizzas.json";
       break;
     case 2:
-      filenameToLoad = "sizes.json";
+      filenameToLoad = "scripts/sizes.json";
       break;
     case 3:
-      filenameToLoad = "crusts.json";
+      filenameToLoad = "scrips/crusts.json";
       break;
     case 4:
-      filenameToLoad = "sauces.json";
+      filenameToLoad = "scripts/sauces.json";
       break;
     case 5:
-      filenameToLoad = "cheeses.json";
+      filenameToLoad = "scripts/cheeses.json";
       break;
     case 6:
-      filenameToLoad = "toppings.json";
+      filenameToLoad = "scripts/toppings.json";
       break;
     default:
-      filenameToLoad = "start.json";
+      filenameToLoad = "scripts/start.json";
       break;
   }
+  //set html
   document.getElementById("pizza").innerHTML = pages[pageNum];
-  //event listeners
-  //loadJSON w/ index
+  //check for mobile layout
+  checkMobile();
+  //set event listeners
+  elementsInit();
+  //load json data
+  setTimeout(init(), 3000);
 }
 
-function back() {
-  var back = currentPage - 1;
+function landingPageInit() {
+  var customBtn = document.getElementById("byoBtn");
+  var preBuiltBtn = document.getElementById("preBtn");
+
+  customBtn.addEventListener('click', customClick);
+  preBuiltBtn.addEventListener('click', preClick);
+}
+
+function customClick(evt) {
+  changePage(2);
+}
+
+function preClick(evt) {
+  changePage(1);
+}
+
+function preBuiltPageInit() {
+  //console.log("in pre-built init");
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', back);
+
+  var fourCheese = document.getElementById("pb_0");
+  var meat = document.getElementById("pb_1");
+  var pep = document.getElementById("pb_2");
+  var veg = document.getElementById("pb_3");
+  var supreme = document.getElementById("pb_4");
+  var italian = document.getElementById("pb_5");
+
+  fourCheese.addEventListener('click', preBuiltClick);
+  meat.addEventListener('click', preBuiltClick);
+  pep.addEventListener('click', preBuiltClick);
+  veg.addEventListener('click', preBuiltClick);
+  supreme.addEventListener('click', preBuiltClick);
+  italian.addEventListener('click', preBuiltClick);
+}
+
+function preBuiltClick(evt) {
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected-box")) {
+      allElements[i].className = allElements[i].className.replace(" selected-box", "");
+    }
+  }
+  this.className = this.className + " selected-box";
+  setSelectedPizza(this.id);
+}
+
+function setSelectedPizza(id) {
+  console.log(id);
+  switch (id) {
+    case "pb_0":
+      currentCrust = "Thick";
+      currentCheese = "Four-Cheese";
+      currentSauce = "Marinara";
+      calculateCost();
+      break;
+    case "pb_1":
+      currentCrust = "Thick";
+      currentCheese = "Mozzarella";
+      currentSauce = "Marinara";
+      currentToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Bacon", "Beef"];
+      calculateCost();
+      break;
+    case "pb_2":
+      currentCrust = "Thick";
+      currentCheese = "Mozzarella";
+      currentSauce = "Marinara";
+      currentToppings = ["Pepperoni"];
+      calculateCost();
+      break;
+    case "pb_3":
+      currentCrust = "Thick";
+      currentCheese = "Mozzarella";
+      currentSauce = "Marinara";
+      currentToppings = ["Mushrooms", "Olives", "Onions", "Bell Pepper", "Spinach"];
+      calculateCost();
+      break;
+    case "pb_4":
+      currentCrust = "Thin";
+      currentCheese = "Mozzarella";
+      currentSauce = "Marinara";
+      currentToppings = ["Onion", "Bell Pepper", "Mushroom", "Pepperoni", "Sausage", "Beef"];
+      calculateCost();
+      break;
+    case "pb_5":
+      currentCrust = "Thin";
+      currentCheese = "Mozzarella";
+      currentSauce = "Marinara";
+      currentToppings = ["Onion", "Bell Pepper", "Sausage"];
+      calculateCost();
+      break;
+  }
+  console.log(`Crust: ${currentCrust} Sauce: ${currentSauce} Cheese: ${currentCheese} Toppings: ${currentToppings}`);
+}
+
+function sizesPageInit() {
+  //console.log("in sizes init");
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', back);
+
+  var small = document.getElementById("smallPizza");
+  var med = document.getElementById("mediumPizza");
+  var large = document.getElementById("largePizza");
+  var xl = document.getElementById("xLPizza");
+
+  small.addEventListener('click', sizeClick);
+  med.addEventListener('click', sizeClick);
+  large.addEventListener('click', sizeClick);
+  xl.addEventListener('click', sizeClick);
+}
+
+function sizeClick(evt) {
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected")) {
+      allElements[i].className = allElements[i].className.replace(" selected", "");
+    }
+  }
+  this.className = this.className + " selected";
+  setSelectedSize(this.id);
+}
+
+function setSelectedSize(id) {
+  //console.log(id);
+  switch (id) {
+    case "smallPizza":
+      currentSize = "S";
+      calculateCost();
+      break;
+    case "mediumPizza":
+      currentSize = "M";
+      calculateCost();
+      break;
+    case "largePizza":
+      currentSize = "L";
+      calculateCost();
+      break;
+    case "xLPizza":
+      currentSize = "XL";
+      calculateCost();
+      break;
+  }
+  console.log("size:", currentSize);
+}
+
+function back(evt) {
+  var back = 0;
+  if (currentPage != 2) {
+    back = currentPage - 1;
+  }
+  console.log("back ", back);
   changePage(back);
 }
 
-function next() {
+function next(evt) {
   var next = currentPage + 1;
+  console.log("next ", next);
   changePage(next);
-}
-
-function buildStartPage() {
-  var container = document.getElementById("pizza");
-
-  var titleRow = document.createElement("div");
-  titleRow.className = "row";
-
-  var col1 = document.createElement("div");
-  div.className = "col-4";
-  var titleHeader = document.createElement("h1");
-  titleHeader.className = "bold-heading";
-  titleHeader.classList += " title";
-  titleHeader.innerHTML = "Buiness Name";
-  col1.appendChild(titleHeader);
-  titleRow.appendChild(col1);
-
-  var col2 = document.createElement("div");
-  col2.className = "col-4";
-  titleRow.appendChild(col2);
-
-  var col3 = document.createElement("div");
-  col3.className = "col-4";
-  titleRow.appendChild(col3);
-
-  var col3 = document.createElement("div");
-  col3.className = "col-4";
-  titleRow.appendChild(col3);
-  container.appendChild(titleRow);
-
-  var contentRow = document.createElement("div");
-  contentRow.className = "row";
-
-  var conCol1 = document.createElement("div");
-  conCol1.className = "col-6";
-  conCol1.classList += " card";
-  conCol1.id = "byoBtn";
-  var cardContainer1 = document.createElement("div");
-  cardContainer1.className = "card-container";
-  var cardHeader1 = document.createElement("div");
-  cardHeader1.className = "card-header";
-  var cardHeading1 = document.createElement("h1");
-  cardHeading1.className = "bold-heading";
-  cardHeading1.innerHTML = "Build Your Own";
-  cardHeader1.appendChild(cardHeading1);
-  cardContainer1.appendChild(cardHeader1);
-  var cardBody1 = document.createElement("div");
-  cardBody1.className = "card-body";
-  cardBody1.classList += " box";
-  var BYOImg = document.createElement("img");
-  BYOImg.src = "images/";
-  cardBody1.appendChild(BYOImg);
-  cardContainer1.appendChild(cardBody1);
-  conCol1.appendChild(cardContainer1);
-  contentRow.appendChild(conCol1);
-
-  var conCol2 = document.createElement("div");
-  conCol2.className = "col-6";
-  conCol2.classList += " card";
-  conCol2.id = "preBtn";
-  var cardContainer2 = document.createElement("div");
-  cardContainer2.className = "card-container";
-  var cardHeader2 = document.createElement("div");
-  cardHeader2.className = "card-header";
-  var cardHeading2 = document.createElement("h1");
-  cardHeading2.className = "bold-heading";
-  cardHeading2.innerHTML = "Pre-Built Pizza";
-  cardHeader2.appendChild(cardHeading2);
-  cardContainer2.appendChild(cardHeader2);
-  var cardBody2 = document.createElement("div");
-  cardBody2.className = "card-body";
-  cardBody2.classList += " box";
-  var PBImg = document.createElement("img");
-  PBimg.src = "images/";
-  cardBody2.appendChild(PBImg);
-  cardContainer2.appendChild(cardBody2);
-  conCol2.appendChild(cardContainer2);
-  contentRow.appendChild(conCol2);
-
-  container.appendChild(contentRow);
-
 }
 
 function modalInit() {
@@ -258,16 +465,9 @@ function dropdownListInit() {
   }
 }
 
-// var runJSON = setTimeout(init(), 3000);
-//changePage(0);
-// var isPopup = true;
-// popupInit();
-var isDropdownList = true;
-dropdownListInit();
-
-function calculateCost(){
+function calculateCost() {
   totalPrice = 0;
-  switch (currentSize){
+  switch (currentSize) {
     case "XL":
       totalPrice += 13.99;
       break;
@@ -281,16 +481,25 @@ function calculateCost(){
       totalPrice += 7.99;
       break;
   }
-  if(currentToppings.length > 4){
+  if (currentToppings.length > 4) {
     isSpecialDeal = true;
     var temp = currentToppings.length - 5;
     totalPrice += 3.00;
     totalPrice += temp * 1.00;
+    console.log("special deal!");
   } else {
     isSpecialDeal = false;
     totalPrice += currentToppings.length * 1.00;
   }
   totalPrice = totalPrice.toFixed(2);
-  console.log(totalPrice);
+  console.log("total: $", totalPrice);
 }
-calculateCost();
+
+function checkMobile() {
+  if (screen.width <= 810) {
+    console.log("mobile detected");
+    pages.splice(1, 1, preBuiltMobile);
+  }
+}
+
+changePage(0);
