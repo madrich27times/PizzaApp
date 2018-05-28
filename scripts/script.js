@@ -33,8 +33,7 @@ function loadJSON(filename, callback) {
 }
 
 function init(response) {
-  console.log("in init");
-  console.log(filenameToLoad);
+  console.log("in json init ", filenameToLoad);
   loadJSON(filenameToLoad, function (responseText) {
     if (filenameToLoad.toString() == "scripts/start.json") {
       var startInfo = JSON.parse(responseText);
@@ -81,7 +80,7 @@ function elementsInit() {
     if (allElements[i].classList.contains("preBuilt-page")) {
       preBuiltPageInit();
     }
-    if (allElements[i].classList.contains("sizes-page")) {
+    if (allElements[i].classList.contains("size-page")) {
       sizesPageInit();
     }
     if (allElements[i].classList.contains("crust-page")) {
@@ -114,30 +113,31 @@ function elementsInit() {
 function changePage(pageNum) {
   console.log("pageNum ", pageNum);
   currentPage = pageNum;
+  console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
       filenameToLoad = "scripts/start.json";
       break;
     case 1:
-      filenameToLoad = "/scripts/pre-built-pizzas.json";
+      filenameToLoad = "scripts/pre-built-pizzas.json";
       break;
     case 2:
-      filenameToLoad = "/scripts/sizes.json";
+      filenameToLoad = "scripts/sizes.json";
       break;
     case 3:
-      filenameToLoad = "/scrips/crusts.json";
+      filenameToLoad = "scrips/crusts.json";
       break;
     case 4:
-      filenameToLoad = "/scripts/sauces.json";
+      filenameToLoad = "scripts/sauces.json";
       break;
     case 5:
-      filenameToLoad = "/scripts/cheeses.json";
+      filenameToLoad = "scripts/cheeses.json";
       break;
     case 6:
-      filenameToLoad = "/scripts/toppings.json";
+      filenameToLoad = "scripts/toppings.json";
       break;
     default:
-      filenameToLoad = "/scripts/start.json";
+      filenameToLoad = "scripts/start.json";
       break;
   }
   //set html
@@ -164,13 +164,105 @@ function preClick(evt) {
   changePage(1);
 }
 
-function back() {
-  var back = currentPage - 1;
+function sizesPageInit() {
+  console.log("in sizes init");
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', back);
+
+  var small = document.getElementById("smallPizza");
+  var med = document.getElementById("mediumPizza");
+  var large = document.getElementById("largePizza");
+  var xl = document.getElementById("xLPizza");
+
+  small.addEventListener('click', function () {
+    var med = document.getElementById("mediumPizza");
+    var large = document.getElementById("largePizza");
+    var xl = document.getElementById("xLPizza");
+    if (med.classList.contains("selected")) {
+      med.className = med.className.replace(" selected", "");
+    }
+    if (large.classList.contains("selected")) {
+      large.className = large.className.replace(" selected", "");
+    }
+    if (xl.classList.contains("selected")) {
+      xl.className = xl.className.replace(" selected", " ");
+    }
+    small.className = small.className + " selected";
+    currentSize = "S";
+    console.log("size ", currentSize);
+    calculateCost();
+  });
+  med.addEventListener('click', function () {
+    var small = document.getElementById("smallPizza");
+    var large = document.getElementById("largePizza");
+    var xl = document.getElementById("xLPizza");
+    if (small.classList.contains("selected")) {
+      small.className = small.className.replace(" selected", "");
+    }
+    if (large.classList.contains("selected")) {
+      large.className = small.className.replace(" selected", "");
+    }
+    if (xl.classList.contains("selected")) {
+      xl.className = xl.className.replace(" selected", "");
+    }
+    med.className = med.className + " selected";
+    currentSize = "M";
+    console.log("size ", currentSize);
+    calculateCost();
+  });
+  large.addEventListener('click', function () {
+    var small = document.getElementById("smallPizza");
+    var med = document.getElementById("mediumPizza");
+    var xl = document.getElementById("xLPizza");
+    if (small.classList.contains("selected")) {
+      small.className = small.className.replace(" selected", "");
+    }
+    if (med.classList.contains("selected")) {
+      med.className = med.className.replace(" selected", "");
+    }
+    if (xl.classList.contains("selected")) {
+      xl.className = xl.className.replace(" selected", "");
+    }
+    large.classList += " selected";
+    currentSize = "L";
+    console.log("size ", currentSize);
+    calculateCost();
+  });
+  xl.addEventListener('click', function () {
+    var small = document.getElementById("smallPizza");
+    var med = document.getElementById("mediumPizza");
+    var large = document.getElementById("largePizza");
+    if (small.classList.contains("selected")) {
+      small.className = small.className.replace(" selected", "");
+    }
+    if (med.classList.contains("selected")) {
+      med.className = med.className.replace(" selected", "");
+    }
+    if (large.classList.contains("selected")) {
+      large.className = large.className.replace(" selected", "");
+    }
+    xl.classList += " selected";
+    currentSize = "XL";
+    console.log("size ", currentSize);
+    calculateCost();
+  });
+}
+
+function back(evt) {
+  var back = 0;
+  if (currentPage != 2) {
+    back = currentPage - 1;
+  }
+  console.log("back ", back);
   changePage(back);
 }
 
-function next() {
+function next(evt) {
   var next = currentPage + 1;
+  console.log("next ", next);
   changePage(next);
 }
 
@@ -228,9 +320,9 @@ function dropdownListInit() {
 
 changePage(0);
 
-function calculateCost(){
+function calculateCost() {
   totalPrice = 0;
-  switch (currentSize){
+  switch (currentSize) {
     case "XL":
       totalPrice += 13.99;
       break;
@@ -244,7 +336,7 @@ function calculateCost(){
       totalPrice += 7.99;
       break;
   }
-  if(currentToppings.length > 4){
+  if (currentToppings.length > 4) {
     isSpecialDeal = true;
     var temp = currentToppings.length - 5;
     totalPrice += 3.00;
