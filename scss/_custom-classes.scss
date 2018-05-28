@@ -307,13 +307,17 @@
   margin: 0 auto;
 }
 
-#smSize, #medSize, #lgSize, #xlSize{
+#smSize,
+#medSize,
+#lgSize,
+#xlSize {
   height: 40px;
 }
 
-#sauceList{
+#sauceList {
   margin: 15px auto;
 }
+
 .dropdown-list {
   margin: 20px;
   position: relative;
@@ -450,25 +454,7 @@
   margin-left: 20px;
 }
 
-// .uneven {
-//   margin: 0 auto !important;
-// }
-@media all and (max-width:860px) {
-  .card {
-    width: 95%;
-    .card-body {
-      @include flex-direction(row);
-      text-align: center;
-    }
-  }
-  .size-box {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-}
-
-
-.ingredient-div{
+.ingredient-div {
   flex-direction: column;
   border: 1px solid black;
   padding: 5px;
@@ -478,7 +464,7 @@
   margin: 0 auto;
 }
 
-.list-div{
+.list-div {
   min-height: 300px;
   max-height: 300px;
   overflow-y: scroll;
@@ -486,7 +472,7 @@
   flex-direction: column;
 }
 
-.pizza-component{
+.pizza-component {
   flex-direction: row;
   border-bottom: 1px solid black;
   height: fit-content;
@@ -499,39 +485,52 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
-#addBtn{
+#addBtn {
   margin: 0 auto;
 }
 
-.size-display{
+.size-display {
   flex-direction: row !important;
 }
 
-
 @media screen and (max-width: 970px) {
-  .pizza-box{
+  .pizza-box {
     margin: 0 auto;
   }
-  .size-bar{
+  .size-bar {
     width: 300px;
     margin: 0 auto;
   }
-  .button-row{
+  .button-row {
     flex-direction: row !important;
   }
-  .size-display{
+  .size-display {
     flex-direction: column !important;
+  }
+}
+
+@media all and (max-width:860px) {
+  .card {
+    width: 95%;
+    .card-body {
+      @include flex-direction(row);
+      text-align: center;
+    }
+  }
+  .size-box {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 

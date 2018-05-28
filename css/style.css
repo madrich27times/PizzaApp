@@ -780,7 +780,10 @@ a {
   padding: 20px;
   margin: 0 auto; }
 
-#smSize, #medSize, #lgSize, #xlSize {
+#smSize,
+#medSize,
+#lgSize,
+#xlSize {
   height: 40px; }
 
 #sauceList {
@@ -911,30 +914,6 @@ a {
 .pizza-desc {
   margin-left: 20px; }
 
-@media all and (max-width: 860px) {
-  .card {
-    width: 95%; }
-    .card .card-body {
-      -webkit-box-direction: normal;
-      -webkit-box-orient: horizontal;
-      -moz-box-direction: normal;
-      -moz-box-orient: horizontal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      text-align: center; }
-
-  .size-box {
-    margin-top: 15px;
-    margin-bottom: 15px; } }
-@media all and (max-width: 500px) {
-  .pizza-box {
-    width: 180px;
-    height: 180px; } }
-@media all and (max-width: 390px) {
-  .card .card-container .card-body {
-    width: 180px;
-    height: 180px; } }
 .ingredient-div {
   flex-direction: column;
   border: 1px solid black;
@@ -989,6 +968,30 @@ a {
 
   .size-display {
     flex-direction: column !important; } }
+@media all and (max-width: 860px) {
+  .card {
+    width: 95%; }
+    .card .card-body {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -moz-box-direction: normal;
+      -moz-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      text-align: center; }
+
+  .size-box {
+    margin-top: 15px;
+    margin-bottom: 15px; } }
+@media all and (max-width: 500px) {
+  .pizza-box {
+    width: 180px;
+    height: 180px; } }
+@media all and (max-width: 390px) {
+  .card .card-container .card-body {
+    width: 180px;
+    height: 180px; } }
 .container {
   display: flex;
   flex-direction: column;
