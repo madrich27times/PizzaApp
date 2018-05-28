@@ -174,7 +174,6 @@
 .size-container {
   @include justify-content(center);
   @include align-items(center);
-  //max-height: max-content;
 }
 
 .size-box {

@@ -2,7 +2,7 @@ var filesToLoad = [];
 var loadedJSON = [];
 var pages = [
   "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Business Name</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div id='customBox' class='card-body box'></div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div id='preBuiltBox' class='card-body box'></div>        </div>      </div>    </div>",
-  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-4'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>    </div>    <div class='row'>      <div class='col-6'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>      <div class='col-6'>        <div class='popup box'>Pizza Image          <span class='popup-content'>Pizza Description</span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
+  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_0' class='popup '>          <span id='pbD_0' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_1' class='popup '>          <span id='pbD_1' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_2' class='popup '>          <span id='pbD_2' class='popup-content'></span>        </div>      </div>    </div>    <div class='row'>      <div class='col-6'>        <div id='pb_3' class='popup '>          <span id='pbD_3' class='popup-content'></span>        </div>      </div>      <div class='col-6'>        <div id='pb_4' class='popup '>          <span id='pbD_4' class='popup-content'></span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row size-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your size</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-3 size-container'>        <div id='smallPizza' class='size-box'>S        </div>      </div>      <div class='col-3 size-container'>        <div id='mediumPizza' class='size-box'>M        </div>      </div>      <div class='col-3 size-container'>        <div id='largePizza' class='size-box'>L        </div>      </div>      <div class='col-3 size-container'>        <div id='xLPizza' class='size-box'>XL        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>"
 ];
 var currentPage = 0;
@@ -33,7 +33,7 @@ function loadJSON(filename, callback) {
 }
 
 function init(response) {
-  console.log("in json init ", filenameToLoad);
+  console.log("in json init", filenameToLoad);
   loadJSON(filenameToLoad, function (responseText) {
     if (filenameToLoad.toString() == "scripts/start.json") {
       var startInfo = JSON.parse(responseText);
@@ -66,6 +66,9 @@ function init(response) {
       customImg.style.backgroundSize = "contain";
       preBuiltImg.style.background = preimgList;
       preBuiltImg.style.backgroundSize = "contain";
+    }
+    if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
+
     }
   });
 
@@ -164,8 +167,33 @@ function preClick(evt) {
   changePage(1);
 }
 
+function preBuiltPageInit() {
+  //console.log("in pre-built init");
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', back);
+
+  var fourCheese = document.getElementById("pb_0");
+  var meat = document.getElementById("pb_1");
+  var pep = document.getElementById("pb_2");
+  var veg = document.getElementById("pb_3");
+  var supreme = document.getElementById("pb_4");
+}
+
+function preBuiltClick(evt) {
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected")) {
+      allElements[i].className = allElements[i].className.replace(" selected", "");
+    }
+  }
+  this.className = this.className + " selected";
+}
+
 function sizesPageInit() {
-  console.log("in sizes init");
+  //console.log("in sizes init");
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
 
