@@ -3,6 +3,10 @@
   border: 1px solid $black;
 }
 
+.selected-box {
+  border: 1px solid $red;
+}
+
 .badge {
   span {
     color: $white;
@@ -137,13 +141,13 @@
     visibility: hidden;
     background-color: $red;
     width: 160px;
-    padding: 8px 0;
+    padding: 10px 0;
     color: $white;
     text-align: center;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
     margin-left: -80px;
     &::after {
@@ -156,8 +160,97 @@
       border-style: solid;
       border-color: $red transparent transparent transparent;
     }
+  } // .show {
+  //   visibility: visible;
+  //   @include animation(0, 1s, fadeIn);
+  //   @include keyframe(fadeIn) {
+  //     from {
+  //       opacity: 0;
+  //     }
+  //     to {
+  //       opacity: 1;
+  //     }
+  //   }
+  // }
+}
+
+#pb_0:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
-  .show {
+}
+
+#pb_1:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#pb_2:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#pb_3:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#pb_4:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#pb_5:hover {
+  span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
     @include keyframe(fadeIn) {
@@ -349,6 +442,14 @@
   max-height: 56px;
 }
 
+.pizza-desc {
+  margin-left: 20px;
+}
+
+// .uneven {
+//   margin: 0 auto !important;
+// }
+
 @media all and (max-width:860px) {
   .card {
     width: 95%;
@@ -360,6 +461,13 @@
   .size-box {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+}
+
+@media all and (max-width:500px) {
+  .pizza-box {
+    width: 180px;
+    height: 180px;
   }
 }
 
