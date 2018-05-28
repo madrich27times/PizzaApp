@@ -13,38 +13,37 @@ body {
 
 h1 {
   @include font-rule($headingRegular, 3rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
 }
 
 h2 {
   @include font-rule($headingRegular, 2.5rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
+  
 }
 
 h3 {
   @include font-rule($headingRegular, 2rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
+  
 }
 
 h4 {
   @include font-rule($headingRegular, 1.8rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
+  
 }
 
 h5 {
   @include font-rule($headingRegular, 1.5rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
+  
 }
 
 h6 {
   @include font-rule($headingRegular, 1.3rem);
-  padding-bottom: 8%;
-  padding-top: 2%;
+  padding: 5px;
+  
 }
 
 div {
@@ -91,6 +90,7 @@ a {
   text-align: center;
   margin: 2px 4px;
   max-width: max-content;
+  flex: none;
 }
 
 .btn-basic {
@@ -134,33 +134,32 @@ a {
   }
   h1 {
     @include font-rule($headingRegular, 2.5rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
+
   }
   h2 {
     @include font-rule($headingRegular, 2rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
+
   }
   h3 {
     @include font-rule($headingRegular, 1.8rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
+
   }
   h4 {
     @include font-rule($headingRegular, 1.5rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
+
   }
   h5 {
     @include font-rule($headingRegular, 1.3rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
+    
   }
   h6 {
     @include font-rule($headingRegular, 1rem);
-    padding-bottom: 8%;
-    padding-top: 2%;
+    padding: 5px;
   }
   #smallPizza {
     width: 40px;
