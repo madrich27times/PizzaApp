@@ -21,17 +21,18 @@
       <div class="col-4"></div>
     </div>
     <div class="row">
-      <div class="col-4">
-        <div id="pizzaView" class="pizza-box box">Pizza image
-        </div>
+      <div class="col-3">
+        <div id="pizzaView" class="pizza-box box">Pizza image</div>
         <div class="row">
-          <div id="smSize" class="col-3 size-bar">S</div>
-          <div id="medSize" class="col-3 size-bar selected-size">M</div>
-          <div id="lgSize" class="col-3 size-bar">L</div>
-          <div id="xlSize" class="col-3 size-bar">XL</div>
+          <div class="col-12 size-display">
+            <div id="smSize" class="col-3 size-bar">S</div>
+            <div id="medSize" class="col-3 size-bar selected-size">M</div>
+            <div id="lgSize" class="col-3 size-bar">L</div>
+            <div id="xlSize" class="col-3 size-bar">XL</div>
+          </div>
         </div>
       </div>
-      <div class="col-4 list-container">
+      <div class="col-5 list-container">
         <div id="sauceList" class="dropdown-list" tabindex="1">
           <span class="bold-heading">Marinara</span>
           <ul class="dropdown-list-contents light-heading">
@@ -102,45 +103,45 @@
         </div>
       </div>
       <div class="col-4 ingredient-div">
-        <div class="items-list-box">
-          <div class="items-list-heading bold-heading">
-            <h3>Ingredients</h3>
-          </div>
-          <div class="items-list-content light-heading">
-            <!-- <ul>
-              <li>Marinara</li>
-            </ul> -->
-          </div>
-          <div class="items-list-bottom">
-            <div id="total" class="bold-heading total-area">
-              <h4>Total: $0.00</h4>
-              <div class="size-control">
-                <div id="addBtn" class="btn-modal" data-modal="modalLight">Add to Order</div>
+        <h3>Your Pizza</h3>
+        <div class="list-div">
+          <h5 class="pizza-component">Stuffed Crust</h5>
+          <h5 class="pizza-component">Marinara</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+          <h5 class="pizza-component">TEST</h5>
+        </div>
+        <h4>Total: $0.00</h4>
+        <div id="addBtn" class="btn-modal" data-modal="modalLight">Add to Order</div>
+        <div id="modalLight" class="modal modal-light">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
               </div>
-              <div id="modalLight" class="modal modal-light">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <span class="close">&times;</span>
-                  </div>
-                  <div class="modal-body">
-                    <h1 class="bold-heading">Thank you for your order!</h1>
-                  </div>
-                  <div class="modal-footer">
-                  </div>
-                </div>
+              <div class="modal-body">
+                <h1 class="bold-heading">Thank you for your order!</h1>
+              </div>
+              <div class="modal-footer">
               </div>
             </div>
           </div>
+      </div>
         </div>
-      </div>
-    </div>
-    <div class="row button-row">
-      <div class="col-2">
-        <div id="backBtn" class="btn-basic">Back</div>
-      </div>
-      <div class="col-10"></div>
-      <div class="col-1">
-        <div id="nextBtn" class="btn-basic">Next</div>
+        <div class="row button-row">
+          <div class="col-1 backBtn">
+            <div id="backBtn" class="btn-basic">Back</div>
+          </div>
+          <div class="col-10"></div>
+          <div class="col-1 nextBtn">
+            <div id="nextBtn" class="btn-basic">Next</div>        
+          </div>
+        </div>
       </div>
     </div>
 

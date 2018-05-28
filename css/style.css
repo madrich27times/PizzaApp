@@ -151,38 +151,32 @@ body {
 h1 {
   font-family: "Bebas Neue Regular";
   font-size: 3rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 h2 {
   font-family: "Bebas Neue Regular";
   font-size: 2.5rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 h3 {
   font-family: "Bebas Neue Regular";
   font-size: 2rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 h4 {
   font-family: "Bebas Neue Regular";
   font-size: 1.8rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 h5 {
   font-family: "Bebas Neue Regular";
   font-size: 1.5rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 h6 {
   font-family: "Bebas Neue Regular";
   font-size: 1.3rem;
-  padding-bottom: 8%;
-  padding-top: 2%; }
+  padding: 5px; }
 
 div {
   display: -webkit-box;
@@ -249,7 +243,8 @@ a {
   cursor: pointer;
   text-align: center;
   margin: 2px 4px;
-  max-width: max-content; }
+  max-width: max-content;
+  flex: none; }
 
 .btn-basic, .btn-modal {
   background-color: #BF0706;
@@ -291,38 +286,32 @@ a {
   h1 {
     font-family: "Bebas Neue Regular";
     font-size: 2.5rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   h2 {
     font-family: "Bebas Neue Regular";
     font-size: 2rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   h3 {
     font-family: "Bebas Neue Regular";
     font-size: 1.8rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   h4 {
     font-family: "Bebas Neue Regular";
     font-size: 1.5rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   h5 {
     font-family: "Bebas Neue Regular";
     font-size: 1.3rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   h6 {
     font-family: "Bebas Neue Regular";
     font-size: 1rem;
-    padding-bottom: 8%;
-    padding-top: 2%; }
+    padding: 5px; }
 
   #smallPizza {
     width: 40px;
@@ -550,12 +539,6 @@ a {
     opacity: 0; }
   to {
     opacity: 1; } }
-.backBtn {
-  float: left; }
-
-.nextBtn {
-  float: right; }
-
 .size-container {
   -webkit-box-pack: center;
   -moz-box-pack: center;
@@ -583,18 +566,23 @@ a {
 
 .size-bar {
   border: 1px solid #000000;
-  display: table-cell;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  padding: 5px; }
 
 .selected-size, .selected-amount {
   background-color: #BF0706;
   color: #F2F2F2; }
 
 .list-container {
-  margin-left: 20px;
   padding: 20px;
   margin: 0 auto; }
+
+#smSize, #medSize, #lgSize, #xlSize {
+  height: 40px; }
+
+#sauceList {
+  margin: 15px auto; }
 
 .dropdown-list {
   margin: 20px;
@@ -707,8 +695,7 @@ a {
     border-bottom: 1px solid #000000; }
     .items-list-box .items-list-heading h3 {
       margin: 0 auto;
-      height: auto;
-      padding-top: 8%; }
+      height: auto; }
   .items-list-box .items-list-bottom {
     border-top: 1px solid #000000;
     max-height: 130px; }
@@ -729,12 +716,60 @@ a {
   .size-box {
     margin-top: 15px;
     margin-bottom: 15px; } }
-.total-area {
+.ingredient-div {
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  max-width: 250px;
+  min-width: 250px;
+  margin: 0 auto; }
+
+.list-div {
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  border: 1px solid black;
   flex-direction: column; }
 
-.size-control {
-  max-height: 56px; }
+.pizza-component {
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  height: fit-content;
+  width: 95%;
+  text-align: left; }
 
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #888; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
+#addBtn {
+  margin: 0 auto; }
+
+.size-display {
+  flex-direction: row !important; }
+
+@media screen and (max-width: 970px) {
+  .pizza-box {
+    margin: 0 auto; }
+
+  .size-bar {
+    width: 300px;
+    margin: 0 auto; }
+
+  .button-row {
+    flex-direction: row !important; }
+
+  .size-display {
+    flex-direction: column !important; } }
 .container {
   display: flex;
   flex-direction: column;
@@ -809,6 +844,6 @@ a {
 .col-1 {
   flex: 1; }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 970px) {
   .row {
     flex-direction: column; } }
