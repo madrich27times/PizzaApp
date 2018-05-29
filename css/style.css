@@ -813,7 +813,6 @@ a {
     border-color: #BF0706 transparent; }
   .dropdown-list .dropdown-list-contents {
     visibility: hidden;
-    z-index: 1;
     position: absolute;
     top: 140%;
     left: 0;
@@ -1096,3 +1095,5 @@ a {
 
   .pb-row {
     flex-direction: row; } }
+
+/*# sourceMappingURL=style.css.map */
