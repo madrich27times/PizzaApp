@@ -4,6 +4,7 @@ var pages = [
   "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Order Online</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div id='customBox' class='card-body box'></div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div id='preBuiltBox' class='card-body box'></div>        </div>      </div>    </div>",
   "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_0' class='popup pizza-box'>          <span id='pbD_0' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_1' class='popup pizza-box'>          <span id='pbD_1' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_2' class='popup pizza-box'>          <span id='pbD_2' class='popup-content'></span>        </div>      </div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_3' class='popup pizza-box'>          <span id='pbD_3' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_4' class='popup pizza-box'>          <span id='pbD_4' class='popup-content'></span>        </div>      </div>	  <div class='col-4'>	  <div id='pb_5' class='popup pizza-box'>          <span id='pbD_5' class='popup-content'></span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row size-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your size</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-3 size-container'>        <div id='smallPizza' class='size-box'>S        </div>      </div>      <div class='col-3 size-container'>        <div id='mediumPizza' class='size-box'>M        </div>      </div>      <div class='col-3 size-container'>        <div id='largePizza' class='size-box'>L        </div>      </div>      <div class='col-3 size-container'>        <div id='xLPizza' class='size-box'>XL        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
+  "<div class='row crust-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your crust          <span class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>	    <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='crustList'>            <div id='thin-crust' class='btn-basic bold-heading crustOpt'>Thin</div>          </div>          <div id='crustList'>            <div id='thick-crust' class='btn-basic bold-heading crustOpt'>Thick</div>          </div>          <div id='crustList'>            <div id='stuffed-crust' class='btn-basic bold-heading crustOpt'>Stuffed</div>          </div>	  <div id='crustList'>            <div id='pretzel-crust' class='btn-basic bold-heading crustOpt'>Pretzel</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>	  <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row sauce-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your sauce          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>            <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='sauceList' class='dropdown-list' tabindex='1'>            <span class='bold-heading'>Marinara</span>            <ul class='dropdown-list-contents light-heading'>              <li id='mar-light'>                Light              </li>              <li id='mar-reg'>                Regular              </li>              <li id='mar-extra'>                Extra              </li>            </ul>          </div>          <div id='sauceList' class='dropdown-list' tabindex='1'>            <span class='bold-heading'>Creamy Garlic Parmesan</span>            <ul class='dropdown-list-contents light-heading'>              <li id='creamy-light'>                Light              </li>              <li id='creamy-reg'>                Regular              </li>              <li id='creamy-extra'>                Extra              </li>            </ul>          </div>          <div id='sauceList' class='dropdown-list' tabindex='1'>            <span class='bold-heading'>Barbeque</span>            <ul class='dropdown-list-contents light-heading'>              <li id='bbq-light'>                Light              </li>              <li id='bbq-reg'>                Regular              </li>              <li id='bbq-extra'>                Extra              </li>            </ul>          </div>          <div id='sauceList' class='dropdown-list' tabindex='1'>            <span class='bold-heading'>Buffalo</span>            <ul class='dropdown-list-contents light-heading'>              <li id='buff-light'>                Light              </li>              <li id='buff-reg'>                Regular              </li>              <li id='buff-extra'>                Extra              </li>            </ul>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>          <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>"
 ];
 var preBuiltMobile =
@@ -24,7 +25,7 @@ var totalPrice;
 var filenameToLoad;
 
 var currentPizzaImgs = [];
-var currentListContents = [currentCheese,currentSauce,currentCrust];
+var currentListContents = [currentCheese, currentSauce, currentCrust];
 
 function loadJSON(filename, callback) {
   var xobj = new XMLHttpRequest();
@@ -270,6 +271,42 @@ function landingPageInit() {
   preBuiltBtn.addEventListener("click", preClick);
 }
 
+function setNavButtons() {
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+
+  nextBtn.addEventListener("click", next);
+  backBtn.addEventListener("click", back);
+}
+
+function setSizeButtons() {
+  var smSize = document.getElementById("smSize");
+  var medSize = document.getElementById("medSize");
+  var lgSize = document.getElementById("lgSize");
+  var xlSize = document.getElementById("xlSize");
+
+  smSize.addEventListener("click", buildingSizeClick);
+  medSize.addEventListener("click", buildingSizeClick);
+  lgSize.addEventListener("click", buildingSizeClick);
+  xlSize.addEventListener("click", buildingSizeClick);
+
+  switch (currentSize) {
+    case "S":
+      smSize.className = smSize.className + " selected";
+      break;
+    case "M":
+      medSize.className = medSize.className + " selected";
+      break;
+    case "L":
+      lgSize.className = lgSize.className + " selected";
+      break;
+    case "XL":
+      xlSize.className = xlSize.className + " selected";
+      break;
+  }
+}
+
+
 function customClick(evt) {
   changePage(2);
 }
@@ -278,35 +315,9 @@ function preClick(evt) {
   changePage(1);
 }
 
-function crustClick(evt){
-  var allElements = document.body.getElementsByTagName("*");
-  for (let i = 0; i < allElements.length; i++) {
-    if (allElements[i].classList.contains("selectedCrust")) {
-      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
-    }
-  }
-  this.className = this.className + " selectedCrust";
-  setSelectedCrust(this.id);
-}
-
-function crustPageInit(){
-  var thin = document.getElementById("thin-crust");
-  var thick = document.getElementById("thick-crust");
-  var stuffed = document.getElementById("stuffed-crust");
-  var pretzel = document.getElementById("pretzel-crust");
-  thin.addEventListener('click', crustClick);
-  thick.addEventListener('click', crustClick);
-  stuffed.addEventListener('click', crustClick);
-  pretzel.addEventListener('click', crustClick);
-}
-
 function preBuiltPageInit() {
   //console.log("in pre-built init");
-  var nextBtn = document.getElementById("nextBtn");
-  var backBtn = document.getElementById("backBtn");
-
-  nextBtn.addEventListener("click", next);
-  backBtn.addEventListener("click", back);
+  setNavButtons();
 
   var fourCheese = document.getElementById("pb_0");
   var meat = document.getElementById("pb_1");
@@ -335,28 +346,6 @@ function preBuiltClick(evt) {
   }
   this.className = this.className + " selected-box";
   setSelectedPizza(this.id);
-}
-
-function setSelectedCrust(id){
-  switch(id){
-    case "thin-crust":
-      currentCrust = "Thin";
-      calculateCost();
-      break;
-    case "thick-crust":
-      currentCrust = "Thick";
-      calculateCost();
-      break;
-    case "stuffed-crust":
-      currentCrust = "Stuffed";
-      calculateCost();
-      break;
-    case "pretzel-crust":
-      currentCrust = "Pretzel";
-      calculateCost();
-      break;
-  }
-  console.log(currentCrust);
 }
 
 function setSelectedPizza(id) {
@@ -430,11 +419,7 @@ function setSelectedPizza(id) {
 
 function sizesPageInit() {
   //console.log("in sizes init");
-  var nextBtn = document.getElementById("nextBtn");
-  var backBtn = document.getElementById("backBtn");
-
-  nextBtn.addEventListener("click", next);
-  backBtn.addEventListener("click", back);
+  setNavButtons();
 
   var small = document.getElementById("smallPizza");
   var med = document.getElementById("mediumPizza");
@@ -484,41 +469,66 @@ function setSelectedSize(id) {
   console.log("size:", currentSize);
 }
 
+function crustPageInit() {
+  console.log("crust page init");
+  updatePizzaView();
+  updateListView();
+
+  setNavButtons();
+  setSizeButtons();
+
+  var thin = document.getElementById("thin-crust");
+  var thick = document.getElementById("thick-crust");
+  var stuffed = document.getElementById("stuffed-crust");
+  var pretzel = document.getElementById("pretzel-crust");
+  thin.addEventListener('click', crustClick);
+  thick.addEventListener('click', crustClick);
+  stuffed.addEventListener('click', crustClick);
+  pretzel.addEventListener('click', crustClick);
+}
+
+function crustClick(evt) {
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selectedCrust")) {
+      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+    }
+  }
+  this.className = this.className + " selectedCrust";
+  setSelectedCrust(this.id);
+}
+
+function setSelectedCrust(id) {
+  switch (id) {
+    case "thin-crust":
+      currentCrust = "Thin";
+      calculateCost();
+      break;
+    case "thick-crust":
+      currentCrust = "Thick";
+      calculateCost();
+      break;
+    case "stuffed-crust":
+      currentCrust = "Stuffed";
+      calculateCost();
+      break;
+    case "pretzel-crust":
+      currentCrust = "Pretzel";
+      calculateCost();
+      break;
+  }
+  console.log("crust: ", currentCrust);
+  getCrustImg();
+  updateListView();
+}
+
 function saucePageInit() {
   console.log("sauce page init");
   updatePizzaView();
   updateListView();
 
-  var nextBtn = document.getElementById("nextBtn");
-  var backBtn = document.getElementById("backBtn");
-
-  nextBtn.addEventListener("click", next);
-  backBtn.addEventListener("click", back);
-
-  var smSize = document.getElementById("smSize");
-  var medSize = document.getElementById("medSize");
-  var lgSize = document.getElementById("lgSize");
-  var xlSize = document.getElementById("xlSize");
-
-  smSize.addEventListener("click", buildingSizeClick);
-  medSize.addEventListener("click", buildingSizeClick);
-  lgSize.addEventListener("click", buildingSizeClick);
-  xlSize.addEventListener("click", buildingSizeClick);
-  currentSize = "S";  
-  switch (currentSize) {
-    case "S":
-      smSize.className = smSize.className + " selected";
-      break;
-    case "M":
-      medSize.className = medSize.className + " selected";
-      break;
-    case "L":
-      lgSize.className = lgSize.className + " selected";
-      break;
-    case "XL":
-      xlSize.className = xlSize.className + " selected";
-      break;
-  }
+  setNavButtons();
+  setSizeButtons();
 
   var marinaraLight = document.getElementById("mar-light");
   var marinaraReg = document.getElementById("mar-reg");
@@ -659,12 +669,32 @@ function updateListView() {
   while (list.hasChildNodes()) {
     list.removeChild(list.lastChild);
   }
-  for (let i = 0; i < currentListContents.length; i++) {
-    if (currentListContents[i] != null) {
-      var label = document.createElement("h5");
-      label.className = "pizza-component";
-      label.innerHTML = currentListContents[i];
-      list.appendChild(label);
+  if (currentCrust != null) {
+    var label = document.createElement("h5");
+    label.className = "pizza-component";
+    label.innerHTML = currentCrust + " Crust";
+    list.appendChild(label);
+  }
+  if (currentSauce != null) {
+    var label = document.createElement("h5");
+    label.className = "pizza-component";
+    label.innerHTML = currentSauce;
+    list.appendChild(label);
+  }
+  if (currentCheese != null) {
+    var label = document.createElement("h5");
+    label.className = "pizza-component";
+    label.innerHTML = currentCheese;
+    list.appendChild(label);
+  }
+  if (currentToppings.length > 0) {
+    for (let i = 0; i < currentToppings.length; i++) {
+      if (currentToppings[i] != null) {
+        var label = document.createElement("h5");
+        label.className = "pizza-component";
+        label.innerHTML = currentToppings[i];
+        list.appendChild(label);
+      }
     }
   }
 }
@@ -674,13 +704,13 @@ function updatePizzaView() {
 
   var imgList = "";
   for (let i = 0; i < currentPizzaImgs.length; i++) {
-    imgList += currentPizzaImgs[i];
-    if (currentPizzaImgs[i] != currentPizzaImgs[i].length - 1) {
+    if (currentPizzaImgs.length > 1 && (currentPizzaImgs[i] != currentPizzaImgs[i].length - 1)) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
     } else {
       imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
     }
   }
+  console.log("imgs", imgList);
   pizzaView.style.background = imgList;
   pizzaView.style.backgroundSize = "contain";
 }
@@ -697,15 +727,16 @@ function getCrustImg() {
     case "Stuffed":
       crustImg = "assets/crust/crust-stuffed.png";
       break;
-    case "Pretzal":
+    case "Pretzel":
       crustImg = "assets/crust/crust-pretzel.png";
       break;
   }
   if (currentPizzaImgs.length > 0) {
     currentPizzaImgs.splice(0, 1, crustImg);
   } else {
-    currentPizzaImgs.unshift(crustImg);
+    currentPizzaImgs.push(crustImg);
   }
+  console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -772,6 +803,7 @@ function modalInit() {
       close[j].addEventListener("click", function () {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
+        changePage(0);
       });
     }
   }
