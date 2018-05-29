@@ -11,21 +11,32 @@ var pages = [
 var preBuiltMobile =
   "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-2 pb-row'>        <div id='pb_0' class='pizza-box'>         </div>		<p id='pbD_0' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_1' class='pizza-box'>        </div>		<p id='pbD_1' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_2' class='pizza-box'>        </div>		<p id='pbD_2' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_3' class='pizza-box'>        </div>		<p id='pbD_3' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_4' class='pizza-box'>        </div>		<p id='pbD_4' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>	  <div id='pb_5' class='pizza-box'>        </div>		<p id='pbD_5' class='pizza-desc'></p>	  </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>";
 var currentPage = 0;
-var isPopup = false;
 var isModal = false;
-var isDropdownList = false;
 var isMobile = false;
 
 var currentCrust;
 var currentSauce;
 var currentCheese;
 var currentSize;
-var currentToppings = [];
 var isSpecialDeal = false;
 var totalPrice;
 var filenameToLoad;
 
 var currentPizzaImgs = [];
+
+var currentToppings = [];
+var toppingImgs = [];
+
+var pepperoniImgs = ["assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/pepperoni/pepperoni-full-extra.png", "assets/toppings/pepperoni/pepperoni-full-double.png", "assets/toppings/pepperoni/pepperoni-left.png", "assets/toppings/pepperoni/pepperoni-left-extra.png", "assets/toppings/pepperoni/pepperoni-left-double.png", "assets/toppings/pepperoni/pepperoni-right.png", "assets/toppings/pepperoni/pepperoni-right-extra.png", "assets/toppings/pepperoni/pepperoni-right-double.png"];
+var sausageImgs = ["assets/toppings/sausage/sausage-full.png", "assets/toppings/sausage/sausage-full-extra.png", "assets/toppings/sausage/sausage-full-double.png", "assets/toppings/sausage/sausage-left.png", "assets/toppings/sausage/sausage-left-extra.png", "assets/toppings/sausage/sausage-left-double.png", "assets/toppings/sausage/sausage-right.png", "assets/toppings/sausage/sausage-right-extra.png", "assets/toppings/sausage/sausage-right-double.png"];
+var canadianBaconImgs = ["assets/toppings/canadianbacon/canadianbacon-full.png", "assets/toppings/canadianbacon/canadianbacon-full-extra.png", "assets/toppings/canadianbacon/canadianbacon-full-double.png", "assets/toppings/canadianbacon/canadianbacon-left.png", "assets/toppings/canadianbacon/canadianbacon-left-extra.png", "assets/toppings/canadianbacon/canadianbacon-left-double.png", "assets/toppings/canadianbacon/canadianbacon-right.png", "assets/toppings/canadianbacon/canadianbacon-right-extra.png", "assets/toppings/canadianbacon/canadianbacon-full-double.png"];
+var baconImgs = ["assets/toppings/bacon/bacon-full.png", "assets/toppings/bacon/bacon-full-extra.png", "assets/toppings/bacon/bacon-full-double.png", "assets/toppings/bacon/bacon-left.png", "assets/toppings/bacon/bacon-left-extra.png", "assets/toppings/bacon/bacon-left-double.png", "assets/toppings/bacon/bacon-right.png", "assets/toppings/bacon/bacon-right-extra.png", "assets/toppings/bacon/bacon-right-double.png"];
+var beefImgs = ["assets/toppings/beef/beef-full.png", "assets/toppings/beef/beef-full-extra.png", "assets/toppings/beef/beef-full-double.png", "assets/toppings/beef/beef-left.png", "assets/toppings/beef/beef-left-extra.png", "assets/toppings/beef/beef-left-double.png", "assets/toppings/beef/beef-right.png", "assets/toppings/beef/beef-right-extra.png", "assets/toppings/beef/beef-right-double.png"];
+var mushroomImgs = ["assets/toppings/mushrooms/mushrooms-full.png", "assets/toppings/mushrooms/mushrooms-full-extra.png", "assets/toppings/mushrooms/mushrooms-full-double.png", "assets/toppings/mushrooms/mushrooms-left.png", "assets/toppings/mushrooms/mushrooms-left-extra.png", "assets/toppings/mushrooms/mushrooms-left-double.png", "assets/toppings/mushrooms/mushrooms-right.png", "assets/toppings/mushrooms/mushrooms-right-extra.png", "assets/toppings/mushrooms/mushrooms-right-double.png"];
+var oliveImgs = ["assets/toppings/olives/olives-full.png", "assets/toppings/olives/olives-full-extra.png", "assets/toppings/olives/olives-full-double.png", "assets/toppings/olives/olives-left.png", "assets/toppings/olives/olives-left-extra.png", "assets/toppings/olives/olives-left-double.png", "assets/toppings/olives/olives-right.png", "assets/toppings/olives/olives-right-extra.png", "assets/toppings/olives/olives-right-double.png"];
+var onionImgs = ["assets/toppings/onions/onions-full.png", "assets/toppings/onions/onions-full-extra.png", "assets/toppings/onions/onions-full-double.png", "assets/toppings/onions/onions-left.png", "assets/toppings/onions/onions-left-extra.png", "assets/toppings/onions/onions-left-double.png", "assets/toppings/onions/onions-right.png", "assets/toppings/onions/onions-right-extra.png", "assets/toppings/onions/onions-right-double.png"];
+var bellPepperImgs = ["assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/bellpeppers/bellpeppers-full-extra.png", "assets/toppings/bellpeppers/bellpeppers-full-double.png", "assets/toppings/bellpeppers/bellpeppers-left.png", "assets/toppings/bellpeppers/bellpeppers-left-extra.png", "assets/toppings/bellpeppers/bellpeppers-left-double.png", "assets/toppings/bellpeppers/bellpeppers-right.png", "assets/toppings/bellpeppers/bellpeppers-right-extra.png", "assets/toppings/bellpeppers/bellpeppers-right-double.png"];
+var spinachImgs = ["assets/toppings/spinach/spinach-full.png", "assets/toppings/spinach/spinach-full-extra.png", "assets/toppings/spinach/spinach-full-double.png", "assets/toppings/spinach/spinach-left.png", "assets/toppings/spinach/spinach-left-extra.png", "assets/toppings/spinach/spinach-left-double.png", "assets/toppings/spinach/spinach-right.png", "assets/toppings/spinach/spinach-right-extra.png", "assets/toppings/spinach/spinach-right-double.png"];
 
 function loadJSON(filename, callback) {
   var xobj = new XMLHttpRequest();
@@ -196,29 +207,19 @@ function elementsInit() {
       modalInit();
     }
     if (allElements[i].classList.contains("sauce-page")) {
-      isDropdownList = true;
-      dropdownListInit();
+      saucePageInit();
       isModal = true;
       modalInit();
-      saucePageInit();
     }
     if (allElements[i].classList.contains("cheese-page")) {
-      isDropdownList = true;
-      dropdownListInit();
+      cheesePageInit();
       isModal = true;
       modalInit();
-      cheesePageInit();
     }
     if (allElements[i].classList.contains("toppings-page")) {
-      isDropdownList = true;
-      dropdownListInit();
+      toppingsPageInit();
       isModal = true;
       modalInit();
-      toppingsPageInit();
-    }
-    if (allElements[i].classList.contains("popup")) {
-      isPopup = true;
-      //popupInit();
     }
   }
 }
@@ -277,6 +278,33 @@ function setNavButtons() {
 
   nextBtn.addEventListener("click", next);
   backBtn.addEventListener("click", back);
+}
+
+function setInitialSizeButtons() {
+  var small = document.getElementById("smallPizza");
+  var med = document.getElementById("mediumPizza");
+  var large = document.getElementById("largePizza");
+  var xl = document.getElementById("xLPizza");
+
+  small.addEventListener("click", sizeClick);
+  med.addEventListener("click", sizeClick);
+  large.addEventListener("click", sizeClick);
+  xl.addEventListener("click", sizeClick);
+
+  switch (currentSize) {
+    case "S":
+      small.className = small.className + " selected";
+      break;
+    case "M":
+      med.className = med.className + " selected";
+      break;
+    case "L":
+      large.className = large.className + " selected";
+      break;
+    case "XL":
+      xl.className = xl.className + " selected";
+      break;
+  }
 }
 
 function setSizeButtons() {
@@ -395,7 +423,7 @@ function preClick(evt) {
 
 function preBuiltPageInit() {
   //console.log("in pre-built init");
-  if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0){
+  if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0) {
     setNavButtons();
   }
 
@@ -500,19 +528,12 @@ function setSelectedPizza(id) {
 //SIZES
 function sizesPageInit() {
   //console.log("in sizes init");
+  setInitialSizeButtons();
+  calculateCost();
+
   if (currentSize != null) {
     setNavButtons();
   }
-
-  var small = document.getElementById("smallPizza");
-  var med = document.getElementById("mediumPizza");
-  var large = document.getElementById("largePizza");
-  var xl = document.getElementById("xLPizza");
-
-  small.addEventListener("click", sizeClick);
-  med.addEventListener("click", sizeClick);
-  large.addEventListener("click", sizeClick);
-  xl.addEventListener("click", sizeClick);
 }
 
 function sizeClick(evt) {
@@ -759,7 +780,43 @@ function toppingsPageInit() {
 }
 
 function toppingsClick(evt) {
+  //set selected label of topping name
+  
+}
+
+function rightClick(evt) {
   setNavButtons();
+  //set selected
+}
+
+function leftClick(evt) {
+  setNavButtons();
+}
+
+function fullClick(evt) {
+  setNavButtons();
+}
+
+function extraClick(evt) {
+  setNavButtons();
+}
+
+function doubleClick(evt) {
+  setNavButtons();
+}
+
+function setToppingName(id) {
+  var name = "";
+
+  setSelectedTopping(name);
+}
+
+function setSelectedTopping(name) {
+  currentToppings.unshift(name);
+  calculateCost();
+  console.log(currentToppings);
+  getToppingImg();
+  updateListView();
 }
 
 function updateListView() {
@@ -804,9 +861,24 @@ function updatePizzaView() {
   for (let i = 0; i < currentPizzaImgs.length; i++) {
     if (currentPizzaImgs.length > 1 && (i != currentPizzaImgs.length - 1)) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
-    } else {
-      console.log("in else");
-      imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
+    }
+    else {
+      if (toppingImgs.length == 0) {
+        imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
+      }
+      else {
+        imgList += "url('" + currentPizzaImgs[i] + "'), ";
+      }
+    }
+  }
+  if (toppingImgs.length > 0) {
+    for (let j = 0; j < toppingImgs.length; j++) {
+      if (j != toppingImgs.length - 1) {
+        imgList += "url('" + toppingImgs[j] + "'), ";
+      }
+      else {
+        imgList += "url('" + toppingImgs[j] + "') no-repeat center";
+      }
     }
   }
   console.log("imgs", imgList);
@@ -894,7 +966,87 @@ function getCheeseImg() {
 }
 
 function getToppingImg() {
-
+  var toppingImg = "";
+  var lastTopping = currentToppings[0];
+  if (lastTopping.contains("pepperoni")) {
+    for (let i = 0; i < pepperoniImgs.length; i++) {
+      if (pepperoniImgs[i].toString().contains(lastTopping)) {
+        toppingImg = pepperoniImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("sausage")) {
+    for (let i = 0; i < sausageImgs.length; i++) {
+      if (sausageImgs[i].toString().contains(lastTopping)) {
+        toppingImg = sausageImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("canadianbacon")) {
+    for (let i = 0; i < canadianBaconImgs.length; i++) {
+      if (canadianBaconImgs[i].toString().contains(lastTopping)) {
+        toppingImg = canadianBaconImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("bacon")) {
+    for (let i = 0; i < baconImgs.length; i++) {
+      if (baconImgs[i].toString().contains(lastTopping)) {
+        toppingImg = baconImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("beef")) {
+    for (let i = 0; i < beefImgs.length; i++) {
+      if (beefImgs[i].toString().contains(lastTopping)) {
+        toppingImg = beefImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("mushrooms")) {
+    for (let i = 0; i < mushroomImgs.length; i++) {
+      if (mushroomImgs[i].toString().contains(lastTopping)) {
+        toppingImg = mushroomImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("olives")) {
+    for (let i = 0; i < oliveImgs.length; i++) {
+      if (oliveImgs[i].toString().contains(lastTopping)) {
+        toppingImg = oliveImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("bellpeppers")) {
+    for (let i = 0; i < bellPepperImgs.length; i++) {
+      if (bellPepperImgs[i].toString().contains(lastTopping)) {
+        toppingImg = bellPepperImgs[i];
+        break;
+      }
+    }
+  }
+  if (lastTopping.contains("spinach")) {
+    for (let i = 0; i < spinachImgs.length; i++) {
+      if (spinachImgs[i].toString().contains(lastTopping)) {
+        toppingImg = spinachImgs[i];
+        break;
+      }
+    }
+  }
+  if (toppingImgs.length == 1) {
+    toppingImgs.unshift(toppingImg);
+  } else {
+    var toppingIndex = toppingImgs.length - 1;
+    toppingImgs.splice(toppingIndex, 1, toppingImg);
+  }
+  updatePizzaView();
 }
 
 function back(evt) {
@@ -929,39 +1081,6 @@ function modalInit() {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
         changePage(0);
-      });
-    }
-  }
-}
-
-function popupInit() {
-  if (isPopup == true) {
-    var popups = document.getElementsByClassName("popup");
-    for (let i = 0; i < popups.length; i++) {
-      popups[i].addEventListener("click", function () {
-        var popupContent = this.firstElementChild;
-        if (popupContent.style.visibility == "visible") {
-          popupContent.style.visibility = "hidden";
-        } else {
-          popupContent.style.visibility = "visible";
-        }
-      });
-    }
-  }
-}
-
-function dropdownListInit() {
-  if (isDropdownList == true) {
-    var dropdownLists = document.getElementsByClassName("dropdown-list");
-    for (let i = 0; i < dropdownLists.length; i++) {
-      console.log("dropdown init");
-      dropdownLists[i].addEventListener("click", function () {
-        var content = document.getElementsByClassName("dropdown-list-contents");
-        if (content[i].style.visibility == "visible") {
-          content[i].style.visibility = "hidden";
-        } else {
-          content[i].style.visibility = "visible";
-        }
       });
     }
   }
