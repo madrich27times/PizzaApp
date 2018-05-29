@@ -146,7 +146,13 @@ body {
   font-family: "Asap Condensed Regular";
   font-size: 1rem;
   color: #000000;
-  background-color: #F2F2F2; }
+  background-color: #F2F2F2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 h1 {
   font-family: "Bebas Neue Regular";
@@ -968,6 +974,18 @@ a {
 #pizzaView {
   margin: 0 auto; }
 
+.crustOpt {
+  min-width: 200px;
+  height: 20px;
+  background-color: #F2F2F2;
+  border: 1px solid #BF0706;
+  color: #BF0706; }
+
+.selectedCrust {
+  background-color: #BF0706;
+  border: 1px solid #BF0706;
+  color: #F2F2F2; }
+
 @media screen and (max-width: 970px) {
   .pizza-box {
     margin: 0 auto; }
@@ -980,7 +998,8 @@ a {
     flex-direction: row !important; }
 
   .size-display {
-    flex-direction: column !important; } }
+    flex-direction: column !important;
+    width: 200px; } }
 @media all and (max-width: 860px) {
   .card {
     width: 95%; }

@@ -278,6 +278,28 @@ function preClick(evt) {
   changePage(1);
 }
 
+function crustClick(evt){
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selectedCrust")) {
+      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+    }
+  }
+  this.className = this.className + " selectedCrust";
+  setSelectedCrust(this.id);
+}
+
+function crustPageInit(){
+  var thin = document.getElementById("thin-crust");
+  var thick = document.getElementById("thick-crust");
+  var stuffed = document.getElementById("stuffed-crust");
+  var pretzel = document.getElementById("pretzel-crust");
+  thin.addEventListener('click', crustClick);
+  thick.addEventListener('click', crustClick);
+  stuffed.addEventListener('click', crustClick);
+  pretzel.addEventListener('click', crustClick);
+}
+
 function preBuiltPageInit() {
   //console.log("in pre-built init");
   var nextBtn = document.getElementById("nextBtn");
@@ -313,6 +335,28 @@ function preBuiltClick(evt) {
   }
   this.className = this.className + " selected-box";
   setSelectedPizza(this.id);
+}
+
+function setSelectedCrust(id){
+  switch(id){
+    case "thin-crust":
+      currentCrust = "Thin";
+      calculateCost();
+      break;
+    case "thick-crust":
+      currentCrust = "Thick";
+      calculateCost();
+      break;
+    case "stuffed-crust":
+      currentCrust = "Stuffed";
+      calculateCost();
+      break;
+    case "pretzel-crust":
+      currentCrust = "Pretzel";
+      calculateCost();
+      break;
+  }
+  console.log(currentCrust);
 }
 
 function setSelectedPizza(id) {
