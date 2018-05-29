@@ -237,7 +237,7 @@ a {
   a:active {
     color: #666666; }
 
-.btn, .btn-basic, .btn-modal {
+.btn, .btn-basic, .btn-modal, .btn-small {
   margin: 0 auto;
   font-family: "Bebas Neue Thin";
   font-size: 1.4rem;
@@ -261,6 +261,17 @@ a {
   -o-transition: 0.4s;
   transition: 0.4s; }
   .btn-basic:hover, .btn-modal:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+
+.btn-small {
+  min-width: 30px !important;
+  max-width: 30px !important;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s; }
+  .btn-small:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
 
 #smallPizza {
@@ -446,7 +457,7 @@ a {
         text-decoration: none;
         cursor: pointer; }
   .modal-light .modal-content .modal-body {
-    font-family: "Bebas Neue Book";
+    font-family: "Bebas Neue Bold" !important;
     font-size: 2rem;
     background-color: #F2F2F2;
     color: #000000;
@@ -985,12 +996,40 @@ a {
   height: 20px;
   background-color: #F2F2F2;
   border: 1px solid #BF0706;
-  color: #BF0706; }
+  color: #BF0706;
+  font-family: "Bebas Neue Regular";
+  font-size: 1.6em; }
 
 .selectedCrust {
   background-color: #BF0706;
   border: 1px solid #BF0706;
   color: #F2F2F2; }
+
+.topping-side, .topping-plus {
+  flex-direction: row;
+  max-width: 230px;
+  min-width: 230px;
+  font-size: 0.6em;
+  margin: 0 auto; }
+
+.topping-button {
+  max-width: 185px;
+  min-width: 185px; }
+
+.topping-options {
+  flex-direction: column;
+  margin: 0 auto; }
+
+.meats-container, .veg-container {
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 150px !important;
+  min-height: 150px !important;
+  margin: 5px auto; }
 
 @media screen and (max-width: 970px) {
   .pizza-box {

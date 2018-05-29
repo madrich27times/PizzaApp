@@ -90,7 +90,7 @@
     }
     .modal-body {
       @extend .modal-comp;
-      @include font-rule($headingBook, 2rem);
+      @include font-rule($headingBold, 2rem);
       background-color: $white;
       color: $black;
       text-align: center;
@@ -528,12 +528,43 @@
   background-color: $white;
   border: 1px solid $red;
   color: $red;
+  @include font-rule($headingRegular, 1.6em);
 }
 
 .selectedCrust {
   background-color: $red;
   border: 1px solid $red;
   color: $white;
+}
+
+.topping-side, .topping-plus{
+  flex-direction: row;
+  max-width: 230px;
+  min-width: 230px;
+  font-size: 0.6em;
+  margin: 0 auto;
+}
+
+.topping-button{
+  max-width: 185px;
+  min-width: 185px;
+}
+
+.topping-options{
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.meats-container, .veg-container{
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 150px !important;
+  min-height: 150px !important;
+  margin: 5px auto;
 }
 
 @media screen and (max-width: 970px) {
