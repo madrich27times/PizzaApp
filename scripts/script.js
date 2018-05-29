@@ -21,8 +21,6 @@ var isSpecialDeal = false;
 var totalPrice;
 var filenameToLoad;
 
-crustPageInit();
-
 function loadJSON(filename, callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
@@ -547,5 +545,4 @@ function checkMobile() {
     pages.splice(1, 1, preBuiltMobile);
   }
 }
-
 //changePage(0);
