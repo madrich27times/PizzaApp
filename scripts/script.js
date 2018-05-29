@@ -39,6 +39,7 @@ function loadJSON(filename, callback) {
   xobj.send(null);
 }
 
+cheesePageInit();
 function init(response) {
   console.log("in json init", filenameToLoad);
   loadJSON(filenameToLoad, function (responseText) {
@@ -298,6 +299,50 @@ function crustPageInit(){
   thick.addEventListener('click', crustClick);
   stuffed.addEventListener('click', crustClick);
   pretzel.addEventListener('click', crustClick);
+}
+
+function cheeseClick(evt){
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selectedCrust")) {
+      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+    }
+  }
+  this.className = this.className + " selectedCrust";
+  setSelectedCheese(this.id);
+}
+
+function cheesePageInit(){
+  var cheddar = document.getElementById("ched-cheese");
+  var four = document.getElementById("four-cheese");
+  var provolone = document.getElementById("provo-cheese");
+  var mozzarella = document.getElementById("moz-cheese");
+  cheddar.addEventListener('click', cheeseClick);
+  four.addEventListener('click', cheeseClick);
+  provolone.addEventListener('click', cheeseClick);
+  mozzarella.addEventListener('click', cheeseClick);
+}
+
+function setSelectedCheese(id){
+  switch(id){
+    case "ched-cheese":
+      currentCheese = "Cheddar";
+      calculateCost();
+      break;
+    case "four-cheese":
+      currentCheese = "Four Cheese";
+      calculateCost();
+      break;
+    case "provo-cheese":
+      currentCheese = "Provolone";
+      calculateCost();
+      break;
+    case "moz-cheese":
+      currentCheese = "Mozzarella";
+      calculateCost();
+      break;
+  }
+  console.log(currentCheese);
 }
 
 function preBuiltPageInit() {
@@ -856,4 +901,4 @@ function checkMobile() {
   }
 }
 
-changePage(3);
+//changePage(3);
