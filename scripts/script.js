@@ -559,104 +559,55 @@ function setSelectedCrust(id) {
   updateListView();
 }
 
-//SAUCE
 function saucePageInit() {
   console.log("sauce page init");
-  updatePizzaView();
-  updateListView();
+  //updatePizzaView();
+  //updateListView();
 
-  setNavButtons();
-  setSizeButtons();
+  //setNavButtons();
+  //setSizeButtons();
 
-  var marinaraLight = document.getElementById("mar-light");
-  var marinaraReg = document.getElementById("mar-reg");
-  var marinaraExtra = document.getElementById("mar-extra");
-  var creamyLight = document.getElementById("creamy-light");
-  var creamyReg = document.getElementById("creamy-reg");
-  var creamyExtra = document.getElementById("creamy-extra");
-  var bbqLight = document.getElementById("bbq-light");
-  var bbqReg = document.getElementById("bbq-reg");
-  var bbqExtra = document.getElementById("bbq-extra");
-  var buffaloLight = document.getElementById("buff-light");
-  var buffaloReg = document.getElementById("buff-reg");
-  var buffaloExtra = document.getElementById("buff-extra");
+  var marinara = document.getElementById("mar-sauce");
+  var creamy = document.getElementById("creamy-sauce");
+  var bbq = document.getElementById("bbq-sauce");
+  var buffalo = document.getElementById("buff-sauce");
 
-  marinaraLight.addEventListener('click', sauceClick);
-  marinaraReg.addEventListener('click', sauceClick);
-  marinaraExtra.addEventListener('click', sauceClick);
-  creamyLight.addEventListener('click', sauceClick);
-  creamyReg.addEventListener('click', sauceClick);
-  creamyExtra.addEventListener('click', sauceClick);
-  bbqLight.addEventListener('click', sauceClick);
-  bbqReg.addEventListener('click', sauceClick);
-  bbqExtra.addEventListener('click', sauceClick);
-  buffaloLight.addEventListener('click', sauceClick);
-  buffaloReg.addEventListener('click', sauceClick);
-  buffaloExtra.addEventListener('click', sauceClick);
+  marinara.addEventListener('click', sauceClick);
+  creamy.addEventListener('click', sauceClick);
+  bbq.addEventListener('click', sauceClick);
+  buffalo.addEventListener('click', sauceClick);
 }
 
 function sauceClick(evt) {
   console.log("sauce clicked");
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
-    if (allElements[i].classList.contains("selected")) {
+    if (allElements[i].classList.contains("selectedCrust")) {
       allElements[i].className = allElements[i].className.replace(
-        " selected",
+        " selectedCrust",
         ""
       );
     }
   }
-  this.className = this.className + " selected";
-  setSelectedSauce(this.id);
+  this.className = this.className + " selectedCrust";
+  setSauce(this.id);
 }
 
 function setSelectedSauce(id) {
   switch (id) {
-    case "mar-light":
+    case "mar-sauce":
       currentSauce = "Marinara";
       calculateCost();
       break;
-    case "mar-reg":
-      currentSauce = "Marinara";
-      calculateCost();
-      break;
-    case "mar-extra":
-      currentSauce = "Marinara";
-      calculateCost();
-      break;
-    case "creamy-light":
+    case "creamy-sauce":
       currentSauce = "Creamy Garlic Parmesan";
       calculateCost();
       break;
-    case "creamy-reg":
-      currentSauce = "Creamy Garlic Parmesan";
-      calculateCost();
-      break;
-    case "creamy-extra":
-      currentSauce = "Creamy Garlic Parmesan";
-      calculateCost();
-      break;
-    case "bbq-light":
+    case "bbq-sauce":
       currentSauce = "Barbeque";
       calculateCost();
       break;
-    case "bbq-reg":
-      currentSauce = "Barbeque";
-      calculateCost();
-      break;
-    case "bbq-extra":
-      currentSauce = "Barbeque";
-      calculateCost();
-      break;
-    case "buff-light":
-      currentSauce = "Buffalo";
-      calculateCost();
-      break;
-    case "buff-reg":
-      currentSauce = "Buffalo";
-      calculateCost();
-      break;
-    case "buff-extra":
+    case "buff-sauce":
       currentSauce = "Buffalo";
       calculateCost();
       break;
