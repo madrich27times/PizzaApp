@@ -520,6 +520,21 @@
   margin: 0 auto;
 }
 
+.crustOpt{
+  min-width: 200px;
+  height: 20px;
+  background-color: $white;
+  border: 1px solid $red;
+  color: $red;
+}
+
+.selectedCrust{
+  background-color: $red;
+  border: 1px solid $red;
+  color: $white;
+}
+
+
 @media screen and (max-width: 970px) {
   .pizza-box {
     margin: 0 auto;
@@ -533,6 +548,7 @@
   }
   .size-display {
     flex-direction: column !important;
+    width: 200px;
   }
 }
 
