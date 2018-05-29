@@ -466,6 +466,7 @@ function dropdownListInit() {
 }
 
 function calculateCost() {
+  //double and extra
   totalPrice = 0;
   switch (currentSize) {
     case "XL":
@@ -502,4 +503,4 @@ function checkMobile() {
   }
 }
 
-//changePage(0);
+changePage(0);
