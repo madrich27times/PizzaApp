@@ -109,6 +109,16 @@ a {
   }
 }
 
+.btn-small {
+  @extend .btn;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  @include ButtonShadowTransition();
+  &:hover {
+    @include ButtonShadow();
+  }
+}
+
 #smallPizza {
   width: 40px;
   height: 40px;
