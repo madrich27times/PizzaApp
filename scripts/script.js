@@ -395,7 +395,9 @@ function preClick(evt) {
 
 function preBuiltPageInit() {
   //console.log("in pre-built init");
-  setNavButtons();
+  if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0){
+    setNavButtons();
+  }
 
   var fourCheese = document.getElementById("pb_0");
   var meat = document.getElementById("pb_1");
@@ -498,7 +500,9 @@ function setSelectedPizza(id) {
 //SIZES
 function sizesPageInit() {
   //console.log("in sizes init");
-  setNavButtons();
+  if (currentSize != null) {
+    setNavButtons();
+  }
 
   var small = document.getElementById("smallPizza");
   var med = document.getElementById("mediumPizza");
@@ -512,6 +516,7 @@ function sizesPageInit() {
 }
 
 function sizeClick(evt) {
+  setNavButtons();
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selected")) {
@@ -589,7 +594,10 @@ function crustPageInit() {
   console.log("crust page init");
   updatePizzaView();
   updateListView();
-  setNavButtons();
+
+  if (currentCrust != null) {
+    setNavButtons();
+  }
   setSizeButtons();
   setCrustButtons();
 
@@ -597,6 +605,7 @@ function crustPageInit() {
 }
 
 function crustClick(evt) {
+  setNavButtons();
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -636,7 +645,9 @@ function saucePageInit() {
   console.log("sauce page init");
   updatePizzaView();
   updateListView();
-  setNavButtons();
+  if (currentSauce != null) {
+    setNavButtons();
+  }
   setSizeButtons();
   setSauceButtons();
 
@@ -644,7 +655,7 @@ function saucePageInit() {
 }
 
 function sauceClick(evt) {
-  console.log("sauce clicked");
+  setNavButtons();
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -688,7 +699,9 @@ function cheesePageInit() {
   updatePizzaView();
   updateListView();
 
-  setNavButtons();
+  if (currentCheese != null) {
+    setNavButtons();
+  }
   setSizeButtons();
   setCheeseButtons();
 
@@ -696,6 +709,7 @@ function cheesePageInit() {
 }
 
 function cheeseClick(evt) {
+  setNavButtons();
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -728,6 +742,24 @@ function setSelectedCheese(id) {
   console.log(currentCheese);
   getCheeseImg();
   updateListView();
+}
+
+function toppingsPageInit() {
+  console.log("toppings page init");
+  updatePizzaView();
+  updateListView();
+
+  if (currentToppings.length > 0) {
+    setNavButtons();
+  }
+  setSizeButtons();
+  setToppingButtons();
+
+  calculateCost();
+}
+
+function toppingsClick(evt) {
+  setNavButtons();
 }
 
 function updateListView() {
