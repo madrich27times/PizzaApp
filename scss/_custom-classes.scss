@@ -266,6 +266,7 @@
 .size-container {
   @include justify-content(center);
   @include align-items(center);
+  margin: 0 auto;
 }
 
 .size-box {
@@ -286,6 +287,7 @@
 
 .pizza-box {
   text-align: center;
+  margin: 0 auto;
   height: 300px;
   width: 300px;
 }
@@ -298,6 +300,7 @@
 .list-container {
   padding: 20px;
   margin: 0 auto;
+  flex-direction: column;
 }
 
 #smSize,
@@ -308,7 +311,7 @@
 }
 
 #sauceList {
-  margin: 15px auto;
+  margin: 30px auto;
 }
 
 .dropdown-list {
