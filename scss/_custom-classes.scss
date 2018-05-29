@@ -290,13 +290,6 @@
   width: 300px;
 }
 
-.size-bar {
-  border: 1px solid $black;
-  text-align: center;
-  vertical-align: middle;
-  padding: 5px;
-}
-
 .selected {
   background-color: $red;
   color: $white;
@@ -501,7 +494,27 @@
 }
 
 .size-display {
+  margin: 0 auto;
+  max-width: 300px;
   flex-direction: row !important;
+}
+
+.size-bar {
+  border: 1px solid $black;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  max-height: max-content;
+}
+
+#pizzaViewContainer {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#pizzaView {
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 970px) {
@@ -538,6 +551,13 @@
   .pizza-box {
     width: 180px;
     height: 180px;
+  }
+  .size-display {
+    max-width: 180px;
+  }
+  .size-bar {
+    margin: 0 auto;
+    max-width: 180px;
   }
 }
 
