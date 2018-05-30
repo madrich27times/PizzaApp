@@ -414,7 +414,7 @@ function setCheeseButtons() {
   }
 }
 
-function setToppingSideButtons(){
+function setToppingSideButtons() {
   var pepperoniLeft = document.getElementById("pepperoni-left");
   var pepperoniFull = document.getElementById("pepperoni-full");
   var pepperoniRight = document.getElementById("pepperoni-right");
@@ -475,10 +475,9 @@ function setToppingSideButtons(){
   mushroomsLeft.addEventListener('click', toppingSideClick);
   mushroomsFull.addEventListener('click', toppingSideClick);
   mushroomsRight.addEventListener('click', toppingSideClick);
-
 }
 
-function toppingSideClick(evt){
+function toppingSideClick(evt) {
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust") && !allElements[i].classList.contains("topping-button")) {
@@ -510,7 +509,7 @@ function setToppingButtons() {
   onions.addEventListener('click', toppingLabelClick);
   bellPeppers.addEventListener('click', toppingLabelClick);
   spinach.addEventListener('click', toppingLabelClick);
-  
+
   setToppingSideButtons();
   setToppingPlusButtons();
 }
@@ -526,7 +525,7 @@ function setToppingPlusButtons() {
   var onionsExtra = document.getElementById("onions-extra");
   var spinachExtra = document.getElementById("spinach-extra");
   var bellPeppersExtra = document.getElementById("bellpeppers-extra");
-  
+
   var pepDouble = document.getElementById("pepperoni-double");
   var sausageDouble = document.getElementById("sausage-double");
   var canadianBaconDouble = document.getElementById("canadianbacon-double");
@@ -548,7 +547,7 @@ function setToppingPlusButtons() {
   onionsExtra.addEventListener('click', extraClick);
   spinachExtra.addEventListener('click', extraClick);
   bellPeppersExtra.addEventListener('click', extraClick);
-  
+
   pepDouble.addEventListener('click', doubleClick);
   sausageDouble.addEventListener('click', doubleClick);
   canadianBaconDouble.addEventListener('click', doubleClick);
@@ -972,19 +971,43 @@ function extraClick(evt) {
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
+  var left = document.getElementById(toppingName + "-left");
+  var right = document.getElementById(toppingName + "-right");
+  var full = document.getElementById(toppingName + "-full");
+  
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
+
+  var isSelected = false;
+  
   //if double is selected
   if (double.classList.contains("selectedCrust")) {
     double.className = double.className.replace(" selectedCrust", "");
     extra.className = extra.className + " selectedCrust";
+    isSelected = true;
   } else {
     //if extra is already selected, deselect it
     if (extra.classList.contains("selectedCrust")) {
       extra.className = extra.className.replace(" selectedCrust", "");
     } else {
       extra.className = extra.className + " selectedCrust";
+      isSelected = true;
     }
+  }
+
+  var name = "";
+  if (isSelected == true) {
+    if (left.classList.contains("selectedCrust")) {
+      name = toppingName + "-left-extra";
+    }
+    if (right.classList.contains("selectedCrust")) {
+      name = toppingName + "-right-extra";
+    }
+    if (full.classList.contains("selectedCrust")) {
+      name = toppingName + "-full-extra";
+    }
+    //console.log(name);
+    setSelectedTopping(name);
   }
 }
 
@@ -993,26 +1016,43 @@ function doubleClick(evt) {
   var toppingString = this.id.toString().split("-");
 
   var toppingName = toppingString[0];
+  var left = document.getElementById(toppingName + "-left");
+  var right = document.getElementById(toppingName + "-right");
+  var full = document.getElementById(toppingName + "-full");
+  
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
+
+  var isSelected = false;
   //if extra is selected
   if (extra.classList.contains("selectedCrust")) {
     extra.className = extra.className.replace(" selectedCrust", "");
     double.className = double.className + " selectedCrust";
+    isSelected = true;
   } else {
     //if double is already selected, deselect it
     if (double.classList.contains("selectedCrust")) {
       double.className = double.className.replace(" selectedCrust", "");
     } else {
       double.className = double.className + " selectedCrust";
+      isSelected = true;
     }
   }
-}
 
-function setToppingName(id) {
   var name = "";
-
-  setSelectedTopping(name);
+  if (isSelected == true) {
+    if (left.classList.contains("selectedCrust")) {
+      name = toppingName + "-left-double";
+    }
+    if (right.classList.contains("selectedCrust")) {
+      name = toppingName + "-right-double";
+    }
+    if (full.classList.contains("selectedCrust")) {
+      name = toppingName + "-full-double";
+    }
+    //console.log(name);
+    setSelectedTopping(name);
+  }
 }
 
 function setSelectedTopping(name) {
@@ -1169,6 +1209,7 @@ function getCheeseImg() {
 function getToppingImg() {
   var toppingImg = "";
   var lastTopping = currentToppings[0];
+  //console.log("last topping", lastTopping);
   if (lastTopping.contains("pepperoni")) {
     for (let i = 0; i < pepperoniImgs.length; i++) {
       if (pepperoniImgs[i].toString().contains(lastTopping)) {
