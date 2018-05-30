@@ -29,16 +29,116 @@ var currentPizzaImgs = [];
 var currentToppings = [];
 var toppingImgs = [];
 
-var pepperoniImgs = ["assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/pepperoni/pepperoni-full-extra.png", "assets/toppings/pepperoni/pepperoni-full-double.png", "assets/toppings/pepperoni/pepperoni-left.png", "assets/toppings/pepperoni/pepperoni-left-extra.png", "assets/toppings/pepperoni/pepperoni-left-double.png", "assets/toppings/pepperoni/pepperoni-right.png", "assets/toppings/pepperoni/pepperoni-right-extra.png", "assets/toppings/pepperoni/pepperoni-right-double.png"];
-var sausageImgs = ["assets/toppings/sausage/sausage-full.png", "assets/toppings/sausage/sausage-full-extra.png", "assets/toppings/sausage/sausage-full-double.png", "assets/toppings/sausage/sausage-left.png", "assets/toppings/sausage/sausage-left-extra.png", "assets/toppings/sausage/sausage-left-double.png", "assets/toppings/sausage/sausage-right.png", "assets/toppings/sausage/sausage-right-extra.png", "assets/toppings/sausage/sausage-right-double.png"];
-var canadianBaconImgs = ["assets/toppings/canadianbacon/canadianbacon-full.png", "assets/toppings/canadianbacon/canadianbacon-full-extra.png", "assets/toppings/canadianbacon/canadianbacon-full-double.png", "assets/toppings/canadianbacon/canadianbacon-left.png", "assets/toppings/canadianbacon/canadianbacon-left-extra.png", "assets/toppings/canadianbacon/canadianbacon-left-double.png", "assets/toppings/canadianbacon/canadianbacon-right.png", "assets/toppings/canadianbacon/canadianbacon-right-extra.png", "assets/toppings/canadianbacon/canadianbacon-full-double.png"];
-var baconImgs = ["assets/toppings/bacon/bacon-full.png", "assets/toppings/bacon/bacon-full-extra.png", "assets/toppings/bacon/bacon-full-double.png", "assets/toppings/bacon/bacon-left.png", "assets/toppings/bacon/bacon-left-extra.png", "assets/toppings/bacon/bacon-left-double.png", "assets/toppings/bacon/bacon-right.png", "assets/toppings/bacon/bacon-right-extra.png", "assets/toppings/bacon/bacon-right-double.png"];
-var beefImgs = ["assets/toppings/beef/beef-full.png", "assets/toppings/beef/beef-full-extra.png", "assets/toppings/beef/beef-full-double.png", "assets/toppings/beef/beef-left.png", "assets/toppings/beef/beef-left-extra.png", "assets/toppings/beef/beef-left-double.png", "assets/toppings/beef/beef-right.png", "assets/toppings/beef/beef-right-extra.png", "assets/toppings/beef/beef-right-double.png"];
-var mushroomImgs = ["assets/toppings/mushrooms/mushrooms-full.png", "assets/toppings/mushrooms/mushrooms-full-extra.png", "assets/toppings/mushrooms/mushrooms-full-double.png", "assets/toppings/mushrooms/mushrooms-left.png", "assets/toppings/mushrooms/mushrooms-left-extra.png", "assets/toppings/mushrooms/mushrooms-left-double.png", "assets/toppings/mushrooms/mushrooms-right.png", "assets/toppings/mushrooms/mushrooms-right-extra.png", "assets/toppings/mushrooms/mushrooms-right-double.png"];
-var oliveImgs = ["assets/toppings/olives/olives-full.png", "assets/toppings/olives/olives-full-extra.png", "assets/toppings/olives/olives-full-double.png", "assets/toppings/olives/olives-left.png", "assets/toppings/olives/olives-left-extra.png", "assets/toppings/olives/olives-left-double.png", "assets/toppings/olives/olives-right.png", "assets/toppings/olives/olives-right-extra.png", "assets/toppings/olives/olives-right-double.png"];
-var onionImgs = ["assets/toppings/onions/onions-full.png", "assets/toppings/onions/onions-full-extra.png", "assets/toppings/onions/onions-full-double.png", "assets/toppings/onions/onions-left.png", "assets/toppings/onions/onions-left-extra.png", "assets/toppings/onions/onions-left-double.png", "assets/toppings/onions/onions-right.png", "assets/toppings/onions/onions-right-extra.png", "assets/toppings/onions/onions-right-double.png"];
-var bellPepperImgs = ["assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/bellpeppers/bellpeppers-full-extra.png", "assets/toppings/bellpeppers/bellpeppers-full-double.png", "assets/toppings/bellpeppers/bellpeppers-left.png", "assets/toppings/bellpeppers/bellpeppers-left-extra.png", "assets/toppings/bellpeppers/bellpeppers-left-double.png", "assets/toppings/bellpeppers/bellpeppers-right.png", "assets/toppings/bellpeppers/bellpeppers-right-extra.png", "assets/toppings/bellpeppers/bellpeppers-right-double.png"];
-var spinachImgs = ["assets/toppings/spinach/spinach-full.png", "assets/toppings/spinach/spinach-full-extra.png", "assets/toppings/spinach/spinach-full-double.png", "assets/toppings/spinach/spinach-left.png", "assets/toppings/spinach/spinach-left-extra.png", "assets/toppings/spinach/spinach-left-double.png", "assets/toppings/spinach/spinach-right.png", "assets/toppings/spinach/spinach-right-extra.png", "assets/toppings/spinach/spinach-right-double.png"];
+var pepperoniImgs = [
+  "assets/toppings/pepperoni/pepperoni-full.png",
+  "assets/toppings/pepperoni/pepperoni-full-extra.png",
+  "assets/toppings/pepperoni/pepperoni-full-double.png",
+  "assets/toppings/pepperoni/pepperoni-left.png",
+  "assets/toppings/pepperoni/pepperoni-left-extra.png",
+  "assets/toppings/pepperoni/pepperoni-left-double.png",
+  "assets/toppings/pepperoni/pepperoni-right.png",
+  "assets/toppings/pepperoni/pepperoni-right-extra.png",
+  "assets/toppings/pepperoni/pepperoni-right-double.png"
+];
+var sausageImgs = [
+  "assets/toppings/sausage/sausage-full.png",
+  "assets/toppings/sausage/sausage-full-extra.png",
+  "assets/toppings/sausage/sausage-full-double.png",
+  "assets/toppings/sausage/sausage-left.png",
+  "assets/toppings/sausage/sausage-left-extra.png",
+  "assets/toppings/sausage/sausage-left-double.png",
+  "assets/toppings/sausage/sausage-right.png",
+  "assets/toppings/sausage/sausage-right-extra.png",
+  "assets/toppings/sausage/sausage-right-double.png"
+];
+var canadianBaconImgs = [
+  "assets/toppings/canadianbacon/canadianbacon-full.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-double.png",
+  "assets/toppings/canadianbacon/canadianbacon-left.png",
+  "assets/toppings/canadianbacon/canadianbacon-left-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-left-double.png",
+  "assets/toppings/canadianbacon/canadianbacon-right.png",
+  "assets/toppings/canadianbacon/canadianbacon-right-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-double.png"
+];
+var baconImgs = [
+  "assets/toppings/bacon/bacon-full.png",
+  "assets/toppings/bacon/bacon-full-extra.png",
+  "assets/toppings/bacon/bacon-full-double.png",
+  "assets/toppings/bacon/bacon-left.png",
+  "assets/toppings/bacon/bacon-left-extra.png",
+  "assets/toppings/bacon/bacon-left-double.png",
+  "assets/toppings/bacon/bacon-right.png",
+  "assets/toppings/bacon/bacon-right-extra.png",
+  "assets/toppings/bacon/bacon-right-double.png"
+];
+var beefImgs = [
+  "assets/toppings/beef/beef-full.png",
+  "assets/toppings/beef/beef-full-extra.png",
+  "assets/toppings/beef/beef-full-double.png",
+  "assets/toppings/beef/beef-left.png",
+  "assets/toppings/beef/beef-left-extra.png",
+  "assets/toppings/beef/beef-left-double.png",
+  "assets/toppings/beef/beef-right.png",
+  "assets/toppings/beef/beef-right-extra.png",
+  "assets/toppings/beef/beef-right-double.png"
+];
+var mushroomImgs = [
+  "assets/toppings/mushrooms/mushrooms-full.png",
+  "assets/toppings/mushrooms/mushrooms-full-extra.png",
+  "assets/toppings/mushrooms/mushrooms-full-double.png",
+  "assets/toppings/mushrooms/mushrooms-left.png",
+  "assets/toppings/mushrooms/mushrooms-left-extra.png",
+  "assets/toppings/mushrooms/mushrooms-left-double.png",
+  "assets/toppings/mushrooms/mushrooms-right.png",
+  "assets/toppings/mushrooms/mushrooms-right-extra.png",
+  "assets/toppings/mushrooms/mushrooms-right-double.png"
+];
+var oliveImgs = [
+  "assets/toppings/olives/olives-full.png",
+  "assets/toppings/olives/olives-full-extra.png",
+  "assets/toppings/olives/olives-full-double.png",
+  "assets/toppings/olives/olives-left.png",
+  "assets/toppings/olives/olives-left-extra.png",
+  "assets/toppings/olives/olives-left-double.png",
+  "assets/toppings/olives/olives-right.png",
+  "assets/toppings/olives/olives-right-extra.png",
+  "assets/toppings/olives/olives-right-double.png"
+];
+var onionImgs = [
+  "assets/toppings/onions/onions-full.png",
+  "assets/toppings/onions/onions-full-extra.png",
+  "assets/toppings/onions/onions-full-double.png",
+  "assets/toppings/onions/onions-left.png",
+  "assets/toppings/onions/onions-left-extra.png",
+  "assets/toppings/onions/onions-left-double.png",
+  "assets/toppings/onions/onions-right.png",
+  "assets/toppings/onions/onions-right-extra.png",
+  "assets/toppings/onions/onions-right-double.png"
+];
+var bellPepperImgs = [
+  "assets/toppings/bellpeppers/bellpeppers-full.png",
+  "assets/toppings/bellpeppers/bellpeppers-full-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-full-double.png",
+  "assets/toppings/bellpeppers/bellpeppers-left.png",
+  "assets/toppings/bellpeppers/bellpeppers-left-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-left-double.png",
+  "assets/toppings/bellpeppers/bellpeppers-right.png",
+  "assets/toppings/bellpeppers/bellpeppers-right-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-right-double.png"
+];
+var spinachImgs = [
+  "assets/toppings/spinach/spinach-full.png",
+  "assets/toppings/spinach/spinach-full-extra.png",
+  "assets/toppings/spinach/spinach-full-double.png",
+  "assets/toppings/spinach/spinach-left.png",
+  "assets/toppings/spinach/spinach-left-extra.png",
+  "assets/toppings/spinach/spinach-left-double.png",
+  "assets/toppings/spinach/spinach-right.png",
+  "assets/toppings/spinach/spinach-right-extra.png",
+  "assets/toppings/spinach/spinach-right-double.png"
+];
 
 var isPreBuilt = false;
 
@@ -47,7 +147,7 @@ function loadJSON(filename, callback) {
   xobj.overrideMimeType("application/json");
 
   xobj.open("GET", filename, true);
-  xobj.onreadystatechange = function () {
+  xobj.onreadystatechange = function() {
     if (xobj.readyState == 4 && xobj.status == "200") {
       callback(xobj.responseText);
     }
@@ -57,7 +157,7 @@ function loadJSON(filename, callback) {
 
 function init(response) {
   //console.log("in json init", filenameToLoad);
-  loadJSON(filenameToLoad, function (responseText) {
+  loadJSON(filenameToLoad, function(responseText) {
     if (filenameToLoad.toString() == "scripts/start.json") {
       var startInfo = JSON.parse(responseText);
       //console.log(startInfo);
@@ -355,10 +455,10 @@ function setCrustButtons() {
   var thick = document.getElementById("thick-crust");
   var stuffed = document.getElementById("stuffed-crust");
   var pretzel = document.getElementById("pretzel-crust");
-  thin.addEventListener('click', crustClick);
-  thick.addEventListener('click', crustClick);
-  stuffed.addEventListener('click', crustClick);
-  pretzel.addEventListener('click', crustClick);
+  thin.addEventListener("click", crustClick);
+  thick.addEventListener("click", crustClick);
+  stuffed.addEventListener("click", crustClick);
+  pretzel.addEventListener("click", crustClick);
 
   switch (currentCrust) {
     case "Thin":
@@ -382,10 +482,10 @@ function setSauceButtons() {
   var bbq = document.getElementById("bbq-sauce");
   var buffalo = document.getElementById("buff-sauce");
 
-  marinara.addEventListener('click', sauceClick);
-  creamy.addEventListener('click', sauceClick);
-  bbq.addEventListener('click', sauceClick);
-  buffalo.addEventListener('click', sauceClick);
+  marinara.addEventListener("click", sauceClick);
+  creamy.addEventListener("click", sauceClick);
+  bbq.addEventListener("click", sauceClick);
+  buffalo.addEventListener("click", sauceClick);
 
   switch (currentSauce) {
     case "Marinara":
@@ -408,10 +508,10 @@ function setCheeseButtons() {
   var four = document.getElementById("four-cheese");
   var provolone = document.getElementById("provo-cheese");
   var mozzarella = document.getElementById("moz-cheese");
-  cheddar.addEventListener('click', cheeseClick);
-  four.addEventListener('click', cheeseClick);
-  provolone.addEventListener('click', cheeseClick);
-  mozzarella.addEventListener('click', cheeseClick);
+  cheddar.addEventListener("click", cheeseClick);
+  four.addEventListener("click", cheeseClick);
+  provolone.addEventListener("click", cheeseClick);
+  mozzarella.addEventListener("click", cheeseClick);
 
   switch (currentCheese) {
     case "Cheddar":
@@ -445,21 +545,21 @@ function setToppingSideButtons() {
   var baconLeft = document.getElementById("bacon-left");
   var baconFull = document.getElementById("bacon-full");
   var baconRight = document.getElementById("bacon-right");
-  pepperoniRight.addEventListener('click', rightClick);
-  sausageRight.addEventListener('click', rightClick);
-  canadianBaconRight.addEventListener('click', rightClick);
-  beefRight.addEventListener('click', rightClick);
-  baconRight.addEventListener('click', rightClick);
-  pepperoniFull.addEventListener('click', fullClick);
-  sausageFull.addEventListener('click', fullClick);
-  canadianBaconFull.addEventListener('click', fullClick);
-  beefFull.addEventListener('click', fullClick);
-  baconFull.addEventListener('click', fullClick);
-  pepperoniLeft.addEventListener('click', leftClick);
-  sausageLeft.addEventListener('click', leftClick);
-  canadianBaconLeft.addEventListener('click', leftClick);
-  beefLeft.addEventListener('click', leftClick);
-  baconLeft.addEventListener('click', leftClick);
+  pepperoniRight.addEventListener("click", rightClick);
+  sausageRight.addEventListener("click", rightClick);
+  canadianBaconRight.addEventListener("click", rightClick);
+  beefRight.addEventListener("click", rightClick);
+  baconRight.addEventListener("click", rightClick);
+  pepperoniFull.addEventListener("click", fullClick);
+  sausageFull.addEventListener("click", fullClick);
+  canadianBaconFull.addEventListener("click", fullClick);
+  beefFull.addEventListener("click", fullClick);
+  baconFull.addEventListener("click", fullClick);
+  pepperoniLeft.addEventListener("click", leftClick);
+  sausageLeft.addEventListener("click", leftClick);
+  canadianBaconLeft.addEventListener("click", leftClick);
+  beefLeft.addEventListener("click", leftClick);
+  baconLeft.addEventListener("click", leftClick);
   var onionsLeft = document.getElementById("onions-left");
   var onionsFull = document.getElementById("onions-full");
   var onionsRight = document.getElementById("onions-right");
@@ -475,24 +575,22 @@ function setToppingSideButtons() {
   var mushroomsLeft = document.getElementById("mushrooms-left");
   var mushroomsFull = document.getElementById("mushrooms-full");
   var mushroomsRight = document.getElementById("mushrooms-right");
-  onionsRight.addEventListener('click', rightClick);
-  olivesRight.addEventListener('click', rightClick);
-  bellPeppersRight.addEventListener('click', rightClick);
-  spinachRight.addEventListener('click', rightClick);
-  mushroomsRight.addEventListener('click', rightClick);
-  onionsFull.addEventListener('click', fullClick);
-  olivesFull.addEventListener('click', fullClick);
-  bellPeppersFull.addEventListener('click', fullClick);
-  spinachFull.addEventListener('click', fullClick);
-  mushroomsFull.addEventListener('click', fullClick);
-  onionsLeft.addEventListener('click', leftClick);
-  olivesLeft.addEventListener('click', leftClick);
-  bellPeppersLeft.addEventListener('click', leftClick);
-  spinachLeft.addEventListener('click', leftClick);
-  mushroomsLeft.addEventListener('click', leftClick);
+  onionsRight.addEventListener("click", rightClick);
+  olivesRight.addEventListener("click", rightClick);
+  bellPeppersRight.addEventListener("click", rightClick);
+  spinachRight.addEventListener("click", rightClick);
+  mushroomsRight.addEventListener("click", rightClick);
+  onionsFull.addEventListener("click", fullClick);
+  olivesFull.addEventListener("click", fullClick);
+  bellPeppersFull.addEventListener("click", fullClick);
+  spinachFull.addEventListener("click", fullClick);
+  mushroomsFull.addEventListener("click", fullClick);
+  onionsLeft.addEventListener("click", leftClick);
+  olivesLeft.addEventListener("click", leftClick);
+  bellPeppersLeft.addEventListener("click", leftClick);
+  spinachLeft.addEventListener("click", leftClick);
+  mushroomsLeft.addEventListener("click", leftClick);
 }
-
-
 
 function setToppingButtons() {
   var pep = document.getElementById("pepperoni");
@@ -506,16 +604,16 @@ function setToppingButtons() {
   var bellPeppers = document.getElementById("bellpeppers");
   var spinach = document.getElementById("spinach");
 
-  pep.addEventListener('click', toppingLabelClick);
-  sausage.addEventListener('click', toppingLabelClick);
-  beef.addEventListener('click', toppingLabelClick);
-  canadianBacon.addEventListener('click', toppingLabelClick);
-  bacon.addEventListener('click', toppingLabelClick);
-  olives.addEventListener('click', toppingLabelClick);
-  mushrooms.addEventListener('click', toppingLabelClick);
-  onions.addEventListener('click', toppingLabelClick);
-  bellPeppers.addEventListener('click', toppingLabelClick);
-  spinach.addEventListener('click', toppingLabelClick);
+  pep.addEventListener("click", toppingLabelClick);
+  sausage.addEventListener("click", toppingLabelClick);
+  beef.addEventListener("click", toppingLabelClick);
+  canadianBacon.addEventListener("click", toppingLabelClick);
+  bacon.addEventListener("click", toppingLabelClick);
+  olives.addEventListener("click", toppingLabelClick);
+  mushrooms.addEventListener("click", toppingLabelClick);
+  onions.addEventListener("click", toppingLabelClick);
+  bellPeppers.addEventListener("click", toppingLabelClick);
+  spinach.addEventListener("click", toppingLabelClick);
 
   setToppingSideButtons();
   setToppingPlusButtons();
@@ -544,32 +642,32 @@ function setToppingPlusButtons() {
   var spinachDouble = document.getElementById("spinach-double");
   var bellPeppersDouble = document.getElementById("bellpeppers-double");
 
-  pepExtra.addEventListener('click', extraClick);
-  sausageExtra.addEventListener('click', extraClick);
-  canadianBaconExtra.addEventListener('click', extraClick);
-  baconExtra.addEventListener('click', extraClick);
-  beefExtra.addEventListener('click', extraClick);
-  mushroomsExtra.addEventListener('click', extraClick);
-  olivesExtra.addEventListener('click', extraClick);
-  onionsExtra.addEventListener('click', extraClick);
-  spinachExtra.addEventListener('click', extraClick);
-  bellPeppersExtra.addEventListener('click', extraClick);
+  pepExtra.addEventListener("click", extraClick);
+  sausageExtra.addEventListener("click", extraClick);
+  canadianBaconExtra.addEventListener("click", extraClick);
+  baconExtra.addEventListener("click", extraClick);
+  beefExtra.addEventListener("click", extraClick);
+  mushroomsExtra.addEventListener("click", extraClick);
+  olivesExtra.addEventListener("click", extraClick);
+  onionsExtra.addEventListener("click", extraClick);
+  spinachExtra.addEventListener("click", extraClick);
+  bellPeppersExtra.addEventListener("click", extraClick);
 
-  pepDouble.addEventListener('click', doubleClick);
-  sausageDouble.addEventListener('click', doubleClick);
-  canadianBaconDouble.addEventListener('click', doubleClick);
-  baconDouble.addEventListener('click', doubleClick);
-  beefDouble.addEventListener('click', doubleClick);
-  mushroomsDouble.addEventListener('click', doubleClick);
-  olivesDouble.addEventListener('click', doubleClick);
-  onionsDouble.addEventListener('click', doubleClick);
-  spinachDouble.addEventListener('click', doubleClick);
-  bellPeppersDouble.addEventListener('click', doubleClick);
+  pepDouble.addEventListener("click", doubleClick);
+  sausageDouble.addEventListener("click", doubleClick);
+  canadianBaconDouble.addEventListener("click", doubleClick);
+  baconDouble.addEventListener("click", doubleClick);
+  beefDouble.addEventListener("click", doubleClick);
+  mushroomsDouble.addEventListener("click", doubleClick);
+  olivesDouble.addEventListener("click", doubleClick);
+  onionsDouble.addEventListener("click", doubleClick);
+  spinachDouble.addEventListener("click", doubleClick);
+  bellPeppersDouble.addEventListener("click", doubleClick);
 }
 
 function toppingLabelClick(evt) {
-  var currentX = document.getElementById(this.id + '-x');
-  var currentOptions = document.getElementById(this.id + '-options');
+  var currentX = document.getElementById(this.id + "-x");
+  var currentOptions = document.getElementById(this.id + "-options");
   this.className = this.className + " selectedCrust";
   var toppingOptions = document.getElementsByClassName("topping-options");
   for (let i = 0; i < toppingOptions.length; i++) {
@@ -592,7 +690,12 @@ function preClick(evt) {
 
 function preBuiltPageInit() {
   //console.log("in pre-built init");
-  if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0) {
+  if (
+    currentCrust != null &&
+    currentSauce != null &&
+    currentCheese != null &&
+    currentToppings.length > 0
+  ) {
     setNavButtons();
   }
   var backBtn = document.getElementById("backBtn");
@@ -648,7 +751,13 @@ function setSelectedPizza(id) {
         "assets/toppings/bacon/bacon-full.png",
         "assets/toppings/beef/beef-full.png"
       ];
-      currentToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Bacon", "Beef"];
+      currentToppings = [
+        "Pepperoni",
+        "Sausage",
+        "Canadian Bacon",
+        "Bacon",
+        "Beef"
+      ];
       calculateCost();
       break;
     case "pb_2":
@@ -670,7 +779,13 @@ function setSelectedPizza(id) {
         "assets/toppings/bellpeppers/bellpeppers-full.png",
         "assets/toppings/spinach/spinach-full.png"
       ];
-      currentToppings = ["Mushrooms", "Olives", "Onions", "Bell Peppers", "Spinach"];
+      currentToppings = [
+        "Mushrooms",
+        "Olives",
+        "Onions",
+        "Bell Peppers",
+        "Spinach"
+      ];
       calculateCost();
       break;
     case "pb_4":
@@ -685,7 +800,14 @@ function setSelectedPizza(id) {
         "assets/toppings/sausage/sausage-full.png",
         "assets/toppings/beef/beef-full.png"
       ];
-      currentToppings = ["Onions", "Bell Peppers", "Mushrooms", "Pepperoni", "Sausage", "Beef"];
+      currentToppings = [
+        "Onions",
+        "Bell Peppers",
+        "Mushrooms",
+        "Pepperoni",
+        "Sausage",
+        "Beef"
+      ];
       calculateCost();
       break;
     case "pb_5":
@@ -835,7 +957,10 @@ function crustClick(evt) {
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
-      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+      allElements[i].className = allElements[i].className.replace(
+        " selectedCrust",
+        ""
+      );
     }
   }
   this.className = this.className + " selectedCrust";
@@ -945,7 +1070,10 @@ function cheeseClick(evt) {
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
-      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+      allElements[i].className = allElements[i].className.replace(
+        " selectedCrust",
+        ""
+      );
     }
   }
   this.className = this.className + " selectedCrust";
@@ -1022,7 +1150,7 @@ function rightClick(evt) {
     right.className = right.className + " selectedCrust";
     var name = toppingName + "-right";
     console.log("NAME", name);
-    
+
     setSelectedTopping(name);
   }
 }
@@ -1069,7 +1197,7 @@ function fullClick(evt) {
     full.className = full.className + " selectedCrust";
     var name = toppingName + "-full";
     console.log(name);
-    
+
     setSelectedTopping(name);
   }
 }
@@ -1165,19 +1293,21 @@ function doubleClick(evt) {
 function setSelectedTopping(name) {
   var toppingType = name.split("-");
   console.log(toppingType[0]);
-  if(currentToppings.length > 0){
-    for(var i in currentToppings){
+  if (currentToppings.length > 0) {
+    for (var i in currentToppings) {
       var temp = currentToppings[i].toString();
       console.log("NAME", name);
       var type = toppingType[0].toString();
       console.log(temp.includes(type));
-      if(temp.includes(type)){
+      if (temp.includes(type)) {
         console.log("HI");
-        currentToppings.splice(i, 1, name); 
+        currentToppings.splice(i, 1, name);
       } else {
-        currentToppings.unshift(name);
+        break;
+        //currentToppings.unshift(name);
       }
     }
+    currentToppings.unshift(name);
   } else {
     currentToppings.push(name);
   }
@@ -1269,7 +1399,7 @@ function updatePizzaView() {
     }
   }
   for (let i = 0; i < currentPizzaImgs.length; i++) {
-    if (currentPizzaImgs.length > 1 && (i != currentPizzaImgs.length - 1)) {
+    if (currentPizzaImgs.length > 1 && i != currentPizzaImgs.length - 1) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
     } else {
       imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
@@ -1368,7 +1498,7 @@ function getCheeseImg() {
 function getToppingImg() {
   var toppingImg = "";
   toppingImgs = [];
-  for(var i in currentToppings){
+  for (var i in currentToppings) {
     var topping = currentToppings[i].toString();
     if (topping.includes("pepperoni")) {
       for (let i = 0; i < pepperoniImgs.length; i++) {
@@ -1571,13 +1701,13 @@ function modalInit() {
     var close = document.getElementsByClassName("close");
 
     for (let i = 0; i < modalBtns.length; i++) {
-      modalBtns[i].addEventListener("click", function () {
+      modalBtns[i].addEventListener("click", function() {
         var modal = modalBtns[i].getAttribute("data-modal");
         document.getElementById(modal).style.display = "block";
       });
     }
     for (let j = 0; j < close.length; j++) {
-      close[j].addEventListener("click", function () {
+      close[j].addEventListener("click", function() {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
         currentCrust = "";
