@@ -478,11 +478,11 @@ function setToppingSideButtons() {
   bellPeppersFull.addEventListener('click', fullClick);
   spinachFull.addEventListener('click', fullClick);
   mushroomsFull.addEventListener('click', fullClick);
-  onionsLeft.addEventListener('click', fullClick);
-  olivesLeft.addEventListener('click', fullClick);
-  bellPeppersLeft.addEventListener('click', fullClick);
-  spinachLeft.addEventListener('click', fullClick);
-  mushroomsLeft.addEventListener('click', fullClick);
+  onionsLeft.addEventListener('click', leftClick);
+  olivesLeft.addEventListener('click', leftClick);
+  bellPeppersLeft.addEventListener('click', leftClick);
+  spinachLeft.addEventListener('click', leftClick);
+  mushroomsLeft.addEventListener('click', leftClick);
 }
 
 
@@ -978,6 +978,7 @@ function removeClick(evt) {
 
 function rightClick(evt) {
   setNavButtons();
+  console.log("right click");
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -994,6 +995,8 @@ function rightClick(evt) {
   if(!right.classList.contains("selectedCrust")){
     right.className = right.className + " selectedCrust";
     var name = toppingName + "-right";
+    console.log("NAME", name);
+    
     setSelectedTopping(name);
   }
 }
@@ -1016,6 +1019,7 @@ function leftClick(evt) {
   if(!left.classList.contains("selectedCrust")){
     left.className = left.className + " selectedCrust";
     var name = toppingName + "-left";
+    console.log(name);
     setSelectedTopping(name);
   }
 }
@@ -1038,6 +1042,8 @@ function fullClick(evt) {
   if(!full.classList.contains("selectedCrust")){
     full.className = full.className + " selectedCrust";
     var name = toppingName + "-full";
+    console.log(name);
+    
     setSelectedTopping(name);
   }
 }
@@ -1131,6 +1137,14 @@ function doubleClick(evt) {
 }
 
 function setSelectedTopping(name) {
+  for(var i in currentToppings){
+    if(i.includes(name)){
+      currentToppings.splice(i, 1, name); 
+    } else {
+      currentToppings.unshift(name);
+    }
+  }
+  /*
   if (currentToppings.length > 0) {
     for (let i = 0; i < currentToppings.length; i++) {
       var str = currentToppings[i].toString();
@@ -1141,6 +1155,7 @@ function setSelectedTopping(name) {
   } else {
     currentToppings.unshift(name);
   }
+  */
   calculateCost();
   console.log(currentToppings);
   getToppingImg();
@@ -1312,6 +1327,93 @@ function getCheeseImg() {
 
 function getToppingImg() {
   var toppingImg = "";
+  for(var i in currentToppings){
+    var topping = i.toString();
+    if (lastTopping.includes("pepperoni")) {
+      for (let i = 0; i < pepperoniImgs.length; i++) {
+        var str = pepperoniImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = pepperoniImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("sausage")) {
+      for (let i = 0; i < sausageImgs.length; i++) {
+        var str = sausageImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = sausageImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("canadianbacon")) {
+      for (let i = 0; i < canadianBaconImgs.length; i++) {
+        var str = canadianBaconImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = canadianBaconImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("bacon")) {
+      for (let i = 0; i < baconImgs.length; i++) {
+        var str = baconImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = baconImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("beef")) {
+      for (let i = 0; i < beefImgs.length; i++) {
+        var str = beefImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = beefImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("mushrooms")) {
+      var str = mushroomImgs[i].toString();
+      for (let i = 0; i < mushroomImgs.length; i++) {
+        if (str.includes(lastTopping)) {
+          toppingImg = mushroomImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("olives")) {
+      for (let i = 0; i < oliveImgs.length; i++) {
+        var str = oliveImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = oliveImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("bellpeppers")) {
+      for (let i = 0; i < bellPepperImgs.length; i++) {
+        var str = bellPepperImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = bellPepperImgs[i];
+          break;
+        }
+      }
+    }
+    if (lastTopping.includes("spinach")) {
+      for (let i = 0; i < spinachImgs.length; i++) {
+        var str = spinachImgs[i].toString();
+        if (str.includes(lastTopping)) {
+          toppingImg = spinachImgs[i];
+          break;
+        }
+      }
+    }
+    toppingImgs.push(toppingImg);
+  }
+  /*
+  var toppingImg = "";
   var lastToppingArray = currentToppings[0];
   console.log("last topping", lastToppingArray);
   var lastTopping = lastToppingArray.toString();
@@ -1402,6 +1504,7 @@ function getToppingImg() {
     var toppingIndex = toppingImgs.length - 1;
     toppingImgs.splice(toppingIndex, 1, toppingImg);
   }
+  */
   updatePizzaView();
 }
 
