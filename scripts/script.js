@@ -648,6 +648,7 @@ function setSelectedPizza(id) {
         "assets/toppings/bacon/bacon-full.png",
         "assets/toppings/beef/beef-full.png"
       ];
+      currentToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Bacon", "Beef"];
       calculateCost();
       break;
     case "pb_2":
@@ -655,6 +656,7 @@ function setSelectedPizza(id) {
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
       toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
+      currentToppings = ["Pepperoni"];
       calculateCost();
       break;
     case "pb_3":
@@ -668,6 +670,7 @@ function setSelectedPizza(id) {
         "assets/toppings/bellpeppers/bellpeppers-full.png",
         "assets/toppings/spinach/spinach-full.png"
       ];
+      currentToppings = ["Mushrooms", "Olives", "Onions", "Bell Peppers", "Spinach"];
       calculateCost();
       break;
     case "pb_4":
@@ -682,6 +685,7 @@ function setSelectedPizza(id) {
         "assets/toppings/sausage/sausage-full.png",
         "assets/toppings/beef/beef-full.png"
       ];
+      currentToppings = ["Onions", "Bell Peppers", "Mushrooms", "Pepperoni", "Sausage", "Beef"];
       calculateCost();
       break;
     case "pb_5":
@@ -693,6 +697,7 @@ function setSelectedPizza(id) {
         "assets/toppings/bellpeppers/bellpeppers-full.png",
         "assets/toppings/sausage/sausage-full.png"
       ];
+      currentToppings = ["Onions", "Bell Peppers", "Sausage"];
       calculateCost();
       break;
   }

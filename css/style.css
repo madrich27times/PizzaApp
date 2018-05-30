@@ -356,11 +356,14 @@ a {
   border: 1px solid #BF0706; }
 
 .badge {
+  font-size: 1rem;
   display: none;
   color: #F2F2F2;
   background-color: #BF0706;
   border: 1px solid #BF0706;
-  border-radius: 5%; }
+  border-radius: 5%;
+  padding: 5px;
+  max-width: max-content; }
 
 .modal {
   display: none;
@@ -1170,3 +1173,5 @@ a {
 
   .pb-row {
     flex-direction: row; } }
+
+/*# sourceMappingURL=style.css.map */
