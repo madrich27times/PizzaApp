@@ -53,7 +53,7 @@ function loadJSON(filename, callback) {
 }
 
 function init(response) {
-  console.log("in json init", filenameToLoad);
+  //console.log("in json init", filenameToLoad);
   loadJSON(filenameToLoad, function (responseText) {
     if (filenameToLoad.toString() == "scripts/start.json") {
       var startInfo = JSON.parse(responseText);
@@ -436,18 +436,66 @@ function setToppingButtons() {
   onions.addEventListener('click', toppingLabelClick);
   bellPeppers.addEventListener('click', toppingLabelClick);
   spinach.addEventListener('click', toppingLabelClick);
+
+  setToppingPlusButtons();
+}
+
+function setToppingPlusButtons() {
+  var pepExtra = document.getElementById("pepperoni-extra");
+  var sausageExtra = document.getElementById("sausage-extra");
+  var canadianBaconExtra = document.getElementById("canadianbacon-extra");
+  var baconExtra = document.getElementById("bacon-extra");
+  var beefExtra = document.getElementById("beef-extra");
+  var mushroomsExtra = document.getElementById("mushrooms-extra");
+  var olivesExtra = document.getElementById("olives-extra");
+  var onionsExtra = document.getElementById("onions-extra");
+  var spinachExtra = document.getElementById("spinach-extra");
+  var bellPeppersExtra = document.getElementById("bellpeppers-extra");
+  
+  var pepDouble = document.getElementById("pepperoni-double");
+  var sausageDouble = document.getElementById("sausage-double");
+  var canadianBaconDouble = document.getElementById("canadianbacon-double");
+  var baconDouble = document.getElementById("bacon-double");
+  var beefDouble = document.getElementById("beef-double");
+  var mushroomsDouble = document.getElementById("mushrooms-double");
+  var olivesDouble = document.getElementById("olives-double");
+  var onionsDouble = document.getElementById("onions-double");
+  var spinachDouble = document.getElementById("spinach-double");
+  var bellPeppersDouble = document.getElementById("bellpeppers-double");
+
+  pepExtra.addEventListener('click', extraClick);
+  sausageExtra.addEventListener('click', extraClick);
+  canadianBaconExtra.addEventListener('click', extraClick);
+  baconExtra.addEventListener('click', extraClick);
+  beefExtra.addEventListener('click', extraClick);
+  mushroomsExtra.addEventListener('click', extraClick);
+  olivesExtra.addEventListener('click', extraClick);
+  onionsExtra.addEventListener('click', extraClick);
+  spinachExtra.addEventListener('click', extraClick);
+  bellPeppersExtra.addEventListener('click', extraClick);
+  
+  pepDouble.addEventListener('click', doubleClick);
+  sausageDouble.addEventListener('click', doubleClick);
+  canadianBaconDouble.addEventListener('click', doubleClick);
+  baconDouble.addEventListener('click', doubleClick);
+  beefDouble.addEventListener('click', doubleClick);
+  mushroomsDouble.addEventListener('click', doubleClick);
+  olivesDouble.addEventListener('click', doubleClick);
+  onionsDouble.addEventListener('click', doubleClick);
+  spinachDouble.addEventListener('click', doubleClick);
+  bellPeppersDouble.addEventListener('click', doubleClick);
 }
 
 function toppingLabelClick(evt) {
+  var currentX = document.getElementById(this.id + '-x');
+  var currentOptions = document.getElementById(this.id + '-options');
   this.className = this.className + " selectedCrust";
   var toppingOptions = document.getElementsByClassName("topping-options");
   for (let i = 0; i < toppingOptions.length; i++) {
     toppingOptions[i].style.display = "none";
   }
-  console.log(this.id + '-x');
-  var currentX = document.getElementById(this.id + '-x');
+  //console.log(this.id + '-x');
   currentX.style.display = "block";
-  var currentOptions = document.getElementById(this.id + '-options');
   currentOptions.style.display = "block";
 }
 
@@ -495,7 +543,7 @@ function preBuiltClick(evt) {
 }
 
 function setSelectedPizza(id) {
-  console.log(id);
+  //console.log(id);
   switch (id) {
     case "pb_0":
       currentCrust = "Thick";
@@ -650,7 +698,7 @@ function buildingSetSize(id) {
 
 //CRUST
 function crustPageInit() {
-  console.log("crust page init");
+  //console.log("crust page init");
   updatePizzaView();
   updateListView();
 
@@ -701,7 +749,7 @@ function setSelectedCrust(id) {
 
 //SAUCE
 function saucePageInit() {
-  console.log("sauce page init");
+  //console.log("sauce page init");
   updatePizzaView();
   updateListView();
   if (currentSauce != null) {
@@ -754,7 +802,7 @@ function setSelectedSauce(id) {
 
 //CHEESE
 function cheesePageInit() {
-  console.log("cheese page init");
+  //console.log("cheese page init");
   updatePizzaView();
   updateListView();
 
@@ -798,14 +846,14 @@ function setSelectedCheese(id) {
       calculateCost();
       break;
   }
-  console.log(currentCheese);
+  console.log("cheese:", currentCheese);
   getCheeseImg();
   updateListView();
 }
 
 //TOPPINGS
 function toppingsPageInit() {
-  console.log("toppings page init");
+  //console.log("toppings page init");
   updatePizzaView();
   updateListView();
 
@@ -825,6 +873,10 @@ function toppingsClick(evt) {
 
 function removeClick(evt) {
   //remove currently selected topping from list
+  var toppingName = this.id.toString().split("-");
+  console.log(toppingName[0]);
+  var topToRemove = document.getElementById(toppingName[0]);
+  topToRemove.className = topToRemove.className.replace(" selectedCrust", "");
 }
 
 function rightClick(evt) {
@@ -842,10 +894,44 @@ function fullClick(evt) {
 
 function extraClick(evt) {
   setNavButtons();
+  var toppingString = this.id.toString().split("-");
+  var toppingName = toppingString[0];
+
+  var double = document.getElementById(toppingName + "-double");
+  var extra = document.getElementById(toppingName + "-extra");
+  //if double is selected
+  if (double.classList.contains("selectedCrust")) {
+    double.className = double.className.replace(" selectedCrust", "");
+    extra.className = extra.className + " selectedCrust";
+  } else {
+    //if extra is already selected, deselect it
+    if (extra.classList.contains("selectedCrust")) {
+      extra.className = extra.className.replace(" selectedCrust", "");
+    } else {
+      extra.className = extra.className + " selectedCrust";
+    }
+  }
 }
 
 function doubleClick(evt) {
   setNavButtons();
+  var toppingString = this.id.toString().split("-");
+
+  var toppingName = toppingString[0];
+  var double = document.getElementById(toppingName + "-double");
+  var extra = document.getElementById(toppingName + "-extra");
+  //if extra is selected
+  if (extra.classList.contains("selectedCrust")) {
+    extra.className = extra.className.replace(" selectedCrust", "");
+    double.className = double.className + " selectedCrust";
+  } else {
+    //if double is already selected, deselect it
+    if (double.classList.contains("selectedCrust")) {
+      double.className = double.className.replace(" selectedCrust", "");
+    } else {
+      double.className = double.className + " selectedCrust";
+    }
+  }
 }
 
 function setToppingName(id) {
@@ -948,7 +1034,7 @@ function getCrustImg() {
     var crustIndex = currentPizzaImgs.length - 1;
     currentPizzaImgs.splice(crustIndex, 1, crustImg);
   }
-  console.log(currentPizzaImgs);
+  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -975,7 +1061,7 @@ function getSauceImg() {
     currentPizzaImgs.splice(sauceIndex, 1, sauceImg);
   }
 
-  console.log(currentPizzaImgs);
+  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -1001,7 +1087,7 @@ function getCheeseImg() {
     var sauceIndex = currentPizzaImgs.length - 3;
     currentPizzaImgs.splice(sauceIndex, 1, cheeseImg);
   }
-  console.log(currentPizzaImgs);
+  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -1094,18 +1180,18 @@ function back(evt) {
   if (currentPage != 2) {
     back = currentPage - 1;
   }
-  console.log("back ", back);
+  //console.log("back ", back);
   changePage(back);
 }
 
 function next(evt) {
   var next = currentPage + 1;
-  console.log("next ", next);
+  //console.log("next ", next);
   changePage(next);
 }
 
 function modalInit() {
-  console.log("modal init");
+  //console.log("modal init");
   if (isModal == true) {
     var modalBtns = document.getElementsByClassName("btn-modal");
     var close = document.getElementsByClassName("close");
@@ -1167,7 +1253,7 @@ function calculateCost() {
 
 function checkMobile() {
   if (screen.width <= 810) {
-    console.log("mobile detected");
+    //console.log("mobile detected");
     pages.splice(1, 1, preBuiltMobile);
   }
 }
