@@ -239,6 +239,13 @@ function changePage(pageNum) {
   //console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
+      currentCrust = "";
+      currentSauce = "";
+      currentCheese = "";
+      currentToppings = [];
+      currentPizzaImgs = [];
+      toppingImgs = [];
+      totalPrice = "";
       filenameToLoad = "scripts/start.json";
       break;
     case 1:
@@ -588,6 +595,8 @@ function preBuiltPageInit() {
   if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
 
   var fourCheese = document.getElementById("pb_0");
   var meat = document.getElementById("pb_1");
@@ -632,12 +641,12 @@ function setSelectedPizza(id) {
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Pepperoni",
-        "Sausage",
-        "Canadian Bacon",
-        "Bacon",
-        "Beef"
+      toppingImgs = [
+        "assets/toppings/pepperoni/pepperoni-full.png",
+        "assets/toppings/sausage/sausage-full.png",
+        "assets/toppings/canadianbacon/canadianbacon-full.png",
+        "assets/toppings/bacon/bacon-full.png",
+        "assets/toppings/beef/beef-full.png"
       ];
       calculateCost();
       break;
@@ -645,19 +654,19 @@ function setSelectedPizza(id) {
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = ["Pepperoni"];
+      toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
       calculateCost();
       break;
     case "pb_3":
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Mushrooms",
-        "Olives",
-        "Onions",
-        "Bell Pepper",
-        "Spinach"
+      toppingImgs = [
+        "assets/toppings/mushrooms/mushrooms-full.png",
+        "assets/toppings/olives/olives-full.png",
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
+        "assets/toppings/spinach/spinach-full.png"
       ];
       calculateCost();
       break;
@@ -665,13 +674,13 @@ function setSelectedPizza(id) {
       currentCrust = "Thin";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Onion",
-        "Bell Pepper",
-        "Mushroom",
-        "Pepperoni",
-        "Sausage",
-        "Beef"
+      toppingImgs = [
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
+        "assets/toppings/mushrooms/mushrooms-full.png",
+        "assets/toppings/pepperoni/pepperoni-full.png",
+        "assets/toppings/sausage/sausage-full.png",
+        "assets/toppings/beef/beef-full.png"
       ];
       calculateCost();
       break;
@@ -679,7 +688,11 @@ function setSelectedPizza(id) {
       currentCrust = "Thin";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = ["Onion", "Bell Pepper", "Sausage"];
+      toppingImgs = [
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
+        "assets/toppings/sausage/sausage-full.png"
+      ];
       calculateCost();
       break;
   }
@@ -700,14 +713,16 @@ function sizesPageInit() {
 
   if (currentSize != null && isPreBuilt == false) {
     setNavButtons();
-  }
-  else if (currentSize != null && isPreBuilt == true) {
+  } else if (currentSize != null && isPreBuilt == true) {
     var nextBtn = document.getElementById("nextBtn");
     var backBtn = document.getElementById("backBtn");
 
     nextBtn.addEventListener("click", preBuiltFinish);
     backBtn.addEventListener("click", back);
   }
+
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
 }
 
 function sizeClick(evt) {
@@ -717,8 +732,7 @@ function sizeClick(evt) {
 
     nextBtn.addEventListener("click", preBuiltFinish);
     backBtn.addEventListener("click", back);
-  }
-  else {
+  } else {
     setNavButtons();
   }
   var allElements = document.body.getElementsByTagName("*");
@@ -802,6 +816,9 @@ function crustPageInit() {
   if (currentCrust != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setCrustButtons();
 
@@ -852,6 +869,9 @@ function saucePageInit() {
   if (currentSauce != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setSauceButtons();
 
@@ -906,6 +926,9 @@ function cheesePageInit() {
   if (currentCheese != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setCheeseButtons();
 
@@ -957,15 +980,13 @@ function toppingsPageInit() {
   if (currentToppings.length > 0) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setToppingButtons();
 
   calculateCost();
-}
-
-function toppingsClick(evt) {
-  //set selected label of topping name
-
 }
 
 function removeClick(evt) {
@@ -986,13 +1007,13 @@ function rightClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (left.classList.contains("selectedCrust")){
+  if (left.classList.contains("selectedCrust")) {
     left.className = left.className.replace(" selectedCrust", "");
   }
-  if(full.classList.contains("selectedCrust")){
+  if (full.classList.contains("selectedCrust")) {
     full.className = full.className.replace(" selectedCrust", "");
   }
-  if(!right.classList.contains("selectedCrust")){
+  if (!right.classList.contains("selectedCrust")) {
     right.className = right.className + " selectedCrust";
     var name = toppingName + "-right";
     console.log("NAME", name);
@@ -1010,13 +1031,13 @@ function leftClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (right.classList.contains("selectedCrust")){
+  if (right.classList.contains("selectedCrust")) {
     right.className = right.className.replace(" selectedCrust", "");
   }
-  if(full.classList.contains("selectedCrust")){
+  if (full.classList.contains("selectedCrust")) {
     full.className = full.className.replace(" selectedCrust", "");
   }
-  if(!left.classList.contains("selectedCrust")){
+  if (!left.classList.contains("selectedCrust")) {
     left.className = left.className + " selectedCrust";
     var name = toppingName + "-left";
     console.log(name);
@@ -1033,13 +1054,13 @@ function fullClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (right.classList.contains("selectedCrust")){
+  if (right.classList.contains("selectedCrust")) {
     right.className = right.className.replace(" selectedCrust", "");
   }
-  if(left.classList.contains("selectedCrust")){
+  if (left.classList.contains("selectedCrust")) {
     left.className = left.className.replace(" selectedCrust", "");
   }
-  if(!full.classList.contains("selectedCrust")){
+  if (!full.classList.contains("selectedCrust")) {
     full.className = full.className + " selectedCrust";
     var name = toppingName + "-full";
     console.log(name);
@@ -1149,15 +1170,17 @@ function setSelectedTopping(name) {
     for (let i = 0; i < currentToppings.length; i++) {
       var str = currentToppings[i].toString();
       if (str.includes(name)) {
+        console.log("SPLICE", name);
         currentToppings.splice(i, 1, name);
       }
     }
   } else {
+    console.log("UNSHIFT", name);
     currentToppings.unshift(name);
   }
   */
   calculateCost();
-  console.log(currentToppings);
+  console.log("AFTER", currentToppings);
   getToppingImg();
   updateListView();
 }
@@ -1498,7 +1521,7 @@ function getToppingImg() {
       }
     }
   }
-  if (toppingImgs.length == 1) {
+  if (toppingImgs.length == 0) {
     toppingImgs.unshift(toppingImg);
   } else {
     var toppingIndex = toppingImgs.length - 1;
@@ -1539,6 +1562,13 @@ function modalInit() {
       close[j].addEventListener("click", function () {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
+        currentCrust = "";
+        currentSauce = "";
+        currentCheese = "";
+        currentToppings = [];
+        currentPizzaImgs = [];
+        toppingImgs = [];
+        totalPrice = "";
         changePage(0);
       });
     }
