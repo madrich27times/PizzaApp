@@ -1158,13 +1158,25 @@ function doubleClick(evt) {
 }
 
 function setSelectedTopping(name) {
-  for(var i in currentToppings){
-    if(i.includes(name)){
-      currentToppings.splice(i, 1, name); 
-    } else {
-      currentToppings.unshift(name);
+  var toppingType = name.split("-");
+  console.log(toppingType[0]);
+  if(currentToppings.length > 0){
+    for(var i in currentToppings){
+      var temp = currentToppings[i].toString();
+      console.log("NAME", name);
+      var type = toppingType[0].toString();
+      console.log(temp.includes(type));
+      if(temp.includes(type)){
+        console.log("HI");
+        currentToppings.splice(i, 1, name); 
+      } else {
+        currentToppings.unshift(name);
+      }
     }
+  } else {
+    currentToppings.push(name);
   }
+  console.log("CURRENT TOPPINGS: ", currentToppings);
   /*
   if (currentToppings.length > 0) {
     for (let i = 0; i < currentToppings.length; i++) {
@@ -1351,83 +1363,83 @@ function getCheeseImg() {
 function getToppingImg() {
   var toppingImg = "";
   for(var i in currentToppings){
-    var topping = i.toString();
-    if (lastTopping.includes("pepperoni")) {
+    var topping = currentToppings[i].toString();
+    if (topping.includes("pepperoni")) {
       for (let i = 0; i < pepperoniImgs.length; i++) {
         var str = pepperoniImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = pepperoniImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("sausage")) {
+    if (topping.includes("sausage")) {
       for (let i = 0; i < sausageImgs.length; i++) {
         var str = sausageImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = sausageImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("canadianbacon")) {
+    if (topping.includes("canadianbacon")) {
       for (let i = 0; i < canadianBaconImgs.length; i++) {
         var str = canadianBaconImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = canadianBaconImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("bacon")) {
+    if (topping.includes("bacon")) {
       for (let i = 0; i < baconImgs.length; i++) {
         var str = baconImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = baconImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("beef")) {
+    if (topping.includes("beef")) {
       for (let i = 0; i < beefImgs.length; i++) {
         var str = beefImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = beefImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("mushrooms")) {
+    if (topping.includes("mushrooms")) {
       var str = mushroomImgs[i].toString();
       for (let i = 0; i < mushroomImgs.length; i++) {
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = mushroomImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("olives")) {
+    if (topping.includes("olives")) {
       for (let i = 0; i < oliveImgs.length; i++) {
         var str = oliveImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = oliveImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("bellpeppers")) {
+    if (topping.includes("bellpeppers")) {
       for (let i = 0; i < bellPepperImgs.length; i++) {
         var str = bellPepperImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = bellPepperImgs[i];
           break;
         }
       }
     }
-    if (lastTopping.includes("spinach")) {
+    if (topping.includes("spinach")) {
       for (let i = 0; i < spinachImgs.length; i++) {
         var str = spinachImgs[i].toString();
-        if (str.includes(lastTopping)) {
+        if (str.includes(topping)) {
           toppingImg = spinachImgs[i];
           break;
         }
