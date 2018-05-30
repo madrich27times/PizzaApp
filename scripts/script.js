@@ -1170,4 +1170,4 @@ function checkMobile() {
   }
 }
 
-changePage(0);
+//changePage(0);
