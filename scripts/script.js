@@ -967,6 +967,8 @@ function rightClick(evt) {
   }
   if(!right.classList.contains("selectedCrust")){
     right.className = right.className + " selectedCrust";
+    var name = toppingName + "-right";
+    setSelectedTopping(name);
   }
 }
 
@@ -987,6 +989,8 @@ function leftClick(evt) {
   }
   if(!left.classList.contains("selectedCrust")){
     left.className = left.className + " selectedCrust";
+    var name = toppingName + "-left";
+    setSelectedTopping(name);
   }
 }
 
@@ -1007,6 +1011,8 @@ function fullClick(evt) {
   }
   if(!full.classList.contains("selectedCrust")){
     full.className = full.className + " selectedCrust";
+    var name = toppingName + "-full";
+    setSelectedTopping(name);
   }
 }
 
