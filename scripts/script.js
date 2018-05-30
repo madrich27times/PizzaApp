@@ -632,12 +632,12 @@ function setSelectedPizza(id) {
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Pepperoni",
-        "Sausage",
-        "Canadian Bacon",
-        "Bacon",
-        "Beef"
+      toppingImgs = [
+        "assets/toppings/pepperoni/pepperoni-full.png",
+        "assets/toppings/sausage/sausage-full.png",
+        "assets/toppings/canadianbacon/canadianbacon-full.png",
+        "assets/toppings/bacon/bacon-full.png",
+        "assets/toppings/beef/beef-full.png"
       ];
       calculateCost();
       break;
@@ -645,19 +645,19 @@ function setSelectedPizza(id) {
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = ["Pepperoni"];
+      toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
       calculateCost();
       break;
     case "pb_3":
       currentCrust = "Thick";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Mushrooms",
-        "Olives",
-        "Onions",
-        "Bell Pepper",
-        "Spinach"
+      toppingImgs = [
+        "assets/toppings/mushrooms/mushrooms-full.png",
+        "assets/toppings/olives/olives-full.png",
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
+        "assets/toppings/spinach/spinach-full.png"
       ];
       calculateCost();
       break;
@@ -665,13 +665,13 @@ function setSelectedPizza(id) {
       currentCrust = "Thin";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = [
-        "Onion",
-        "Bell Pepper",
-        "Mushroom",
-        "Pepperoni",
-        "Sausage",
-        "Beef"
+      toppingImgs = [
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
+        "assets/toppings/mushrooms/mushrooms-full.png",
+        "assets/toppings/pepperoni/pepperoni-full.png",
+        "assets/toppings/sausage/sausage-full.png",
+        "assets/toppings/beef/beef-full.png"
       ];
       calculateCost();
       break;
@@ -679,7 +679,11 @@ function setSelectedPizza(id) {
       currentCrust = "Thin";
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
-      currentToppings = ["Onion", "Bell Pepper", "Sausage"];
+      toppingImgs = [
+        "assets/toppings/onions/onions-full.png", 
+        "assets/toppings/bellpeppers/bellpeppers-full.png", 
+        "assets/toppings/sausage/sausage-full.png"
+      ];
       calculateCost();
       break;
   }
@@ -700,8 +704,7 @@ function sizesPageInit() {
 
   if (currentSize != null && isPreBuilt == false) {
     setNavButtons();
-  }
-  else if (currentSize != null && isPreBuilt == true) {
+  } else if (currentSize != null && isPreBuilt == true) {
     var nextBtn = document.getElementById("nextBtn");
     var backBtn = document.getElementById("backBtn");
 
@@ -717,8 +720,7 @@ function sizeClick(evt) {
 
     nextBtn.addEventListener("click", preBuiltFinish);
     backBtn.addEventListener("click", back);
-  }
-  else {
+  } else {
     setNavButtons();
   }
   var allElements = document.body.getElementsByTagName("*");
@@ -985,13 +987,13 @@ function rightClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (left.classList.contains("selectedCrust")){
+  if (left.classList.contains("selectedCrust")) {
     left.className = left.className.replace(" selectedCrust", "");
   }
-  if(full.classList.contains("selectedCrust")){
+  if (full.classList.contains("selectedCrust")) {
     full.className = full.className.replace(" selectedCrust", "");
   }
-  if(!right.classList.contains("selectedCrust")){
+  if (!right.classList.contains("selectedCrust")) {
     right.className = right.className + " selectedCrust";
   }
 }
@@ -1005,13 +1007,13 @@ function leftClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (right.classList.contains("selectedCrust")){
+  if (right.classList.contains("selectedCrust")) {
     right.className = right.className.replace(" selectedCrust", "");
   }
-  if(full.classList.contains("selectedCrust")){
+  if (full.classList.contains("selectedCrust")) {
     full.className = full.className.replace(" selectedCrust", "");
   }
-  if(!left.classList.contains("selectedCrust")){
+  if (!left.classList.contains("selectedCrust")) {
     left.className = left.className + " selectedCrust";
   }
 }
@@ -1025,13 +1027,13 @@ function fullClick(evt) {
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
 
-  if (right.classList.contains("selectedCrust")){
+  if (right.classList.contains("selectedCrust")) {
     right.className = right.className.replace(" selectedCrust", "");
   }
-  if(left.classList.contains("selectedCrust")){
+  if (left.classList.contains("selectedCrust")) {
     left.className = left.className.replace(" selectedCrust", "");
   }
-  if(!full.classList.contains("selectedCrust")){
+  if (!full.classList.contains("selectedCrust")) {
     full.className = full.className + " selectedCrust";
   }
 }
