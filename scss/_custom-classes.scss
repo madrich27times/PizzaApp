@@ -69,8 +69,7 @@
     .modal-header {
       @extend .modal-comp;
       background-color: $white;
-      color: $black;
-      //border-bottom: 1px solid $red;
+      color: $black; //border-bottom: 1px solid $red;
       .close {
         color: lightenColor($black, 70%);
         float: right;
@@ -315,8 +314,6 @@
   height: 40px;
 }
 
-
-
 .dropdown-list {
   margin: 20px;
   position: relative;
@@ -538,7 +535,8 @@
   color: $white;
 }
 
-.topping-side, .topping-plus{
+.topping-side,
+.topping-plus {
   flex-direction: row;
   max-width: 230px;
   min-width: 230px;
@@ -546,18 +544,19 @@
   margin: 0 auto;
 }
 
-.topping-button{
+.topping-button {
   max-width: 185px;
   min-width: 185px;
 }
 
-.topping-options{
+.topping-options {
   flex-direction: column;
   margin: 0 auto;
   display: none;
 }
 
-.meats-container, .veg-container {
+.meats-container,
+.veg-container {
   flex-direction: column;
   border: 1px solid black;
   padding: 5px;
@@ -575,6 +574,11 @@
 
 .toppingLabel {
   //flex-direction: row;
+}
+
+.finalPage {
+  text-align: center;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 970px) {
