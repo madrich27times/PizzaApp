@@ -965,11 +965,6 @@ function toppingsPageInit() {
   calculateCost();
 }
 
-function toppingsClick(evt) {
-  //set selected label of topping name
-
-}
-
 function removeClick(evt) {
   //remove currently selected topping from list
   var toppingName = this.id.toString().split("-");
@@ -996,6 +991,7 @@ function rightClick(evt) {
   if (!right.classList.contains("selectedCrust")) {
     right.className = right.className + " selectedCrust";
     var name = toppingName + "-right";
+    console.log("RIGHT", name);
     setSelectedTopping(name);
   }
 }
@@ -1018,6 +1014,7 @@ function leftClick(evt) {
   if (!left.classList.contains("selectedCrust")) {
     left.className = left.className + " selectedCrust";
     var name = toppingName + "-left";
+    console.log("LEFT", name);
     setSelectedTopping(name);
   }
 }
@@ -1040,6 +1037,7 @@ function fullClick(evt) {
   if (!full.classList.contains("selectedCrust")) {
     full.className = full.className + " selectedCrust";
     var name = toppingName + "-full";
+    console.log("FULL", name);
     setSelectedTopping(name);
   }
 }
@@ -1133,18 +1131,23 @@ function doubleClick(evt) {
 }
 
 function setSelectedTopping(name) {
+  console.log("BEFORE", currentToppings);
   if (currentToppings.length > 0) {
     for (let i = 0; i < currentToppings.length; i++) {
       var str = currentToppings[i].toString();
       if (str.includes(name)) {
+        console.log("SPLICE", name);
         currentToppings.splice(i, 1, name);
       }
     }
-  } else {
+  }
+  else {
+    console.log("UNSHIFT", name);
     currentToppings.unshift(name);
   }
+
   calculateCost();
-  console.log(currentToppings);
+  console.log("AFTER", currentToppings);
   getToppingImg();
   updateListView();
 }
@@ -1398,7 +1401,7 @@ function getToppingImg() {
       }
     }
   }
-  if (toppingImgs.length == 1) {
+  if (toppingImgs.length == 0) {
     toppingImgs.unshift(toppingImg);
   } else {
     var toppingIndex = toppingImgs.length - 1;
