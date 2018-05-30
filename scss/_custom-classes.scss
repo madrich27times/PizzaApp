@@ -511,6 +511,7 @@
   vertical-align: middle;
   padding: 5px;
   max-height: max-content;
+  cursor: pointer;
 }
 
 #pizzaViewContainer {
@@ -553,9 +554,10 @@
 .topping-options{
   flex-direction: column;
   margin: 0 auto;
+  display: none;
 }
 
-.meats-container, .veg-container{
+.meats-container, .veg-container {
   flex-direction: column;
   border: 1px solid black;
   padding: 5px;
@@ -565,6 +567,14 @@
   max-height: 150px !important;
   min-height: 150px !important;
   margin: 5px auto;
+}
+
+.exes {
+  display: none;
+}
+
+.toppingLabel {
+  //flex-direction: row;
 }
 
 @media screen and (max-width: 970px) {
