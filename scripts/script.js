@@ -414,6 +414,80 @@ function setCheeseButtons() {
   }
 }
 
+function setToppingSideButtons(){
+  var pepperoniLeft = document.getElementById("pepperoni-left");
+  var pepperoniFull = document.getElementById("pepperoni-full");
+  var pepperoniRight = document.getElementById("pepperoni-right");
+  var sausageLeft = document.getElementById("sausage-left");
+  var sausageFull = document.getElementById("sausage-full");
+  var sausageRight = document.getElementById("sausage-right");
+  var canadianBaconLeft = document.getElementById("canadianbacon-left");
+  var canadianBaconFull = document.getElementById("canadianbacon-full");
+  var canadianBaconRight = document.getElementById("canadianbacon-right");
+  var beefLeft = document.getElementById("beef-left");
+  var beefFull = document.getElementById("beef-full");
+  var beefRight = document.getElementById("beef-right");
+  var baconLeft = document.getElementById("bacon-left");
+  var baconFull = document.getElementById("bacon-full");
+  var baconRight = document.getElementById("bacon-right");
+  pepperoniLeft.addEventListener('click', toppingSideClick);
+  pepperoniFull.addEventListener('click', toppingSideClick);
+  pepperoniRight.addEventListener('click', toppingSideClick);
+  sausageLeft.addEventListener('click', toppingSideClick);
+  sausageFull.addEventListener('click', toppingSideClick);
+  sausageRight.addEventListener('click', toppingSideClick);
+  canadianBaconLeft.addEventListener('click', toppingSideClick);
+  canadianBaconFull.addEventListener('click', toppingSideClick);
+  canadianBaconRight.addEventListener('click', toppingSideClick);
+  beefLeft.addEventListener('click', toppingSideClick);
+  beefFull.addEventListener('click', toppingSideClick);
+  beefRight.addEventListener('click', toppingSideClick);
+  baconLeft.addEventListener('click', toppingSideClick);
+  baconFull.addEventListener('click', toppingSideClick);
+  baconRight.addEventListener('click', toppingSideClick);
+  var onionsLeft = document.getElementById("onions-left");
+  var onionsFull = document.getElementById("onions-full");
+  var onionsRight = document.getElementById("onions-right");
+  var olivesLeft = document.getElementById("olives-left");
+  var olivesFull = document.getElementById("olives-full");
+  var olivesRight = document.getElementById("olives-right");
+  var bellPeppersLeft = document.getElementById("bellpeppers-left");
+  var bellPeppersFull = document.getElementById("bellpeppers-full");
+  var bellPeppersRight = document.getElementById("bellpeppers-right");
+  var spinachLeft = document.getElementById("spinach-left");
+  var spinachFull = document.getElementById("spinach-full");
+  var spinachRight = document.getElementById("spinach-right");
+  var mushroomsLeft = document.getElementById("mushrooms-left");
+  var mushroomsFull = document.getElementById("mushrooms-full");
+  var mushroomsRight = document.getElementById("mushrooms-right");
+  onionsLeft.addEventListener('click', toppingSideClick);
+  onionsFull.addEventListener('click', toppingSideClick);
+  onionsRight.addEventListener('click', toppingSideClick);
+  olivesLeft.addEventListener('click', toppingSideClick);
+  olivesFull.addEventListener('click', toppingSideClick);
+  olivesRight.addEventListener('click', toppingSideClick);
+  bellPeppersLeft.addEventListener('click', toppingSideClick);
+  bellPeppersFull.addEventListener('click', toppingSideClick);
+  bellPeppersRight.addEventListener('click', toppingSideClick);
+  spinachLeft.addEventListener('click', toppingSideClick);
+  spinachFull.addEventListener('click', toppingSideClick);
+  spinachRight.addEventListener('click', toppingSideClick);
+  mushroomsLeft.addEventListener('click', toppingSideClick);
+  mushroomsFull.addEventListener('click', toppingSideClick);
+  mushroomsRight.addEventListener('click', toppingSideClick);
+
+}
+
+function toppingSideClick(evt){
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selectedCrust") && !allElements[i].classList.contains("topping-button")) {
+      allElements[i].className = allElements[i].className.replace(" selectedCrust", "");
+    }
+  }
+  this.className = this.className + " selectedCrust";
+}
+
 function setToppingButtons() {
   var pep = document.getElementById("pepperoni");
   var sausage = document.getElementById("sausage");
@@ -436,7 +510,8 @@ function setToppingButtons() {
   onions.addEventListener('click', toppingLabelClick);
   bellPeppers.addEventListener('click', toppingLabelClick);
   spinach.addEventListener('click', toppingLabelClick);
-
+  
+  setToppingSideButtons();
   setToppingPlusButtons();
 }
 
