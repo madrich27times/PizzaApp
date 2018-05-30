@@ -40,6 +40,8 @@ var onionImgs = ["assets/toppings/onions/onions-full.png", "assets/toppings/onio
 var bellPepperImgs = ["assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/bellpeppers/bellpeppers-full-extra.png", "assets/toppings/bellpeppers/bellpeppers-full-double.png", "assets/toppings/bellpeppers/bellpeppers-left.png", "assets/toppings/bellpeppers/bellpeppers-left-extra.png", "assets/toppings/bellpeppers/bellpeppers-left-double.png", "assets/toppings/bellpeppers/bellpeppers-right.png", "assets/toppings/bellpeppers/bellpeppers-right-extra.png", "assets/toppings/bellpeppers/bellpeppers-right-double.png"];
 var spinachImgs = ["assets/toppings/spinach/spinach-full.png", "assets/toppings/spinach/spinach-full-extra.png", "assets/toppings/spinach/spinach-full-double.png", "assets/toppings/spinach/spinach-left.png", "assets/toppings/spinach/spinach-left-extra.png", "assets/toppings/spinach/spinach-left-double.png", "assets/toppings/spinach/spinach-right.png", "assets/toppings/spinach/spinach-right-extra.png", "assets/toppings/spinach/spinach-right-double.png"];
 
+var isPreBuilt = false;
+
 function loadJSON(filename, callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
@@ -223,13 +225,18 @@ function elementsInit() {
       isModal = true;
       modalInit();
     }
+    if (allElements[i].classList.contains("finalPage")) {
+      finalPageInit();
+      isModal = true;
+      modalInit();
+    }
   }
 }
 
 function changePage(pageNum) {
   console.log("pageNum ", pageNum);
   currentPage = pageNum;
-  console.log("currentPage ", currentPage);
+  //console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
       filenameToLoad = "scripts/start.json";
@@ -567,21 +574,19 @@ function toppingLabelClick(evt) {
 }
 
 function customClick(evt) {
+  isPreBuilt = false;
   changePage(2);
 }
 
 function preClick(evt) {
+  isPreBuilt = true;
   changePage(1);
 }
 
 function preBuiltPageInit() {
   //console.log("in pre-built init");
   if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0) {
-    var nextBtn = document.getElementById("nextBtn");
-    var backBtn = document.getElementById("backBtn");
-
-    nextBtn.addEventListener("click", changePage(7));
-    backBtn.addEventListener("click", back);
+    setNavButtons();
   }
 
   var fourCheese = document.getElementById("pb_0");
@@ -600,6 +605,7 @@ function preBuiltPageInit() {
 }
 
 function preBuiltClick(evt) {
+  setNavButtons();
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selected-box")) {
@@ -682,19 +688,39 @@ function setSelectedPizza(id) {
   );
 }
 
+function preBuiltFinish(evt) {
+  changePage(7);
+}
+
 //SIZES
 function sizesPageInit() {
   //console.log("in sizes init");
   setInitialSizeButtons();
   calculateCost();
 
-  if (currentSize != null) {
+  if (currentSize != null && isPreBuilt == false) {
     setNavButtons();
+  }
+  else if (currentSize != null && isPreBuilt == true) {
+    var nextBtn = document.getElementById("nextBtn");
+    var backBtn = document.getElementById("backBtn");
+
+    nextBtn.addEventListener("click", preBuiltFinish);
+    backBtn.addEventListener("click", back);
   }
 }
 
 function sizeClick(evt) {
-  setNavButtons();
+  if (isPreBuilt == true) {
+    var nextBtn = document.getElementById("nextBtn");
+    var backBtn = document.getElementById("backBtn");
+
+    nextBtn.addEventListener("click", preBuiltFinish);
+    backBtn.addEventListener("click", back);
+  }
+  else {
+    setNavButtons();
+  }
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selected")) {
@@ -1121,6 +1147,18 @@ function setSelectedTopping(name) {
   updateListView();
 }
 
+//FINAL PAGE
+function finalPageInit() {
+  if (isPreBuilt == true) {
+    getCrustImg();
+    getSauceImg();
+    getCheeseImg();
+  }
+  updatePizzaView();
+  updateListView();
+  calculateCost();
+}
+
 function updateListView() {
   var list = document.getElementById("ingred-list");
   while (list.hasChildNodes()) {
@@ -1432,8 +1470,10 @@ function calculateCost() {
   }
 
   if (isSpecialDeal && currentPage > 2) {
-    var badge = document.getElementById("deal");
-    badge.style.display = "block";
+    if (currentPage != 7) {
+      var badge = document.getElementById("deal");
+      badge.style.display = "block";
+    }
   }
   totalPrice = totalPrice.toFixed(2);
   console.log("total: $", totalPrice);
