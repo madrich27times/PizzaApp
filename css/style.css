@@ -982,7 +982,8 @@ a {
   text-align: center;
   vertical-align: middle;
   padding: 5px;
-  max-height: max-content; }
+  max-height: max-content;
+  cursor: pointer; }
 
 #pizzaViewContainer {
   margin: 0 auto;
@@ -1018,7 +1019,8 @@ a {
 
 .topping-options {
   flex-direction: column;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: none; }
 
 .meats-container, .veg-container {
   flex-direction: column;
@@ -1030,6 +1032,9 @@ a {
   max-height: 150px !important;
   min-height: 150px !important;
   margin: 5px auto; }
+
+.exes {
+  display: none; }
 
 @media screen and (max-width: 970px) {
   .pizza-box {
@@ -1159,3 +1164,5 @@ a {
 
   .pb-row {
     flex-direction: row; } }
+
+/*# sourceMappingURL=style.css.map */

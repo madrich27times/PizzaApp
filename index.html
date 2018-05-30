@@ -12,7 +12,221 @@
 <body>
 
   <div id="pizza" class="container">
-    
+
+    <div class='row toppings-page'>
+      <div class='col-4'>
+        <h1 class='bold-heading title'>Choose your toppings
+          <span id='deal' class='badge'>Special Deal</span>
+        </h1>
+      </div>
+      <div class='col-4'></div>
+      <div class='col-4'></div>
+    </div>
+    <div class='row'>
+      <div class='col-4'>
+        <div id='pizzaViewContainer'>
+          <div id='pizzaView' class='pizza-box box'></div>
+        </div>
+        <div>
+          <div class='size-display'>
+            <div id='smSize' class='size-bar'>S</div>
+            <div id='medSize' class='size-bar'>M</div>
+            <div id='lgSize' class='size-bar'>L</div>
+            <div id='xlSize' class='size-bar'>XL</div>
+          </div>
+        </div>
+      </div>
+      <div class='col-4'>
+        <div class='list-container'>
+          <h5 class='topping-section'>Meats</h5>
+          <div class='meats-container list-div'>
+            <div class='toppingLabel'>
+              <div id='pepperoni' class='topping-button btn-basic crustOpt'>Pepperoni</div>
+              <div id='pepperoni-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='pepperoni-left' class='btn-small crustOpt'>Left</div>
+                <div id='pepperoni-full' class='btn-small crustOpt'>Full</div>
+                <div id='pepperoni-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='pepperoni-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='pepperoni-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='sausage' class='topping-button btn-basic crustOpt'>Sausage</div>
+              <div id='sausage-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='sausage-left' class='btn-small crustOpt'>Left</div>
+                <div id='sausage-full' class='btn-small crustOpt'>Full</div>
+                <div id='sausage-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='sausage-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='sausage-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='canadianbacon' class='topping-button btn-basic crustOpt'>Canadian Bacon</div>
+              <div id='canadianbacon-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='canadianbacon-left' class='btn-small crustOpt'>Left</div>
+                <div id='canadianbacon-full' class='btn-small crustOpt'>Full</div>
+                <div id='canadianbacon-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='canadianbacon-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='canadianbacon-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='beef' class='topping-button btn-basic crustOpt'>Beef</div>
+              <div id='beef-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='beef-left' class='btn-small crustOpt'>Left</div>
+                <div id='beef-full' class='btn-small crustOpt'>Full</div>
+                <div id='beef-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='beef-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='beef-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='bacon' class='topping-button btn-basic crustOpt'>Bacon</div>
+              <divid='bacon-x'>&times;</div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='bacon-left' class='btn-small crustOpt'>Left</div>
+                <div id='bacon-full' class='btn-small crustOpt'>Full</div>
+                <div id='bacon-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='bacon-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='bacon-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+          </div>
+          <h5 class='topping-section'>Vegetables</h5>
+          <div class='veg-container list-div'>
+            <div class='toppingLabel'>
+              <div id='olives' class='btn-basic crustOpt'>Olives</div>
+              <div id='olives-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='olives-left' class='btn-small crustOpt'>Left</div>
+                <div id='olives-full' class='btn-small crustOpt'>Full</div>
+                <div id='olives-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='olives-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='olives-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='onions' class='btn-basic crustOpt'>Onions</div>
+              <div id='onions-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='onions-left' class='btn-small crustOpt'>Left</div>
+                <div id='onions-full' class='btn-small crustOpt'>Full</div>
+                <div id='onions-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='onions-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='onions-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='mushrooms' class='btn-basic crustOpt'>Mushrooms</div>
+              <div id='mushrooms-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='mushrooms-left' class='btn-small crustOpt'>Left</div>
+                <div id='mushrooms-full' class='btn-small crustOpt'>Full</div>
+                <div id='mushrooms-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='mushrooms-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='mushrooms-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='spinach' class='btn-basic crustOpt'>Spinach</div>
+              <div id='spinach-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='spinach-left' class='btn-small crustOpt'>Left</div>
+                <div id='spinach-full' class='btn-small crustOpt'>Full</div>
+                <div id='spinach-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='spinach-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='spinach-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+            <div class='toppingLabel'>
+              <div id='bellpeppers' class='btn-basic crustOpt'>Bell Peppers</div>
+              <div id='bellpeppers-x'>&times;</div>
+            </div>
+            <div class='topping-options'>
+              <div class='topping-side'>
+                <div id='bellpeppers-left' class='btn-small crustOpt'>Left</div>
+                <div id='bellpeppers-full' class='btn-small crustOpt'>Full</div>
+                <div id='bellpeppers-right' class='btn-small crustOpt'>Right</div>
+              </div>
+              <div class='topping-plus'>
+                <div id='bellpeppers-extra' class='btn-small crustOpt'>Extra</div>
+                <div id='bellpeppers-double' class='btn-small crustOpt'>Double</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-4'>
+        <div class='ingredient-div'>
+          <h3>Your Pizza</h3>
+          <div id='ingred-list' class='list-div'>
+          </div>
+          <h4 id='total'>Total: $0.00</h4>
+          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>
+          <div id='modalLight' class='modal modal-light'>
+            <div class='modal-content'>
+              <div class='modal-header'>
+                <span class='close'>&times;</span>
+              </div>
+              <div class='modal-body'>
+                <h1 class='bold-heading'>Thank you for your order!</h1>
+              </div>
+              <div class='modal-footer'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='row button-row'>
+      <div class='col-1 backBtn'>
+        <div id='backBtn' class='btn-basic'>Back</div>
+      </div>
+      <div class='col-10'></div>
+      <div class='col-1 nextBtn'>
+        <div id='nextBtn' class='btn-basic'>Next</div>
+      </div>
+    </div>
+
   </div>
 
   <script src="scripts/script.js"></script>
