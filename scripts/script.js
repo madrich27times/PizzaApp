@@ -666,7 +666,7 @@ function setToppingPlusButtons() {
 }
 
 function toppingLabelClick(evt) {
-  var currentX = document.getElementById(this.id + "-x");
+  //var currentX = document.getElementById(this.id + "-x");
   var currentOptions = document.getElementById(this.id + "-options");
   this.className = this.className + " selectedCrust";
   var toppingOptions = document.getElementsByClassName("topping-options");
@@ -674,7 +674,7 @@ function toppingLabelClick(evt) {
     toppingOptions[i].style.display = "none";
   }
   //console.log(this.id + '-x');
-  currentX.style.display = "block";
+  //currentX.style.display = "none";
   currentOptions.style.display = "block";
 }
 
@@ -1568,6 +1568,15 @@ function getToppingImg() {
         var str = bellPepperImgs[i].toString();
         if (str.includes(topping)) {
           toppingImg = bellPepperImgs[i];
+          break;
+        }
+      }
+    }
+    if (topping.includes("onions")) {
+      for (let i = 0; i < onionImgs.length; i++) {
+        var str = onionImgs[i].toString();
+        if (str.includes(topping)) {
+          toppingImg = onionImgs[i];
           break;
         }
       }
