@@ -1362,6 +1362,7 @@ function getCheeseImg() {
 
 function getToppingImg() {
   var toppingImg = "";
+  toppingImgs = [];
   for(var i in currentToppings){
     var topping = currentToppings[i].toString();
     if (topping.includes("pepperoni")) {
