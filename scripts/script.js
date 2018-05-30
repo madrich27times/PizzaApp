@@ -239,6 +239,13 @@ function changePage(pageNum) {
   //console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
+      currentCrust = "";
+      currentSauce = "";
+      currentCheese = "";
+      currentToppings = [];
+      currentPizzaImgs = [];
+      toppingImgs = [];
+      totalPrice = "";
       filenameToLoad = "scripts/start.json";
       break;
     case 1:
@@ -588,6 +595,8 @@ function preBuiltPageInit() {
   if (currentCrust != null && currentSauce != null && currentCheese != null && currentToppings.length > 0) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
 
   var fourCheese = document.getElementById("pb_0");
   var meat = document.getElementById("pb_1");
@@ -680,8 +689,8 @@ function setSelectedPizza(id) {
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
       toppingImgs = [
-        "assets/toppings/onions/onions-full.png", 
-        "assets/toppings/bellpeppers/bellpeppers-full.png", 
+        "assets/toppings/onions/onions-full.png",
+        "assets/toppings/bellpeppers/bellpeppers-full.png",
         "assets/toppings/sausage/sausage-full.png"
       ];
       calculateCost();
@@ -711,6 +720,9 @@ function sizesPageInit() {
     nextBtn.addEventListener("click", preBuiltFinish);
     backBtn.addEventListener("click", back);
   }
+
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
 }
 
 function sizeClick(evt) {
@@ -804,6 +816,9 @@ function crustPageInit() {
   if (currentCrust != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setCrustButtons();
 
@@ -854,6 +869,9 @@ function saucePageInit() {
   if (currentSauce != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setSauceButtons();
 
@@ -908,6 +926,9 @@ function cheesePageInit() {
   if (currentCheese != null) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setCheeseButtons();
 
@@ -959,6 +980,9 @@ function toppingsPageInit() {
   if (currentToppings.length > 0) {
     setNavButtons();
   }
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", back);
+
   setSizeButtons();
   setToppingButtons();
 
@@ -1140,8 +1164,7 @@ function setSelectedTopping(name) {
         currentToppings.splice(i, 1, name);
       }
     }
-  }
-  else {
+  } else {
     console.log("UNSHIFT", name);
     currentToppings.unshift(name);
   }
@@ -1441,6 +1464,13 @@ function modalInit() {
       close[j].addEventListener("click", function () {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
+        currentCrust = "";
+        currentSauce = "";
+        currentCheese = "";
+        currentToppings = [];
+        currentPizzaImgs = [];
+        toppingImgs = [];
+        totalPrice = "";
         changePage(0);
       });
     }
