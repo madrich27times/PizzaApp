@@ -1128,9 +1128,36 @@ function removeClick(evt) {
   //remove currently selected topping from list
   var currentX = document.getElementById(this.id);
   var toppingName = this.id.toString().split("-");
-  var topToRemove = document.getElementById(toppingName[0]);
+  var name = toppingName[0];
+  var topToRemove = document.getElementById(name);
   topToRemove.className = topToRemove.className.replace(" selectedCrust", "");
   currentX.style.display = "none";
+
+  var left = document.getElementById(name + "-left");
+  var right = document.getElementById(name + "-right");
+  var full = document.getElementById(name + "-full");
+  var double = document.getElementById(name + "-double");
+  var extra = document.getElementById(name + "-extra");
+
+  var options = document.getElementById(name + "-options");
+  options.style.display = "none";
+
+  if (left.classList.contains("selectedCrust")) {
+    left.className = left.className.replace(" selectedCrust", "");
+  }
+  if (right.classList.contains("selectedCrust")) {
+    right.className = right.className.replace(" selectedCrust", "");
+  }
+  if (full.classList.contains("selectedCrust")) {
+    full.className = full.className.replace(" selectedCrust", "");
+  }
+  if (extra.classList.contains("selectedCrust")) {
+    extra.className = extra.className.replace(" selectedCrust", "");
+  }
+  if (double.classList.contains("selectedCrust")) {
+    double.className = double.className.replace(" selectedCrust", "");
+  }
+
   removeTopping(toppingName[0]);
 }
 
@@ -1354,9 +1381,19 @@ function setSelectedTopping(name) {
 }
 
 function removeTopping(name) {
+  console.log(currentToppings);
   for (topping in currentToppings) {
-    if (topping == name) {
+    console.log("topping", topping, "name", name);
+    var str = currentToppings[topping].toString();
+    if (str.includes(name)) {
       currentToppings.splice(topping, 1);
+      //toppingImgs.splice(topping, 1);
+    }
+  }
+  for (img in toppingImgs) {
+    var imgStr = toppingImgs[img].toString();
+    if (imgStr.includes(name)) {
+      toppingImgs.splice(img, 1);
     }
   }
   updatePizzaView();
@@ -1375,7 +1412,6 @@ function finalPageInit() {
   updateListView();
   calculateCost();
 }
-
 
 //HELPER FUNCTIONS
 function updateListView() {
