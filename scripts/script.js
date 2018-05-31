@@ -612,6 +612,7 @@ function setToppingButtons() {
 
   setToppingSideButtons();
   setToppingPlusButtons();
+  setToppingRemoveButtons();
 }
 
 function setToppingPlusButtons() {
@@ -660,15 +661,39 @@ function setToppingPlusButtons() {
   bellPeppersDouble.addEventListener("click", doubleClick);
 }
 
+function setToppingRemoveButtons() {
+  var pep = document.getElementById("pepperoni-x");
+  var sausage = document.getElementById("sausage-x");
+  var beef = document.getElementById("beef-x");
+  var canadianBacon = document.getElementById("canadianbacon-x");
+  var bacon = document.getElementById("bacon-x");
+  var olives = document.getElementById("olives-x");
+  var mushrooms = document.getElementById("mushrooms-x");
+  var onions = document.getElementById("onions-x");
+  var bellPeppers = document.getElementById("bellpeppers-x");
+  var spinach = document.getElementById("spinach-x");
+
+  pep.addEventListener("click", removeClick);
+  sausage.addEventListener("click", removeClick);
+  beef.addEventListener("click", removeClick);
+  canadianBacon.addEventListener("click", removeClick);
+  bacon.addEventListener("click", removeClick);
+  olives.addEventListener("click", removeClick);
+  mushrooms.addEventListener("click", removeClick);
+  onions.addEventListener("click", removeClick);
+  bellPeppers.addEventListener("click", removeClick);
+  spinach.addEventListener("click", removeClick);
+}
+
 function toppingLabelClick(evt) {
-  //var currentX = document.getElementById(this.id + "-x");
+  var currentX = document.getElementById(this.id + "-x");
   var currentOptions = document.getElementById(this.id + "-options");
   this.className = this.className + " selectedCrust";
   var toppingOptions = document.getElementsByClassName("topping-options");
   for (let i = 0; i < toppingOptions.length; i++) {
     toppingOptions[i].style.display = "none";
   }
-  //currentX.style.display = "none";
+  currentX.style.display = "block";
   currentOptions.style.display = "block";
 }
 
@@ -1096,15 +1121,17 @@ function toppingsPageInit() {
 
   setSizeButtons();
   setToppingButtons();
-
   calculateCost();
 }
 
 function removeClick(evt) {
   //remove currently selected topping from list
+  var currentX = document.getElementById(this.id);
   var toppingName = this.id.toString().split("-");
   var topToRemove = document.getElementById(toppingName[0]);
   topToRemove.className = topToRemove.className.replace(" selectedCrust", "");
+  currentX.style.display = "none";
+  removeTopping(toppingName[0]);
 }
 
 function rightClick(evt) {
@@ -1326,6 +1353,17 @@ function setSelectedTopping(name) {
   updateListView();
 }
 
+function removeTopping(name) {
+  for (topping in currentToppings) {
+    if (topping == name) {
+      currentToppings.splice(topping, 1);
+    }
+  }
+  updatePizzaView();
+  updateListView();
+  calculateCost();
+}
+
 //FINAL PAGE
 function finalPageInit() {
   if (isPreBuilt == true) {
@@ -1338,6 +1376,8 @@ function finalPageInit() {
   calculateCost();
 }
 
+
+//HELPER FUNCTIONS
 function updateListView() {
   var list = document.getElementById("ingred-list");
   while (list.hasChildNodes()) {
