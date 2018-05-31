@@ -1391,20 +1391,20 @@ function updateListView() {
   while (list.hasChildNodes()) {
     list.removeChild(list.lastChild);
   }
-  if (currentCrust != null) {
-    console.log("setting current crust comp", currentCrust);
+  console.log(currentCrust)
+  if (currentCrust != null && currentCrust != "") {
     var label = document.createElement("h5");
     label.className = "pizza-component";
     label.innerHTML = currentCrust + " Crust";
     list.appendChild(label);
   }
-  if (currentSauce != null) {
+  if (currentSauce != null && currentSauce != "") {
     var label = document.createElement("h5");
     label.className = "pizza-component";
     label.innerHTML = currentSauce;
     list.appendChild(label);
   }
-  if (currentCheese != null) {
+  if (currentCheese != null && currentCheese != "") {
     var label = document.createElement("h5");
     label.className = "pizza-component";
     label.innerHTML = currentCheese;
