@@ -1039,7 +1039,8 @@ a {
   margin: 5px auto; }
 
 .exes {
-  display: none; }
+  display: none;
+  cursor: pointer; }
 
 .finalPage {
   text-align: center;
@@ -1173,3 +1174,5 @@ a {
 
   .pb-row {
     flex-direction: row; } }
+
+/*# sourceMappingURL=style.css.map */
