@@ -1332,23 +1332,34 @@ function doubleClick(evt) {
 function setSelectedTopping(name) {
   var toppingType = name.split("-");
   console.log(toppingType[0]);
+  console.log("before loop ", currentToppings);
+  var match = false;
+  var index;
   if (currentToppings.length > 0) {
+   
     for (var i in currentToppings) {
+      console.log("i", i);
       var temp = currentToppings[i].toString();
       console.log("NAME", name);
       var type = toppingType[0].toString();
-      console.log(temp, type);
+      console.log("temp:", temp, "type:", type);
       console.log(temp.includes(type));
       if (temp.includes(type)) {
+        match = true;
+        index = i;
         console.log("HI");
-        currentToppings.splice(i, 1, name);
-        console.log("toppings AFTER SPLICE", currentToppings);
-      } else {
-        //break;
-        currentToppings.unshift(name);
-      }
+      } 
     }
-    //currentToppings.unshift(name);
+
+    if (match == true) {
+      currentToppings.splice(index, 1, name);
+      console.log("toppings AFTER SPLICE", currentToppings);
+    }
+    else {
+      currentToppings.unshift(name);
+      console.log("toppings", currentToppings);
+    }
+
   } else {
     currentToppings.push(name);
   }
@@ -1386,12 +1397,10 @@ function finalPageInit() {
 }
 
 function updateListView() {
-  console.log("in list view", currentCrust);
   var list = document.getElementById("ingred-list");
   while (list.hasChildNodes()) {
     list.removeChild(list.lastChild);
   }
-  console.log(currentCrust)
   if (currentCrust != null && currentCrust != "") {
     var label = document.createElement("h5");
     label.className = "pizza-component";
