@@ -156,11 +156,9 @@ function loadJSON(filename, callback) {
 }
 
 function init(response) {
-  //console.log("in json init", filenameToLoad);
   loadJSON(filenameToLoad, function(responseText) {
     if (filenameToLoad.toString() == "scripts/start.json") {
       var startInfo = JSON.parse(responseText);
-      //console.log(startInfo);
       var customImg = document.getElementById("customBox");
       var preBuiltImg = document.getElementById("preBuiltBox");
       var custimgList = "";
@@ -196,7 +194,6 @@ function init(response) {
     }
     if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
       var pbInfo = JSON.parse(responseText);
-      //console.log(pbInfo)k;
       var fourCheese = document.getElementById("pb_0");
       var cheeseDesc = document.getElementById("pbD_0");
       var meat = document.getElementById("pb_1");
@@ -334,9 +331,7 @@ function elementsInit() {
 }
 
 function changePage(pageNum) {
-  console.log("pageNum ", pageNum);
   currentPage = pageNum;
-  //console.log("currentPage ", currentPage);
   switch (pageNum) {
     case 0:
       currentCrust = "";
@@ -673,7 +668,6 @@ function toppingLabelClick(evt) {
   for (let i = 0; i < toppingOptions.length; i++) {
     toppingOptions[i].style.display = "none";
   }
-  //console.log(this.id + '-x');
   //currentX.style.display = "none";
   currentOptions.style.display = "block";
 }
@@ -689,7 +683,6 @@ function preClick(evt) {
 }
 
 function preBuiltPageInit() {
-  //console.log("in pre-built init");
   if (
     currentCrust != null &&
     currentSauce != null &&
@@ -732,7 +725,6 @@ function preBuiltClick(evt) {
 }
 
 function setSelectedPizza(id) {
-  //console.log(id);
   switch (id) {
     case "pb_0":
       currentCrust = "Thick";
@@ -823,9 +815,6 @@ function setSelectedPizza(id) {
       calculateCost();
       break;
   }
-  console.log(
-    `Crust: ${currentCrust} Sauce: ${currentSauce} Cheese: ${currentCheese} Toppings: ${currentToppings}`
-  );
 }
 
 function preBuiltFinish(evt) {
@@ -834,7 +823,6 @@ function preBuiltFinish(evt) {
 
 //SIZES
 function sizesPageInit() {
-  //console.log("in sizes init");
   setInitialSizeButtons();
   calculateCost();
 
@@ -876,7 +864,6 @@ function sizeClick(evt) {
 }
 
 function setSelectedSize(id) {
-  //console.log(id);
   switch (id) {
     case "smallPizza":
       currentSize = "S";
@@ -895,7 +882,6 @@ function setSelectedSize(id) {
       calculateCost();
       break;
   }
-  console.log("size:", currentSize);
 }
 
 function buildingSizeClick(evt) {
@@ -931,12 +917,10 @@ function buildingSetSize(id) {
       calculateCost();
       break;
   }
-  console.log("size:", currentSize);
 }
 
 //CRUST
 function crustPageInit() {
-  //console.log("crust page init");
   updatePizzaView();
   updateListView();
 
@@ -986,14 +970,12 @@ function setSelectedCrust(id) {
       calculateCost();
       break;
   }
-  console.log("crust: ", currentCrust);
   getCrustImg();
   updateListView();
 }
 
 //SAUCE
 function saucePageInit() {
-  //console.log("sauce page init");
   updatePizzaView();
   updateListView();
   if (currentSauce != null) {
@@ -1042,14 +1024,12 @@ function setSelectedSauce(id) {
       calculateCost();
       break;
   }
-  console.log("sauce:", currentSauce);
   getSauceImg();
   updateListView();
 }
 
 //CHEESE
 function cheesePageInit() {
-  //console.log("cheese page init");
   updatePizzaView();
   updateListView();
 
@@ -1099,14 +1079,12 @@ function setSelectedCheese(id) {
       calculateCost();
       break;
   }
-  console.log("cheese:", currentCheese);
   getCheeseImg();
   updateListView();
 }
 
 //TOPPINGS
 function toppingsPageInit() {
-  //console.log("toppings page init");
   updatePizzaView();
   updateListView();
 
@@ -1125,14 +1103,12 @@ function toppingsPageInit() {
 function removeClick(evt) {
   //remove currently selected topping from list
   var toppingName = this.id.toString().split("-");
-  console.log(toppingName[0]);
   var topToRemove = document.getElementById(toppingName[0]);
   topToRemove.className = topToRemove.className.replace(" selectedCrust", "");
 }
 
 function rightClick(evt) {
   setNavButtons();
-  console.log("right click");
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1152,8 +1128,6 @@ function rightClick(evt) {
   if (!right.classList.contains("selectedCrust")) {
     right.className = right.className + " selectedCrust";
     name = toppingName + "-right";
-    console.log("NAME", name);
-
     isSelected = true;
   }
 
@@ -1189,7 +1163,6 @@ function leftClick(evt) {
   if (!left.classList.contains("selectedCrust")) {
     left.className = left.className + " selectedCrust";
     name = toppingName + "-left";
-    console.log(name);
     isSelected = true;
   }
 
@@ -1226,7 +1199,6 @@ function fullClick(evt) {
   if (!full.classList.contains("selectedCrust")) {
     full.className = full.className + " selectedCrust";
     name = toppingName + "-full";
-    console.log(name);
     isSelected = true;
   }
 
@@ -1281,7 +1253,6 @@ function extraClick(evt) {
     if (full.classList.contains("selectedCrust")) {
       name = toppingName + "-full-extra";
     }
-    //console.log(name);
     setSelectedTopping(name);
   }
 }
@@ -1324,62 +1295,33 @@ function doubleClick(evt) {
     if (full.classList.contains("selectedCrust")) {
       name = toppingName + "-full-double";
     }
-    //console.log(name);
     setSelectedTopping(name);
   }
 }
 
 function setSelectedTopping(name) {
   var toppingType = name.split("-");
-  console.log(toppingType[0]);
-  console.log("before loop ", currentToppings);
   var match = false;
   var index;
   if (currentToppings.length > 0) {
-   
     for (var i in currentToppings) {
-      console.log("i", i);
       var temp = currentToppings[i].toString();
-      console.log("NAME", name);
       var type = toppingType[0].toString();
-      console.log("temp:", temp, "type:", type);
-      console.log(temp.includes(type));
       if (temp.includes(type)) {
         match = true;
         index = i;
-        console.log("HI");
-      } 
+      }
     }
 
     if (match == true) {
       currentToppings.splice(index, 1, name);
-      console.log("toppings AFTER SPLICE", currentToppings);
-    }
-    else {
+    } else {
       currentToppings.unshift(name);
-      console.log("toppings", currentToppings);
     }
-
   } else {
     currentToppings.push(name);
   }
-  console.log("CURRENT TOPPINGS: ", currentToppings);
-  /*
-  if (currentToppings.length > 0) {
-    for (let i = 0; i < currentToppings.length; i++) {
-      var str = currentToppings[i].toString();
-      if (str.includes(name)) {
-        console.log("SPLICE", name);
-        currentToppings.splice(i, 1, name);
-      }
-    }
-  } else {
-    console.log("UNSHIFT", name);
-    currentToppings.unshift(name);
-  }
-  */
   calculateCost();
-  console.log("AFTER", currentToppings);
   getToppingImg();
   updateListView();
 }
@@ -1463,7 +1405,6 @@ function updatePizzaView() {
       // }
     }
   }
-  console.log("imgs", imgList);
   pizzaView.style.background = imgList;
   pizzaView.style.backgroundSize = "contain";
 }
@@ -1490,7 +1431,6 @@ function getCrustImg() {
     var crustIndex = currentPizzaImgs.length - 1;
     currentPizzaImgs.splice(crustIndex, 1, crustImg);
   }
-  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -1516,8 +1456,6 @@ function getSauceImg() {
     var sauceIndex = currentPizzaImgs.length - 2;
     currentPizzaImgs.splice(sauceIndex, 1, sauceImg);
   }
-
-  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -1543,7 +1481,6 @@ function getCheeseImg() {
     var sauceIndex = currentPizzaImgs.length - 3;
     currentPizzaImgs.splice(sauceIndex, 1, cheeseImg);
   }
-  //console.log(currentPizzaImgs);
   updatePizzaView();
 }
 
@@ -1598,8 +1535,8 @@ function getToppingImg() {
       }
     }
     if (topping.includes("mushrooms")) {
-      var str = mushroomImgs[i].toString();
       for (let i = 0; i < mushroomImgs.length; i++) {
+        var str = mushroomImgs[i].toString();
         if (str.includes(topping)) {
           toppingImg = mushroomImgs[i];
           break;
@@ -1644,99 +1581,6 @@ function getToppingImg() {
     }
     toppingImgs.push(toppingImg);
   }
-  /*
-  var toppingImg = "";
-  var lastToppingArray = currentToppings[0];
-  console.log("last topping", lastToppingArray);
-  var lastTopping = lastToppingArray.toString();
-  if (lastTopping.includes("pepperoni")) {
-    for (let i = 0; i < pepperoniImgs.length; i++) {
-      var str = pepperoniImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = pepperoniImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("sausage")) {
-    for (let i = 0; i < sausageImgs.length; i++) {
-      var str = sausageImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = sausageImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("canadianbacon")) {
-    for (let i = 0; i < canadianBaconImgs.length; i++) {
-      var str = canadianBaconImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = canadianBaconImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("bacon")) {
-    for (let i = 0; i < baconImgs.length; i++) {
-      var str = baconImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = baconImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("beef")) {
-    for (let i = 0; i < beefImgs.length; i++) {
-      var str = beefImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = beefImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("mushrooms")) {
-    var str = mushroomImgs[i].toString();
-    for (let i = 0; i < mushroomImgs.length; i++) {
-      if (str.includes(lastTopping)) {
-        toppingImg = mushroomImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("olives")) {
-    for (let i = 0; i < oliveImgs.length; i++) {
-      var str = oliveImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = oliveImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("bellpeppers")) {
-    for (let i = 0; i < bellPepperImgs.length; i++) {
-      var str = bellPepperImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = bellPepperImgs[i];
-        break;
-      }
-    }
-  }
-  if (lastTopping.includes("spinach")) {
-    for (let i = 0; i < spinachImgs.length; i++) {
-      var str = spinachImgs[i].toString();
-      if (str.includes(lastTopping)) {
-        toppingImg = spinachImgs[i];
-        break;
-      }
-    }
-  }
-  if (toppingImgs.length == 0) {
-    toppingImgs.unshift(toppingImg);
-  } else {
-    var toppingIndex = toppingImgs.length - 1;
-    toppingImgs.splice(toppingIndex, 1, toppingImg);
-  }
-  */
   updatePizzaView();
 }
 
@@ -1745,18 +1589,15 @@ function back(evt) {
   if (currentPage != 2) {
     back = currentPage - 1;
   }
-  //console.log("back ", back);
   changePage(back);
 }
 
 function next(evt) {
   var next = currentPage + 1;
-  //console.log("next ", next);
   changePage(next);
 }
 
 function modalInit() {
-  //console.log("modal init");
   if (isModal == true) {
     var modalBtns = document.getElementsByClassName("btn-modal");
     var close = document.getElementsByClassName("close");
@@ -1805,7 +1646,6 @@ function calculateCost() {
     var temp = currentToppings.length - 5;
     totalPrice += 3.0;
     totalPrice += temp * 1.0;
-    console.log("special deal!");
   } else {
     isSpecialDeal = false;
     totalPrice += currentToppings.length * 1.0;
@@ -1818,7 +1658,6 @@ function calculateCost() {
     }
   }
   totalPrice = totalPrice.toFixed(2);
-  console.log("total: $", totalPrice);
   if (currentPage > 2) {
     var total = document.getElementById("total");
     total.innerHTML = "Total: $" + totalPrice;
@@ -1827,7 +1666,6 @@ function calculateCost() {
 
 function checkMobile() {
   if (screen.width <= 810) {
-    //console.log("mobile detected");
     pages.splice(1, 1, preBuiltMobile);
   }
 }
