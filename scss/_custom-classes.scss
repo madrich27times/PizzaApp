@@ -585,6 +585,11 @@
   font-weight: bold;
 }
 
+.final-page-pv-cont {
+  @include justify-content(center);
+  @include align-items(center);
+}
+
 @media screen and (max-width: 970px) {
   .pizza-box {
     margin: 0 auto;
