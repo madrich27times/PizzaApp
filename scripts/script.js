@@ -4,11 +4,11 @@ var pages = [
   "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Order Online</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div id='customBox' class='card-body box'></div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div id='preBuiltBox' class='card-body box'></div>        </div>      </div>    </div>",
   "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_0' class='popup pizza-box'>          <span id='pbD_0' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_1' class='popup pizza-box'>          <span id='pbD_1' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_2' class='popup pizza-box'>          <span id='pbD_2' class='popup-content'></span>        </div>      </div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_3' class='popup pizza-box'>          <span id='pbD_3' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_4' class='popup pizza-box'>          <span id='pbD_4' class='popup-content'></span>        </div>      </div>	  <div class='col-4'>	  <div id='pb_5' class='popup pizza-box'>          <span id='pbD_5' class='popup-content'></span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row size-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your size</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-3 size-container'>        <div id='smallPizza' class='size-box'>S        </div>      </div>      <div class='col-3 size-container'>        <div id='mediumPizza' class='size-box'>M        </div>      </div>      <div class='col-3 size-container'>        <div id='largePizza' class='size-box'>L        </div>      </div>      <div class='col-3 size-container'>        <div id='xLPizza' class='size-box'>XL        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row crust-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your crust          <span class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>	    <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='crustList'>            <div id='thin-crust' class='btn-basic bold-heading crustOpt'>Thin</div>          </div>          <div id='crustList'>            <div id='thick-crust' class='btn-basic bold-heading crustOpt'>Thick</div>          </div>          <div id='crustList'>            <div id='stuffed-crust' class='btn-basic bold-heading crustOpt'>Stuffed</div>          </div>	  <div id='crustList'>            <div id='pretzel-crust' class='btn-basic bold-heading crustOpt'>Pretzel</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>	  <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
+  "<div class='row crust-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your crust          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>	    <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='crustList'>            <div id='thin-crust' class='btn-basic bold-heading crustOpt'>Thin</div>          </div>          <div id='crustList'>            <div id='thick-crust' class='btn-basic bold-heading crustOpt'>Thick</div>          </div>          <div id='crustList'>            <div id='stuffed-crust' class='btn-basic bold-heading crustOpt'>Stuffed</div>          </div>	  <div id='crustList'>            <div id='pretzel-crust' class='btn-basic bold-heading crustOpt'>Pretzel</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>	  <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row sauce-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your sauce          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>            <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='sauceList'>            <div id='mar-sauce' class='btn-basic bold-heading crustOpt'>Marinara</div>          </div>          <div id='sauceList'>            <div id='creamy-sauce' class='btn-basic bold-heading crustOpt'>Creamy Garlic Parmesan</div>          </div>          <div id='sauceList'>            <div id='bbq-sauce' class='btn-basic bold-heading crustOpt'>Barbecue</div>          </div>	        <div id='sauceList'>            <div id='buff-sauce' class='btn-basic bold-heading crustOpt'>Buffalo</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>          <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
   "<div class='row cheese-page'>          <div class='col-4'>            <h1 class='bold-heading title'>Choose your cheese              <span id='deal' class='badge'>Special Deal</span>            </h1>          </div>          <div class='col-4'></div>          <div class='col-4'></div>        </div>        <div class='row'>          <div class='col-4'>            <div id='pizzaViewContainer'>              <div id='pizzaView' class='pizza-box box'></div>            </div>            <div>              <div class='size-display'>                <div id='smSize' class='size-bar'>S</div>                <div id='medSize' class='size-bar'>M</div>                <div id='lgSize' class='size-bar'>L</div>                <div id='xlSize' class='size-bar'>XL</div>              </div>            </div>          </div>          <div class='col-4'>            <div class='list-container'>              <div id='cheeseList'>                <div id='ched-cheese' class='btn-basic bold-heading crustOpt'>Cheddar</div>              </div>              <div id='cheeseList'>                <div id='moz-cheese' class='btn-basic bold-heading crustOpt'>Mozzarella</div>              </div>              <div id='cheeseList'>                <div id='four-cheese' class='btn-basic bold-heading crustOpt'>Four Cheese</div>              </div>              <div id='cheeseList'>                <div id='provo-cheese' class='btn-basic bold-heading crustOpt'>Provolone</div>              </div>            </div>          </div>          <div class='col-4'>            <div class='ingredient-div'>              <h3>Your Pizza</h3>              <div id='ingred-list' class='list-div'>              </div>              <h4 id='total'>Total: $0.00</h4>              <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>              <div id='modalLight' class='modal modal-light'>                <div class='modal-content'>                  <div class='modal-header'>                    <span class='close'>&times;</span>                  </div>                  <div class='modal-body'>                    <h1 class='bold-heading'>Thank you for your order!</h1>                  </div>                  <div class='modal-footer'>                  </div>                </div>              </div>            </div>          </div>        </div>        <div class='row button-row'>          <div class='col-1 backBtn'>            <div id='backBtn' class='btn-basic'>Back</div>          </div>          <div class='col-10'></div>          <div class='col-1 nextBtn'>            <div id='nextBtn' class='btn-basic'>Next</div>          </div>        </div>  </div>",
   "<div class='row toppings-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your toppings          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>            <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <h5 class='topping-section'>Meats</h5>          <div class='meats-container list-div'>            <div class='toppingLabel'>              <div id='pepperoni' class='topping-button btn-basic crustOpt'>Pepperoni</div>              <div id='pepperoni-x' class='exes'>&times;</div>            </div>            <div id='pepperoni-options' class='topping-options'>              <div class='topping-side'>                <div id='pepperoni-left' class='btn-small crustOpt'>Left</div>                <div id='pepperoni-full' class='btn-small crustOpt'>Full</div>                <div id='pepperoni-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='pepperoni-extra' class='btn-small crustOpt'>Extra</div>                <div id='pepperoni-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='sausage' class='topping-button btn-basic crustOpt'>Sausage</div>              <div id='sausage-x' class='exes'>&times;</div>            </div>            <div id='sausage-options' class='topping-options'>              <div class='topping-side'>                <div id='sausage-left' class='btn-small crustOpt'>Left</div>                <div id='sausage-full' class='btn-small crustOpt'>Full</div>                <div id='sausage-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='sausage-extra' class='btn-small crustOpt'>Extra</div>                <div id='sausage-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='canadianbacon' class='topping-button btn-basic crustOpt'>Canadian Bacon</div>              <div id='canadianbacon-x' class='exes'>&times;</div>            </div>            <div id='canadianbacon-options' class='topping-options'>              <div class='topping-side'>                <div id='canadianbacon-left' class='btn-small crustOpt'>Left</div>                <div id='canadianbacon-full' class='btn-small crustOpt'>Full</div>                <div id='canadianbacon-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='canadianbacon-extra' class='btn-small crustOpt'>Extra</div>                <div id='canadianbacon-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='beef' class='topping-button btn-basic crustOpt'>Beef</div>              <div id='beef-x' class='exes'>&times;</div>            </div>            <div id='beef-options' class='topping-options'>              <div class='topping-side'>                <div id='beef-left' class='btn-small crustOpt'>Left</div>                <div id='beef-full' class='btn-small crustOpt'>Full</div>                <div id='beef-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='beef-extra' class='btn-small crustOpt'>Extra</div>                <div id='beef-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='bacon' class='topping-button btn-basic crustOpt'>Bacon</div>              <div id='bacon-x' class='exes'>&times;</div>            </div>            <div id='bacon-options' class='topping-options'>              <div class='topping-side'>                <div id='bacon-left' class='btn-small crustOpt'>Left</div>                <div id='bacon-full' class='btn-small crustOpt'>Full</div>                <div id='bacon-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='bacon-extra' class='btn-small crustOpt'>Extra</div>                <div id='bacon-double' class='btn-small crustOpt'>Double</div>              </div>            </div>          </div>            <h5 class='topping-section'>Vegetables</h5>          <div class='veg-container list-div'>              <div class='toppingLabel'>                <div id='olives' class='topping-button btn-basic crustOpt'>Olives</div>                <div id='olives-x' class='exes'>&times;</div>              </div>              <div id='olives-options' class='topping-options'>                <div class='topping-side'>                  <div id='olives-left' class='btn-small crustOpt'>Left</div>                  <div id='olives-full' class='btn-small crustOpt'>Full</div>                  <div id='olives-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='olives-extra' class='btn-small crustOpt'>Extra</div>                  <div id='olives-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='onions' class='topping-button btn-basic crustOpt'>Onions</div>                <div id='onions-x' class='exes'>&times;</div>              </div>              <div id='onions-options' class='topping-options'>                <div class='topping-side'>                  <div id='onions-left' class='btn-small crustOpt'>Left</div>                  <div id='onions-full' class='btn-small crustOpt'>Full</div>                  <div id='onions-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='onions-extra' class='btn-small crustOpt'>Extra</div>                  <div id='onions-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='mushrooms' class='topping-button btn-basic crustOpt'>Mushrooms</div>                <div id='mushrooms-x' class='exes'>&times;</div>              </div>              <div id='mushrooms-options' class='topping-options'>                <div class='topping-side'>                  <div id='mushrooms-left' class='btn-small crustOpt'>Left</div>                  <div id='mushrooms-full' class='btn-small crustOpt'>Full</div>                  <div id='mushrooms-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='mushrooms-extra' class='btn-small crustOpt'>Extra</div>                  <div id='mushrooms-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='spinach' class='topping-button btn-basic crustOpt'>Spinach</div>                <div id='spinach-x' class='exes'>&times;</div>              </div>              <div id='spinach-options' class='topping-options'>                <div class='topping-side'>                  <div id='spinach-left' class='btn-small crustOpt'>Left</div>                  <div id='spinach-full' class='btn-small crustOpt'>Full</div>                  <div id='spinach-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='spinach-extra' class='btn-small crustOpt'>Extra</div>                  <div id='spinach-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='bellpeppers' class='topping-button btn-basic crustOpt'>Bell Peppers</div>                <div id='bellpeppers-x' class='exes'>&times;</div>              </div>              <div id='bellpeppers-options' class='topping-options'>                <div class='topping-side'>                  <div id='bellpeppers-left' class='btn-small crustOpt'>Left</div>                  <div id='bellpeppers-full' class='btn-small crustOpt'>Full</div>                  <div id='bellpeppers-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='bellpeppers-extra' class='btn-small crustOpt'>Extra</div>                  <div id='bellpeppers-double' class='btn-small crustOpt'>Double</div>                </div>              </div>            </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>          <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row'>      <div class='col-12 finalPage'>        <h1>Review Order</h1>      </div>    </div>    <div class='row'>      <div class='col-12'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>      </div>    </div>    <div class='row'>      <div class='col-12'>          <div class='ingredient-div'>              <h3>Your Pizza</h3>              <div id='ingred-list' class='list-div'>              </div>              <h4 id='total'>Total: $0.00</h4>              <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>              <div id='modalLight' class='modal modal-light'>                <div class='modal-content'>                  <div class='modal-header'>                    <span class='close'>&times;</span>                  </div>                  <div class='modal-body'>                    <h1 class='bold-heading'>Thank you for your order!</h1>                  </div>                  <div class='modal-footer'>                  </div>                </div>              </div>            </div>      </div>    </div>"
+  "<div class='row'>      <div class='col-12 finalPage'>        <h1>Review Order</h1>      </div>    </div>    <div class='row'>	<div class='col-6'>        <div id='pizzaViewContainer' class='final-page-pv-cont'>          <div id='pizzaView' class='pizza-box box'></div>        </div>      </div>      <div class='col-6'>          <div class='ingredient-div'>              <h3>Your Pizza</h3>              <div id='ingred-list' class='list-div'>              </div>              <h4 id='total'>Total: $0.00</h4>              <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>              <div id='modalLight' class='modal modal-light'>                <div class='modal-content'>                  <div class='modal-header'>                    <span class='close'>&times;</span>                  </div>                  <div class='modal-body'>                    <h1 class='bold-heading'>Thank you for your order!</h1>                  </div>                  <div class='modal-footer'>                  </div>                </div>              </div>            </div>      </div>    </div>"
 ];
 var preBuiltMobile =
   "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-2 pb-row'>        <div id='pb_0' class='pizza-box'>         </div>		<p id='pbD_0' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_1' class='pizza-box'>        </div>		<p id='pbD_1' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_2' class='pizza-box'>        </div>		<p id='pbD_2' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_3' class='pizza-box'>        </div>		<p id='pbD_3' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_4' class='pizza-box'>        </div>		<p id='pbD_4' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>	  <div id='pb_5' class='pizza-box'>        </div>		<p id='pbD_5' class='pizza-desc'></p>	  </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>";
@@ -287,6 +287,9 @@ function init(response) {
       italian.style.background = italianImgs;
       italian.style.backgroundSize = "contain";
     }
+    if (filenameToLoad.toString() == "none") {
+      console.log("no file needed");
+    }
   });
 }
 
@@ -361,6 +364,9 @@ function changePage(pageNum) {
     case 6:
       filenameToLoad = "scripts/toppings.json";
       break;
+    case 7:
+      filenameToLoad = "none";
+      break;
     default:
       filenameToLoad = "scripts/start.json";
       break;
@@ -429,6 +435,7 @@ function setSizeButtons() {
   lgSize.addEventListener("click", buildingSizeClick);
   xlSize.addEventListener("click", buildingSizeClick);
 
+  console.log(currentSize);
   switch (currentSize) {
     case "S":
       smSize.className = smSize.className + " selected";
@@ -585,6 +592,13 @@ function setToppingSideButtons() {
   bellPeppersLeft.addEventListener("click", leftClick);
   spinachLeft.addEventListener("click", leftClick);
   mushroomsLeft.addEventListener("click", leftClick);
+
+  for (let i = 0; i < currentToppings.length; i++) {
+    var topping = currentToppings[i].toString();
+    var name = topping.split("-");
+    var btn = document.getElementById(name[0] + "-full");
+    btn.className = btn.className + " selectedCrust";
+  }
 }
 
 function setToppingButtons() {
@@ -609,6 +623,15 @@ function setToppingButtons() {
   onions.addEventListener("click", toppingLabelClick);
   bellPeppers.addEventListener("click", toppingLabelClick);
   spinach.addEventListener("click", toppingLabelClick);
+
+  for (let i = 0; i < currentToppings.length; i++) {
+    var topping = currentToppings[i].toString();
+    var name = topping.split("-");
+    var label = document.getElementById(name[0]);
+    label.className = label.className + " selectedCrust";
+    var ex = document.getElementById(name[0] + "-x");
+    ex.style.display = "block";
+  }
 
   setToppingSideButtons();
   setToppingPlusButtons();
@@ -699,11 +722,27 @@ function toppingLabelClick(evt) {
 
 function customClick(evt) {
   isPreBuilt = false;
+  currentSize = null;
+  currentCrust = null;
+  currentSauce = null;
+  currentCheese = null;
+  currentToppings = [];
+  currentPizzaImgs = [];
+  toppingImgs = [];
+  totalPrice = null;
   changePage(2);
 }
 
 function preClick(evt) {
   isPreBuilt = true;
+  currentSize = null;
+  currentCrust = null;
+  currentSauce = null;
+  currentCheese = null;
+  currentToppings = [];
+  currentPizzaImgs = [];
+  toppingImgs = [];
+  totalPrice = null;
   changePage(1);
 }
 
@@ -753,7 +792,7 @@ function setSelectedPizza(id) {
   switch (id) {
     case "pb_0":
       currentCrust = "Thick";
-      currentCheese = "Four-Cheese";
+      currentCheese = "Four Cheese";
       currentSauce = "Marinara";
       calculateCost();
       break;
@@ -769,11 +808,11 @@ function setSelectedPizza(id) {
         "assets/toppings/beef/beef-full.png"
       ];
       currentToppings = [
-        "Pepperoni",
-        "Sausage",
-        "Canadian Bacon",
-        "Bacon",
-        "Beef"
+        "pepperoni-full",
+        "sausage-full",
+        "canadianbacon-full",
+        "bacon-full",
+        "beef-full"
       ];
       calculateCost();
       break;
@@ -782,7 +821,7 @@ function setSelectedPizza(id) {
       currentCheese = "Mozzarella";
       currentSauce = "Marinara";
       toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
-      currentToppings = ["Pepperoni"];
+      currentToppings = ["pepperoni-full"];
       calculateCost();
       break;
     case "pb_3":
@@ -797,11 +836,11 @@ function setSelectedPizza(id) {
         "assets/toppings/spinach/spinach-full.png"
       ];
       currentToppings = [
-        "Mushrooms",
-        "Olives",
-        "Onions",
-        "Bell Peppers",
-        "Spinach"
+        "mushrooms-full",
+        "olives-full",
+        "onions-full",
+        "bellpeppers-full",
+        "spinach-full"
       ];
       calculateCost();
       break;
@@ -818,12 +857,12 @@ function setSelectedPizza(id) {
         "assets/toppings/beef/beef-full.png"
       ];
       currentToppings = [
-        "Onions",
-        "Bell Peppers",
-        "Mushrooms",
-        "Pepperoni",
-        "Sausage",
-        "Beef"
+        "onions-full",
+        "bellpeppers-full",
+        "mushrooms-full",
+        "pepperoni-full",
+        "sausage-full",
+        "beef-full"
       ];
       calculateCost();
       break;
@@ -836,7 +875,7 @@ function setSelectedPizza(id) {
         "assets/toppings/bellpeppers/bellpeppers-full.png",
         "assets/toppings/sausage/sausage-full.png"
       ];
-      currentToppings = ["Onions", "Bell Peppers", "Sausage"];
+      currentToppings = ["onions-full", "bellpeppers-full", "sausage-full"];
       calculateCost();
       break;
   }
@@ -857,7 +896,7 @@ function sizesPageInit() {
     var nextBtn = document.getElementById("nextBtn");
     var backBtn = document.getElementById("backBtn");
 
-    nextBtn.addEventListener("click", preBuiltFinish);
+    nextBtn.addEventListener("click", next);
     backBtn.addEventListener("click", back);
   }
 
@@ -870,7 +909,7 @@ function sizeClick(evt) {
     var nextBtn = document.getElementById("nextBtn");
     var backBtn = document.getElementById("backBtn");
 
-    nextBtn.addEventListener("click", preBuiltFinish);
+    nextBtn.addEventListener("click", next);
     backBtn.addEventListener("click", back);
   } else {
     setNavButtons();
@@ -946,6 +985,11 @@ function buildingSetSize(id) {
 
 //CRUST
 function crustPageInit() {
+  if (isPreBuilt == true) {
+    getCrustImg();
+    getSauceImg();
+    getCheeseImg();
+  }
   updatePizzaView();
   updateListView();
 
@@ -1112,13 +1156,7 @@ function setSelectedCheese(id) {
 function toppingsPageInit() {
   updatePizzaView();
   updateListView();
-
-  if (currentToppings.length > 0) {
-    setNavButtons();
-  }
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
-
+  setNavButtons();
   setSizeButtons();
   setToppingButtons();
   calculateCost();
@@ -1381,13 +1419,15 @@ function setSelectedTopping(name) {
 }
 
 function removeTopping(name) {
-  console.log(currentToppings);
   for (topping in currentToppings) {
-    console.log("topping", topping, "name", name);
+    //console.log("topping", topping, "name", name);
     var str = currentToppings[topping].toString();
-    if (str.includes(name)) {
+    if (str == "canadianbacon") {
       currentToppings.splice(topping, 1);
-      //toppingImgs.splice(topping, 1);
+    } else {
+      if (str.includes(name)) {
+        currentToppings.splice(topping, 1);
+      }
     }
   }
   for (img in toppingImgs) {
@@ -1442,7 +1482,14 @@ function updateListView() {
       if (currentToppings[i] != null) {
         var str = currentToppings[i].toString();
         var name = str.split("-");
-        var toppingName = name[0];
+        var toppingName;
+        if (name == "canadianbacon" || name[0] == "canadianbacon") {
+          toppingName = "canadian bacon";
+        } else if (name == "bellpeppers" || name[0] == "bellpeppers") {
+          toppingName = "bell peppers";
+        } else {
+          toppingName = name[0];
+        }
         var label = document.createElement("h5");
         label.className = "pizza-component";
         label.innerHTML = toppingName;
@@ -1688,6 +1735,7 @@ function modalInit() {
       close[j].addEventListener("click", function() {
         var modal = close[j].closest(".modal");
         modal.style.display = "none";
+        currentSize = null;
         currentCrust = null;
         currentSauce = null;
         currentCheese = null;

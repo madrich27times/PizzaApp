@@ -1046,6 +1046,18 @@ a {
   text-align: center;
   font-weight: bold; }
 
+.final-page-pv-cont {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
 @media screen and (max-width: 970px) {
   .pizza-box {
     margin: 0 auto; }
