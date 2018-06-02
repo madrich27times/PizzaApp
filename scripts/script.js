@@ -15,7 +15,6 @@ var preBuiltMobile =
 var currentPage = 0;
 var isModal = false;
 var isMobile = false;
-
 var currentCrust = null;
 var currentSauce = null;
 var currentCheese = null;
@@ -23,9 +22,7 @@ var currentSize = null;
 var isSpecialDeal = false;
 var totalPrice = null;
 var filenameToLoad = null;
-
 var currentPizzaImgs = [];
-
 var currentToppings = [];
 var toppingImgs = [];
 
