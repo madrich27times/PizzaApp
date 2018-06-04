@@ -41,6 +41,11 @@ var vegRightButtons = [];
 var vegExtraButtons = [];
 var vegDoubleButtons = [];
 
+var currentSize = "XL";
+var currentCrust;
+var currentSauce;
+var currentCheese;
+
 //buildStartPage();
 //buildFinalPage();
 //buildSizesPage();
@@ -49,7 +54,7 @@ var vegDoubleButtons = [];
 //buildCheesePage();
 //buildToppingsPage();
 
-changePage("start");
+changePage("size");
 
 function changePage(pageName) {
   switch (pageName) {
@@ -196,6 +201,9 @@ function buildPizzaViewColumn() {
     } else {
       div.innerHTML = "XL";
     }
+    if (sizeArr[i].innerHTML.toString() == currentSize) {
+      div.className = div.className + " selected";
+    }
     sizeContainer.appendChild(div);
   }
   sizeContDiv.appendChild(sizeContainer);
@@ -285,11 +293,13 @@ function buildSizeMidRow() {
   var row = document.createElement("div");
   row.className = "row";
   sizeButtons = buildButtons(sizeButtonNames, "size-box", null, sizeClick);
-  //sizeButtonNames.forEach(buildSizeButtons);
   for (let i = 0; i < sizeButtonNames.length; i++) {
     var col = document.createElement("div");
     col.className = "col-3";
     col.classList += " size-container";
+    if (sizeButtons[i].innerHTML.toString() == currentSize) {
+      sizeButtons[i].className = sizeButtons[i].className + " selected";
+    }
     col.appendChild(sizeButtons[i]);
     row.appendChild(col);
   }
@@ -425,7 +435,6 @@ function buildCrustMidColumn() {
   col.className = "col-4";
   var listCont = document.createElement("div");
   listCont.className = "list-container";
-  //crustButtonNames.forEach(buildCrustButtons);
   crustButtons = buildButtons(
     crustButtonNames,
     "btn-basic",
@@ -436,6 +445,9 @@ function buildCrustMidColumn() {
   for (let i = 0; i < crustButtons.length; i++) {
     var div = document.createElement("div");
     div.id = "crustList";
+    if (crustButtons[i].innerHTML.toString() == currentCrust) {
+      crustButtons[i].className = crustButtons[i].className + " selectedCrust";
+    }
     div.appendChild(crustButtons[i]);
     listCont.appendChild(div);
   }
@@ -448,7 +460,6 @@ function buildSauceMidColumn() {
   col.className = "col-4";
   var listCont = document.createElement("div");
   listCont.className = "list-container";
-  //sauceButtonNames.forEach(buildSauceButtons);
   sauceButtons = buildButtons(
     sauceButtonNames,
     "btn-basic",
@@ -459,6 +470,9 @@ function buildSauceMidColumn() {
   for (let i = 0; i < sauceButtons.length; i++) {
     var div = document.createElement("div");
     div.id = "sauceList";
+    if (sauceButtons[i].innerHTML.toString() == currentSauce) {
+      sauceButtons[i].className = sauceButtons[i].className + " selectedCrust";
+    }
     div.appendChild(sauceButtons[i]);
     listCont.appendChild(div);
   }
@@ -471,7 +485,6 @@ function buildCheeseMidColumn() {
   col.className = "col-4";
   var listCont = document.createElement("div");
   listCont.className = "list-container";
-  //cheeseButtonNames.forEach(buildCheeseButtons);
   cheeseButtons = buildButtons(
     cheeseButtonNames,
     "btn-basic",
@@ -482,6 +495,9 @@ function buildCheeseMidColumn() {
   for (let i = 0; i < cheeseButtons.length; i++) {
     var div = document.createElement("div");
     div.id = "cheeseList";
+    if (cheeseButtons[i].innerHTML.toString() == currentCheese) {
+      cheeseButtons[i].className = cheeseButtons[i].className + " selected";
+    }
     div.appendChild(cheeseButtons[i]);
     listCont.appendChild(div);
   }
@@ -563,14 +579,6 @@ function buildMeatList() {
     "double"
   );
 
-  // meatButtonNames.forEach(buildMeatLabelButtons);
-  // meatButtonNames.forEach(buildMeatRemoveButtons);
-  // meatButtonNames.forEach(buildMeatLeftButtons);
-  // meatButtonNames.forEach(buildMeatFullButtons);
-  // meatButtonNames.forEach(buildMeatRightButtons);
-  // meatButtonNames.forEach(buildMeatDoubleButtons);
-  // meatButtonNames.forEach(buildMeatExtraButtons);
-
   var meatList = document.createElement("div");
   meatList.className = "meats-container";
   meatList.classList += " list-div";
@@ -647,13 +655,6 @@ function buildVegList() {
     doubleClick,
     "double"
   );
-  // vegButtonNames.forEach(buildVegLabelButtons);
-  // vegButtonNames.forEach(buildVegRemoveButtons);
-  // vegButtonNames.forEach(buildVegLeftButtons);
-  // vegButtonNames.forEach(buildVegFullButtons);
-  // vegButtonNames.forEach(buildVegRightButtons);
-  // vegButtonNames.forEach(buildVegDoubleButtons);
-  // vegButtonNames.forEach(buildVegExtraButtons);
 
   var vegList = document.createElement("div");
   vegList.className = "veg-container";
