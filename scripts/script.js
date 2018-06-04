@@ -185,8 +185,10 @@ function init(response) {
         }
       }
       customImg.style.background = custimgList;
+      console.log(custimgList);
       customImg.style.backgroundSize = "contain";
       preBuiltImg.style.background = preimgList;
+      console.log(preimgList);
       preBuiltImg.style.backgroundSize = "contain";
     }
     if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
@@ -341,7 +343,7 @@ function changePage(pageNum) {
       currentPizzaImgs = [];
       toppingImgs = [];
       totalPrice = "";
-      filenameToLoad = "scripts/start.json";
+      filenameToLoad = "none";
       break;
     case 1:
       filenameToLoad = "scripts/pre-built-pizzas.json";

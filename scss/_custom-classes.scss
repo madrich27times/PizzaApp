@@ -597,6 +597,18 @@
   @include align-items(center);
 }
 
+#customBox {
+  background: url('/assets/toppings/mushrooms/mushrooms-full.png'), url('/assets/cheese/cheese-mozzarella.png'), url('/assets/sauce/sauce-marinara.png'), url('/assets/crust/crust-thick.png');
+  background-repeat: no-repeat;
+  background-size: "contain";
+}
+
+#preBuiltBox {
+  background: url('/assets/toppings/onions/onions-full.png'), url('/assets/toppings/bellpeppers/bellpeppers-full.png'), url('/assets/toppings/mushrooms/mushrooms-full.png'), url('/assets/toppings/pepperoni/pepperoni-full.png'), url('/assets/toppings/sausage/sausage-full.png'), url('/assets/toppings/beef/beef-full.png'), url('/assets/cheese/cheese-mozzarella.png'), url('/assets/sauce/sauce-marinara.png'), url('/assets/crust/crust-thick.png');
+  background-repeat: no-repeat;
+  background-size: "contain";
+}
+
 @media screen and (max-width: 970px) {
   .pizza-box {
     margin: 0 auto;
