@@ -15,7 +15,7 @@ var cheeseButtons = [];
 var meatButtonNames = [
   "Pepperoni",
   "Sausage",
-  "Canadian Bacon",
+  "Ham",
   "Beef",
   "Bacon"
 ];
@@ -76,16 +76,16 @@ var sausageImgs = [
   "assets/toppings/sausage/sausage-right-extra.png",
   "assets/toppings/sausage/sausage-right-double.png"
 ];
-var canadianBaconImgs = [
-  "assets/toppings/canadianbacon/canadianbacon-full.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-double.png",
-  "assets/toppings/canadianbacon/canadianbacon-left.png",
-  "assets/toppings/canadianbacon/canadianbacon-left-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-left-double.png",
-  "assets/toppings/canadianbacon/canadianbacon-right.png",
-  "assets/toppings/canadianbacon/canadianbacon-right-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-double.png"
+var hamImgs = [
+  "assets/toppings/ham/ham-full.png",
+  "assets/toppings/ham/ham-full-extra.png",
+  "assets/toppings/ham/ham-full-double.png",
+  "assets/toppings/ham/ham-left.png",
+  "assets/toppings/ham/ham-left-extra.png",
+  "assets/toppings/ham/ham-left-double.png",
+  "assets/toppings/ham/ham-right.png",
+  "assets/toppings/ham/ham-right-extra.png",
+  "assets/toppings/ham/ham-full-double.png"
 ];
 var baconImgs = [
   "assets/toppings/bacon/bacon-full.png",
@@ -167,7 +167,6 @@ var spinachImgs = [
 
 loadData();
 changePage("start");
-
  
 function loadData() {
   request.open('GET', 'scripts/pre-built-pizzas.json');
@@ -364,6 +363,8 @@ function buildFinalPage() {
   }
   updatePizzaView();
   updateListView();
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function buildHeaderRow(pageNameClass, pageTitle) {
@@ -1584,20 +1585,12 @@ function setSelectedTopping(name) {
     for (var i in currentToppings) {
       var temp = currentToppings[i].toString();
       var type = toppingType[0].toString();
-      console.log("temp", temp, "type", type);
-      if (type == "canadianbacon") {
-        if (temp.includes("canadianbacon")) {
-          match = true;
-          index = i;
-        }
-      }
-      else {
-        if (temp.includes(type)) {
-          match = true;
-          index = i;
-        }
+      if (temp.includes(type)) {
+        match = true;
+        index = i;
       }
     }
+
     if (match == true) {
       currentToppings.splice(index, 1, name);
     } else {
@@ -1614,7 +1607,7 @@ function setSelectedTopping(name) {
 function removeTopping(name) {
   for (topping in currentToppings) {
     var str = currentToppings[topping].toString();
-    if (str == "canadianbacon") {
+    if (str == "ham") {
       currentToppings.splice(topping, 1);
     } else {
       if (str.includes(name)) {
@@ -1662,9 +1655,7 @@ function updateListView() {
         var str = currentToppings[i].toString();
         var name = str.split("-");
         var toppingName;
-        if (name == "canadianbacon" || name[0] == "canadianbacon") {
-          toppingName = "canadian bacon";
-        } else if (name == "bellpeppers" || name[0] == "bellpeppers") {
+        if (name == "bellpeppers" || name[0] == "bellpeppers") {
           toppingName = "bell peppers";
         } else {
           toppingName = name[0];
@@ -1795,24 +1786,21 @@ function getToppingImg() {
         }
       }
     }
-    
-    if (topping.includes("bacon")) {
-      if (topping.includes("canadianbacon")) {
-        for (let i = 0; i < canadianBaconImgs.length; i++) {
-          var str = canadianBaconImgs[i].toString();
-          if (str.includes(topping)) {
-            toppingImg = canadianBaconImgs[i];
-            break;
-          }
+    if (topping.includes("ham")) {
+      for (let i = 0; i < hamImgs.length; i++) {
+        var str = hamImgs[i].toString();
+        if (str.includes(topping)) {
+          toppingImg = hamImgs[i];
+          break;
         }
       }
-      else {
-        for (let i = 0; i < baconImgs.length; i++) {
-          var str = baconImgs[i].toString();
-          if (str.includes(topping)) {
-            toppingImg = baconImgs[i];
-            break;
-          }
+    }
+    if (topping.includes("bacon")) {
+      for (let i = 0; i < baconImgs.length; i++) {
+        var str = baconImgs[i].toString();
+        if (str.includes(topping)) {
+          toppingImg = baconImgs[i];
+          break;
         }
       }
     }
