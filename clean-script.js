@@ -315,7 +315,7 @@ function buildCheesePage() {
   backBtn.addEventListener("click", function () {
     changePage("sauce");
   });
-  if (currentCrust != null) {
+  if (currentCheese != null) {
     nextBtn.addEventListener("click", function () {
       changePage("toppings");
     });
@@ -556,7 +556,7 @@ function buildStartMidRow() {
   card2.id = "preBtn";
   card2.className = "col-6";
   card2.classList += " card";
-  card2.addEventListener("click", preBuiltClick);
+  card2.addEventListener("click", preClick);
   var cardContainer2 = document.createElement("div");
   cardContainer2.className = "card-container";
   var cardHeading2 = document.createElement("div");
@@ -1149,7 +1149,7 @@ function customClick(evt) {
   changePage("size");
 }
 
-function preBuiltClick(evt) {
+function preClick(evt) {
   isPreBuilt = true;
   currentSize = null;
   currentCrust = null;
@@ -1191,6 +1191,28 @@ function sizeClick(evt) {
   }
   this.className = this.className + " selected";
   setSelectedSize(this.id);
+}
+
+function preBuiltClick(evt) {
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("size");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("start");
+  });
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected-box")) {
+      allElements[i].className = allElements[i].className.replace(
+        " selected-box",
+        ""
+      );
+    }
+  }
+  this.className = this.className + " selected-box";
+  setSelectedPizza(this.id);
 }
 
 function buildingSizeClick(evt) {
@@ -1607,7 +1629,6 @@ function setSelectedTopping(name) {
         index = i;
       }
     }
-
     if (match == true) {
       currentToppings.splice(index, 1, name);
     } else {
@@ -1685,6 +1706,8 @@ function updateListView() {
     }
   }
   calculateCost();
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function updatePizzaView() {
@@ -1906,19 +1929,7 @@ function calculateCost() {
     isSpecialDeal = false;
     totalPrice += (currentToppings.length - 1) * 1.0;
   }
-
-
-  // if (isSpecialDeal && currentPage > 2) {
-  //   if (currentPage != 7) {
-  //     var badge = document.getElementById("deal");
-  //     badge.style.display = "block";
-  //   }
-  // }
-  // totalPrice = totalPrice.toFixed(2);
-  // if (currentPage > 2) {
-  //   var total = document.getElementById("total");
-  //   total.innerHTML = "Total: $" + totalPrice;
-  // }
+  totalPrice = totalPrice.toFixed(2);
 }
 
 function modalInit() {
