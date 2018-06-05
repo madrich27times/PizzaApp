@@ -89,6 +89,12 @@ function buildStartPage() {
   buildMiddleRow("start");
 }
 
+function buildPreBuiltPage() { 
+  buildHeaderRow("preBuilt-page", "Pre-Built Options"); 
+  buildPreBuiltRow(); 
+  buildButtonRow(); 
+} 
+
 function buildSizesPage() {
   buildHeaderRow("size-page", "Choose your size");
   buildMiddleRow("size");
