@@ -299,12 +299,19 @@ function buildPreBuiltRow(){
   var row = document.createElement("div");
   row.className = "row";
   for (let i = 0; i < preBuiltNames.length; i++){
+    var name;
+    if (/\s/.test(i)) {
+      name = i.replace(/\s/g, "");
+    } 
+    else {
+      name = i;
+    }
     var col = document.createElement('div');
     col.setAttribute('class', 'col-4');
     var pizzaDiv = document.createElement('div');
-    pizzaDiv.setAttribute('id', item);
+    pizzaDiv.setAttribute('id', i);
     pizzaDiv.setAttribute('class', 'popup pizza-box');
-    var descName = item + "-desc";
+    var descName = i + "-desc";
     var descSpan = document.createElement('span');
     descSpan.setAttribute('id', descName);
     descSpan.setAttribute('class', 'popup-content');
