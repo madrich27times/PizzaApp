@@ -1,20 +1,46 @@
-var filesToLoad = [];
-var loadedJSON = [];
-var pages = [
-  "<div class='row landing-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Order Online</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div id='byoBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Build Your Own</h1>          </div>          <div id='customBox' class='card-body box'></div>        </div>      </div>      <div id='preBtn' class='col-6 card'>        <div class='card-container'>          <div class='card-header'>            <h1 class='bold-heading'>Pre-Built Pizza</h1>          </div>          <div id='preBuiltBox' class='card-body box'></div>        </div>      </div>    </div>",
-  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_0' class='popup pizza-box'>          <span id='pbD_0' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_1' class='popup pizza-box'>          <span id='pbD_1' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_2' class='popup pizza-box'>          <span id='pbD_2' class='popup-content'></span>        </div>      </div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pb_3' class='popup pizza-box'>          <span id='pbD_3' class='popup-content'></span>        </div>      </div>      <div class='col-4'>        <div id='pb_4' class='popup pizza-box'>          <span id='pbD_4' class='popup-content'></span>        </div>      </div>	  <div class='col-4'>	  <div id='pb_5' class='popup pizza-box'>          <span id='pbD_5' class='popup-content'></span>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row size-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your size</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-3 size-container'>        <div id='smallPizza' class='size-box'>S        </div>      </div>      <div class='col-3 size-container'>        <div id='mediumPizza' class='size-box'>M        </div>      </div>      <div class='col-3 size-container'>        <div id='largePizza' class='size-box'>L        </div>      </div>      <div class='col-3 size-container'>        <div id='xLPizza' class='size-box'>XL        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row crust-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your crust          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>	    <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='crustList'>            <div id='thin-crust' class='btn-basic bold-heading crustOpt'>Thin</div>          </div>          <div id='crustList'>            <div id='thick-crust' class='btn-basic bold-heading crustOpt'>Thick</div>          </div>          <div id='crustList'>            <div id='stuffed-crust' class='btn-basic bold-heading crustOpt'>Stuffed</div>          </div>	  <div id='crustList'>            <div id='pretzel-crust' class='btn-basic bold-heading crustOpt'>Pretzel</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>	  <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row sauce-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your sauce          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>            <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <div id='sauceList'>            <div id='mar-sauce' class='btn-basic bold-heading crustOpt'>Marinara</div>          </div>          <div id='sauceList'>            <div id='creamy-sauce' class='btn-basic bold-heading crustOpt'>Creamy Garlic Parmesan</div>          </div>          <div id='sauceList'>            <div id='bbq-sauce' class='btn-basic bold-heading crustOpt'>Barbecue</div>          </div>	        <div id='sauceList'>            <div id='buff-sauce' class='btn-basic bold-heading crustOpt'>Buffalo</div>          </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>          <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row cheese-page'>          <div class='col-4'>            <h1 class='bold-heading title'>Choose your cheese              <span id='deal' class='badge'>Special Deal</span>            </h1>          </div>          <div class='col-4'></div>          <div class='col-4'></div>        </div>        <div class='row'>          <div class='col-4'>            <div id='pizzaViewContainer'>              <div id='pizzaView' class='pizza-box box'></div>            </div>            <div>              <div class='size-display'>                <div id='smSize' class='size-bar'>S</div>                <div id='medSize' class='size-bar'>M</div>                <div id='lgSize' class='size-bar'>L</div>                <div id='xlSize' class='size-bar'>XL</div>              </div>            </div>          </div>          <div class='col-4'>            <div class='list-container'>              <div id='cheeseList'>                <div id='ched-cheese' class='btn-basic bold-heading crustOpt'>Cheddar</div>              </div>              <div id='cheeseList'>                <div id='moz-cheese' class='btn-basic bold-heading crustOpt'>Mozzarella</div>              </div>              <div id='cheeseList'>                <div id='four-cheese' class='btn-basic bold-heading crustOpt'>Four Cheese</div>              </div>              <div id='cheeseList'>                <div id='provo-cheese' class='btn-basic bold-heading crustOpt'>Provolone</div>              </div>            </div>          </div>          <div class='col-4'>            <div class='ingredient-div'>              <h3>Your Pizza</h3>              <div id='ingred-list' class='list-div'>              </div>              <h4 id='total'>Total: $0.00</h4>              <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>              <div id='modalLight' class='modal modal-light'>                <div class='modal-content'>                  <div class='modal-header'>                    <span class='close'>&times;</span>                  </div>                  <div class='modal-body'>                    <h1 class='bold-heading'>Thank you for your order!</h1>                  </div>                  <div class='modal-footer'>                  </div>                </div>              </div>            </div>          </div>        </div>        <div class='row button-row'>          <div class='col-1 backBtn'>            <div id='backBtn' class='btn-basic'>Back</div>          </div>          <div class='col-10'></div>          <div class='col-1 nextBtn'>            <div id='nextBtn' class='btn-basic'>Next</div>          </div>        </div>  </div>",
-  "<div class='row toppings-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Choose your toppings          <span id='deal' class='badge'>Special Deal</span>        </h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-4'>        <div id='pizzaViewContainer'>          <div id='pizzaView' class='pizza-box box'></div>        </div>        <div>          <div class='size-display'>            <div id='smSize' class='size-bar'>S</div>            <div id='medSize' class='size-bar'>M</div>            <div id='lgSize' class='size-bar'>L</div>            <div id='xlSize' class='size-bar'>XL</div>          </div>        </div>      </div>      <div class='col-4'>        <div class='list-container'>          <h5 class='topping-section'>Meats</h5>          <div class='meats-container list-div'>            <div class='toppingLabel'>              <div id='pepperoni' class='topping-button btn-basic crustOpt'>Pepperoni</div>              <div id='pepperoni-x' class='exes'>&times;</div>            </div>            <div id='pepperoni-options' class='topping-options'>              <div class='topping-side'>                <div id='pepperoni-left' class='btn-small crustOpt'>Left</div>                <div id='pepperoni-full' class='btn-small crustOpt'>Full</div>                <div id='pepperoni-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='pepperoni-extra' class='btn-small crustOpt'>Extra</div>                <div id='pepperoni-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='sausage' class='topping-button btn-basic crustOpt'>Sausage</div>              <div id='sausage-x' class='exes'>&times;</div>            </div>            <div id='sausage-options' class='topping-options'>              <div class='topping-side'>                <div id='sausage-left' class='btn-small crustOpt'>Left</div>                <div id='sausage-full' class='btn-small crustOpt'>Full</div>                <div id='sausage-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='sausage-extra' class='btn-small crustOpt'>Extra</div>                <div id='sausage-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='canadianbacon' class='topping-button btn-basic crustOpt'>Canadian Bacon</div>              <div id='canadianbacon-x' class='exes'>&times;</div>            </div>            <div id='canadianbacon-options' class='topping-options'>              <div class='topping-side'>                <div id='canadianbacon-left' class='btn-small crustOpt'>Left</div>                <div id='canadianbacon-full' class='btn-small crustOpt'>Full</div>                <div id='canadianbacon-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='canadianbacon-extra' class='btn-small crustOpt'>Extra</div>                <div id='canadianbacon-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='beef' class='topping-button btn-basic crustOpt'>Beef</div>              <div id='beef-x' class='exes'>&times;</div>            </div>            <div id='beef-options' class='topping-options'>              <div class='topping-side'>                <div id='beef-left' class='btn-small crustOpt'>Left</div>                <div id='beef-full' class='btn-small crustOpt'>Full</div>                <div id='beef-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='beef-extra' class='btn-small crustOpt'>Extra</div>                <div id='beef-double' class='btn-small crustOpt'>Double</div>              </div>            </div>            <div class='toppingLabel'>              <div id='bacon' class='topping-button btn-basic crustOpt'>Bacon</div>              <div id='bacon-x' class='exes'>&times;</div>            </div>            <div id='bacon-options' class='topping-options'>              <div class='topping-side'>                <div id='bacon-left' class='btn-small crustOpt'>Left</div>                <div id='bacon-full' class='btn-small crustOpt'>Full</div>                <div id='bacon-right' class='btn-small crustOpt'>Right</div>              </div>              <div class='topping-plus'>                <div id='bacon-extra' class='btn-small crustOpt'>Extra</div>                <div id='bacon-double' class='btn-small crustOpt'>Double</div>              </div>            </div>          </div>            <h5 class='topping-section'>Vegetables</h5>          <div class='veg-container list-div'>              <div class='toppingLabel'>                <div id='olives' class='topping-button btn-basic crustOpt'>Olives</div>                <div id='olives-x' class='exes'>&times;</div>              </div>              <div id='olives-options' class='topping-options'>                <div class='topping-side'>                  <div id='olives-left' class='btn-small crustOpt'>Left</div>                  <div id='olives-full' class='btn-small crustOpt'>Full</div>                  <div id='olives-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='olives-extra' class='btn-small crustOpt'>Extra</div>                  <div id='olives-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='onions' class='topping-button btn-basic crustOpt'>Onions</div>                <div id='onions-x' class='exes'>&times;</div>              </div>              <div id='onions-options' class='topping-options'>                <div class='topping-side'>                  <div id='onions-left' class='btn-small crustOpt'>Left</div>                  <div id='onions-full' class='btn-small crustOpt'>Full</div>                  <div id='onions-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='onions-extra' class='btn-small crustOpt'>Extra</div>                  <div id='onions-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='mushrooms' class='topping-button btn-basic crustOpt'>Mushrooms</div>                <div id='mushrooms-x' class='exes'>&times;</div>              </div>              <div id='mushrooms-options' class='topping-options'>                <div class='topping-side'>                  <div id='mushrooms-left' class='btn-small crustOpt'>Left</div>                  <div id='mushrooms-full' class='btn-small crustOpt'>Full</div>                  <div id='mushrooms-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='mushrooms-extra' class='btn-small crustOpt'>Extra</div>                  <div id='mushrooms-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='spinach' class='topping-button btn-basic crustOpt'>Spinach</div>                <div id='spinach-x' class='exes'>&times;</div>              </div>              <div id='spinach-options' class='topping-options'>                <div class='topping-side'>                  <div id='spinach-left' class='btn-small crustOpt'>Left</div>                  <div id='spinach-full' class='btn-small crustOpt'>Full</div>                  <div id='spinach-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='spinach-extra' class='btn-small crustOpt'>Extra</div>                  <div id='spinach-double' class='btn-small crustOpt'>Double</div>                </div>              </div>              <div class='toppingLabel'>                <div id='bellpeppers' class='topping-button btn-basic crustOpt'>Bell Peppers</div>                <div id='bellpeppers-x' class='exes'>&times;</div>              </div>              <div id='bellpeppers-options' class='topping-options'>                <div class='topping-side'>                  <div id='bellpeppers-left' class='btn-small crustOpt'>Left</div>                  <div id='bellpeppers-full' class='btn-small crustOpt'>Full</div>                  <div id='bellpeppers-right' class='btn-small crustOpt'>Right</div>                </div>                <div class='topping-plus'>                  <div id='bellpeppers-extra' class='btn-small crustOpt'>Extra</div>                  <div id='bellpeppers-double' class='btn-small crustOpt'>Double</div>                </div>              </div>            </div>          </div>      </div>      <div class='col-4'>        <div class='ingredient-div'>          <h3>Your Pizza</h3>          <div id='ingred-list' class='list-div'>          </div>          <h4 id='total'>Total: $0.00</h4>          <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>          <div id='modalLight' class='modal modal-light'>            <div class='modal-content'>              <div class='modal-header'>                <span class='close'>&times;</span>              </div>              <div class='modal-body'>                <h1 class='bold-heading'>Thank you for your order!</h1>              </div>              <div class='modal-footer'>              </div>            </div>          </div>        </div>      </div>    </div>    <div class='row button-row'>      <div class='col-1 backBtn'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>      <div class='col-1 nextBtn'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>",
-  "<div class='row'>      <div class='col-12 finalPage'>        <h1>Review Order</h1>      </div>    </div>    <div class='row'>	<div class='col-6'>        <div id='pizzaViewContainer' class='final-page-pv-cont'>          <div id='pizzaView' class='pizza-box box'></div>        </div>      </div>      <div class='col-6'>          <div class='ingredient-div'>              <h3>Your Pizza</h3>              <div id='ingred-list' class='list-div'>              </div>              <h4 id='total'>Total: $0.00</h4>              <div id='addBtn' class='btn-modal' data-modal='modalLight'>Add to Order</div>              <div id='modalLight' class='modal modal-light'>                <div class='modal-content'>                  <div class='modal-header'>                    <span class='close'>&times;</span>                  </div>                  <div class='modal-body'>                    <h1 class='bold-heading'>Thank you for your order!</h1>                  </div>                  <div class='modal-footer'>                  </div>                </div>              </div>            </div>      </div>    </div>"
+var container = document.getElementById("pizza");
+var sizeButtonNames = ["S", "M", "L", "XL"];
+var sizeButtons = [];
+var crustButtonNames = ["Thin", "Thick", "Stuffed", "Pretzel"];
+var crustButtons = [];
+var sauceButtonNames = [
+  "Marinara",
+  "Creamy Garlic Parmesan",
+  "Barbeque",
+  "Buffalo"
 ];
-var preBuiltMobile =
-  "<div class='row preBuilt-page'>      <div class='col-4'>        <h1 class='bold-heading title'>Pre-Built Options</h1>      </div>      <div class='col-4'></div>      <div class='col-4'></div>    </div>    <div class='row'>      <div class='col-2 pb-row'>        <div id='pb_0' class='pizza-box'>         </div>		<p id='pbD_0' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_1' class='pizza-box'>        </div>		<p id='pbD_1' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_2' class='pizza-box'>        </div>		<p id='pbD_2' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_3' class='pizza-box'>        </div>		<p id='pbD_3' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>        <div id='pb_4' class='pizza-box'>        </div>		<p id='pbD_4' class='pizza-desc'></p>      </div>      <div class='col-2 pb-row'>	  <div id='pb_5' class='pizza-box'>        </div>		<p id='pbD_5' class='pizza-desc'></p>	  </div>    </div>    <div class='row button-row'>      <div class='col-2'>        <div id='backBtn' class='btn-basic'>Back</div>      </div>      <div class='col-10'></div>           <div class='col-1'>        <div id='nextBtn' class='btn-basic'>Next</div>      </div>    </div>";
-var currentPage = 0;
-var isModal = false;
-var isMobile = false;
+var sauceButtons = [];
+var cheeseButtonNames = ["Cheddar", "Mozzarella", "Four Cheese", "Provolone"];
+var cheeseButtons = [];
+var meatButtonNames = [
+  "Pepperoni",
+  "Sausage",
+  "Ham",
+  "Beef",
+  "Bacon"
+];
+var meatLabelButtons = [];
+var meatExButtons = [];
+var meatLeftButtons = [];
+var meatFullButtons = [];
+var meatRightButtons = [];
+var meatExtraButtons = [];
+var meatDoubleButtons = [];
+var vegButtonNames = [
+  "Olives",
+  "Onions",
+  "Mushrooms",
+  "Spinach",
+  "Bell Peppers"
+];
+var vegLabelButtons = [];
+var vegExButtons = [];
+var vegLeftButtons = [];
+var vegFullButtons = [];
+var vegRightButtons = [];
+var vegExtraButtons = [];
+var vegDoubleButtons = [];
+var preBuiltData;
 var currentCrust = null;
 var currentSauce = null;
 var currentCheese = null;
@@ -25,6 +51,8 @@ var filenameToLoad = null;
 var currentPizzaImgs = [];
 var currentToppings = [];
 var toppingImgs = [];
+var isPreBuilt = false;
+var request = new XMLHttpRequest();
 
 var pepperoniImgs = [
   "assets/toppings/pepperoni/pepperoni-full.png",
@@ -48,16 +76,16 @@ var sausageImgs = [
   "assets/toppings/sausage/sausage-right-extra.png",
   "assets/toppings/sausage/sausage-right-double.png"
 ];
-var canadianBaconImgs = [
-  "assets/toppings/canadianbacon/canadianbacon-full.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-double.png",
-  "assets/toppings/canadianbacon/canadianbacon-left.png",
-  "assets/toppings/canadianbacon/canadianbacon-left-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-left-double.png",
-  "assets/toppings/canadianbacon/canadianbacon-right.png",
-  "assets/toppings/canadianbacon/canadianbacon-right-extra.png",
-  "assets/toppings/canadianbacon/canadianbacon-full-double.png"
+var hamImgs = [
+  "assets/toppings/ham/ham-full.png",
+  "assets/toppings/ham/ham-full-extra.png",
+  "assets/toppings/ham/ham-full-double.png",
+  "assets/toppings/ham/ham-left.png",
+  "assets/toppings/ham/ham-left-extra.png",
+  "assets/toppings/ham/ham-left-double.png",
+  "assets/toppings/ham/ham-right.png",
+  "assets/toppings/ham/ham-right-extra.png",
+  "assets/toppings/ham/ham-full-double.png"
 ];
 var baconImgs = [
   "assets/toppings/bacon/bacon-full.png",
@@ -137,586 +165,994 @@ var spinachImgs = [
   "assets/toppings/spinach/spinach-right-double.png"
 ];
 
-var isPreBuilt = false;
+loadData();
+changePage("start");
 
-function loadJSON(filename, callback) {
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-
-  xobj.open("GET", filename, true);
-  xobj.onreadystatechange = function() {
-    if (xobj.readyState == 4 && xobj.status == "200") {
-      callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);
+function loadData() {
+  request.open('GET', 'scripts/pre-built-pizzas.json');
+  request.onload = loadComplete;
+  request.send();
 }
 
-function init(response) {
-  loadJSON(filenameToLoad, function(responseText) {
-    if (filenameToLoad.toString() == "scripts/start.json") {
-      var startInfo = JSON.parse(responseText);
-      var customImg = document.getElementById("customBox");
-      var preBuiltImg = document.getElementById("preBuiltBox");
-      var custimgList = "";
-      var preimgList = "";
-      for (let i = 0; i < startInfo.length; i++) {
-        if (startInfo[i].name == "Custom") {
-          startInfo[i].images.forEach(element => {
-            if (
-              element != startInfo[i].images[startInfo[i].images.length - 1]
-            ) {
-              custimgList += "url('" + element + "'), ";
-            } else {
-              custimgList += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (startInfo[i].name == "Pre-Built") {
-          startInfo[i].images.forEach(element => {
-            if (
-              element != startInfo[i].images[startInfo[i].images.length - 1]
-            ) {
-              preimgList += "url('" + element + "'), ";
-            } else {
-              preimgList += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-      }
-      customImg.style.background = custimgList;
-      console.log(custimgList);
-      customImg.style.backgroundSize = "contain";
-      preBuiltImg.style.background = preimgList;
-      console.log(preimgList);
-      preBuiltImg.style.backgroundSize = "contain";
-    }
-    if (filenameToLoad.toString() == "scripts/pre-built-pizzas.json") {
-      var pbInfo = JSON.parse(responseText);
-      var fourCheese = document.getElementById("pb_0");
-      var cheeseDesc = document.getElementById("pbD_0");
-      var meat = document.getElementById("pb_1");
-      var meatDesc = document.getElementById("pbD_1");
-      var pep = document.getElementById("pb_2");
-      var pepDesc = document.getElementById("pbD_2");
-      var veg = document.getElementById("pb_3");
-      var vegDesc = document.getElementById("pbD_3");
-      var supreme = document.getElementById("pb_4");
-      var supremeDesc = document.getElementById("pbD_4");
-      var italian = document.getElementById("pb_5");
-      var italianDesc = document.getElementById("pbD_5");
-      var cheeseImgs = "";
-      var meatImgs = "";
-      var pepImgs = "";
-      var vegImgs = "";
-      var supremeImgs = "";
-      var italianImgs = "";
-      for (let i = 0; i < pbInfo.length; i++) {
-        if (pbInfo[i].name == "Four Cheese") {
-          cheeseDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              cheeseImgs += "url('" + element + "'), ";
-            } else {
-              cheeseImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (pbInfo[i].name == "Meat Lovers") {
-          meatDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              meatImgs += "url('" + element + "'), ";
-            } else {
-              meatImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (pbInfo[i].name == "Pepperoni") {
-          pepDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              pepImgs += "url('" + element + "'), ";
-            } else {
-              pepImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (pbInfo[i].name == "Veggie Lovers") {
-          vegDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              vegImgs += "url('" + element + "'), ";
-            } else {
-              vegImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (pbInfo[i].name == "Supreme") {
-          supremeDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              supremeImgs += "url('" + element + "'), ";
-            } else {
-              supremeImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-        if (pbInfo[i].name == "Italian") {
-          italianDesc.innerHTML = pbInfo[i].desc;
-          pbInfo[i].images.forEach(element => {
-            if (element != pbInfo[i].images[pbInfo[i].images.length - 1]) {
-              italianImgs += "url('" + element + "'), ";
-            } else {
-              italianImgs += "url('" + element + "') no-repeat center";
-            }
-          });
-        }
-      }
-      fourCheese.style.background = cheeseImgs;
-      fourCheese.style.backgroundSize = "contain";
-      meat.style.background = meatImgs;
-      meat.style.backgroundSize = "contain";
-      pep.style.background = pepImgs;
-      pep.style.backgroundSize = "contain";
-      veg.style.background = vegImgs;
-      veg.style.backgroundSize = "contain";
-      supreme.style.background = supremeImgs;
-      supreme.style.backgroundSize = "contain";
-      italian.style.background = italianImgs;
-      italian.style.backgroundSize = "contain";
-    }
-    if (filenameToLoad.toString() == "none") {
-      console.log("no file needed");
-    }
+function loadComplete(evt) {
+  preBuiltData = JSON.parse(request.responseText);
+  //console.log(preBuiltData);
+}
+
+function changePage(pageName) {
+  var container = document.getElementById('pizza');
+  container.innerHTML = "";
+  switch (pageName) {
+    case "start":
+      buildStartPage();
+      break;
+    case "prebuilt":
+      buildPreBuiltPage();
+      break;
+    case "size":
+      buildSizesPage();
+      break;
+    case "crust":
+      buildCrustPage();
+      break;
+    case "sauce":
+      buildSaucePage();
+      break;
+    case "cheese":
+      buildCheesePage();
+      break;
+    case "toppings":
+      buildToppingsPage();
+      break;
+    case "final":
+      buildFinalPage();
+      break;
+  }
+}
+
+function buildStartPage() {
+  buildHeaderRow("landing-page", "Order Online");
+  buildMiddleRow("start");
+}
+
+function buildPreBuiltPage() {
+  buildHeaderRow("preBuilt-page", "Pre-Built Options");
+  buildMiddleRow("prebuilt");
+  buildButtonRow();
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("start");
   });
+  console.log(preBuiltData);
 }
 
-function elementsInit() {
-  var allElements = document.body.getElementsByTagName("*");
-  for (let i = 0; i < allElements.length; i++) {
-    if (allElements[i].classList.contains("landing-page")) {
-      landingPageInit();
-    }
-    if (allElements[i].classList.contains("preBuilt-page")) {
-      preBuiltPageInit();
-    }
-    if (allElements[i].classList.contains("size-page")) {
-      sizesPageInit();
-    }
-    if (allElements[i].classList.contains("crust-page")) {
-      crustPageInit();
-      isModal = true;
-      modalInit();
-    }
-    if (allElements[i].classList.contains("sauce-page")) {
-      saucePageInit();
-      isModal = true;
-      modalInit();
-    }
-    if (allElements[i].classList.contains("cheese-page")) {
-      cheesePageInit();
-      isModal = true;
-      modalInit();
-    }
-    if (allElements[i].classList.contains("toppings-page")) {
-      toppingsPageInit();
-      isModal = true;
-      modalInit();
-    }
-    if (allElements[i].classList.contains("finalPage")) {
-      finalPageInit();
-      isModal = true;
-      modalInit();
-    }
-  }
-}
-
-function changePage(pageNum) {
-  currentPage = pageNum;
-  switch (pageNum) {
-    case 0:
-      currentCrust = "";
-      currentSauce = "";
-      currentCheese = "";
-      currentToppings = [];
-      currentPizzaImgs = [];
-      toppingImgs = [];
-      totalPrice = "";
-      filenameToLoad = "none";
-      break;
-    case 1:
-      filenameToLoad = "scripts/pre-built-pizzas.json";
-      break;
-    case 2:
-      filenameToLoad = "scripts/sizes.json";
-      break;
-    case 3:
-      filenameToLoad = "scripts/crusts.json";
-      break;
-    case 4:
-      filenameToLoad = "scripts/sauces.json";
-      break;
-    case 5:
-      filenameToLoad = "scripts/cheeses.json";
-      break;
-    case 6:
-      filenameToLoad = "scripts/toppings.json";
-      break;
-    case 7:
-      filenameToLoad = "none";
-      break;
-    default:
-      filenameToLoad = "scripts/start.json";
-      break;
-  }
-  //set html
-  document.getElementById("pizza").innerHTML = pages[pageNum];
-  //check for mobile layout
-  checkMobile();
-  //set event listeners
-  elementsInit();
-  //load json data
-  setTimeout(init(), 3000);
-}
-
-function landingPageInit() {
-  var customBtn = document.getElementById("byoBtn");
-  var preBuiltBtn = document.getElementById("preBtn");
-
-  customBtn.addEventListener("click", customClick);
-  preBuiltBtn.addEventListener("click", preClick);
-}
-
-function setNavButtons() {
+function buildSizesPage() {
+  buildHeaderRow("size-page", "Choose your size");
+  buildMiddleRow("size");
+  buildButtonRow();
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-
-  nextBtn.addEventListener("click", next);
-  backBtn.addEventListener("click", back);
-}
-
-function setInitialSizeButtons() {
-  var small = document.getElementById("smallPizza");
-  var med = document.getElementById("mediumPizza");
-  var large = document.getElementById("largePizza");
-  var xl = document.getElementById("xLPizza");
-
-  small.addEventListener("click", sizeClick);
-  med.addEventListener("click", sizeClick);
-  large.addEventListener("click", sizeClick);
-  xl.addEventListener("click", sizeClick);
-
-  switch (currentSize) {
-    case "S":
-      small.className = small.className + " selected";
-      break;
-    case "M":
-      med.className = med.className + " selected";
-      break;
-    case "L":
-      large.className = large.className + " selected";
-      break;
-    case "XL":
-      xl.className = xl.className + " selected";
-      break;
+  if (currentSize != null && isPreBuilt == false) {
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+  } else if (currentSize != null && isPreBuilt == true) {
+    backBtn.addEventListener("click", function () {
+      changePage("prebuilt");
+    });
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+  } else {
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
   }
+  calculateCost();
 }
 
-function setSizeButtons() {
-  var smSize = document.getElementById("smSize");
-  var medSize = document.getElementById("medSize");
-  var lgSize = document.getElementById("lgSize");
-  var xlSize = document.getElementById("xlSize");
-
-  smSize.addEventListener("click", buildingSizeClick);
-  medSize.addEventListener("click", buildingSizeClick);
-  lgSize.addEventListener("click", buildingSizeClick);
-  xlSize.addEventListener("click", buildingSizeClick);
-
-  console.log(currentSize);
-  switch (currentSize) {
-    case "S":
-      smSize.className = smSize.className + " selected";
-      break;
-    case "M":
-      medSize.className = medSize.className + " selected";
-      break;
-    case "L":
-      lgSize.className = lgSize.className + " selected";
-      break;
-    case "XL":
-      xlSize.className = xlSize.className + " selected";
-      break;
+function buildCrustPage() {
+  buildHeaderRow("crust-page", "Choose your crust");
+  buildMiddleRow("crust");
+  buildButtonRow();
+  console.log(isPreBuilt);
+  if (isPreBuilt == true) {
+    getCrustImg();
+    getSauceImg();
+    getCheeseImg();
   }
-}
-
-function setCrustButtons() {
-  var thin = document.getElementById("thin-crust");
-  var thick = document.getElementById("thick-crust");
-  var stuffed = document.getElementById("stuffed-crust");
-  var pretzel = document.getElementById("pretzel-crust");
-  thin.addEventListener("click", crustClick);
-  thick.addEventListener("click", crustClick);
-  stuffed.addEventListener("click", crustClick);
-  pretzel.addEventListener("click", crustClick);
-
-  switch (currentCrust) {
-    case "Thin":
-      thin.className += thin.className + " selectedCrust";
-      break;
-    case "Thick":
-      thick.className += thick.className + " selectedCrust";
-      break;
-    case "Stuffed":
-      stuffed.className += stuffed.className + " selectedCrust";
-      break;
-    case "Pretzel":
-      pretzel.className += pretzel.className + " selectedCrust";
-      break;
+  updatePizzaView();
+  updateListView();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("size");
+  });
+  if (currentCrust != null) {
+    nextBtn.addEventListener("click", function () {
+      changePage("sauce");
+    });
   }
-}
-
-function setSauceButtons() {
-  var marinara = document.getElementById("mar-sauce");
-  var creamy = document.getElementById("creamy-sauce");
-  var bbq = document.getElementById("bbq-sauce");
-  var buffalo = document.getElementById("buff-sauce");
-
-  marinara.addEventListener("click", sauceClick);
-  creamy.addEventListener("click", sauceClick);
-  bbq.addEventListener("click", sauceClick);
-  buffalo.addEventListener("click", sauceClick);
-
-  switch (currentSauce) {
-    case "Marinara":
-      marinara.className += marinara.className + " selectedCrust";
-      break;
-    case "Creamy Garlic Parmesan":
-      creamy.className += creamy.className + " selectedCrust";
-      break;
-    case "Barbeque":
-      bbq.className += bbq.className + " selectedCrust";
-      break;
-    case "Buffalo":
-      buffalo.className += buffalo.className + " selectedCrust";
-      break;
+  calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
   }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
-function setCheeseButtons() {
-  var cheddar = document.getElementById("ched-cheese");
-  var four = document.getElementById("four-cheese");
-  var provolone = document.getElementById("provo-cheese");
-  var mozzarella = document.getElementById("moz-cheese");
-  cheddar.addEventListener("click", cheeseClick);
-  four.addEventListener("click", cheeseClick);
-  provolone.addEventListener("click", cheeseClick);
-  mozzarella.addEventListener("click", cheeseClick);
-
-  switch (currentCheese) {
-    case "Cheddar":
-      cheddar.className += cheddar.className + " selectedCrust";
-      break;
-    case "Four Cheese":
-      four.className += four.className + " selectedCrust";
-      break;
-    case "Provolone":
-      provolone.className += provolone.className + " selectedCrust";
-      break;
-    case "Mozzarella":
-      mozzarella.className += mozzarella.className + " selectedCrust";
-      break;
+function buildSaucePage() {
+  buildHeaderRow("sauce-page", "Choose your sauce");
+  buildMiddleRow("sauce");
+  buildButtonRow();
+  updatePizzaView();
+  updateListView();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("crust");
+  });
+  if (currentSauce != null) {
+    nextBtn.addEventListener("click", function () {
+      changePage("cheese");
+    });
   }
+  calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
-function setToppingSideButtons() {
-  var pepperoniLeft = document.getElementById("pepperoni-left");
-  var pepperoniFull = document.getElementById("pepperoni-full");
-  var pepperoniRight = document.getElementById("pepperoni-right");
-  var sausageLeft = document.getElementById("sausage-left");
-  var sausageFull = document.getElementById("sausage-full");
-  var sausageRight = document.getElementById("sausage-right");
-  var canadianBaconLeft = document.getElementById("canadianbacon-left");
-  var canadianBaconFull = document.getElementById("canadianbacon-full");
-  var canadianBaconRight = document.getElementById("canadianbacon-right");
-  var beefLeft = document.getElementById("beef-left");
-  var beefFull = document.getElementById("beef-full");
-  var beefRight = document.getElementById("beef-right");
-  var baconLeft = document.getElementById("bacon-left");
-  var baconFull = document.getElementById("bacon-full");
-  var baconRight = document.getElementById("bacon-right");
-  pepperoniRight.addEventListener("click", rightClick);
-  sausageRight.addEventListener("click", rightClick);
-  canadianBaconRight.addEventListener("click", rightClick);
-  beefRight.addEventListener("click", rightClick);
-  baconRight.addEventListener("click", rightClick);
-  pepperoniFull.addEventListener("click", fullClick);
-  sausageFull.addEventListener("click", fullClick);
-  canadianBaconFull.addEventListener("click", fullClick);
-  beefFull.addEventListener("click", fullClick);
-  baconFull.addEventListener("click", fullClick);
-  pepperoniLeft.addEventListener("click", leftClick);
-  sausageLeft.addEventListener("click", leftClick);
-  canadianBaconLeft.addEventListener("click", leftClick);
-  beefLeft.addEventListener("click", leftClick);
-  baconLeft.addEventListener("click", leftClick);
-  var onionsLeft = document.getElementById("onions-left");
-  var onionsFull = document.getElementById("onions-full");
-  var onionsRight = document.getElementById("onions-right");
-  var olivesLeft = document.getElementById("olives-left");
-  var olivesFull = document.getElementById("olives-full");
-  var olivesRight = document.getElementById("olives-right");
-  var bellPeppersLeft = document.getElementById("bellpeppers-left");
-  var bellPeppersFull = document.getElementById("bellpeppers-full");
-  var bellPeppersRight = document.getElementById("bellpeppers-right");
-  var spinachLeft = document.getElementById("spinach-left");
-  var spinachFull = document.getElementById("spinach-full");
-  var spinachRight = document.getElementById("spinach-right");
-  var mushroomsLeft = document.getElementById("mushrooms-left");
-  var mushroomsFull = document.getElementById("mushrooms-full");
-  var mushroomsRight = document.getElementById("mushrooms-right");
-  onionsRight.addEventListener("click", rightClick);
-  olivesRight.addEventListener("click", rightClick);
-  bellPeppersRight.addEventListener("click", rightClick);
-  spinachRight.addEventListener("click", rightClick);
-  mushroomsRight.addEventListener("click", rightClick);
-  onionsFull.addEventListener("click", fullClick);
-  olivesFull.addEventListener("click", fullClick);
-  bellPeppersFull.addEventListener("click", fullClick);
-  spinachFull.addEventListener("click", fullClick);
-  mushroomsFull.addEventListener("click", fullClick);
-  onionsLeft.addEventListener("click", leftClick);
-  olivesLeft.addEventListener("click", leftClick);
-  bellPeppersLeft.addEventListener("click", leftClick);
-  spinachLeft.addEventListener("click", leftClick);
-  mushroomsLeft.addEventListener("click", leftClick);
+function buildCheesePage() {
+  buildHeaderRow("cheese-page", "Choose your cheese");
+  buildMiddleRow("cheese");
+  buildButtonRow();
+  updatePizzaView();
+  updateListView();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
+  if (currentCheese != null) {
+    nextBtn.addEventListener("click", function () {
+      changePage("toppings");
+    });
+  }
+  calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
+}
+
+function buildToppingsPage() {
+  buildHeaderRow("toppings-page", "Choose your toppings");
+  buildMiddleRow("toppings");
+  buildButtonRow();
+  updatePizzaView();
+  updateListView();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 
   for (let i = 0; i < currentToppings.length; i++) {
     var topping = currentToppings[i].toString();
     var name = topping.split("-");
-    var btn = document.getElementById(name[0] + "-full");
-    btn.className = btn.className + " selectedCrust";
-  }
-}
-
-function setToppingButtons() {
-  var pep = document.getElementById("pepperoni");
-  var sausage = document.getElementById("sausage");
-  var beef = document.getElementById("beef");
-  var canadianBacon = document.getElementById("canadianbacon");
-  var bacon = document.getElementById("bacon");
-  var olives = document.getElementById("olives");
-  var mushrooms = document.getElementById("mushrooms");
-  var onions = document.getElementById("onions");
-  var bellPeppers = document.getElementById("bellpeppers");
-  var spinach = document.getElementById("spinach");
-
-  pep.addEventListener("click", toppingLabelClick);
-  sausage.addEventListener("click", toppingLabelClick);
-  beef.addEventListener("click", toppingLabelClick);
-  canadianBacon.addEventListener("click", toppingLabelClick);
-  bacon.addEventListener("click", toppingLabelClick);
-  olives.addEventListener("click", toppingLabelClick);
-  mushrooms.addEventListener("click", toppingLabelClick);
-  onions.addEventListener("click", toppingLabelClick);
-  bellPeppers.addEventListener("click", toppingLabelClick);
-  spinach.addEventListener("click", toppingLabelClick);
-
-  for (let i = 0; i < currentToppings.length; i++) {
-    var topping = currentToppings[i].toString();
-    var name = topping.split("-");
+    console.log("name", name);
     var label = document.getElementById(name[0]);
     label.className = label.className + " selectedCrust";
     var ex = document.getElementById(name[0] + "-x");
     ex.style.display = "block";
   }
 
-  setToppingSideButtons();
-  setToppingPlusButtons();
-  setToppingRemoveButtons();
 }
 
-function setToppingPlusButtons() {
-  var pepExtra = document.getElementById("pepperoni-extra");
-  var sausageExtra = document.getElementById("sausage-extra");
-  var canadianBaconExtra = document.getElementById("canadianbacon-extra");
-  var baconExtra = document.getElementById("bacon-extra");
-  var beefExtra = document.getElementById("beef-extra");
-  var mushroomsExtra = document.getElementById("mushrooms-extra");
-  var olivesExtra = document.getElementById("olives-extra");
-  var onionsExtra = document.getElementById("onions-extra");
-  var spinachExtra = document.getElementById("spinach-extra");
-  var bellPeppersExtra = document.getElementById("bellpeppers-extra");
-
-  var pepDouble = document.getElementById("pepperoni-double");
-  var sausageDouble = document.getElementById("sausage-double");
-  var canadianBaconDouble = document.getElementById("canadianbacon-double");
-  var baconDouble = document.getElementById("bacon-double");
-  var beefDouble = document.getElementById("beef-double");
-  var mushroomsDouble = document.getElementById("mushrooms-double");
-  var olivesDouble = document.getElementById("olives-double");
-  var onionsDouble = document.getElementById("onions-double");
-  var spinachDouble = document.getElementById("spinach-double");
-  var bellPeppersDouble = document.getElementById("bellpeppers-double");
-
-  pepExtra.addEventListener("click", extraClick);
-  sausageExtra.addEventListener("click", extraClick);
-  canadianBaconExtra.addEventListener("click", extraClick);
-  baconExtra.addEventListener("click", extraClick);
-  beefExtra.addEventListener("click", extraClick);
-  mushroomsExtra.addEventListener("click", extraClick);
-  olivesExtra.addEventListener("click", extraClick);
-  onionsExtra.addEventListener("click", extraClick);
-  spinachExtra.addEventListener("click", extraClick);
-  bellPeppersExtra.addEventListener("click", extraClick);
-
-  pepDouble.addEventListener("click", doubleClick);
-  sausageDouble.addEventListener("click", doubleClick);
-  canadianBaconDouble.addEventListener("click", doubleClick);
-  baconDouble.addEventListener("click", doubleClick);
-  beefDouble.addEventListener("click", doubleClick);
-  mushroomsDouble.addEventListener("click", doubleClick);
-  olivesDouble.addEventListener("click", doubleClick);
-  onionsDouble.addEventListener("click", doubleClick);
-  spinachDouble.addEventListener("click", doubleClick);
-  bellPeppersDouble.addEventListener("click", doubleClick);
-}
-
-function setToppingRemoveButtons() {
-  var pep = document.getElementById("pepperoni-x");
-  var sausage = document.getElementById("sausage-x");
-  var beef = document.getElementById("beef-x");
-  var canadianBacon = document.getElementById("canadianbacon-x");
-  var bacon = document.getElementById("bacon-x");
-  var olives = document.getElementById("olives-x");
-  var mushrooms = document.getElementById("mushrooms-x");
-  var onions = document.getElementById("onions-x");
-  var bellPeppers = document.getElementById("bellpeppers-x");
-  var spinach = document.getElementById("spinach-x");
-
-  pep.addEventListener("click", removeClick);
-  sausage.addEventListener("click", removeClick);
-  beef.addEventListener("click", removeClick);
-  canadianBacon.addEventListener("click", removeClick);
-  bacon.addEventListener("click", removeClick);
-  olives.addEventListener("click", removeClick);
-  mushrooms.addEventListener("click", removeClick);
-  onions.addEventListener("click", removeClick);
-  bellPeppers.addEventListener("click", removeClick);
-  spinach.addEventListener("click", removeClick);
-}
-
-function toppingLabelClick(evt) {
-  var currentX = document.getElementById(this.id + "-x");
-  var currentOptions = document.getElementById(this.id + "-options");
-  this.className = this.className + " selectedCrust";
-  var toppingOptions = document.getElementsByClassName("topping-options");
-  for (let i = 0; i < toppingOptions.length; i++) {
-    toppingOptions[i].style.display = "none";
+function buildFinalPage() {
+  buildHeaderRow("finalPage", "Review Order");
+  buildMiddleRow("final");
+  modalInit();
+  if (isPreBuilt == true) {
+    getCrustImg();
+    getSauceImg();
+    getCheeseImg();
   }
-  currentX.style.display = "block";
-  currentOptions.style.display = "block";
+  updatePizzaView();
+  updateListView();
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
+}
+
+function buildHeaderRow(pageNameClass, pageTitle) {
+  var row = document.createElement("div");
+  row.className = "row";
+  row.classList += " " + pageNameClass;
+  //first column
+  var col1 = document.createElement("div");
+  col1.className = "col-4";
+  var heading = document.createElement("h1");
+  heading.className = "bold-heading";
+  heading.classList += " title";
+  heading.innerHTML = pageTitle;
+  var span = document.createElement("span");
+  span.id = "deal";
+  span.className = "badge";
+  span.innerHTML = "Special Deal";
+  heading.appendChild(span);
+  col1.appendChild(heading);
+  row.appendChild(col1);
+  //second column
+  var col2 = document.createElement("div");
+  col2.className = "col-4";
+  row.appendChild(col2);
+  //third column
+  var col3 = document.createElement("div");
+  col3.className = "col-4";
+  row.appendChild(col3);
+  container.appendChild(row);
+}
+
+function buildPreBuiltRow() {
+  var row;
+  var preBuiltNames = [];
+  for (let i = 0; i < preBuiltData.length; i++) {
+    preBuiltNames.push(i.name);
+  }
+  row = document.createElement("div");
+  row.className = "row preBuiltBox";
+  for (let i = 0; i < preBuiltNames.length; i++) {
+    var imgs = "";  
+    var name = preBuiltData[i].name;
+    if (/\s/.test(name)) {
+      name = name.replace(/\s/g, "");
+    }
+    var col = document.createElement('div');
+    col.setAttribute('class', 'col-4');
+    var pizzaDiv = document.createElement('div');
+    pizzaDiv.setAttribute('id', name);
+    pizzaDiv.setAttribute('class', 'popup pizza-box');
+    var descName = name + "-desc";
+    var descSpan = document.createElement('span');
+    descSpan.setAttribute('id', descName);
+    descSpan.setAttribute('class', 'popup-content');
+    row.appendChild(col);
+    col.appendChild(pizzaDiv);
+    pizzaDiv.appendChild(descSpan);
+    pizzaDiv.addEventListener('click', preBuiltClick);
+    descSpan.innerHTML = preBuiltData[i].desc;
+    preBuiltData[i].images.forEach(element => {
+      if (element != preBuiltData[i].images[preBuiltData[i].images.length - 1]) {
+        imgs += "url('" + element + "'), ";
+      } else {
+        imgs += "url('" + element + "') no-repeat center";
+      }
+    });
+    pizzaDiv.style.background = imgs;
+    pizzaDiv.style.backgroundSize = "contain";
+  }
+  return row;
+}
+
+function buildMiddleRow(pageName) {
+  var row;
+  if (pageName == "size" || pageName == "prebuilt" || pageName == "final" || pageName == "start") {
+    row = buildOptionsColumn(pageName);
+  } else {
+    row = document.createElement("div");
+    row.className = "row";
+    var col1 = buildPizzaViewColumn();
+    var col2 = buildOptionsColumn(pageName);
+    var col3 = buildIngredientListColumn(pageName);
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+  }
+  container.appendChild(row);
+}
+
+function buildPizzaViewColumn() {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var pizzaContainer = document.createElement("div");
+  pizzaContainer.id = "pizzaViewContainer";
+  var pizzaImg = document.createElement("div");
+  pizzaImg.id = "pizzaView";
+  pizzaImg.classList += " pizza-box box";
+  pizzaContainer.appendChild(pizzaImg);
+  col.appendChild(pizzaContainer);
+
+  var sizeContDiv = document.createElement("div");
+  var sizeContainer = document.createElement("div");
+  sizeContainer.className = "size-display";
+
+  var sizeArr = ["smSize", "medSize", "lgSize", "xlSize"];
+  for (let i = 0; i < sizeArr.length; i++) {
+    var div = document.createElement("div");
+    div.id = sizeArr[i];
+    div.className = "size-bar";
+    if (sizeArr[i] == "smSize") {
+      div.innerHTML = "S";
+    } else if (sizeArr[i] == "medSize") {
+      div.innerHTML = "M";
+    } else if (sizeArr[i] == "lgSize") {
+      div.innerHTML = "L";
+    } else {
+      div.innerHTML = "XL";
+    }
+    div.addEventListener("click", buildingSizeClick);
+    if (div.innerHTML == currentSize) {
+      div.className = div.className + " selected";
+    }
+    sizeContainer.appendChild(div);
+  }
+  sizeContDiv.appendChild(sizeContainer);
+  col.appendChild(sizeContDiv);
+  return col;
+}
+
+function buildOptionsColumn(pageName) {
+  var col;
+  switch (pageName) {
+    case "start":
+      col = buildStartMidRow();
+      break;
+    case "prebuilt":
+      col = buildPreBuiltRow();
+      break;
+    case "size":
+      col = buildSizeMidRow();
+      break;
+    case "crust":
+      col = buildCrustMidColumn();
+      break;
+    case "sauce":
+      col = buildSauceMidColumn();
+      break;
+    case "cheese":
+      col = buildCheeseMidColumn();
+      break;
+    case "toppings":
+      col = buildToppingsMidColumn();
+      break;
+    case "final":
+      col = buildFinalMidRow();
+      break;
+  }
+  return col;
+}
+
+function buildStartMidRow() {
+  var row = document.createElement("div");
+  row.className = "row";
+  //byo card
+  var card1 = document.createElement("div");
+  card1.id = "byoBtn";
+  card1.className = "col-6";
+  card1.classList += " card";
+  card1.addEventListener("click", customClick);
+  var cardContainer1 = document.createElement("div");
+  cardContainer1.className = "card-container";
+  var cardHeading1 = document.createElement("div");
+  cardHeading1.className = "card-header";
+  var heading1 = document.createElement("h1");
+  heading1.className = "bold-heading";
+  heading1.innerHTML = "Build Your Own";
+  cardHeading1.appendChild(heading1);
+  cardContainer1.appendChild(cardHeading1);
+  var box1 = document.createElement("div");
+  box1.id = "customBox";
+  box1.className = "card-body";
+  box1.classList += " box";
+  cardContainer1.appendChild(box1);
+  card1.appendChild(cardContainer1);
+  row.appendChild(card1);
+  //pre-built card
+  var card2 = document.createElement("div");
+  card2.id = "preBtn";
+  card2.className = "col-6";
+  card2.classList += " card";
+  card2.addEventListener("click", preClick);
+  var cardContainer2 = document.createElement("div");
+  cardContainer2.className = "card-container";
+  var cardHeading2 = document.createElement("div");
+  cardHeading2.className = "card-header";
+  var heading2 = document.createElement("h2");
+  heading2.className = "bold-heading";
+  heading2.innerHTML = "Pre-Built Pizza";
+  cardHeading2.appendChild(heading2);
+  cardContainer2.appendChild(cardHeading2);
+  var box2 = document.createElement("div");
+  box2.id = "preBuiltBox";
+  box2.className = "card-body";
+  box2.classList += " box";
+  cardContainer2.appendChild(box2);
+  card2.appendChild(cardContainer2);
+  row.appendChild(card2);
+  return row;
+}
+
+function buildSizeMidRow() {
+  var row = document.createElement("div");
+  row.className = "row";
+  sizeButtons = buildButtons(sizeButtonNames, "size-box", null, sizeClick);
+  for (let i = 0; i < sizeButtonNames.length; i++) {
+    var col = document.createElement("div");
+    col.className = "col-3";
+    col.classList += " size-container";
+    if (sizeButtons[i].innerHTML.toString() == currentSize) {
+      sizeButtons[i].className = sizeButtons[i].className + " selected";
+    }
+    col.appendChild(sizeButtons[i]);
+    row.appendChild(col);
+  }
+  return row;
+}
+
+function buildIngredientListColumn(pageName) {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var ingredDiv = document.createElement("div");
+  ingredDiv.className = "ingredient-div";
+  var heading = document.createElement("h3");
+  heading.innerHTML = "Your Pizza";
+  ingredDiv.appendChild(heading);
+  var ingredList = document.createElement("div");
+  ingredList.id = "ingred-list";
+  ingredList.className = "list-div";
+  ingredDiv.appendChild(ingredList);
+  var total = document.createElement("h4");
+  total.id = "total";
+  total.innerHTML = "Total: $0.00";
+  ingredDiv.appendChild(total);
+  col.appendChild(ingredDiv);
+  return col;
+}
+
+function buildFinalMidRow() {
+  var row = document.createElement("div");
+  row.className = "row";
+  //pizz view
+  var col1 = document.createElement("div");
+  col1.className = "col-6";
+  var pizzaContainer = document.createElement("div");
+  pizzaContainer.id = "pizzaViewContainer";
+  pizzaContainer.className = "final-page-pv-cont";
+  var pizzaImg = document.createElement("div");
+  pizzaImg.id = "pizzaView";
+  pizzaImg.classList += " pizza-box box";
+  pizzaContainer.appendChild(pizzaImg);
+  col1.appendChild(pizzaContainer);
+  row.appendChild(col1);
+  //ingredients list
+  var col2 = document.createElement("div");
+  col2.className = "col-6";
+  var ingredDiv = document.createElement("div");
+  ingredDiv.className = "ingredient-div";
+  var heading = document.createElement("h3");
+  heading.innerHTML = "Your Pizza";
+  ingredDiv.appendChild(heading);
+  var ingredList = document.createElement("div");
+  ingredList.id = "ingred-list";
+  ingredList.className = "list-div";
+  ingredDiv.appendChild(ingredList);
+  var total = document.createElement("h4");
+  total.id = "total";
+  total.innerHTML = "Total: $0.00";
+  ingredDiv.appendChild(total);
+  var modalBtn = document.createElement("div");
+  modalBtn.id = "addBtn";
+  modalBtn.className = "btn-modal";
+  modalBtn.innerHTML = "Add to Order";
+  ingredDiv.appendChild(modalBtn);
+  modalBtn.setAttribute("data-modal", "modalLight");
+  var modal = buildModal();
+  ingredDiv.appendChild(modal);
+  col2.appendChild(ingredDiv);
+  row.appendChild(col2);
+  return row;
+}
+
+function buildModal() {
+  var modal = document.createElement("div");
+  modal.id = "modalLight";
+  modal.className = "modal";
+  modal.classList += " modal-light";
+  var content = document.createElement("div");
+  content.className = "modal-content";
+  var header = document.createElement("div");
+  header.className = "modal-header";
+  var span = document.createElement("span");
+  span.className = "close";
+  span.innerHTML = "&times;";
+  header.appendChild(span);
+  content.appendChild(header);
+  var body = document.createElement("div");
+  body.className = "modal-body";
+  var modalHeading = document.createElement("h1");
+  modalHeading.className = "bold-heading";
+  modalHeading.innerHTML = "Thank you for your order!";
+  body.appendChild(modalHeading);
+  content.appendChild(body);
+  var footer = document.createElement("div");
+  footer.className = "modal-footer";
+  content.appendChild(footer);
+  modal.appendChild(content);
+  return modal;
+}
+
+function buildButtonRow() {
+  var row = document.createElement("div");
+  row.className = "row";
+  row.classList += " button-row";
+  //back btn
+  var col1 = document.createElement("div");
+  col1.className = "col-1";
+  col1.classList += " backBtn";
+  var back = document.createElement("div");
+  back.className = "btn-basic";
+  back.id = "backBtn";
+  back.innerHTML = "Back";
+  col1.appendChild(back);
+  row.appendChild(col1);
+  //empty col
+  var col2 = document.createElement("div");
+  col2.className = "col-10";
+  row.appendChild(col2);
+  //next btn
+  var col3 = document.createElement("div");
+  col3.className = "col-1";
+  col3.classList += " nextBtn";
+  var next = document.createElement("div");
+  next.className = "btn-basic";
+  next.id = "nextBtn";
+  next.innerHTML = "Next";
+  col3.appendChild(next);
+  row.appendChild(col3);
+  container.appendChild(row);
+}
+
+function buildCrustMidColumn() {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var listCont = document.createElement("div");
+  listCont.className = "list-container";
+  crustButtons = buildButtons(
+    crustButtonNames,
+    "btn-basic",
+    " bold-heading crustOpt",
+    crustClick,
+    null
+  );
+  for (let i = 0; i < crustButtons.length; i++) {
+    var div = document.createElement("div");
+    div.id = "crustList";
+    if (crustButtons[i].innerHTML.toString() == currentCrust) {
+      crustButtons[i].className = crustButtons[i].className + " selectedCrust";
+    }
+    div.appendChild(crustButtons[i]);
+    listCont.appendChild(div);
+  }
+  col.appendChild(listCont);
+  return col;
+}
+
+function buildSauceMidColumn() {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var listCont = document.createElement("div");
+  listCont.className = "list-container";
+  sauceButtons = buildButtons(
+    sauceButtonNames,
+    "btn-basic",
+    " bold-heading crustOpt",
+    sauceClick,
+    null
+  );
+  for (let i = 0; i < sauceButtons.length; i++) {
+    var div = document.createElement("div");
+    div.id = "sauceList";
+    if (sauceButtons[i].innerHTML.toString() == currentSauce) {
+      sauceButtons[i].className = sauceButtons[i].className + " selectedCrust";
+    }
+    div.appendChild(sauceButtons[i]);
+    listCont.appendChild(div);
+  }
+  col.appendChild(listCont);
+  return col;
+}
+
+function buildCheeseMidColumn() {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var listCont = document.createElement("div");
+  listCont.className = "list-container";
+  cheeseButtons = buildButtons(
+    cheeseButtonNames,
+    "btn-basic",
+    " bold-heading crustOpt",
+    cheeseClick,
+    null
+  );
+  for (let i = 0; i < cheeseButtons.length; i++) {
+    var div = document.createElement("div");
+    div.id = "cheeseList";
+    if (cheeseButtons[i].innerHTML.toString() == currentCheese) {
+      cheeseButtons[i].className = cheeseButtons[i].className + " selectedCrust";
+    }
+    div.appendChild(cheeseButtons[i]);
+    listCont.appendChild(div);
+  }
+  col.appendChild(listCont);
+  return col;
+}
+
+function buildToppingsMidColumn() {
+  var col = document.createElement("div");
+  col.className = "col-4";
+  var listCont = document.createElement("div");
+  listCont.className = "list-container";
+  //meats
+  var meatHeading = document.createElement("h5");
+  meatHeading.className = "topping-section";
+  meatHeading.innerHTML = "Meats";
+  listCont.appendChild(meatHeading);
+  var meatList = buildMeatList();
+  listCont.appendChild(meatList);
+  //veg
+  var vegHeading = document.createElement("h5");
+  vegHeading.className = "topping-section";
+  vegHeading.innerHTML = "Vegetables";
+  listCont.appendChild(vegHeading);
+  var vegList = buildVegList();
+  listCont.appendChild(vegList);
+  col.appendChild(listCont);
+
+  return col;
+}
+
+function buildMeatList() {
+  meatLabelButtons = buildButtons(
+    meatButtonNames,
+    "btn-basic",
+    " topping-button crustOpt",
+    toppingLabelClick,
+    null
+  );
+  meatExButtons = buildButtons(
+    meatButtonNames,
+    "exes",
+    null,
+    removeClick,
+    null
+  );
+  meatLeftButtons = buildButtons(
+    meatButtonNames,
+    "btn-small",
+    " crustOpt",
+    leftClick,
+    "left"
+  );
+  meatFullButtons = buildButtons(
+    meatButtonNames,
+    "btn-small",
+    " crustOpt",
+    fullClick,
+    "full"
+  );
+  meatRightButtons = buildButtons(
+    meatButtonNames,
+    "btn-small",
+    " crustOpt",
+    rightClick,
+    "right"
+  );
+  meatExtraButtons = buildButtons(
+    meatButtonNames,
+    "btn-small",
+    " crustOpt",
+    extraClick,
+    "extra"
+  );
+  meatDoubleButtons = buildButtons(
+    meatButtonNames,
+    "btn-small",
+    " crustOpt",
+    doubleClick,
+    "double"
+  );
+
+  var meatList = document.createElement("div");
+  meatList.className = "meats-container";
+  meatList.classList += " list-div";
+  for (let i = 0; i < meatButtonNames.length; i++) {
+    var label = document.createElement("div");
+    label.className = "toppingLabel";
+    label.appendChild(meatLabelButtons[i]);
+    label.appendChild(meatExButtons[i]);
+    meatList.appendChild(label);
+    var options = document.createElement("div");
+    var name = meatButtonNames[i].toString().toLowerCase();
+    if (/\s/.test(name)) {
+      name = name.replace(/\s/g, "");
+    }
+    options.id = name + "-options";
+    options.className = "topping-options";
+    var sideBtns = document.createElement("div");
+    sideBtns.className = "topping-side";
+    sideBtns.appendChild(meatLeftButtons[i]);
+    sideBtns.appendChild(meatFullButtons[i]);
+    sideBtns.appendChild(meatRightButtons[i]);
+    options.appendChild(sideBtns);
+    var plusBtns = document.createElement("div");
+    plusBtns.className = "topping-plus";
+    plusBtns.appendChild(meatExtraButtons[i]);
+    plusBtns.appendChild(meatDoubleButtons[i]);
+    options.appendChild(plusBtns);
+    meatList.appendChild(options);
+  }
+
+  return meatList;
+}
+
+function buildVegList() {
+  vegLabelButtons = buildButtons(
+    vegButtonNames,
+    "btn-basic",
+    " topping-button crustOpt",
+    toppingLabelClick,
+    null
+  );
+  vegExButtons = buildButtons(vegButtonNames, "exes", null, removeClick, null);
+  vegLeftButtons = buildButtons(
+    vegButtonNames,
+    "btn-small",
+    " crustOpt",
+    leftClick,
+    "left"
+  );
+  vegFullButtons = buildButtons(
+    vegButtonNames,
+    "btn-small",
+    " crustOpt",
+    fullClick,
+    "full"
+  );
+  vegRightButtons = buildButtons(
+    vegButtonNames,
+    "btn-small",
+    " crustOpt",
+    rightClick,
+    "right"
+  );
+  vegExtraButtons = buildButtons(
+    vegButtonNames,
+    "btn-small",
+    " crustOpt",
+    extraClick,
+    "extra"
+  );
+  vegDoubleButtons = buildButtons(
+    vegButtonNames,
+    "btn-small",
+    " crustOpt",
+    doubleClick,
+    "double"
+  );
+
+  var vegList = document.createElement("div");
+  vegList.className = "veg-container";
+  vegList.classList += " list-div";
+  for (let i = 0; i < vegButtonNames.length; i++) {
+    var label = document.createElement("div");
+    label.className = "toppingLabel";
+    label.appendChild(vegLabelButtons[i]);
+    label.appendChild(vegExButtons[i]);
+    vegList.appendChild(label);
+    var options = document.createElement("div");
+    var name = vegButtonNames[i].toString().toLowerCase();
+    if (/\s/.test(name)) {
+      name = name.replace(/\s/g, "");
+    }
+    options.id = name + "-options";
+    options.className = "topping-options";
+    var sideBtns = document.createElement("div");
+    sideBtns.className = "topping-side";
+    sideBtns.appendChild(vegLeftButtons[i]);
+    sideBtns.appendChild(vegFullButtons[i]);
+    sideBtns.appendChild(vegRightButtons[i]);
+    options.appendChild(sideBtns);
+    var plusBtns = document.createElement("div");
+    plusBtns.className = "topping-plus";
+    plusBtns.appendChild(vegExtraButtons[i]);
+    plusBtns.appendChild(vegDoubleButtons[i]);
+    options.appendChild(plusBtns);
+    vegList.appendChild(options);
+  }
+  return vegList;
+}
+
+function buildButtons(nameArray, className, classesList, clickFunction, side) {
+  var buttonArray = [];
+  for (let i = 0; i < nameArray.length; i++) {
+    var item = nameArray[i];
+    buttonArray[i] = document.createElement("div");
+    if (side != null && side != "") {
+      buttonArray[i].innerHTML = side;
+    } else if (className == "exes") {
+      buttonArray[i].innerHTML = "&times;";
+    } else {
+      buttonArray[i].innerHTML = nameArray[i];
+    }
+    buttonArray[i].className = className;
+    if (classesList != null && classesList != "") {
+      buttonArray[i].classList += classesList;
+    }
+    var id;
+    if (nameArray == sizeButtonNames) {
+      id = getId("size", item, className, classesList, side);
+    } else if (nameArray == crustButtonNames) {
+      id = getId("crust", item, className, classesList, side);
+    } else if (nameArray == sauceButtonNames) {
+      id = getId("sauce", item, className, classesList, side);
+    } else if (nameArray == cheeseButtonNames) {
+      id = getId("cheese", item, className, classesList, side);
+    } else {
+      id = getId("toppings", item, className, classesList, side);
+    }
+    buttonArray[i].id = id;
+    buttonArray[i].addEventListener("click", clickFunction);
+  }
+  return buttonArray;
+}
+
+function getId(type, item, className, classesList, side) {
+  var id;
+  switch (type) {
+    case "size":
+      id = getSizeId(item);
+      break;
+    case "crust":
+      id = getCrustId(item);
+      break;
+    case "sauce":
+      id = getSauceId(item);
+      break;
+    case "cheese":
+      id = getCheeseId(item);
+      break;
+    case "toppings":
+      id = getToppingId(item, className, classesList, side);
+      break;
+  }
+  return id;
+}
+
+function getSizeId(item) {
+  var id;
+  var prefix;
+  var suffix = "Pizza";
+  if (item == "S") {
+    prefix = "small";
+  } else if (item == "M") {
+    prefix = "medium";
+  } else if (item == "L") {
+    prefix = "large";
+  } else {
+    prefix = "xL";
+  }
+  id = prefix + suffix;
+  return id;
+}
+
+function getCrustId(item) {
+  var id;
+  var prefix = item.toString().toLowerCase();
+  var suffix = "-crust";
+  id = prefix + suffix;
+  return id;
+}
+
+function getSauceId(item) {
+  var id;
+  var prefix;
+  var suffix = "-sauce";
+  if (item == "Marinara") {
+    prefix = "mar";
+  } else if (item == "Creamy Garlic Parmesan") {
+    prefix = "creamy";
+  } else if (item == "Barbeque") {
+    prefix = "bbq";
+  } else {
+    prefix = "buff";
+  }
+  id = prefix + suffix;
+  return id;
+}
+
+function getCheeseId(item) {
+  var id;
+  var prefix;
+  var suffix = "-cheese";
+  if (item == "Cheddar") {
+    prefix = "ched";
+  } else if (item == "Mozzarella") {
+    prefix = "moz";
+  } else if (item == "Four Cheese") {
+    prefix = "four";
+  } else {
+    prefix = "provo";
+  }
+  id = prefix + suffix;
+  return id;
+}
+
+function getToppingId(item, className, classesList, side) {
+  var id;
+  var prefix = item.toString().toLowerCase();
+  if (/\s/.test(prefix)) {
+    prefix = prefix.replace(/\s/g, "");
+  }
+  if (
+    classesList != null &&
+    classesList.toString().includes("topping-button")
+  ) {
+    id = prefix;
+  }
+  if (className == "exes") {
+    id = prefix + "-x";
+  }
+  if (side != null && side != "") {
+    id = prefix + "-" + side;
+  }
+  return id;
+}
+
+function setSelectedPizza(id) {
+  for (let i = 0; i < preBuiltData.length; i++) {
+    var tempName = preBuiltData[i].name;
+    if (/\s/.test(tempName)) {
+      tempName = tempName.replace(/\s/g, "");
+    }
+    if (id == tempName) {
+      currentCheese = preBuiltData[i].cheese;
+      currentCrust = preBuiltData[i].crust;
+      currentSauce = preBuiltData[i].sauce;
+      for (img in preBuiltData[i].images) {
+        if (!img.toString().includes("crust") && !img.toString().includes("sauce") && !img.toString().includes("cheese")){
+          toppingImgs.push(preBuiltData[i].images[img]);
+        }
+      }
+      // var whatever = preBuiltData[i].images;
+      // whatever.pop();
+      // whatever.pop();
+      // whatever.pop();
+      // console.log(preBuiltData);
+      // toppingImgs = whatever;
+      currentToppings = preBuiltData[i].toppings;
+      calculateCost();
+    }
+  }
 }
 
 function customClick(evt) {
@@ -729,7 +1165,7 @@ function customClick(evt) {
   currentPizzaImgs = [];
   toppingImgs = [];
   totalPrice = null;
-  changePage(2);
+  changePage("size");
 }
 
 function preClick(evt) {
@@ -742,176 +1178,26 @@ function preClick(evt) {
   currentPizzaImgs = [];
   toppingImgs = [];
   totalPrice = null;
-  changePage(1);
-}
-
-function preBuiltPageInit() {
-  if (
-    currentCrust != null &&
-    currentSauce != null &&
-    currentCheese != null &&
-    currentToppings.length > 0
-  ) {
-    setNavButtons();
-  }
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
-
-  var fourCheese = document.getElementById("pb_0");
-  var meat = document.getElementById("pb_1");
-  var pep = document.getElementById("pb_2");
-  var veg = document.getElementById("pb_3");
-  var supreme = document.getElementById("pb_4");
-  var italian = document.getElementById("pb_5");
-
-  fourCheese.addEventListener("click", preBuiltClick);
-  meat.addEventListener("click", preBuiltClick);
-  pep.addEventListener("click", preBuiltClick);
-  veg.addEventListener("click", preBuiltClick);
-  supreme.addEventListener("click", preBuiltClick);
-  italian.addEventListener("click", preBuiltClick);
-}
-
-function preBuiltClick(evt) {
-  setNavButtons();
-  var allElements = document.body.getElementsByTagName("*");
-  for (let i = 0; i < allElements.length; i++) {
-    if (allElements[i].classList.contains("selected-box")) {
-      allElements[i].className = allElements[i].className.replace(
-        " selected-box",
-        ""
-      );
-    }
-  }
-  this.className = this.className + " selected-box";
-  setSelectedPizza(this.id);
-}
-
-function setSelectedPizza(id) {
-  switch (id) {
-    case "pb_0":
-      currentCrust = "Thick";
-      currentCheese = "Four Cheese";
-      currentSauce = "Marinara";
-      calculateCost();
-      break;
-    case "pb_1":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/pepperoni/pepperoni-full.png",
-        "assets/toppings/sausage/sausage-full.png",
-        "assets/toppings/canadianbacon/canadianbacon-full.png",
-        "assets/toppings/bacon/bacon-full.png",
-        "assets/toppings/beef/beef-full.png"
-      ];
-      currentToppings = [
-        "pepperoni-full",
-        "sausage-full",
-        "canadianbacon-full",
-        "bacon-full",
-        "beef-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_2":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
-      currentToppings = ["pepperoni-full"];
-      calculateCost();
-      break;
-    case "pb_3":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/mushrooms/mushrooms-full.png",
-        "assets/toppings/olives/olives-full.png",
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/spinach/spinach-full.png"
-      ];
-      currentToppings = [
-        "mushrooms-full",
-        "olives-full",
-        "onions-full",
-        "bellpeppers-full",
-        "spinach-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_4":
-      currentCrust = "Thin";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/mushrooms/mushrooms-full.png",
-        "assets/toppings/pepperoni/pepperoni-full.png",
-        "assets/toppings/sausage/sausage-full.png",
-        "assets/toppings/beef/beef-full.png"
-      ];
-      currentToppings = [
-        "onions-full",
-        "bellpeppers-full",
-        "mushrooms-full",
-        "pepperoni-full",
-        "sausage-full",
-        "beef-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_5":
-      currentCrust = "Thin";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/sausage/sausage-full.png"
-      ];
-      currentToppings = ["onions-full", "bellpeppers-full", "sausage-full"];
-      calculateCost();
-      break;
-  }
-}
-
-function preBuiltFinish(evt) {
-  changePage(7);
-}
-
-//SIZES
-function sizesPageInit() {
-  setInitialSizeButtons();
-  calculateCost();
-
-  if (currentSize != null && isPreBuilt == false) {
-    setNavButtons();
-  } else if (currentSize != null && isPreBuilt == true) {
-    var nextBtn = document.getElementById("nextBtn");
-    var backBtn = document.getElementById("backBtn");
-
-    nextBtn.addEventListener("click", next);
-    backBtn.addEventListener("click", back);
-  }
-
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
+  changePage("prebuilt");
 }
 
 function sizeClick(evt) {
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
   if (isPreBuilt == true) {
-    var nextBtn = document.getElementById("nextBtn");
-    var backBtn = document.getElementById("backBtn");
-
-    nextBtn.addEventListener("click", next);
-    backBtn.addEventListener("click", back);
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+    backBtn.addEventListener("click", function () {
+      changePage("prebuilt");
+    });
   } else {
-    setNavButtons();
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
   }
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
@@ -926,25 +1212,27 @@ function sizeClick(evt) {
   setSelectedSize(this.id);
 }
 
-function setSelectedSize(id) {
-  switch (id) {
-    case "smallPizza":
-      currentSize = "S";
-      calculateCost();
-      break;
-    case "mediumPizza":
-      currentSize = "M";
-      calculateCost();
-      break;
-    case "largePizza":
-      currentSize = "L";
-      calculateCost();
-      break;
-    case "xLPizza":
-      currentSize = "XL";
-      calculateCost();
-      break;
+function preBuiltClick(evt) {
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("size");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("start");
+  });
+  console.log("click id", this.id);
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected-box")) {
+      allElements[i].className = allElements[i].className.replace(
+        " selected-box",
+        ""
+      );
+    }
   }
+  this.className = this.className + " selected-box";
+  setSelectedPizza(this.id);
 }
 
 function buildingSizeClick(evt) {
@@ -961,51 +1249,15 @@ function buildingSizeClick(evt) {
   buildingSetSize(this.id);
 }
 
-function buildingSetSize(id) {
-  switch (id) {
-    case "smSize":
-      currentSize = "S";
-      calculateCost();
-      break;
-    case "medSize":
-      currentSize = "M";
-      calculateCost();
-      break;
-    case "lgSize":
-      currentSize = "L";
-      calculateCost();
-      break;
-    case "xlSize":
-      currentSize = "XL";
-      calculateCost();
-      break;
-  }
-}
-
-//CRUST
-function crustPageInit() {
-  if (isPreBuilt == true) {
-    getCrustImg();
-    getSauceImg();
-    getCheeseImg();
-  }
-  updatePizzaView();
-  updateListView();
-
-  if (currentCrust != null) {
-    setNavButtons();
-  }
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
-
-  setSizeButtons();
-  setCrustButtons();
-
-  calculateCost();
-}
-
 function crustClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("size");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -1019,47 +1271,15 @@ function crustClick(evt) {
   setSelectedCrust(this.id);
 }
 
-function setSelectedCrust(id) {
-  switch (id) {
-    case "thin-crust":
-      currentCrust = "Thin";
-      calculateCost();
-      break;
-    case "thick-crust":
-      currentCrust = "Thick";
-      calculateCost();
-      break;
-    case "stuffed-crust":
-      currentCrust = "Stuffed";
-      calculateCost();
-      break;
-    case "pretzel-crust":
-      currentCrust = "Pretzel";
-      calculateCost();
-      break;
-  }
-  getCrustImg();
-  updateListView();
-}
-
-//SAUCE
-function saucePageInit() {
-  updatePizzaView();
-  updateListView();
-  if (currentSauce != null) {
-    setNavButtons();
-  }
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
-
-  setSizeButtons();
-  setSauceButtons();
-
-  calculateCost();
-}
-
 function sauceClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("crust");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -1073,48 +1293,15 @@ function sauceClick(evt) {
   setSelectedSauce(this.id);
 }
 
-function setSelectedSauce(id) {
-  switch (id) {
-    case "mar-sauce":
-      currentSauce = "Marinara";
-      calculateCost();
-      break;
-    case "creamy-sauce":
-      currentSauce = "Creamy Garlic Parmesan";
-      calculateCost();
-      break;
-    case "bbq-sauce":
-      currentSauce = "Barbeque";
-      calculateCost();
-      break;
-    case "buff-sauce":
-      currentSauce = "Buffalo";
-      calculateCost();
-      break;
-  }
-  getSauceImg();
-  updateListView();
-}
-
-//CHEESE
-function cheesePageInit() {
-  updatePizzaView();
-  updateListView();
-
-  if (currentCheese != null) {
-    setNavButtons();
-  }
-  var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", back);
-
-  setSizeButtons();
-  setCheeseButtons();
-
-  calculateCost();
-}
-
 function cheeseClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("toppings");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -1128,37 +1315,16 @@ function cheeseClick(evt) {
   setSelectedCheese(this.id);
 }
 
-function setSelectedCheese(id) {
-  switch (id) {
-    case "ched-cheese":
-      currentCheese = "Cheddar";
-      calculateCost();
-      break;
-    case "four-cheese":
-      currentCheese = "Four Cheese";
-      calculateCost();
-      break;
-    case "provo-cheese":
-      currentCheese = "Provolone";
-      calculateCost();
-      break;
-    case "moz-cheese":
-      currentCheese = "Mozzarella";
-      calculateCost();
-      break;
+function toppingLabelClick(evt) {
+  var currentX = document.getElementById(this.id + "-x");
+  var currentOptions = document.getElementById(this.id + "-options");
+  this.className = this.className + " selectedCrust";
+  var toppingOptions = document.getElementsByClassName("topping-options");
+  for (let i = 0; i < toppingOptions.length; i++) {
+    toppingOptions[i].style.display = "none";
   }
-  getCheeseImg();
-  updateListView();
-}
-
-//TOPPINGS
-function toppingsPageInit() {
-  updatePizzaView();
-  updateListView();
-  setNavButtons();
-  setSizeButtons();
-  setToppingButtons();
-  calculateCost();
+  currentX.style.display = "block";
+  currentOptions.style.display = "block";
 }
 
 function removeClick(evt) {
@@ -1199,7 +1365,14 @@ function removeClick(evt) {
 }
 
 function rightClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1234,7 +1407,14 @@ function rightClick(evt) {
 }
 
 function leftClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1269,7 +1449,14 @@ function leftClick(evt) {
 }
 
 function fullClick(evt) {
-  setNavButtons();
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1305,14 +1492,11 @@ function fullClick(evt) {
 }
 
 function extraClick(evt) {
-  setNavButtons();
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
-
   var left = document.getElementById(toppingName + "-left");
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
-
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
 
@@ -1349,7 +1533,6 @@ function extraClick(evt) {
 }
 
 function doubleClick(evt) {
-  setNavButtons();
   var toppingString = this.id.toString().split("-");
 
   var toppingName = toppingString[0];
@@ -1390,6 +1573,70 @@ function doubleClick(evt) {
   }
 }
 
+function setSelectedSize(id) {
+  for (let i = 0; i < sizeButtons.length; i++) {
+    if (id == sizeButtons[i].id) {
+      currentSize = sizeButtons[i].innerHTML;
+    }
+  }
+  calculateCost();
+}
+
+function buildingSetSize(id) {
+  switch (id) {
+    case "smSize":
+      currentSize = "S";
+      calculateCost();
+      break;
+    case "medSize":
+      currentSize = "M";
+      calculateCost();
+      break;
+    case "lgSize":
+      currentSize = "L";
+      calculateCost();
+      break;
+    case "xlSize":
+      currentSize = "XL";
+      calculateCost();
+      break;
+  }
+}
+
+function setSelectedCrust(id) {
+  for (let i = 0; i < crustButtons.length; i++) {
+    if (id == crustButtons[i].id) {
+      currentCrust = crustButtons[i].innerHTML;
+    }
+  }
+  console.log(currentPizzaImgs);
+  calculateCost();
+  getCrustImg();
+  updateListView();
+}
+
+function setSelectedSauce(id) {
+  for (let i = 0; i < sauceButtons.length; i++) {
+    if (id == sauceButtons[i].id) {
+      currentSauce = sauceButtons[i].innerHTML;
+    }
+  }
+  calculateCost();
+  getSauceImg();
+  updateListView();
+}
+
+function setSelectedCheese(id) {
+  for (let i = 0; i < cheeseButtons.length; i++) {
+    if (id == cheeseButtons[i].id) {
+      currentCheese = cheeseButtons[i].innerHTML;
+    }
+  }
+  calculateCost();
+  getCheeseImg();
+  updateListView();
+}
+
 function setSelectedTopping(name) {
   var toppingType = name.split("-");
   var match = false;
@@ -1403,7 +1650,6 @@ function setSelectedTopping(name) {
         index = i;
       }
     }
-
     if (match == true) {
       currentToppings.splice(index, 1, name);
     } else {
@@ -1419,9 +1665,8 @@ function setSelectedTopping(name) {
 
 function removeTopping(name) {
   for (topping in currentToppings) {
-    //console.log("topping", topping, "name", name);
     var str = currentToppings[topping].toString();
-    if (str == "canadianbacon") {
+    if (str == "ham") {
       currentToppings.splice(topping, 1);
     } else {
       if (str.includes(name)) {
@@ -1440,19 +1685,6 @@ function removeTopping(name) {
   calculateCost();
 }
 
-//FINAL PAGE
-function finalPageInit() {
-  if (isPreBuilt == true) {
-    getCrustImg();
-    getSauceImg();
-    getCheeseImg();
-  }
-  updatePizzaView();
-  updateListView();
-  calculateCost();
-}
-
-//HELPER FUNCTIONS
 function updateListView() {
   var list = document.getElementById("ingred-list");
   while (list.hasChildNodes()) {
@@ -1482,9 +1714,7 @@ function updateListView() {
         var str = currentToppings[i].toString();
         var name = str.split("-");
         var toppingName;
-        if (name == "canadianbacon" || name[0] == "canadianbacon") {
-          toppingName = "canadian bacon";
-        } else if (name == "bellpeppers" || name[0] == "bellpeppers") {
+        if (name == "bellpeppers" || name[0] == "bellpeppers") {
           toppingName = "bell peppers";
         } else {
           toppingName = name[0];
@@ -1496,37 +1726,29 @@ function updateListView() {
       }
     }
   }
+  calculateCost();
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function updatePizzaView() {
   var pizzaView = document.getElementById("pizzaView");
-
   var imgList = "";
-
   if (toppingImgs.length > 0) {
     for (let j = 0; j < toppingImgs.length; j++) {
       imgList += "url('" + toppingImgs[j] + "'), ";
-
-      // if (j != toppingImgs.length - 1) {
-      //   imgList += "url('" + toppingImgs[j] + "'), ";
-      // } else {
-      //   imgList += "url('" + toppingImgs[j] + "') no-repeat center";
-      // }
     }
   }
+  console.log("list w/ toppings", imgList);
+  console.log("update pizza", currentPizzaImgs);
   for (let i = 0; i < currentPizzaImgs.length; i++) {
-    if (currentPizzaImgs.length > 1 && i != currentPizzaImgs.length - 1) {
+    if (currentPizzaImgs.length > 0 && i != currentPizzaImgs.length - 1) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
     } else {
       imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
-
-      // if (toppingImgs.length == 0) {
-      //   imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
-      // } else {
-      //   imgList += "url('" + currentPizzaImgs[i] + "'), ";
-      // }
     }
   }
+  console.log("list w/ everything", imgList);
   pizzaView.style.background = imgList;
   pizzaView.style.backgroundSize = "contain";
 }
@@ -1547,11 +1769,13 @@ function getCrustImg() {
       crustImg = "assets/crust/crust-pretzel.png";
       break;
   }
+  console.log("outisde if", currentPizzaImgs);
   if (currentPizzaImgs.length == 0) {
     currentPizzaImgs.push(crustImg);
   } else {
     var crustIndex = currentPizzaImgs.length - 1;
     currentPizzaImgs.splice(crustIndex, 1, crustImg);
+    console.log(currentPizzaImgs);
   }
   updatePizzaView();
 }
@@ -1629,11 +1853,11 @@ function getToppingImg() {
         }
       }
     }
-    if (topping.includes("canadianbacon")) {
-      for (let i = 0; i < canadianBaconImgs.length; i++) {
-        var str = canadianBaconImgs[i].toString();
+    if (topping.includes("ham")) {
+      for (let i = 0; i < hamImgs.length; i++) {
+        var str = hamImgs[i].toString();
         if (str.includes(topping)) {
-          toppingImg = canadianBaconImgs[i];
+          toppingImg = hamImgs[i];
           break;
         }
       }
@@ -1706,48 +1930,6 @@ function getToppingImg() {
   updatePizzaView();
 }
 
-function back(evt) {
-  var back = 0;
-  if (currentPage != 2) {
-    back = currentPage - 1;
-  }
-  changePage(back);
-}
-
-function next(evt) {
-  var next = currentPage + 1;
-  changePage(next);
-}
-
-function modalInit() {
-  if (isModal == true) {
-    var modalBtns = document.getElementsByClassName("btn-modal");
-    var close = document.getElementsByClassName("close");
-
-    for (let i = 0; i < modalBtns.length; i++) {
-      modalBtns[i].addEventListener("click", function() {
-        var modal = modalBtns[i].getAttribute("data-modal");
-        document.getElementById(modal).style.display = "block";
-      });
-    }
-    for (let j = 0; j < close.length; j++) {
-      close[j].addEventListener("click", function() {
-        var modal = close[j].closest(".modal");
-        modal.style.display = "none";
-        currentSize = null;
-        currentCrust = null;
-        currentSauce = null;
-        currentCheese = null;
-        currentToppings = [];
-        currentPizzaImgs = [];
-        toppingImgs = [];
-        totalPrice = null;
-        changePage(0);
-      });
-    }
-  }
-}
-
 function calculateCost() {
   totalPrice = 0;
   switch (currentSize) {
@@ -1764,33 +1946,41 @@ function calculateCost() {
       totalPrice += 7.99;
       break;
   }
-  if (currentToppings.length > 4) {
+  if (currentToppings.length > 5) {
     isSpecialDeal = true;
-    var temp = currentToppings.length - 5;
+    var temp = currentToppings.length - 6;
     totalPrice += 3.0;
     totalPrice += temp * 1.0;
   } else {
     isSpecialDeal = false;
-    totalPrice += currentToppings.length * 1.0;
-  }
-
-  if (isSpecialDeal && currentPage > 2) {
-    if (currentPage != 7) {
-      var badge = document.getElementById("deal");
-      badge.style.display = "block";
-    }
+    totalPrice += (currentToppings.length - 1) * 1.0;
   }
   totalPrice = totalPrice.toFixed(2);
-  if (currentPage > 2) {
-    var total = document.getElementById("total");
-    total.innerHTML = "Total: $" + totalPrice;
-  }
 }
 
-function checkMobile() {
-  if (screen.width <= 810) {
-    pages.splice(1, 1, preBuiltMobile);
+function modalInit() {
+  var modalBtns = document.getElementsByClassName("btn-modal");
+  var close = document.getElementsByClassName("close");
+
+  for (let i = 0; i < modalBtns.length; i++) {
+    modalBtns[i].addEventListener("click", function () {
+      var modal = modalBtns[i].getAttribute("data-modal");
+      document.getElementById(modal).style.display = "block";
+    });
+  }
+  for (let j = 0; j < close.length; j++) {
+    close[j].addEventListener("click", function () {
+      var modal = close[j].closest(".modal");
+      modal.style.display = "none";
+      currentSize = null;
+      currentCrust = null;
+      currentSauce = null;
+      currentCheese = null;
+      currentToppings = [];
+      currentPizzaImgs = [];
+      toppingImgs = [];
+      totalPrice = null;
+      changePage("start");
+    });
   }
 }
-
-changePage(0);
