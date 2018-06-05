@@ -52,6 +52,7 @@ var currentPizzaImgs = [];
 var currentToppings = [];
 var toppingImgs = [];
 var isPreBuilt = false;
+var request = new XMLHttpRequest();
 
 var pepperoniImgs = [
   "assets/toppings/pepperoni/pepperoni-full.png",
@@ -163,6 +164,21 @@ var spinachImgs = [
   "assets/toppings/spinach/spinach-right-extra.png",
   "assets/toppings/spinach/spinach-right-double.png"
 ];
+
+loadData();
+changePage("size");
+
+ 
+function loadData() {
+  request.open('GET', 'scripts/pre-built-pizzas.json');
+  request.onload = loadComplete;
+  request.send();
+}
+ 
+function loadComplete(evt) {
+  preBuiltData = JSON.parse(request.responseText);
+  console.log(preBuiltData);
+}
 
 changePage("start");
 
