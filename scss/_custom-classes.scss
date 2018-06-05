@@ -187,7 +187,7 @@
   // }
 }
 
-#pb_0:hover {
+#MeatLovers:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -202,7 +202,7 @@
   }
 }
 
-#pb_1:hover {
+#FourCheese:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -217,7 +217,7 @@
   }
 }
 
-#pb_2:hover {
+#VeggieLovers:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -232,7 +232,7 @@
   }
 }
 
-#pb_3:hover {
+#Pepperoni:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -247,7 +247,7 @@
   }
 }
 
-#pb_4:hover {
+#Supreme:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -262,7 +262,7 @@
   }
 }
 
-#pb_5:hover {
+#Italian:hover {
   span {
     visibility: visible;
     @include animation(0, 1s, fadeIn);
@@ -663,4 +663,8 @@
       }
     }
   }
+}
+
+.preBuiltBox {
+  flex-wrap: wrap;
 }

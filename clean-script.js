@@ -403,18 +403,19 @@ function buildPreBuiltRow() {
     preBuiltNames.push(i.name);
   }
   row = document.createElement("div");
-  row.className = "row";
+  row.className = "row preBuiltBox";
   for (let i = 0; i < preBuiltNames.length; i++) {
-    var name = i;
-    if (/\s/.test(i)) {
-      name = i.replace(/\s/g, "");
+    var imgs = "";  
+    var name = preBuiltData[i].name;
+    if (/\s/.test(name)) {
+      name = name.replace(/\s/g, "");
     }
     var col = document.createElement('div');
     col.setAttribute('class', 'col-4');
     var pizzaDiv = document.createElement('div');
-    pizzaDiv.setAttribute('id', i);
+    pizzaDiv.setAttribute('id', name);
     pizzaDiv.setAttribute('class', 'popup pizza-box');
-    var descName = i + "-desc";
+    var descName = name + "-desc";
     var descSpan = document.createElement('span');
     descSpan.setAttribute('id', descName);
     descSpan.setAttribute('class', 'popup-content');
@@ -422,6 +423,17 @@ function buildPreBuiltRow() {
     col.appendChild(pizzaDiv);
     pizzaDiv.appendChild(descSpan);
     col.addEventListener('click', preBuiltClick);
+    descSpan.innerHTML = preBuiltData[i].desc;
+    preBuiltData[i].images.forEach(element => {
+      if (element != preBuiltData[i].images[preBuiltData[i].images.length - 1]) {
+        imgs += "url('" + element + "'), ";
+      } else {
+        imgs += "url('" + element + "') no-repeat center";
+      }
+    });
+    console.log(imgs);
+    pizzaDiv.style.background = imgs;
+    pizzaDiv.style.backgroundSize = "contain";
   }
   return row;
 }
@@ -1908,14 +1920,14 @@ function calculateCost() {
       totalPrice += 7.99;
       break;
   }
-  if (currentToppings.length > 4) {
+  if (currentToppings.length > 5) {
     isSpecialDeal = true;
-    var temp = currentToppings.length - 5;
+    var temp = currentToppings.length - 6;
     totalPrice += 3.0;
     totalPrice += temp * 1.0;
   } else {
     isSpecialDeal = false;
-    totalPrice += currentToppings.length * 1.0;
+    totalPrice += (currentToppings.length - 1) * 1.0;
   }
   totalPrice = totalPrice.toFixed(2);
 }
