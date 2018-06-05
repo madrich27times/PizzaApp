@@ -167,13 +167,13 @@ var spinachImgs = [
 
 loadData();
 changePage("start");
- 
+
 function loadData() {
   request.open('GET', 'scripts/pre-built-pizzas.json');
   request.onload = loadComplete;
   request.send();
 }
- 
+
 function loadComplete(evt) {
   preBuiltData = JSON.parse(request.responseText);
   console.log(preBuiltData);
@@ -215,11 +215,11 @@ function buildStartPage() {
   buildMiddleRow("start");
 }
 
-function buildPreBuiltPage() { 
-  buildHeaderRow("preBuilt-page", "Pre-Built Options"); 
-  buildMiddleRow("prebuilt"); 
-  buildButtonRow(); 
-} 
+function buildPreBuiltPage() {
+  buildHeaderRow("preBuilt-page", "Pre-Built Options");
+  buildMiddleRow("prebuilt");
+  buildButtonRow();
+}
 
 function buildSizesPage() {
   buildHeaderRow("size-page", "Choose your size");
@@ -490,8 +490,8 @@ function buildOptionsColumn(pageName) {
       col = buildStartMidRow();
       break;
     case "prebuilt":
-    col = buildPreBuiltRow();
-    break;
+      col = buildPreBuiltRow();
+      break;
     case "size":
       col = buildSizeMidRow();
       break;
