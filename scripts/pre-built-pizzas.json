@@ -22,8 +22,8 @@
     "crust": "Thick",
     "cheese": "Mozzarella",
     "sauce": "Marinara",
-    "toppings": ["pepperoni-full", "sausage-full", "canadianbacon-full", "bacon-full", "beef-full"],
-    "images": ["assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/canadianbacon/canadianbacon-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "toppings": ["pepperoni-full", "sausage-full", "ham-full", "bacon-full", "beef-full"],
+    "images": ["assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/ham/ham-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
     "desc": "Meat Lovers: A thick crust pizza with all of our meats."
   },
   {
