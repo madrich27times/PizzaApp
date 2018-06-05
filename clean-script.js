@@ -217,7 +217,7 @@ function buildStartPage() {
 
 function buildPreBuiltPage() { 
   buildHeaderRow("preBuilt-page", "Pre-Built Options"); 
-  buildPreBuiltRow(); 
+  buildMiddleRow("prebuilt"); 
   buildButtonRow(); 
 } 
 
@@ -397,11 +397,12 @@ function buildHeaderRow(pageNameClass, pageTitle) {
 }
 
 function buildPreBuiltRow() {
+  var row;
   var preBuiltNames = [];
   for (let i = 0; i < preBuiltData.length; i++) {
     preBuiltNames.push(i.name);
   }
-  var row = document.createElement("div");
+  row = document.createElement("div");
   row.className = "row";
   for (let i = 0; i < preBuiltNames.length; i++) {
     var name = i;
@@ -422,11 +423,12 @@ function buildPreBuiltRow() {
     pizzaDiv.appendChild(descSpan);
     col.addEventListener('click', preBuiltClick);
   }
+  return row;
 }
 
 function buildMiddleRow(pageName) {
   var row;
-  if (pageName == "size" || pageName == "final" || pageName == "start") {
+  if (pageName == "size" || pageName == "prebuilt" || pageName == "final" || pageName == "start") {
     row = buildOptionsColumn(pageName);
   } else {
     row = document.createElement("div");
@@ -487,6 +489,9 @@ function buildOptionsColumn(pageName) {
     case "start":
       col = buildStartMidRow();
       break;
+    case "prebuilt":
+    col = buildPreBuiltRow();
+    break;
     case "size":
       col = buildSizeMidRow();
       break;
@@ -539,7 +544,7 @@ function buildStartMidRow() {
   card2.id = "preBtn";
   card2.className = "col-6";
   card2.classList += " card";
-  card2.addEventListener("click", customClick);
+  card2.addEventListener("click", preBuiltClick);
   var cardContainer2 = document.createElement("div");
   cardContainer2.className = "card-container";
   var cardHeading2 = document.createElement("div");
@@ -1132,7 +1137,7 @@ function customClick(evt) {
   changePage("size");
 }
 
-function preClick(evt) {
+function preBuiltClick(evt) {
   isPreBuilt = true;
   currentSize = null;
   currentCrust = null;
@@ -1667,6 +1672,7 @@ function updateListView() {
       }
     }
   }
+  calculateCost();
 }
 
 function updatePizzaView() {
