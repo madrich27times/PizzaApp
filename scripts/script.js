@@ -1729,6 +1729,10 @@ function updateListView() {
   calculateCost();
   var total = document.getElementById("total");
   total.innerHTML = "Total: $" + totalPrice;
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
 }
 
 function updatePizzaView() {
