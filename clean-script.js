@@ -46,6 +46,8 @@ var currentCrust;
 var currentSauce;
 var currentCheese;
 
+var preBuiltData;
+
 //buildStartPage();
 //buildFinalPage();
 //buildSizesPage();
@@ -296,15 +298,16 @@ function buildStartMidRow() {
 }
 
 function buildPreBuiltRow(){
+  var preBuiltNames = [];
+  for(let i = 0; i < preBuiltData.length; i++){
+    preBuiltNames.push(i.name);
+  }
   var row = document.createElement("div");
   row.className = "row";
   for (let i = 0; i < preBuiltNames.length; i++){
-    var name;
+    var name = i;
     if (/\s/.test(i)) {
       name = i.replace(/\s/g, "");
-    } 
-    else {
-      name = i;
     }
     var col = document.createElement('div');
     col.setAttribute('class', 'col-4');
@@ -856,6 +859,23 @@ function getToppingId(item, className, classesList, side) {
     id = prefix + "-" + side;
   }
   return id;
+}
+
+function setSelectedPizza(id) {
+  for(let i = 0; i < preBuiltData.length; i++){
+    var tempName = i.name;
+    if (/\s/.test(tempName)) {
+      tempName = tempName.replace(/\s/g, "");
+    }
+    if(id == tempName){
+      currentCheese = i.cheese;
+      currentCrust = i.crust;
+      currentSauce = i.sauce;
+      toppingImgs = i.images;
+      currentToppings = i.toppings;
+      calculateCost();
+    }
+  }
 }
 
 function customClick(evt) {
