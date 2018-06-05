@@ -139,6 +139,12 @@ function buildCrustPage() {
     });
   }
   calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function buildSaucePage() {
@@ -158,6 +164,12 @@ function buildSaucePage() {
     });
   }
   calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function buildCheesePage() {
@@ -177,6 +189,12 @@ function buildCheesePage() {
     });
   }
   calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function buildToppingsPage() {
@@ -194,6 +212,12 @@ function buildToppingsPage() {
     changePage("final");
   });
   calculateCost();
+  if (isSpecialDeal) {
+    var badge = document.getElementById("deal");
+    badge.style.display = "block";
+  }
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function buildFinalPage() {
@@ -231,14 +255,14 @@ function buildHeaderRow(pageNameClass, pageTitle) {
   container.appendChild(row);
 }
 
-function buildPreBuiltRow(){
+function buildPreBuiltRow() {
   var preBuiltNames = [];
-  for(let i = 0; i < preBuiltData.length; i++){
+  for (let i = 0; i < preBuiltData.length; i++) {
     preBuiltNames.push(i.name);
   }
   var row = document.createElement("div");
   row.className = "row";
-  for (let i = 0; i < preBuiltNames.length; i++){
+  for (let i = 0; i < preBuiltNames.length; i++) {
     var name = i;
     if (/\s/.test(i)) {
       name = i.replace(/\s/g, "");
@@ -503,7 +527,6 @@ function buildModal() {
   return modal;
 }
 
-//add event listeners here
 function buildButtonRow() {
   var row = document.createElement("div");
   row.className = "row";
@@ -930,12 +953,12 @@ function getToppingId(item, className, classesList, side) {
 }
 
 function setSelectedPizza(id) {
-  for(let i = 0; i < preBuiltData.length; i++){
+  for (let i = 0; i < preBuiltData.length; i++) {
     var tempName = i.name;
     if (/\s/.test(tempName)) {
       tempName = tempName.replace(/\s/g, "");
     }
-    if(id == tempName){
+    if (id == tempName) {
       currentCheese = i.cheese;
       currentCrust = i.crust;
       currentSauce = i.sauce;
@@ -1700,13 +1723,13 @@ function modalInit() {
   var close = document.getElementsByClassName("close");
 
   for (let i = 0; i < modalBtns.length; i++) {
-    modalBtns[i].addEventListener("click", function() {
+    modalBtns[i].addEventListener("click", function () {
       var modal = modalBtns[i].getAttribute("data-modal");
       document.getElementById(modal).style.display = "block";
     });
   }
   for (let j = 0; j < close.length; j++) {
-    close[j].addEventListener("click", function() {
+    close[j].addEventListener("click", function () {
       var modal = close[j].closest(".modal");
       modal.style.display = "none";
       // currentSize = null;
