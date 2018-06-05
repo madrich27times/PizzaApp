@@ -1948,13 +1948,14 @@ function calculateCost() {
   }
   if (currentToppings.length > 5) {
     isSpecialDeal = true;
-    var temp = currentToppings.length - 6;
+    var temp = currentToppings.length - 5;
     totalPrice += 3.0;
-    totalPrice += temp * 1.0;
+    totalPrice += (temp - 1) * 1.0;
   } else {
     isSpecialDeal = false;
     totalPrice += (currentToppings.length - 1) * 1.0;
   }
+  console.log(isSpecialDeal);
   totalPrice = totalPrice.toFixed(2);
 }
 
