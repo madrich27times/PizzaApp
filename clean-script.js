@@ -56,6 +56,8 @@ var isPreBuilt = false;
 changePage("size");
 
 function changePage(pageName) {
+  var container = document.getElementById('pizza');
+  container.innerHTML = "";
   switch (pageName) {
     case "start":
       buildStartPage();
@@ -152,6 +154,7 @@ function buildCrustPage() {
   var total = document.getElementById("total");
   total.innerHTML = "Total: $" + totalPrice;
 }
+
 
 function buildSaucePage() {
   buildHeaderRow("sauce-page", "Choose your sauce");
