@@ -5,6 +5,7 @@
     "sauce": "Marinara",
     "toppings": [],
     "images": ["assets/cheese/cheese-fourcheese.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "toppingsImages": [],
     "desc": "Four Cheese: A thick crust pizza with all of our cheeses."
   },
   {
@@ -13,7 +14,8 @@
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": ["mushrooms-full", "olives-full", "onions-full", "bellpeppers-full", "spinach-full"],
-    "images": ["assets/toppings/spinach/spinach-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/olives/olives-full.png", "assets/toppings/mushrooms/mushrooms-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "images": ["assets/toppings/spinach/spinach-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/olives/olives-full.png", "assets/toppings/mushrooms/mushrooms-full.png","assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "toppingsImages": ["assets/toppings/spinach/spinach-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/olives/olives-full.png", "assets/toppings/mushrooms/mushrooms-full.png"],
     "desc": "Veggie Lovers: A thick crust pizza with all of our veggies."
 
   },
@@ -23,7 +25,8 @@
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": ["pepperoni-full", "sausage-full", "ham-full", "bacon-full", "beef-full"],
-    "images": ["assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/ham/ham-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "images": ["assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/ham/ham-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png","assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "toppingsImages": ["assets/toppings/bacon/bacon-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/ham/ham-full.png", "assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png"],
     "desc": "Meat Lovers: A thick crust pizza with all of our meats."
   },
   {
@@ -32,7 +35,8 @@
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": ["pepperoni-full"],
-    "images": ["assets/toppings/pepperoni/pepperoni-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "images": ["assets/toppings/pepperoni/pepperoni-full.png","assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thick.png"],
+    "toppingsImages": ["assets/toppings/pepperoni/pepperoni-full.png"],
     "desc": "Pepperoni: A thick crust pizza with pepperoni."
   },
   {
@@ -41,7 +45,8 @@
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": ["onions-full", "bellpeppers-full", "mushrooms-full", "pepperoni-full", "sausage-full", "beef-full"],
-    "images": ["assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/mushrooms/mushrooms-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thin.png"],
+    "images": ["assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/mushrooms/mushrooms-full.png","assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thin.png"],
+    "toppingsImages": ["assets/toppings/pepperoni/pepperoni-full.png", "assets/toppings/sausage/sausage-full.png", "assets/toppings/beef/beef-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/toppings/mushrooms/mushrooms-full.png"],
     "desc": "Supreme: A thin crust pizza with combination veggies and meats."
   },
   {
@@ -50,7 +55,8 @@
     "cheese": "Mozzarella",
     "sauce": "Marinara",
     "toppings": ["onions-full", "bellpeppers-full", "sausage-full"],
-    "images": ["assets/toppings/sausage/sausage-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png", "assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thin.png"],
+    "images": ["assets/toppings/sausage/sausage-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png","assets/cheese/cheese-mozzarella.png", "assets/sauce/sauce-marinara.png", "assets/crust/crust-thin.png"],
+    "toppingsImages": ["assets/toppings/sausage/sausage-full.png", "assets/toppings/onions/onions-full.png", "assets/toppings/bellpeppers/bellpeppers-full.png"],
     "desc": "Italian: A thin crust pizza with onion, bell pepper, and sausage."
   }
 ]

@@ -1129,6 +1129,7 @@ function getToppingId(item, className, classesList, side) {
 }
 
 function setSelectedPizza(id) {
+  toppingImgs = [];
   for (let i = 0; i < preBuiltData.length; i++) {
     var tempName = preBuiltData[i].name;
     if (/\s/.test(tempName)) {
@@ -1138,11 +1139,13 @@ function setSelectedPizza(id) {
       currentCheese = preBuiltData[i].cheese;
       currentCrust = preBuiltData[i].crust;
       currentSauce = preBuiltData[i].sauce;
-      for (img in preBuiltData[i].images) {
-        if (!img.toString().includes("crust") && !img.toString().includes("sauce") && !img.toString().includes("cheese")){
-          toppingImgs.push(preBuiltData[i].images[img]);
-        }
-      }
+      toppingImgs = preBuiltData[i].toppingsImages;
+      // for (img in preBuiltData[i].images) {
+      //   if (!img.toString().includes("crust") && !img.toString().includes("sauce") && !img.toString().includes("cheese")){
+      //     toppingImgs.push(preBuiltData[i].images[img]);
+      //   }
+      // }
+      // console.log("topping imgs in SetSelectedPizza", toppingImgs);
       // var whatever = preBuiltData[i].images;
       // whatever.pop();
       // whatever.pop();
@@ -1601,6 +1604,7 @@ function buildingSetSize(id) {
       calculateCost();
       break;
   }
+  console.log(currentSize);
 }
 
 function setSelectedCrust(id) {
@@ -1732,6 +1736,10 @@ function updateListView() {
   if (isSpecialDeal) {
     var badge = document.getElementById("deal");
     badge.style.display = "block";
+  }
+  else {
+    var badge = document.getElementById("deal");
+    badge.style.display = "none";
   }
 }
 
