@@ -40,8 +40,7 @@ var vegFullButtons = [];
 var vegRightButtons = [];
 var vegExtraButtons = [];
 var vegDoubleButtons = [];
-
-var isMobile = false;
+var preBuiltData;
 var currentCrust = null;
 var currentSauce = null;
 var currentCheese = null;
@@ -97,14 +96,23 @@ function buildSizesPage() {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
   if (currentSize != null && isPreBuilt == false) {
-    backBtn.addEventListener("click", function() { changePage("start"); } );
-    nextBtn.addEventListener("click", function() { changePage("crust"); } );  
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
   } else if (currentSize != null && isPreBuilt == true) {
-    backBtn.addEventListener("click", function() { changePage("prebuilt"); } );
-    nextBtn.addEventListener("click", function() { changePage("crust"); } );    
-  }
-  else {
-    backBtn.addEventListener("click", function() { changePage("start"); } );
+    backBtn.addEventListener("click", function () {
+      changePage("prebuilt");
+    });
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+  } else {
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
   }
   calculateCost();
 }
@@ -122,9 +130,13 @@ function buildCrustPage() {
   updateListView();
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", function() { changePage("size"); });
+  backBtn.addEventListener("click", function () {
+    changePage("size");
+  });
   if (currentCrust != null) {
-    nextBtn.addEventListener("click", function() { changePage("sauce"); } );
+    nextBtn.addEventListener("click", function () {
+      changePage("sauce");
+    });
   }
   calculateCost();
 }
@@ -137,9 +149,13 @@ function buildSaucePage() {
   updateListView();
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", function() { changePage("crust"); });
+  backBtn.addEventListener("click", function () {
+    changePage("crust");
+  });
   if (currentSauce != null) {
-    nextBtn.addEventListener("click", function() { changePage("cheese"); } );
+    nextBtn.addEventListener("click", function () {
+      changePage("cheese");
+    });
   }
   calculateCost();
 }
@@ -152,9 +168,13 @@ function buildCheesePage() {
   updateListView();
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", function() { changePage("sauce"); });
+  backBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
   if (currentCrust != null) {
-    nextBtn.addEventListener("click", function() { changePage("toppings"); } );
+    nextBtn.addEventListener("click", function () {
+      changePage("toppings");
+    });
   }
   calculateCost();
 }
@@ -167,8 +187,12 @@ function buildToppingsPage() {
   updateListView();
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  backBtn.addEventListener("click", function() { changePage("cheese"); });
-  nextBtn.addEventListener("click", function() { changePage("final"); } );
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
   calculateCost();
 }
 
@@ -205,6 +229,34 @@ function buildHeaderRow(pageNameClass, pageTitle) {
   col3.className = "col-4";
   row.appendChild(col3);
   container.appendChild(row);
+}
+
+function buildPreBuiltRow(){
+  var preBuiltNames = [];
+  for(let i = 0; i < preBuiltData.length; i++){
+    preBuiltNames.push(i.name);
+  }
+  var row = document.createElement("div");
+  row.className = "row";
+  for (let i = 0; i < preBuiltNames.length; i++){
+    var name = i;
+    if (/\s/.test(i)) {
+      name = i.replace(/\s/g, "");
+    }
+    var col = document.createElement('div');
+    col.setAttribute('class', 'col-4');
+    var pizzaDiv = document.createElement('div');
+    pizzaDiv.setAttribute('id', i);
+    pizzaDiv.setAttribute('class', 'popup pizza-box');
+    var descName = i + "-desc";
+    var descSpan = document.createElement('span');
+    descSpan.setAttribute('id', descName);
+    descSpan.setAttribute('class', 'popup-content');
+    row.appendChild(col);
+    col.appendChild(pizzaDiv);
+    pizzaDiv.appendChild(descSpan);
+    col.addEventListener('click', preBuiltClick);
+  }
 }
 
 function buildMiddleRow(pageName) {
@@ -877,6 +929,23 @@ function getToppingId(item, className, classesList, side) {
   return id;
 }
 
+function setSelectedPizza(id) {
+  for(let i = 0; i < preBuiltData.length; i++){
+    var tempName = i.name;
+    if (/\s/.test(tempName)) {
+      tempName = tempName.replace(/\s/g, "");
+    }
+    if(id == tempName){
+      currentCheese = i.cheese;
+      currentCrust = i.crust;
+      currentSauce = i.sauce;
+      toppingImgs = i.images;
+      currentToppings = i.toppings;
+      calculateCost();
+    }
+  }
+}
+
 function customClick(evt) {
   isPreBuilt = false;
   currentSize = null;
@@ -907,11 +976,19 @@ function sizeClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
   if (isPreBuilt == true) {
-    nextBtn.addEventListener("click", function() { changePage("crust"); } );
-    backBtn.addEventListener("click", function() { changePage("prebuilt"); } );
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+    backBtn.addEventListener("click", function () {
+      changePage("prebuilt");
+    });
   } else {
-    nextBtn.addEventListener("click", function() { changePage("crust"); } );
-    backBtn.addEventListener("click", function() { changePage("start"); } );
+    nextBtn.addEventListener("click", function () {
+      changePage("crust");
+    });
+    backBtn.addEventListener("click", function () {
+      changePage("start");
+    });
   }
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
@@ -929,8 +1006,12 @@ function sizeClick(evt) {
 function crustClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("sauce"); } );
-  backBtn.addEventListener("click", function() { changePage("size"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("size");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -947,8 +1028,12 @@ function crustClick(evt) {
 function sauceClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("cheese"); } );
-    backBtn.addEventListener("click", function() { changePage("crust"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("crust");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -965,8 +1050,12 @@ function sauceClick(evt) {
 function cheeseClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("toppings"); } );
-    backBtn.addEventListener("click", function() { changePage("sauce"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("toppings");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("sauce");
+  });
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selectedCrust")) {
@@ -1032,8 +1121,12 @@ function removeClick(evt) {
 function rightClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("final"); } );
-    backBtn.addEventListener("click", function() { changePage("cheese"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1070,8 +1163,12 @@ function rightClick(evt) {
 function leftClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("final"); } );
-    backBtn.addEventListener("click", function() { changePage("cheese"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1108,8 +1205,12 @@ function leftClick(evt) {
 function fullClick(evt) {
   var nextBtn = document.getElementById("nextBtn");
   var backBtn = document.getElementById("backBtn");
-  nextBtn.addEventListener("click", function() { changePage("final"); } );
-    backBtn.addEventListener("click", function() { changePage("cheese"); } );
+  nextBtn.addEventListener("click", function () {
+    changePage("final");
+  });
+  backBtn.addEventListener("click", function () {
+    changePage("cheese");
+  });
   var toppingString = this.id.toString().split("-");
   var toppingName = toppingString[0];
 
@@ -1223,100 +1324,6 @@ function doubleClick(evt) {
       name = toppingName + "-full-double";
     }
     setSelectedTopping(name);
-  }
-}
-
-//change ids for prebuilt
-function setSelectedPizza(id) {
-  switch (id) {
-    case "pb_0":
-      currentCrust = "Thick";
-      currentCheese = "Four Cheese";
-      currentSauce = "Marinara";
-      calculateCost();
-      break;
-    case "pb_1":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/pepperoni/pepperoni-full.png",
-        "assets/toppings/sausage/sausage-full.png",
-        "assets/toppings/canadianbacon/canadianbacon-full.png",
-        "assets/toppings/bacon/bacon-full.png",
-        "assets/toppings/beef/beef-full.png"
-      ];
-      currentToppings = [
-        "pepperoni-full",
-        "sausage-full",
-        "canadianbacon-full",
-        "bacon-full",
-        "beef-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_2":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = ["assets/toppings/pepperoni/pepperoni-full.png"];
-      currentToppings = ["pepperoni-full"];
-      calculateCost();
-      break;
-    case "pb_3":
-      currentCrust = "Thick";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/mushrooms/mushrooms-full.png",
-        "assets/toppings/olives/olives-full.png",
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/spinach/spinach-full.png"
-      ];
-      currentToppings = [
-        "mushrooms-full",
-        "olives-full",
-        "onions-full",
-        "bellpeppers-full",
-        "spinach-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_4":
-      currentCrust = "Thin";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/mushrooms/mushrooms-full.png",
-        "assets/toppings/pepperoni/pepperoni-full.png",
-        "assets/toppings/sausage/sausage-full.png",
-        "assets/toppings/beef/beef-full.png"
-      ];
-      currentToppings = [
-        "onions-full",
-        "bellpeppers-full",
-        "mushrooms-full",
-        "pepperoni-full",
-        "sausage-full",
-        "beef-full"
-      ];
-      calculateCost();
-      break;
-    case "pb_5":
-      currentCrust = "Thin";
-      currentCheese = "Mozzarella";
-      currentSauce = "Marinara";
-      toppingImgs = [
-        "assets/toppings/onions/onions-full.png",
-        "assets/toppings/bellpeppers/bellpeppers-full.png",
-        "assets/toppings/sausage/sausage-full.png"
-      ];
-      currentToppings = ["onions-full", "bellpeppers-full", "sausage-full"];
-      calculateCost();
-      break;
   }
 }
 
