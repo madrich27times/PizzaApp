@@ -53,7 +53,118 @@ var currentToppings = [];
 var toppingImgs = [];
 var isPreBuilt = false;
 
-changePage("size");
+var pepperoniImgs = [
+  "assets/toppings/pepperoni/pepperoni-full.png",
+  "assets/toppings/pepperoni/pepperoni-full-extra.png",
+  "assets/toppings/pepperoni/pepperoni-full-double.png",
+  "assets/toppings/pepperoni/pepperoni-left.png",
+  "assets/toppings/pepperoni/pepperoni-left-extra.png",
+  "assets/toppings/pepperoni/pepperoni-left-double.png",
+  "assets/toppings/pepperoni/pepperoni-right.png",
+  "assets/toppings/pepperoni/pepperoni-right-extra.png",
+  "assets/toppings/pepperoni/pepperoni-right-double.png"
+];
+var sausageImgs = [
+  "assets/toppings/sausage/sausage-full.png",
+  "assets/toppings/sausage/sausage-full-extra.png",
+  "assets/toppings/sausage/sausage-full-double.png",
+  "assets/toppings/sausage/sausage-left.png",
+  "assets/toppings/sausage/sausage-left-extra.png",
+  "assets/toppings/sausage/sausage-left-double.png",
+  "assets/toppings/sausage/sausage-right.png",
+  "assets/toppings/sausage/sausage-right-extra.png",
+  "assets/toppings/sausage/sausage-right-double.png"
+];
+var canadianBaconImgs = [
+  "assets/toppings/canadianbacon/canadianbacon-full.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-double.png",
+  "assets/toppings/canadianbacon/canadianbacon-left.png",
+  "assets/toppings/canadianbacon/canadianbacon-left-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-left-double.png",
+  "assets/toppings/canadianbacon/canadianbacon-right.png",
+  "assets/toppings/canadianbacon/canadianbacon-right-extra.png",
+  "assets/toppings/canadianbacon/canadianbacon-full-double.png"
+];
+var baconImgs = [
+  "assets/toppings/bacon/bacon-full.png",
+  "assets/toppings/bacon/bacon-full-extra.png",
+  "assets/toppings/bacon/bacon-full-double.png",
+  "assets/toppings/bacon/bacon-left.png",
+  "assets/toppings/bacon/bacon-left-extra.png",
+  "assets/toppings/bacon/bacon-left-double.png",
+  "assets/toppings/bacon/bacon-right.png",
+  "assets/toppings/bacon/bacon-right-extra.png",
+  "assets/toppings/bacon/bacon-right-double.png"
+];
+var beefImgs = [
+  "assets/toppings/beef/beef-full.png",
+  "assets/toppings/beef/beef-full-extra.png",
+  "assets/toppings/beef/beef-full-double.png",
+  "assets/toppings/beef/beef-left.png",
+  "assets/toppings/beef/beef-left-extra.png",
+  "assets/toppings/beef/beef-left-double.png",
+  "assets/toppings/beef/beef-right.png",
+  "assets/toppings/beef/beef-right-extra.png",
+  "assets/toppings/beef/beef-right-double.png"
+];
+var mushroomImgs = [
+  "assets/toppings/mushrooms/mushrooms-full.png",
+  "assets/toppings/mushrooms/mushrooms-full-extra.png",
+  "assets/toppings/mushrooms/mushrooms-full-double.png",
+  "assets/toppings/mushrooms/mushrooms-left.png",
+  "assets/toppings/mushrooms/mushrooms-left-extra.png",
+  "assets/toppings/mushrooms/mushrooms-left-double.png",
+  "assets/toppings/mushrooms/mushrooms-right.png",
+  "assets/toppings/mushrooms/mushrooms-right-extra.png",
+  "assets/toppings/mushrooms/mushrooms-right-double.png"
+];
+var oliveImgs = [
+  "assets/toppings/olives/olives-full.png",
+  "assets/toppings/olives/olives-full-extra.png",
+  "assets/toppings/olives/olives-full-double.png",
+  "assets/toppings/olives/olives-left.png",
+  "assets/toppings/olives/olives-left-extra.png",
+  "assets/toppings/olives/olives-left-double.png",
+  "assets/toppings/olives/olives-right.png",
+  "assets/toppings/olives/olives-right-extra.png",
+  "assets/toppings/olives/olives-right-double.png"
+];
+var onionImgs = [
+  "assets/toppings/onions/onions-full.png",
+  "assets/toppings/onions/onions-full-extra.png",
+  "assets/toppings/onions/onions-full-double.png",
+  "assets/toppings/onions/onions-left.png",
+  "assets/toppings/onions/onions-left-extra.png",
+  "assets/toppings/onions/onions-left-double.png",
+  "assets/toppings/onions/onions-right.png",
+  "assets/toppings/onions/onions-right-extra.png",
+  "assets/toppings/onions/onions-right-double.png"
+];
+var bellPepperImgs = [
+  "assets/toppings/bellpeppers/bellpeppers-full.png",
+  "assets/toppings/bellpeppers/bellpeppers-full-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-full-double.png",
+  "assets/toppings/bellpeppers/bellpeppers-left.png",
+  "assets/toppings/bellpeppers/bellpeppers-left-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-left-double.png",
+  "assets/toppings/bellpeppers/bellpeppers-right.png",
+  "assets/toppings/bellpeppers/bellpeppers-right-extra.png",
+  "assets/toppings/bellpeppers/bellpeppers-right-double.png"
+];
+var spinachImgs = [
+  "assets/toppings/spinach/spinach-full.png",
+  "assets/toppings/spinach/spinach-full-extra.png",
+  "assets/toppings/spinach/spinach-full-double.png",
+  "assets/toppings/spinach/spinach-left.png",
+  "assets/toppings/spinach/spinach-left-extra.png",
+  "assets/toppings/spinach/spinach-left-double.png",
+  "assets/toppings/spinach/spinach-right.png",
+  "assets/toppings/spinach/spinach-right-extra.png",
+  "assets/toppings/spinach/spinach-right-double.png"
+];
+
+changePage("start");
 
 function changePage(pageName) {
   var container = document.getElementById('pizza');
@@ -155,7 +266,6 @@ function buildCrustPage() {
   total.innerHTML = "Total: $" + totalPrice;
 }
 
-
 function buildSaucePage() {
   buildHeaderRow("sauce-page", "Choose your sauce");
   buildMiddleRow("sauce");
@@ -233,6 +343,13 @@ function buildFinalPage() {
   buildHeaderRow("finalPage", "Review Order");
   buildMiddleRow("final");
   modalInit();
+  if (isPreBuilt == true) {
+    getCrustImg();
+    getSauceImg();
+    getCheeseImg();
+  }
+  updatePizzaView();
+  updateListView();
 }
 
 function buildHeaderRow(pageNameClass, pageTitle) {
@@ -324,22 +441,22 @@ function buildPizzaViewColumn() {
   var sizeContainer = document.createElement("div");
   sizeContainer.className = "size-display";
 
-  var sizeArr = ["smallPizza", "mediumPizza", "largePizza", "xLPizza"];
+  var sizeArr = ["smSize", "medSize", "lgSize", "xlSize"];
   for (let i = 0; i < sizeArr.length; i++) {
     var div = document.createElement("div");
     div.id = sizeArr[i];
     div.className = "size-bar";
-    if (sizeArr[i] == "smallPizza") {
+    if (sizeArr[i] == "smSize") {
       div.innerHTML = "S";
-    } else if (sizeArr[i] == "mediumPizza") {
+    } else if (sizeArr[i] == "medSize") {
       div.innerHTML = "M";
-    } else if (sizeArr[i] == "largePizza") {
+    } else if (sizeArr[i] == "lgSize") {
       div.innerHTML = "L";
     } else {
       div.innerHTML = "XL";
     }
-    div.addEventListener("click", sizeClick);
-    if (sizeArr[i].innerHTML.toString() == currentSize) {
+    div.addEventListener("click", buildingSizeClick);
+    if (div.innerHTML == currentSize) {
       div.className = div.className + " selected";
     }
     sizeContainer.appendChild(div);
@@ -633,7 +750,7 @@ function buildCheeseMidColumn() {
     var div = document.createElement("div");
     div.id = "cheeseList";
     if (cheeseButtons[i].innerHTML.toString() == currentCheese) {
-      cheeseButtons[i].className = cheeseButtons[i].className + " selected";
+      cheeseButtons[i].className = cheeseButtons[i].className + " selectedCrust";
     }
     div.appendChild(cheeseButtons[i]);
     listCont.appendChild(div);
@@ -744,6 +861,15 @@ function buildMeatList() {
     plusBtns.appendChild(meatDoubleButtons[i]);
     options.appendChild(plusBtns);
     meatList.appendChild(options);
+  }
+
+  for (let i = 0; i < currentToppings.length; i++) {
+    var topping = currentToppings[i].toString();
+    var name = topping.split("-");
+    var label = document.getElementById(name[0]);
+    label.className = label.className + " selectedCrust";
+    var ex = document.getElementById(name[0] + "-x");
+    ex.style.display = "block";
   }
   return meatList;
 }
@@ -1033,6 +1159,20 @@ function sizeClick(evt) {
   }
   this.className = this.className + " selected";
   setSelectedSize(this.id);
+}
+
+function buildingSizeClick(evt) {
+  var allElements = document.body.getElementsByTagName("*");
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].classList.contains("selected")) {
+      allElements[i].className = allElements[i].className.replace(
+        " selected",
+        ""
+      );
+    }
+  }
+  this.className = this.className + " selected";
+  buildingSetSize(this.id);
 }
 
 function crustClick(evt) {
@@ -1368,6 +1508,27 @@ function setSelectedSize(id) {
   calculateCost();
 }
 
+function buildingSetSize(id) {
+  switch (id) {
+    case "smSize":
+      currentSize = "S";
+      calculateCost();
+      break;
+    case "medSize":
+      currentSize = "M";
+      calculateCost();
+      break;
+    case "lgSize":
+      currentSize = "L";
+      calculateCost();
+      break;
+    case "xlSize":
+      currentSize = "XL";
+      calculateCost();
+      break;
+  }
+}
+
 function setSelectedCrust(id) {
   for (let i = 0; i < crustButtons.length; i++) {
     if (id == crustButtons[i].id) {
@@ -1409,9 +1570,18 @@ function setSelectedTopping(name) {
     for (var i in currentToppings) {
       var temp = currentToppings[i].toString();
       var type = toppingType[0].toString();
-      if (temp.includes(type)) {
-        match = true;
-        index = i;
+      console.log("temp", temp, "type", type);
+      if (type == "canadianbacon") {
+        if (temp.includes("canadianbacon")) {
+          match = true;
+          index = i;
+        }
+      }
+      else {
+        if (temp.includes(type)) {
+          match = true;
+          index = i;
+        }
       }
     }
     if (match == true) {
@@ -1611,21 +1781,24 @@ function getToppingImg() {
         }
       }
     }
-    if (topping.includes("canadianbacon")) {
-      for (let i = 0; i < canadianBaconImgs.length; i++) {
-        var str = canadianBaconImgs[i].toString();
-        if (str.includes(topping)) {
-          toppingImg = canadianBaconImgs[i];
-          break;
+    
+    if (topping.includes("bacon")) {
+      if (topping.includes("canadianbacon")) {
+        for (let i = 0; i < canadianBaconImgs.length; i++) {
+          var str = canadianBaconImgs[i].toString();
+          if (str.includes(topping)) {
+            toppingImg = canadianBaconImgs[i];
+            break;
+          }
         }
       }
-    }
-    if (topping.includes("bacon")) {
-      for (let i = 0; i < baconImgs.length; i++) {
-        var str = baconImgs[i].toString();
-        if (str.includes(topping)) {
-          toppingImg = baconImgs[i];
-          break;
+      else {
+        for (let i = 0; i < baconImgs.length; i++) {
+          var str = baconImgs[i].toString();
+          if (str.includes(topping)) {
+            toppingImg = baconImgs[i];
+            break;
+          }
         }
       }
     }
@@ -1741,15 +1914,15 @@ function modalInit() {
     close[j].addEventListener("click", function () {
       var modal = close[j].closest(".modal");
       modal.style.display = "none";
-      // currentSize = null;
-      // currentCrust = null;
-      // currentSauce = null;
-      // currentCheese = null;
-      // currentToppings = [];
-      // currentPizzaImgs = [];
-      // toppingImgs = [];
-      // totalPrice = null;
-      // changePage(0);
+      currentSize = null;
+      currentCrust = null;
+      currentSauce = null;
+      currentCheese = null;
+      currentToppings = [];
+      currentPizzaImgs = [];
+      toppingImgs = [];
+      totalPrice = null;
+      changePage("start");
     });
   }
 }
