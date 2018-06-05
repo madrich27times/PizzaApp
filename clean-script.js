@@ -61,25 +61,25 @@ function changePage(pageName) {
     case "start":
       buildStartPage();
       break;
-    case "prebuilt":
+      case "prebuilt":
       buildPreBuiltPage();
       break;
-    case "size":
+      case "size":
       buildSizesPage();
       break;
-    case "crust":
+      case "crust":
       buildCrustPage();
       break;
-    case "sauce":
+      case "sauce":
       buildSaucePage();
       break;
-    case "cheese":
+      case "cheese":
       buildCheesePage();
       break;
-    case "toppings":
+      case "toppings":
       buildToppingsPage();
       break;
-    case "final":
+      case "final":
       buildFinalPage();
       break;
   }
@@ -88,6 +88,12 @@ function changePage(pageName) {
 function buildStartPage() {
   buildHeaderRow("landing-page", "Order Online");
   buildMiddleRow("start");
+}
+
+function buildPreBuiltPage() {
+  buildHeaderRow("preBuilt-page", "Pre-Built Options");
+  buildPreBuiltRow();
+  buildButtonRow();
 }
 
 function buildSizesPage() {
@@ -182,11 +188,11 @@ function buildPizzaViewColumn() {
   pizzaImg.classList += " pizza-box box";
   pizzaContainer.appendChild(pizzaImg);
   col.appendChild(pizzaContainer);
-
+  
   var sizeContDiv = document.createElement("div");
   var sizeContainer = document.createElement("div");
   sizeContainer.className = "size-display";
-
+  
   var sizeArr = ["smSize", "medSize", "lgSize", "xlSize"];
   for (let i = 0; i < sizeArr.length; i++) {
     var div = document.createElement("div");
@@ -215,27 +221,27 @@ function buildOptionsColumn(pageName) {
   var col;
   switch (pageName) {
     case "start":
-      col = buildStartMidRow();
-      break;
+    col = buildStartMidRow();
+    break;
     case "size":
-      col = buildSizeMidRow();
+    col = buildSizeMidRow();
       break;
-    case "crust":
+      case "crust":
       col = buildCrustMidColumn();
       break;
     case "sauce":
-      col = buildSauceMidColumn();
+    col = buildSauceMidColumn();
       break;
-    case "cheese":
+      case "cheese":
       col = buildCheeseMidColumn();
       break;
     case "toppings":
-      col = buildToppingsMidColumn();
+    col = buildToppingsMidColumn();
       break;
-    case "final":
+      case "final":
       col = buildFinalMidRow();
       break;
-  }
+    }
   return col;
 }
 
@@ -287,6 +293,26 @@ function buildStartMidRow() {
   card2.appendChild(cardContainer2);
   row.appendChild(card2);
   return row;
+}
+
+function buildPreBuiltRow(){
+  var row = document.createElement("div");
+  row.className = "row";
+  for (let i = 0; i < preBuiltNames.length; i++){
+    var col = document.createElement('div');
+    col.setAttribute('class', 'col-4');
+    var pizzaDiv = document.createElement('div');
+    pizzaDiv.setAttribute('id', item);
+    pizzaDiv.setAttribute('class', 'popup pizza-box');
+    var descName = item + "-desc";
+    var descSpan = document.createElement('span');
+    descSpan.setAttribute('id', descName);
+    descSpan.setAttribute('class', 'popup-content');
+    row.appendChild(col);
+    col.appendChild(pizzaDiv);
+    pizzaDiv.appendChild(descSpan);
+    col.addEventListener('click', preBuiltClick);
+  }
 }
 
 function buildSizeMidRow() {
@@ -722,6 +748,7 @@ function buildButtons(nameArray, className, classesList, clickFunction, side) {
   return buttonArray;
 }
 
+
 function getId(type, item, className, classesList, side) {
   var id;
   switch (type) {
@@ -832,6 +859,10 @@ function customClick(evt) {
 function preClick(evt) {
   console.log(this.id);
   changePage("prebuilt");
+}
+
+function preBuiltClick(evt){
+  console.log(this.id);
 }
 
 function sizeClick(evt) {
