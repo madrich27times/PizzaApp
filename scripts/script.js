@@ -176,7 +176,6 @@ function loadData() {
 
 function loadComplete(evt) {
   preBuiltData = JSON.parse(request.responseText);
-  //console.log(preBuiltData);
 }
 
 function changePage(pageName) {
@@ -223,7 +222,6 @@ function buildPreBuiltPage() {
   backBtn.addEventListener("click", function () {
     changePage("start");
   });
-  console.log(preBuiltData);
 }
 
 function buildSizesPage() {
@@ -258,7 +256,6 @@ function buildCrustPage() {
   buildHeaderRow("crust-page", "Choose your crust");
   buildMiddleRow("crust");
   buildButtonRow();
-  console.log(isPreBuilt);
   if (isPreBuilt == true) {
     getCrustImg();
     getSauceImg();
@@ -360,7 +357,6 @@ function buildToppingsPage() {
   for (let i = 0; i < currentToppings.length; i++) {
     var topping = currentToppings[i].toString();
     var name = topping.split("-");
-    console.log("name", name);
     var label = document.getElementById(name[0]);
     label.className = label.className + " selectedCrust";
     var ex = document.getElementById(name[0] + "-x");
@@ -422,7 +418,7 @@ function buildPreBuiltRow() {
   row = document.createElement("div");
   row.className = "row preBuiltBox";
   for (let i = 0; i < preBuiltNames.length; i++) {
-    var imgs = "";  
+    var imgs = "";
     var name = preBuiltData[i].name;
     if (/\s/.test(name)) {
       name = name.replace(/\s/g, "");
@@ -1140,18 +1136,6 @@ function setSelectedPizza(id) {
       currentCrust = preBuiltData[i].crust;
       currentSauce = preBuiltData[i].sauce;
       toppingImgs = preBuiltData[i].toppingsImages;
-      // for (img in preBuiltData[i].images) {
-      //   if (!img.toString().includes("crust") && !img.toString().includes("sauce") && !img.toString().includes("cheese")){
-      //     toppingImgs.push(preBuiltData[i].images[img]);
-      //   }
-      // }
-      // console.log("topping imgs in SetSelectedPizza", toppingImgs);
-      // var whatever = preBuiltData[i].images;
-      // whatever.pop();
-      // whatever.pop();
-      // whatever.pop();
-      // console.log(preBuiltData);
-      // toppingImgs = whatever;
       currentToppings = preBuiltData[i].toppings;
       calculateCost();
     }
@@ -1224,7 +1208,7 @@ function preBuiltClick(evt) {
   backBtn.addEventListener("click", function () {
     changePage("start");
   });
-  console.log("click id", this.id);
+  //console.log("click id", this.id);
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selected-box")) {
@@ -1604,7 +1588,8 @@ function buildingSetSize(id) {
       calculateCost();
       break;
   }
-  console.log(currentSize);
+  var total = document.getElementById("total");
+  total.innerHTML = "Total: $" + totalPrice;
 }
 
 function setSelectedCrust(id) {
@@ -1736,8 +1721,7 @@ function updateListView() {
   if (isSpecialDeal) {
     var badge = document.getElementById("deal");
     badge.style.display = "block";
-  }
-  else {
+  } else {
     var badge = document.getElementById("deal");
     badge.style.display = "none";
   }
@@ -1751,8 +1735,8 @@ function updatePizzaView() {
       imgList += "url('" + toppingImgs[j] + "'), ";
     }
   }
-  console.log("list w/ toppings", imgList);
-  console.log("update pizza", currentPizzaImgs);
+  //console.log("list w/ toppings", imgList);
+  //console.log("update pizza", currentPizzaImgs);
   for (let i = 0; i < currentPizzaImgs.length; i++) {
     if (currentPizzaImgs.length > 0 && i != currentPizzaImgs.length - 1) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
@@ -1760,7 +1744,7 @@ function updatePizzaView() {
       imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
     }
   }
-  console.log("list w/ everything", imgList);
+  //console.log("list w/ everything", imgList);
   pizzaView.style.background = imgList;
   pizzaView.style.backgroundSize = "contain";
 }
@@ -1781,13 +1765,13 @@ function getCrustImg() {
       crustImg = "assets/crust/crust-pretzel.png";
       break;
   }
-  console.log("outisde if", currentPizzaImgs);
+  //console.log("outisde if", currentPizzaImgs);
   if (currentPizzaImgs.length == 0) {
     currentPizzaImgs.push(crustImg);
   } else {
     var crustIndex = currentPizzaImgs.length - 1;
     currentPizzaImgs.splice(crustIndex, 1, crustImg);
-    console.log(currentPizzaImgs);
+    //console.log(currentPizzaImgs);
   }
   updatePizzaView();
 }
@@ -1967,14 +1951,14 @@ function calculateCost() {
     isSpecialDeal = false;
     totalPrice += (currentToppings.length - 1) * 1.0;
   }
-  console.log(isSpecialDeal);
+  //console.log(isSpecialDeal);
   totalPrice = totalPrice.toFixed(2);
+  //console.log(totalPrice);
 }
 
 function modalInit() {
   var modalBtns = document.getElementsByClassName("btn-modal");
   var close = document.getElementsByClassName("close");
-
   for (let i = 0; i < modalBtns.length; i++) {
     modalBtns[i].addEventListener("click", function () {
       var modal = modalBtns[i].getAttribute("data-modal");
