@@ -176,7 +176,7 @@ function loadData() {
 
 function loadComplete(evt) {
   preBuiltData = JSON.parse(request.responseText);
-  console.log(preBuiltData);
+  //console.log(preBuiltData);
 }
 
 function changePage(pageName) {
@@ -219,6 +219,11 @@ function buildPreBuiltPage() {
   buildHeaderRow("preBuilt-page", "Pre-Built Options");
   buildMiddleRow("prebuilt");
   buildButtonRow();
+  var backBtn = document.getElementById("backBtn");
+  backBtn.addEventListener("click", function () {
+    changePage("start");
+  });
+  console.log(preBuiltData);
 }
 
 function buildSizesPage() {
@@ -253,6 +258,7 @@ function buildCrustPage() {
   buildHeaderRow("crust-page", "Choose your crust");
   buildMiddleRow("crust");
   buildButtonRow();
+  console.log(isPreBuilt);
   if (isPreBuilt == true) {
     getCrustImg();
     getSauceImg();
@@ -350,6 +356,17 @@ function buildToppingsPage() {
   }
   var total = document.getElementById("total");
   total.innerHTML = "Total: $" + totalPrice;
+
+  for (let i = 0; i < currentToppings.length; i++) {
+    var topping = currentToppings[i].toString();
+    var name = topping.split("-");
+    console.log("name", name);
+    var label = document.getElementById(name[0]);
+    label.className = label.className + " selectedCrust";
+    var ex = document.getElementById(name[0] + "-x");
+    ex.style.display = "block";
+  }
+
 }
 
 function buildFinalPage() {
@@ -422,7 +439,7 @@ function buildPreBuiltRow() {
     row.appendChild(col);
     col.appendChild(pizzaDiv);
     pizzaDiv.appendChild(descSpan);
-    col.addEventListener('click', preBuiltClick);
+    pizzaDiv.addEventListener('click', preBuiltClick);
     descSpan.innerHTML = preBuiltData[i].desc;
     preBuiltData[i].images.forEach(element => {
       if (element != preBuiltData[i].images[preBuiltData[i].images.length - 1]) {
@@ -431,7 +448,6 @@ function buildPreBuiltRow() {
         imgs += "url('" + element + "') no-repeat center";
       }
     });
-    console.log(imgs);
     pizzaDiv.style.background = imgs;
     pizzaDiv.style.backgroundSize = "contain";
   }
@@ -811,6 +827,7 @@ function buildToppingsMidColumn() {
   var vegList = buildVegList();
   listCont.appendChild(vegList);
   col.appendChild(listCont);
+
   return col;
 }
 
@@ -895,14 +912,6 @@ function buildMeatList() {
     meatList.appendChild(options);
   }
 
-  for (let i = 0; i < currentToppings.length; i++) {
-    var topping = currentToppings[i].toString();
-    var name = topping.split("-");
-    var label = document.getElementById(name[0]);
-    label.className = label.className + " selectedCrust";
-    var ex = document.getElementById(name[0] + "-x");
-    ex.style.display = "block";
-  }
   return meatList;
 }
 
@@ -1121,16 +1130,26 @@ function getToppingId(item, className, classesList, side) {
 
 function setSelectedPizza(id) {
   for (let i = 0; i < preBuiltData.length; i++) {
-    var tempName = i.name;
+    var tempName = preBuiltData[i].name;
     if (/\s/.test(tempName)) {
       tempName = tempName.replace(/\s/g, "");
     }
     if (id == tempName) {
-      currentCheese = i.cheese;
-      currentCrust = i.crust;
-      currentSauce = i.sauce;
-      toppingImgs = i.images;
-      currentToppings = i.toppings;
+      currentCheese = preBuiltData[i].cheese;
+      currentCrust = preBuiltData[i].crust;
+      currentSauce = preBuiltData[i].sauce;
+      for (img in preBuiltData[i].images) {
+        if (!img.toString().includes("crust") && !img.toString().includes("sauce") && !img.toString().includes("cheese")){
+          toppingImgs.push(preBuiltData[i].images[img]);
+        }
+      }
+      // var whatever = preBuiltData[i].images;
+      // whatever.pop();
+      // whatever.pop();
+      // whatever.pop();
+      // console.log(preBuiltData);
+      // toppingImgs = whatever;
+      currentToppings = preBuiltData[i].toppings;
       calculateCost();
     }
   }
@@ -1202,6 +1221,7 @@ function preBuiltClick(evt) {
   backBtn.addEventListener("click", function () {
     changePage("start");
   });
+  console.log("click id", this.id);
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     if (allElements[i].classList.contains("selected-box")) {
@@ -1589,6 +1609,7 @@ function setSelectedCrust(id) {
       currentCrust = crustButtons[i].innerHTML;
     }
   }
+  console.log(currentPizzaImgs);
   calculateCost();
   getCrustImg();
   updateListView();
@@ -1718,13 +1739,16 @@ function updatePizzaView() {
       imgList += "url('" + toppingImgs[j] + "'), ";
     }
   }
+  console.log("list w/ toppings", imgList);
+  console.log("update pizza", currentPizzaImgs);
   for (let i = 0; i < currentPizzaImgs.length; i++) {
-    if (currentPizzaImgs.length > 1 && i != currentPizzaImgs.length - 1) {
+    if (currentPizzaImgs.length > 0 && i != currentPizzaImgs.length - 1) {
       imgList += "url('" + currentPizzaImgs[i] + "'), ";
     } else {
       imgList += "url('" + currentPizzaImgs[i] + "') no-repeat center";
     }
   }
+  console.log("list w/ everything", imgList);
   pizzaView.style.background = imgList;
   pizzaView.style.backgroundSize = "contain";
 }
@@ -1745,11 +1769,13 @@ function getCrustImg() {
       crustImg = "assets/crust/crust-pretzel.png";
       break;
   }
+  console.log("outisde if", currentPizzaImgs);
   if (currentPizzaImgs.length == 0) {
     currentPizzaImgs.push(crustImg);
   } else {
     var crustIndex = currentPizzaImgs.length - 1;
     currentPizzaImgs.splice(crustIndex, 1, crustImg);
+    console.log(currentPizzaImgs);
   }
   updatePizzaView();
 }
