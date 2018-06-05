@@ -166,7 +166,7 @@ var spinachImgs = [
 ];
 
 loadData();
-changePage("size");
+changePage("start");
 
  
 function loadData() {
@@ -179,8 +179,6 @@ function loadComplete(evt) {
   preBuiltData = JSON.parse(request.responseText);
   console.log(preBuiltData);
 }
-
-changePage("start");
 
 function changePage(pageName) {
   var container = document.getElementById('pizza');
