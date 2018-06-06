@@ -1500,76 +1500,80 @@ function extraClick(evt) {
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
 
-  var isSelected = false;
+  if(left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")){
+    var isSelected = false;
 
-  //if double is selected
-  if (double.classList.contains("selectedCrust")) {
-    double.className = double.className.replace(" selectedCrust", "");
-    extra.className = extra.className + " selectedCrust";
-    isSelected = true;
-  } else {
-    //if extra is already selected, deselect it
-    if (extra.classList.contains("selectedCrust")) {
-      extra.className = extra.className.replace(" selectedCrust", "");
-    } else {
+    //if double is selected
+    if (double.classList.contains("selectedCrust")) {
+      double.className = double.className.replace(" selectedCrust", "");
       extra.className = extra.className + " selectedCrust";
       isSelected = true;
+    } else {
+      //if extra is already selected, deselect it
+      if (extra.classList.contains("selectedCrust")) {
+        extra.className = extra.className.replace(" selectedCrust", "");
+      } else {
+        extra.className = extra.className + " selectedCrust";
+        isSelected = true;
+      }
     }
-  }
 
-  var name = "";
-  if (isSelected == true) {
-    if (left.classList.contains("selectedCrust")) {
-      name = toppingName + "-left-extra";
+    var name = "";
+    if (isSelected == true) {
+      if (left.classList.contains("selectedCrust")) {
+        name = toppingName + "-left-extra";
+      }
+      if (right.classList.contains("selectedCrust")) {
+        name = toppingName + "-right-extra";
+      }
+      if (full.classList.contains("selectedCrust")) {
+        name = toppingName + "-full-extra";
+      }
+      setSelectedTopping(name);
     }
-    if (right.classList.contains("selectedCrust")) {
-      name = toppingName + "-right-extra";
-    }
-    if (full.classList.contains("selectedCrust")) {
-      name = toppingName + "-full-extra";
-    }
-    setSelectedTopping(name);
   }
 }
 
 function doubleClick(evt) {
   var toppingString = this.id.toString().split("-");
-
+  
   var toppingName = toppingString[0];
   var left = document.getElementById(toppingName + "-left");
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
-
+  
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
-
-  var isSelected = false;
-  //if extra is selected
-  if (extra.classList.contains("selectedCrust")) {
-    extra.className = extra.className.replace(" selectedCrust", "");
-    double.className = double.className + " selectedCrust";
-    isSelected = true;
-  } else {
-    //if double is already selected, deselect it
-    if (double.classList.contains("selectedCrust")) {
-      double.className = double.className.replace(" selectedCrust", "");
-    } else {
+  
+  if(left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")){  
+    var isSelected = false;
+    //if extra is selected
+    if (extra.classList.contains("selectedCrust")) {
+      extra.className = extra.className.replace(" selectedCrust", "");
       double.className = double.className + " selectedCrust";
       isSelected = true;
+    } else {
+      //if double is already selected, deselect it
+      if (double.classList.contains("selectedCrust")) {
+        double.className = double.className.replace(" selectedCrust", "");
+      } else {
+        double.className = double.className + " selectedCrust";
+        isSelected = true;
+      }
     }
-  }
-  var name = "";
-  if (isSelected == true) {
-    if (left.classList.contains("selectedCrust")) {
-      name = toppingName + "-left-double";
+    var name = "";
+    if (isSelected == true) {
+      if (left.classList.contains("selectedCrust")) {
+        name = toppingName + "-left-double";
+      }
+      if (right.classList.contains("selectedCrust")) {
+        name = toppingName + "-right-double";
+      }
+      if (full.classList.contains("selectedCrust")) {
+        name = toppingName + "-full-double";
+      }
+      setSelectedTopping(name);
     }
-    if (right.classList.contains("selectedCrust")) {
-      name = toppingName + "-right-double";
-    }
-    if (full.classList.contains("selectedCrust")) {
-      name = toppingName + "-full-double";
-    }
-    setSelectedTopping(name);
   }
 }
 
@@ -1957,6 +1961,7 @@ function calculateCost() {
   }
   console.log(isSpecialDeal);
   totalPrice = totalPrice.toFixed(2);
+  console.log(totalPrice);
 }
 
 function modalInit() {
