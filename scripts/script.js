@@ -1487,7 +1487,7 @@ function extraClick(evt) {
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
 
-  if(left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")){
+  if (left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")) {
     var isSelected = false;
 
     //if double is selected
@@ -1523,16 +1523,16 @@ function extraClick(evt) {
 
 function doubleClick(evt) {
   var toppingString = this.id.toString().split("-");
-  
+
   var toppingName = toppingString[0];
   var left = document.getElementById(toppingName + "-left");
   var right = document.getElementById(toppingName + "-right");
   var full = document.getElementById(toppingName + "-full");
-  
+
   var double = document.getElementById(toppingName + "-double");
   var extra = document.getElementById(toppingName + "-extra");
-  
-  if(left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")){  
+
+  if (left.classList.contains("selectedCrust") || right.classList.contains("selectedCrust") || full.classList.contains("selectedCrust")) {
     var isSelected = false;
     //if extra is selected
     if (extra.classList.contains("selectedCrust")) {
@@ -1602,7 +1602,7 @@ function setSelectedCrust(id) {
       currentCrust = crustButtons[i].innerHTML;
     }
   }
-  console.log(currentPizzaImgs);
+  //console.log(currentPizzaImgs);
   calculateCost();
   getCrustImg();
   updateListView();
