@@ -1,20 +1,20 @@
 @import "mixins";
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Bold.ttf', 'bold', 'normal');
-$bodyBold: 'Asap Condensed';
+$bodyBold: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-BoldItalic.ttf', 'bold', 'italic');
-$bodyBoldItalic: 'Asap Condensed';
+$bodyBoldItalic: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Italic.ttf', 'normal', 'italic');
-$bodyItalic: 'Asap Condensed';
+$bodyItalic: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Medium.ttf', 'normal', 'normal');
-$bodyMedium: 'Asap Condensed';
+$bodyMedium: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-MediumItalic.ttf', 'normal', 'italic');
-$bodyMediumItalic: 'Asap Condensed';
+$bodyMediumItalic: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Regular.ttf', 'normal', 'normal');
-$bodyReg: 'Asap Condensed';
+$bodyReg: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-SemiBold.ttf', 'bold', 'normal');
-$bodySemiBold: 'Asap Condensed';
+$bodySemiBold: 'Asap Condensed' !important;
 @include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-SemiBoldItalic.ttf', 'bold', 'italic');
-$bodySemiBoldItalic: 'Asap Condensed';
+$bodySemiBoldItalic: 'Asap Condensed' !important;
 
 @include font-face('Bebas Neue Bold', 'ttf', '../fonts/BebasNeue-Bold.ttf', 'bold', 'normal');
 $headingBold: 'Bebas Neue Bold' !important;
