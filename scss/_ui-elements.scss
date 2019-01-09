@@ -1,0 +1,200 @@
+@import "fonts";
+@import "colors";
+html {
+  @include font-rule($bodyReg);
+  color: $black;
+}
+
+body {
+  @include font-rule($bodyReg);
+  color: $black;
+  background-color: $white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+h1 {
+  @include font-rule($headingRegular, 3rem);
+  padding: 5px;
+}
+
+h2 {
+  @include font-rule($headingRegular, 2.5rem);
+  padding: 5px;
+  
+}
+
+h3 {
+  @include font-rule($headingRegular, 2rem);
+  padding: 5px;
+  
+}
+
+h4 {
+  @include font-rule($headingRegular, 1.8rem);
+  padding: 5px;
+  
+}
+
+h5 {
+  @include font-rule($headingRegular, 1.5rem);
+  padding: 5px;
+  
+}
+
+h6 {
+  @include font-rule($headingRegular, 1.3rem);
+  padding: 5px;
+  
+}
+
+div {
+  @include flexbox();
+  @include flex(1);
+}
+
+p {
+  @include flexbox();
+  @include flex-direction(column);
+  @include flex-wrap(column);
+  margin: 10px;
+  line-height: 1.2rem;
+}
+
+a {
+  @include flexbox();
+  @include flex(1);
+  text-decoration: none;
+  cursor: pointer;
+  &:link {
+    color: $black;
+  }
+  &:visited {
+    color: $black;
+  }
+  &:hover {
+    color: lightenColor($black, 40%);
+  }
+  &:active {
+    color: lightenColor($black, 40%);
+  }
+}
+
+.btn {
+  margin: 0 auto;
+  @include font-rule($headingThin, 1.4rem);
+  text-transform: uppercase;
+  border: none;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  margin: 2px 4px;
+  max-width: max-content;
+  flex: none;
+}
+
+.btn-basic {
+  @extend .btn;
+  background-color: $red;
+  color: $white;
+  @include ButtonShadowTransition();
+  &:hover {
+    @include ButtonShadow();
+  }
+}
+
+.btn-small {
+  @extend .btn;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  @include ButtonShadowTransition();
+  &:hover {
+    @include ButtonShadow();
+  }
+}
+
+#smallPizza {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+#mediumPizza {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+}
+
+#largePizza {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+}
+
+#xLPizza {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+}
+
+@media all and (max-width:320px) {
+  html,
+  body {
+    @include font-rule($bodyReg, 0.8em);
+  }
+  h1 {
+    @include font-rule($headingRegular, 2.5rem);
+    padding: 5px;
+
+  }
+  h2 {
+    @include font-rule($headingRegular, 2rem);
+    padding: 5px;
+
+  }
+  h3 {
+    @include font-rule($headingRegular, 1.8rem);
+    padding: 5px;
+
+  }
+  h4 {
+    @include font-rule($headingRegular, 1.5rem);
+    padding: 5px;
+
+  }
+  h5 {
+    @include font-rule($headingRegular, 1.3rem);
+    padding: 5px;
+    
+  }
+  h6 {
+    @include font-rule($headingRegular, 1rem);
+    padding: 5px;
+  }
+  #smallPizza {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+  #mediumPizza {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+  #largePizza {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+  #xLPizza {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+}

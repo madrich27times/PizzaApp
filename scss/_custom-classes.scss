@@ -1,0 +1,672 @@
+@import "ui-elements";
+.box {
+  border: 1px solid $black;
+}
+
+.selected-box {
+  border: 1px solid $red;
+}
+
+.badge {
+  font-size: 1rem;
+  display: none;
+  color: $white;
+  background-color: $red;
+  border: 1px solid $red;
+  border-radius: 5%;
+  padding: 5px;
+  max-width: max-content;
+}
+
+.btn-modal {
+  @extend .btn-basic;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-comp {
+  padding: 2px 16px;
+}
+
+.modal-content-comp {
+  @include flex-direction(column);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  margin: auto;
+  padding: 0;
+  border-radius: 6px;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @include keyframe(animatetop) {
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  @include animation(none, 0.4s, animatetop);
+}
+
+.modal-light {
+  .modal-content {
+    @extend .modal-content-comp;
+    background-color: $white;
+    color: $black;
+    .modal-header {
+      @extend .modal-comp;
+      @include justify-content(right);
+      @include align-items(flex-end);
+      background-color: $white;
+      color: $black;
+      float: right;
+      .close {
+        color: lightenColor($black, 70%);
+        vertical-align: right;
+        float: right !important;
+        font-size: 28px;
+        font-weight: bold;
+        &:hover {
+          color: lightenColor($black, 80%);
+          text-decoration: none;
+          cursor: pointer;
+        }
+        &:focus {
+          color: lightenColor($black, 80%);
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+    .modal-body {
+      @extend .modal-comp;
+      @include font-rule($headingBold, 2rem);
+      @include justify-content(center);
+      @include align-items(center);
+      background-color: $white;
+      color: $black;
+      text-align: center;
+      height: 200px;
+      padding: 20px;
+    }
+    .modal-footer {
+      @extend .modal-comp;
+      background-color: $white;
+      color: $black;
+    }
+  }
+}
+
+.card {
+  @include transition(0.3s);
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 40%;
+  border-radius: 5px;
+  min-height: max-content;
+  cursor: pointer;
+  .card-container {
+    text-align: center;
+    .card-header {
+      margin: 0 auto;
+      padding: 0.5em;
+    }
+    @include flexbox;
+    @include flex-direction(column);
+    padding: 2px 16px;
+    padding: 1em;
+    .card-body {
+      margin: 0 auto;
+      height: 300px;
+      width: 300px;
+    }
+  }
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.title {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  span {
+    visibility: hidden;
+    background-color: $red;
+    width: 160px;
+    padding: 10px 0;
+    color: $white;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -80px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: $red transparent transparent transparent;
+    }
+  } // .show {
+  //   visibility: visible;
+  //   @include animation(0, 1s, fadeIn);
+  //   @include keyframe(fadeIn) {
+  //     from {
+  //       opacity: 0;
+  //     }
+  //     to {
+  //       opacity: 1;
+  //     }
+  //   }
+  // }
+}
+
+#MeatLovers:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#FourCheese:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#VeggieLovers:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#Pepperoni:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#Supreme:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#Italian:hover {
+  span {
+    visibility: visible;
+    @include animation(0, 1s, fadeIn);
+    @include keyframe(fadeIn) {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.size-container {
+  @include justify-content(center);
+  @include align-items(center);
+  margin: 0 auto;
+}
+
+.size-box {
+  max-height: max-content;
+  border-radius: 50%;
+  border: 1px solid $black;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px;
+  cursor: pointer;
+  &:hover {
+    @include transition(0.6s);
+    background-color: $red;
+    color: $white;
+  }
+}
+
+.pizza-box {
+  text-align: center;
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+}
+
+.selected {
+  background-color: $red;
+  color: $white;
+}
+
+.list-container {
+  padding: 20px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+#smSize,
+#medSize,
+#lgSize,
+#xlSize {
+  height: 40px;
+}
+
+.dropdown-list {
+  margin: 20px;
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  background: $white;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $red;
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: $red transparent;
+  }
+  .dropdown-list-contents {
+    visibility: hidden; //z-index: 1;
+    position: absolute;
+    top: 140%;
+    left: 0;
+    right: 0;
+    background: $white;
+    color: $red;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-weight: normal;
+    pointer-events: none;
+    @include transition(0.5s ease-in);
+    ul {
+      li {
+        cursor: pointer;
+        display: block;
+        padding: 12px;
+        color: $red;
+        border-bottom: 1px solid lightenColor($red, 20%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+        @include transition(0.3s ease-out);
+        a {
+          cursor: pointer;
+          display: block;
+          padding: 12px;
+          color: $red;
+          border-bottom: 1px solid lightenColor($red, 20%);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+          @include transition(0.3s ease-out);
+        } // ul {
+        //   visibility: hidden;
+        //   li {
+        //     display: block;
+        //     padding: 12px;
+        //     color: $black; //border-bottom: 1px solid lightenColor($red, 20%);
+        //     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+        //     @include transition(0.3s ease-out);
+        //   }
+        // }
+      }
+    }
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 100%;
+      right: 15px;
+      border-width: 0 6px 6px 6px;
+      border-style: solid;
+      border-color: $white transparent;
+    }
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 100%;
+      right: 13px;
+      border-width: 0 8px 8px 8px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.1) transparent;
+    }
+  }
+  .active {
+    visibility: visible;
+  }
+}
+
+.items-list-box {
+  border: 1px solid $black;
+  @include flexbox();
+  @include flex-direction(column);
+  .items-list-heading {
+    margin: 0 auto;
+    border-bottom: 1px solid $black;
+    h3 {
+      margin: 0 auto;
+      height: auto;
+    }
+  }
+  .items-list-content {
+    // ul {
+    //   li {
+    //     border: 1px solid $black;
+    //   }
+    // }
+  }
+  .items-list-bottom {
+    border-top: 1px solid $black;
+    max-height: 130px;
+  }
+}
+
+.total-area {
+  flex-direction: column;
+}
+
+.size-control {
+  max-height: 56px;
+}
+
+.pizza-desc {
+  margin-left: 20px;
+}
+
+.ingredient-div {
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  max-width: 250px;
+  min-width: 250px;
+  margin: 0 auto;
+}
+
+.list-div {
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  flex-direction: column;
+}
+
+.pizza-component {
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  height: fit-content;
+  width: 95%;
+  text-align: left;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#addBtn {
+  margin: 0 auto;
+}
+
+.size-display {
+  margin: 0 auto;
+  max-width: 300px;
+  flex-direction: row !important;
+}
+
+.size-bar {
+  border: 1px solid $black;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  max-height: max-content;
+  cursor: pointer;
+}
+
+#pizzaViewContainer {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#pizzaView {
+  margin: 0 auto;
+}
+
+.crustOpt {
+  min-width: 200px;
+  height: 20px;
+  background-color: $white;
+  border: 1px solid $red;
+  color: $red;
+  @include font-rule($headingRegular, 1.6em);
+}
+
+.selectedCrust {
+  background-color: $red;
+  border: 1px solid $red;
+  color: $white;
+}
+
+.topping-side,
+.topping-plus {
+  flex-direction: row;
+  max-width: 230px;
+  min-width: 230px;
+  font-size: 0.6em;
+  margin: 0 auto;
+}
+
+.topping-button {
+  max-width: 185px;
+  min-width: 185px;
+}
+
+.topping-options {
+  flex-direction: column;
+  margin: 0 auto;
+  display: none;
+}
+
+.meats-container,
+.veg-container {
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  max-width: 250px;
+  min-width: 250px;
+  max-height: 150px !important;
+  min-height: 150px !important;
+  margin: 5px auto;
+}
+
+.exes {
+  display: none;
+  cursor: pointer;
+}
+
+.toppingLabel {
+  //flex-direction: row;
+}
+
+.finalPage {
+  text-align: center;
+  font-weight: bold;
+}
+
+.final-page-pv-cont {
+  @include justify-content(center);
+  @include align-items(center);
+}
+
+#customBox {
+  background: url('/assets/toppings/mushrooms/mushrooms-full.png'), url('/assets/cheese/cheese-mozzarella.png'), url('/assets/sauce/sauce-marinara.png'), url('/assets/crust/crust-thick.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+#preBuiltBox {
+  background: url('/assets/toppings/onions/onions-full.png'), url('/assets/toppings/bellpeppers/bellpeppers-full.png'), url('/assets/toppings/mushrooms/mushrooms-full.png'), url('/assets/toppings/pepperoni/pepperoni-full.png'), url('/assets/toppings/sausage/sausage-full.png'), url('/assets/toppings/beef/beef-full.png'), url('/assets/cheese/cheese-mozzarella.png'), url('/assets/sauce/sauce-marinara.png'), url('/assets/crust/crust-thick.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@media screen and (max-width: 970px) {
+  .pizza-box {
+    margin: 0 auto;
+  }
+  .size-bar {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .button-row {
+    flex-direction: row !important;
+  }
+  .size-display {
+    flex-direction: column !important;
+    width: 200px;
+  }
+}
+
+@media all and (max-width:860px) {
+  .card {
+    width: 95%;
+    .card-body {
+      @include flex-direction(row);
+      text-align: center;
+    }
+  }
+  .size-box {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+@media all and (max-width:500px) {
+  .pizza-box {
+    width: 180px;
+    height: 180px;
+  }
+  .size-display {
+    max-width: 180px;
+  }
+  .size-bar {
+    margin: 0 auto;
+    max-width: 180px;
+  }
+}
+
+@media all and (max-width:390px) {
+  .card {
+    .card-container {
+      .card-body {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  }
+}
+
+.preBuiltBox {
+  flex-wrap: wrap;
+}

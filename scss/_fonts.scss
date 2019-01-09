@@ -1,0 +1,69 @@
+@import "mixins";
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Bold.ttf', 'bold', 'normal');
+$bodyBold: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-BoldItalic.ttf', 'bold', 'italic');
+$bodyBoldItalic: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Italic.ttf', 'normal', 'italic');
+$bodyItalic: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Medium.ttf', 'normal', 'normal');
+$bodyMedium: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-MediumItalic.ttf', 'normal', 'italic');
+$bodyMediumItalic: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-Regular.ttf', 'normal', 'normal');
+$bodyReg: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-SemiBold.ttf', 'bold', 'normal');
+$bodySemiBold: 'Asap Condensed';
+@include font-face('Asap Condensed', 'ttf', '../fonts/AsapCondensed-SemiBoldItalic.ttf', 'bold', 'italic');
+$bodySemiBoldItalic: 'Asap Condensed';
+
+@include font-face('Bebas Neue Bold', 'ttf', '../fonts/BebasNeue-Bold.ttf', 'bold', 'normal');
+$headingBold: 'Bebas Neue Bold' !important;
+@include font-face('Bebas Neue Book', 'ttf', '../fonts/BebasNeue-Book.ttf', 'normal', 'normal');
+$headingBook: 'Bebas Neue Book';
+@include font-face('Bebas Neue Light', 'ttf', '../fonts/BebasNeue-Light.ttf', 'light', 'normal');
+$headingLight: 'Bebas Neue Light';
+@include font-face('Bebas Neue Regular', 'ttf', '../fonts/BebasNeue-Regular.ttf', 'normal', 'normal');
+$headingRegular: 'Bebas Neue Regular';
+@include font-face('Bebas Neue Thin', 'ttf', '../fonts/BebasNeue-Thin.ttf', 'light', 'normal');
+$headingThin: 'Bebas Neue Thin';
+
+.bold-body {
+  @include font-rule($bodyBold, 1rem);
+}
+
+.med-body {
+  @include font-rule($bodyMedium, 1rem);
+}
+
+.italic-body {
+  @include font-rule($bodyItalic, 1rem);
+}
+
+.bold-heading {
+  //@include font-rule($headingBold, 2rem); 
+  font: {
+    family: $headingRegular;
+    weight: bold;
+  }
+}
+
+.light-heading {
+  //@include font-rule($headingLight, 2rem);
+  font: {
+    family: $headingLight;
+  }
+}
+
+.reg-heading {
+  //@include font-rule($headingRegular, 2rem);
+  font: {
+    family: $headingRegular;
+  }
+}
+
+.thin-heading {
+  //@include font-rule($headingThin, 2rem);
+  font: {
+    family: $headingThin;
+  }
+}
